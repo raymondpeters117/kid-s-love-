@@ -9,13 +9,6 @@
         :root { --brand-red: #E52421; --brand-yellow: #FFEB3B; --brand-blue: #0077b6; --dark-text: #1A1A1A; --light-bg: #F8F9FA; --white: #FFFFFF; }
         body { color: var(--dark-text); background-color: var(--light-bg); line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
-
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0.6rem 2rem; }
-        .brand-logo { display: flex; align-items: center; gap: 12px; }
-        .brand-logo img { height: 50px; width: auto; }
-        .nav-links { display: flex; list-style: none; gap: 1.2rem; }
-
         .header-banner { background: #2b2b2b; color: var(--white); padding: 3rem 2rem; text-align: center; }
         .container { max-width: 1100px; margin: 3rem auto; padding: 0 2rem; }
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
@@ -25,8 +18,7 @@
         .bank-info { background: #e8f4f8; padding: 2rem; border-radius: 10px; border: 2px dashed var(--brand-blue); margin-top: 3rem; text-align: center; }
 
         footer { background: var(--dark-text); color: var(--white); text-align: center; padding: 2rem 1rem; margin-top: 4rem; }
-    </style>
-</head>
+    
 <body>
 
     <header>
@@ -110,4 +102,28 @@
     </footer>
 
 </body>
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        const toggleBtn = document.getElementById("mobileToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        if (toggleBtn && navMenu) {
+            toggleBtn.addEventListener("click", function () {
+                navMenu.classList.toggle("show");
+            });
+        }
+
+        // Highlight active page automatically based on URL filename
+        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active");
+            }
+        });
+    });
+</script>
+
 </html>
