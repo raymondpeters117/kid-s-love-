@@ -3,35 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Kid's Love Nursery & Daycare</title>
+    <title>Kid's Love Nursery and Daycare Center - Nakasozi, Buddo</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        :root { --brand-red: #E52421; --brand-yellow: #FFEB3B; --brand-blue: #0077b6; --dark-text: #1A1A1A; --light-bg: #F8F9FA; --white: #FFFFFF; }
+        :root {
+            --brand-red: #E52421;
+            --brand-yellow: #FFEB3B;
+            --brand-blue: #0077b6;
+            --dark-text: #1A1A1A;
+            --light-bg: #F8F9FA;
+            --white: #FFFFFF;
+        }
         body { color: var(--dark-text); background-color: var(--light-bg); line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
 
+        /* Header Navigation */
         header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0.8rem 2rem; }
-        .nav-links { display: flex; list-style: none; gap: 1.2rem; }
-        .nav-links a { font-weight: 600; }
-
-        .header-banner { background: var(--brand-blue); color: var(--white); padding: 3rem 2rem; text-align: center; }
-        .container { max-width: 1000px; margin: 3rem auto; padding: 0 2rem; }
-        .block { background: var(--white); padding: 2.5rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .block h2 { color: var(--brand-red); margin-bottom: 1rem; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0.6rem 2rem; }
         
-        /* Org Structure Tree */
-        .org-tree { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1.5rem; }
-        .org-node { background: var(--light-bg); padding: 1rem 2rem; border-radius: 8px; border: 2px solid var(--brand-blue); text-align: center; font-weight: bold; width: 80%; max-width: 400px; }
+        .brand-logo { display: flex; align-items: center; gap: 12px; }
+        .brand-logo img { height: 65px; width: auto; }
+        .logo-title { font-size: 1.1rem; font-weight: 800; color: var(--brand-red); line-height: 1.1; }
+        .logo-subtitle { font-size: 0.75rem; color: var(--dark-text); font-weight: 600; }
+        
+        .nav-links { display: flex; list-style: none; gap: 1.2rem; align-items: center; }
+        .nav-links a { font-weight: 600; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--brand-red); }
+        .btn-donate { background-color: var(--brand-red); color: var(--white); padding: 0.5rem 1.2rem; border-radius: 20px; font-weight: bold; }
 
-        footer { background: var(--dark-text); color: var(--white); text-align: center; padding: 2rem 1rem; margin-top: 4rem; }
+        /* Hero */
+        .hero { background: linear-gradient(135deg, rgba(229, 36, 33, 0.9), rgba(0, 119, 182, 0.85)); padding: 4rem 2rem; text-align: center; color: var(--white); }
+        .hero-badge { max-width: 140px; margin-bottom: 1rem; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .motto-badge { background: var(--brand-yellow); color: var(--dark-text); padding: 0.4rem 1.2rem; border-radius: 15px; font-weight: 800; font-size: 0.9rem; display: inline-block; margin-bottom: 1rem; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 1.5rem; }
+
+        /* Sections */
+        .container { max-width: 1100px; margin: 3rem auto; padding: 0 2rem; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 2rem; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--brand-red); margin: 8px auto 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-top: 5px solid var(--brand-red); }
+
+        footer { background: var(--dark-text); color: var(--white); text-align: center; padding: 2.5rem 1rem; margin-top: 4rem; border-top: 5px solid var(--brand-yellow); }
     </style>
 </head>
 <body>
 
     <header>
         <nav class="navbar">
-            <div><strong style="color:var(--brand-red);">KID'S LOVE NURSERY</strong></div>
+            <div class="brand-logo">
+                <img src="IMG-20260707-WA0017.jpg" alt="Kid's Love Nursery Badge Logo">
+                <div>
+                    <span class="logo-title">KID'S LOVE NURSERY</span><br>
+                    <span class="logo-subtitle">& DAYCARE CENTER – NAKASOZI</span>
+                </div>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -39,44 +66,40 @@
                 <li><a href="projects.html">Development Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <a href="projects.html" class="btn-donate">Support Us</a>
         </nav>
     </header>
 
-    <div class="header-banner">
-        <h1>About Our Center</h1>
-        <p>Founded by Mr. and Mrs. Kirinya Herbert Antony | Established 2018</p>
-    </div>
+    <section class="hero">
+        <img src="IMG-20260707-WA0017.jpg" alt="Official Badge" class="hero-badge"><br>
+        <div class="motto-badge">MOTTO: CARRY YOUR CANDLE AND LIGHT THE WORLD</div>
+        <h1>Welcome to Kid's Love Nursery & Day Care Centre</h1>
+        <p>Developing a God-fearing pupil equipped with quality education for the development of the nation.</p>
+        <a href="admissions.html" style="background: var(--white); color: var(--brand-red); padding: 0.8rem 2rem; border-radius: 25px; font-weight: bold; display: inline-block;">Enroll Your Child</a>
+    </section>
 
     <div class="container">
-        <div class="block">
-            <h2>School History & Foundation</h2>
-            <p>Kid’s Love Nursery and Day Care Center was established in 2018 by two passionate directors with a background in education and extensive experience in Uganda’s education system. Located in Nakasozi – Buddo, the center was born out of a desire to bridge quality gaps in early childhood learning, reduce long travel distances for young kids, and provide affordable, loving care to the community.</p>
-        </div>
-
-        <div class="block">
-            <h2>Vision, Mission & Philosophy</h2>
-            <p><strong>School Vision:</strong> Developing a God-fearing pupil equipped with Quality education for the development of the nation.</p><br>
-            <p><strong>School Mission:</strong> To provide a holistic kind of education.</p><br>
-            <p><strong>School Philosophy:</strong> We believe that happy, loved, and connected kids are destined for success in every facet of their lives.</p>
-        </div>
-
-        <div class="block">
-            <h2>Management Structure</h2>
-            <p>The school is overseen by an independent Board of 5 Governors and Managed by Directors who serve as school agents.</p>
-            <div class="org-tree">
-                <div class="org-node" style="background: var(--brand-yellow);">Board of Directors</div>
-                <div>↓</div>
-                <div class="org-node">Head Teacher</div>
-                <div>↓</div>
-                <div class="org-node">Teachers / Staff</div>
-                <div>↓</div>
-                <div class="org-node">Students</div>
+        <h2 class="section-title">Why Choose Kid's Love?</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Holistic Education</h3>
+                <p>We focus on balanced early childhood development—socialization, character building, pre-literacy skills, and emotional growth.</p>
+            </div>
+            <div class="card" style="border-top-color: var(--brand-blue);">
+                <h3>Safe & Clean Environment</h3>
+                <p>Equipped with strict hygiene routines, metal detector security checks, daily classroom checklists, and ID verification for pickup.</p>
+            </div>
+            <div class="card" style="border-top-color: var(--brand-yellow);">
+                <h3>Community-Focused</h3>
+                <p>Founded by passionate educators Mr. and Mrs. Kirinya Herbert Antony to bring quality, affordable education closer to families in Nakasozi.</p>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Kid's Love Nursery & Daycare Centre. Nakasozi – Buddo.</p>
+        <p><strong>KID'S LOVE NURSERY AND DAYCARE CENTER</strong></p>
+        <p>Nakasozi – Buddo | Contact: 0777860361 / 0704143734 / 0775473861 / 0704943691</p>
+        <p>&copy; 2026 Kid's Love Nursery & Daycare Centre. All Rights Reserved.</p>
     </footer>
 
 </body>
