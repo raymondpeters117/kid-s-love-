@@ -11,11 +11,14 @@
         a { text-decoration: none; color: inherit; }
 
         header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0.8rem 2rem; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0.6rem 2rem; }
+        .brand-logo { display: flex; align-items: center; gap: 12px; }
+        .brand-logo img { height: 50px; width: auto; }
         .nav-links { display: flex; list-style: none; gap: 1.2rem; }
 
         .container { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
-        .card { background: var(--white); padding: 2.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .card { background: var(--white); padding: 2.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
+        .contact-badge { max-width: 180px; margin-bottom: 1.5rem; }
 
         footer { background: var(--dark-text); color: var(--white); text-align: center; padding: 2rem 1rem; margin-top: 4rem; }
     </style>
@@ -24,7 +27,10 @@
 
     <header>
         <nav class="navbar">
-            <div><strong style="color:var(--brand-red);">KID'S LOVE NURSERY</strong></div>
+            <div class="brand-logo">
+                <img src="IMG-20260707-WA0017.jpg" alt="Logo">
+                <strong style="color:var(--brand-red);">KID'S LOVE NURSERY</strong>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -37,6 +43,7 @@
 
     <div class="container">
         <div class="card">
+            <img src="IMG-20260707-WA0017.jpg" alt="Badge" class="contact-badge">
             <h2 style="color:var(--brand-red);">Contact Information</h2>
             <br>
             <p><strong>School Name:</strong> Kid’s Love Nursery and Day Care Centre</p>
@@ -44,12 +51,9 @@
             <p><strong>Directors:</strong> Mr. Kirinya Herbert Antony & Mrs. Namponye Roscila Kirinya</p>
             <br>
             <p><strong>Phone Numbers:</strong></p>
-            <ul>
-                <li>0777860361</li>
-                <li>0704143734</li>
-                <li>0775473861</li>
-                <li>0704943691</li>
-            </ul>
+            <p style="font-size: 1.1rem; font-weight: bold; color: var(--brand-blue);">
+                0777860361 | 0704143734 | 0775473861 | 0704943691
+            </p>
         </div>
     </div>
 
