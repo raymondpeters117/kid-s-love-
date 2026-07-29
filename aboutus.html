@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Kid's Love Nursery & Pre-Primary</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root { --primary-color: #ff6b6b; --secondary-color: #4ecdc4; --accent-color: #ffe66d; --dark-text: #2f3542; --light-bg: #f7f9fc; --white: #ffffff; }
+        body { color: var(--dark-text); background-color: var(--light-bg); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        
+        header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        .logo span { color: var(--secondary-color); }
+        .nav-links { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-links a { font-weight: 600; }
+        .cta-btn { background-color: var(--primary-color); color: var(--white); padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: bold; }
+
+        .page-header { background: linear-gradient(135deg, #4ecdc4, #55efc4); padding: 3rem 2rem; text-align: center; color: var(--white); }
+        .container { max-width: 1000px; margin: 3rem auto; padding: 0 2rem; }
+        .content-block { background: var(--white); padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 2rem; }
+        .content-block h2 { color: var(--primary-color); margin-bottom: 1rem; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .team-member { text-align: center; background: var(--light-bg); padding: 1.5rem; border-radius: 10px; }
+        .avatar { width: 80px; height: 80px; background-color: var(--accent-color); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--dark-text); }
+
+        footer { background-color: var(--dark-text); color: var(--white); text-align: center; padding: 2rem 1rem; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Kid's <span>Love</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+            <a href="admissions.html" class="cta-btn">Apply Now</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>About Our School</h1>
+        <p>Nurturing young minds with care, joy, and dedication.</p>
+    </section>
+
+    <div class="container">
+        <div class="content-block">
+            <h2>Our Educational Philosophy</h2>
+            <p>At Kid’s Love Nursery & Pre-Primary, we believe every child is naturally curious and loaded with potential. Our mission is to provide a safe, playful, and stimulating environment where early learning happens through hands-on discovery and structured guidance.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>Our Core Values</h2>
+            <ul>
+                <li><strong>Safety First:</strong> Secure facilities and background-checked staff to give parents complete peace of mind.</li>
+                <li><strong>Individual Attention:</strong> Small class sizes to ensure every child gets the care and focus they need.</li>
+                <li><strong>Holistic Development:</strong> Balancing academic preparation with emotional maturity and creative play.</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <h2>Meet Our Leadership</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="avatar">👩‍🏫</div>
+                    <h3>Sarah Johnson</h3>
+                    <p>School Director</p>
+                </div>
+                <div class="team-member">
+                    <div class="avatar">👨‍🏫</div>
+                    <h3>David Lee</h3>
+                    <p>Head of Curriculum</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Kid's Love Nursery & Pre-Primary School. All rights reserved.</p>
+    </footer>
+</body>
+</html>
