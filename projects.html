@@ -4,126 +4,285 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Development Projects - Kid's Love Nursery</title>
+
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        :root { --brand-red: #E52421; --brand-yellow: #FFEB3B; --brand-blue: #0077b6; --dark-text: #1A1A1A; --light-bg: #F8F9FA; --white: #FFFFFF; }
-        body { color: var(--dark-text); background-color: var(--light-bg); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-        .header-banner { background: #2b2b2b; color: var(--white); padding: 3rem 2rem; text-align: center; }
-        .container { max-width: 1100px; margin: 3rem auto; padding: 0 2rem; }
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .project-card { background: var(--white); padding: 2rem; border-radius: 10px; border-left: 6px solid var(--brand-red); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .cost-tag { background: var(--brand-yellow); padding: 0.3rem 0.8rem; font-weight: bold; border-radius: 5px; float: right; }
-
-        .bank-info { background: #e8f4f8; padding: 2rem; border-radius: 10px; border: 2px dashed var(--brand-blue); margin-top: 3rem; text-align: center; }
-
-        footer { background: var(--dark-text); color: var(--white); text-align: center; padding: 2rem 1rem; margin-top: 4rem; }
-    
-<body>
-
-    <header>
-        <nav class="navbar">
-            <div class="brand-logo">
-                <img src="IMG-20260707-WA0017.jpg" alt="Logo">
-                <strong style="color:var(--brand-red);">KID'S LOVE NURSERY</strong>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="projects.html">Development Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="header-banner">
-        <h1>School Infrastructure Development Projects</h1>
-        <p>Partner with us to build a better, safer learning environment for young pupils in Nakasozi Buddo.</p>
-    </div>
-
-    <div class="container">
-        <h2>Urgent Project Needs</h2>
-        <br>
-        <div class="project-grid">
-            <div class="project-card">
-                <span class="cost-tag">35,000,000 UGX</span>
-                <h3>1. Sanitation & Latrines</h3>
-                <p>Construction of a 4-door ventilated improved pit latrine with disabled access and wall separations for boys, girls, and teachers.</p>
-            </div>
-
-            <div class="project-card">
-                <span class="cost-tag">10,000,000 UGX</span>
-                <h3>2. School Kitchen</h3>
-                <p>Construction of a commercial-grade kitchen to safely prepare meals and snacks for children away from classrooms.</p>
-            </div>
-
-            <div class="project-card">
-                <span class="cost-tag">9,000,000 UGX</span>
-                <h3>3. Water Harvesting Tank</h3>
-                <p>Installation of a large water harvesting tank system to secure clean water supply and reduce daily purchasing costs.</p>
-            </div>
-
-            <div class="project-card">
-                <span class="cost-tag">35,000,000 UGX</span>
-                <h3>4. Perimeter Wall / Fence</h3>
-                <p>Construction of a secure perimeter wall to protect children and school property from safety risks and trespassers.</p>
-            </div>
-
-            <div class="project-card">
-                <span class="cost-tag">40,000,000 UGX</span>
-                <h3>5. Resting & Dining Hall</h3>
-                <p>Building a dedicated indoor space for post-lunch rest, dining, educational board games, and cognitive development activities.</p>
-            </div>
-
-            <div class="project-card">
-                <span class="cost-tag">50,000,000 UGX</span>
-                <h3>6. School Transport Van</h3>
-                <p>Acquisition of a reliable passenger van/taxi to replace the aging vehicle and safely pick up kids walking long distances.</p>
-            </div>
-
-            <div class="project-card">
-                <span class="cost-tag">11,000,000 UGX</span>
-                <h3>7. Public Address & ICT System</h3>
-                <p>Purchase of 2 TVs, 2 computers, a projector, cameras, and audio speakers for parents' meetings, educational media, and learning rhymes.</p>
-            </div>
-        </div>
-
-        <div class="bank-info">
-            <h2>How to Partner or Donate</h2>
-            <p>We welcome individuals, NGOs, corporate sponsors, and international partners. Full financial transparency, progress reports, photos, and video updates are provided to all sponsors.</p>
-            <br>
-            <p><strong>Direct Account Transfer details are available upon request through school directors.</strong></p>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Kid's Love Nursery & Daycare Centre. Nakasozi – Buddo.</p>
-    </footer>
-
-</body>
-        <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Mobile menu toggle
-        const toggleBtn = document.getElementById("mobileToggle");
-        const navMenu = document.getElementById("navMenu");
-
-        if (toggleBtn && navMenu) {
-            toggleBtn.addEventListener("click", function () {
-                navMenu.classList.toggle("show");
-            });
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
         }
 
-        // Highlight active page automatically based on URL filename
-        const currentPage = window.location.pathname.split("/").pop() || "index.html";
-        const navLinks = document.querySelectorAll(".nav-link");
+        :root{
+            --brand-red:#E52421;
+            --brand-yellow:#FFEB3B;
+            --brand-blue:#0077b6;
+            --dark-text:#1A1A1A;
+            --light-bg:#F8F9FA;
+            --white:#FFFFFF;
+        }
 
-        navLinks.forEach(link => {
-            if (link.getAttribute("href") === currentPage) {
-                link.classList.add("active");
+        body{
+            color:var(--dark-text);
+            background:var(--light-bg);
+            line-height:1.6;
+        }
+
+        a{
+            text-decoration:none;
+            color:inherit;
+        }
+
+        /* Navigation */
+        .navbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 40px;
+            background:#fff;
+            box-shadow:0 2px 10px rgba(0,0,0,.1);
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        .brand-logo{
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+
+        .brand-logo img{
+            width:55px;
+            height:55px;
+            border-radius:50%;
+        }
+
+        .nav-links{
+            display:flex;
+            list-style:none;
+            gap:25px;
+        }
+
+        .nav-links a{
+            font-weight:600;
+            transition:.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-link.active{
+            color:var(--brand-red);
+        }
+
+        .menu-btn{
+            display:none;
+            font-size:28px;
+            background:none;
+            border:none;
+            cursor:pointer;
+        }
+
+        .header-banner{
+            background:#2b2b2b;
+            color:#fff;
+            text-align:center;
+            padding:60px 20px;
+        }
+
+        .container{
+            max-width:1100px;
+            margin:50px auto;
+            padding:0 20px;
+        }
+
+        .project-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:25px;
+        }
+
+        .project-card{
+            background:#fff;
+            padding:25px;
+            border-radius:10px;
+            border-left:6px solid var(--brand-red);
+            box-shadow:0 4px 12px rgba(0,0,0,.08);
+        }
+
+        .project-card h3{
+            margin:10px 0;
+        }
+
+        .cost-tag{
+            float:right;
+            background:var(--brand-yellow);
+            padding:5px 12px;
+            border-radius:5px;
+            font-weight:bold;
+        }
+
+        .bank-info{
+            background:#e8f4f8;
+            padding:30px;
+            border:2px dashed var(--brand-blue);
+            border-radius:10px;
+            margin-top:50px;
+            text-align:center;
+        }
+
+        footer{
+            background:#1A1A1A;
+            color:#fff;
+            text-align:center;
+            padding:30px;
+            margin-top:50px;
+        }
+
+        @media(max-width:768px){
+
+            .menu-btn{
+                display:block;
             }
-        });
+
+            .nav-links{
+                display:none;
+                flex-direction:column;
+                position:absolute;
+                top:75px;
+                right:0;
+                width:220px;
+                background:#fff;
+                padding:20px;
+                box-shadow:0 5px 10px rgba(0,0,0,.15);
+            }
+
+            .nav-links.show{
+                display:flex;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <div class="brand-logo">
+            <img src="IMG-20260707-WA0017.jpg" alt="School Logo">
+            <strong style="color:var(--brand-red);">KID'S LOVE NURSERY</strong>
+        </div>
+
+        <button class="menu-btn" id="mobileToggle">&#9776;</button>
+
+        <ul class="nav-links" id="navMenu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="admissions.html" class="nav-link">Admissions</a></li>
+            <li><a href="projects.html" class="nav-link">Development Projects</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+<div class="header-banner">
+    <h1>School Infrastructure Development Projects</h1>
+    <p>Partner with us to build a better, safer learning environment for young pupils in Nakasozi Buddo.</p>
+</div>
+
+<div class="container">
+
+    <h2>Urgent Project Needs</h2>
+    <br>
+
+    <div class="project-grid">
+
+        <div class="project-card">
+            <span class="cost-tag">35,000,000 UGX</span>
+            <h3>1. Sanitation & Latrines</h3>
+            <p>Construction of a 4-door ventilated improved pit latrine with disabled access and separate facilities for boys, girls and teachers.</p>
+        </div>
+
+        <div class="project-card">
+            <span class="cost-tag">10,000,000 UGX</span>
+            <h3>2. School Kitchen</h3>
+            <p>Construction of a modern kitchen for preparing healthy meals safely.</p>
+        </div>
+
+        <div class="project-card">
+            <span class="cost-tag">9,000,000 UGX</span>
+            <h3>3. Water Harvesting Tank</h3>
+            <p>Installation of a large rainwater harvesting system.</p>
+        </div>
+
+        <div class="project-card">
+            <span class="cost-tag">35,000,000 UGX</span>
+            <h3>4. Perimeter Wall</h3>
+            <p>Building a secure perimeter wall to improve the safety of pupils.</p>
+        </div>
+
+        <div class="project-card">
+            <span class="cost-tag">40,000,000 UGX</span>
+            <h3>5. Resting & Dining Hall</h3>
+            <p>A dedicated indoor area for meals, resting and learning activities.</p>
+        </div>
+
+        <div class="project-card">
+            <span class="cost-tag">50,000,000 UGX</span>
+            <h3>6. School Transport Van</h3>
+            <p>Purchase of a reliable school van for transporting pupils safely.</p>
+        </div>
+
+        <div class="project-card">
+            <span class="cost-tag">11,000,000 UGX</span>
+            <h3>7. ICT & Public Address System</h3>
+            <p>Purchase of computers, TVs, projector, cameras and sound equipment.</p>
+        </div>
+
+    </div>
+
+    <div class="bank-info">
+        <h2>How to Partner or Donate</h2>
+
+        <p>
+            We welcome individuals, NGOs, companies and international partners.
+            Sponsors receive financial accountability reports, progress photos and
+            project updates.
+        </p>
+
+        <br>
+
+        <p><strong>Bank account details are available upon request from the school directors.</strong></p>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Kid's Love Nursery & Daycare Centre. Nakasozi – Buddo.</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const toggleBtn = document.getElementById("mobileToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    toggleBtn.addEventListener("click", function () {
+        navMenu.classList.toggle("show");
     });
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+    document.querySelectorAll(".nav-link").forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+            link.classList.add("active");
+        }
+    });
+
+});
 </script>
 
+</body>
 </html>
