@@ -11,13 +11,14 @@
         a { text-decoration: none; color: inherit; }
 
         header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0.8rem 2rem; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0.6rem 2rem; }
+        .brand-logo { display: flex; align-items: center; gap: 12px; }
+        .brand-logo img { height: 50px; width: auto; }
         .nav-links { display: flex; list-style: none; gap: 1.2rem; }
 
         .header-banner { background: var(--brand-red); color: var(--white); padding: 3rem 2rem; text-align: center; }
         .container { max-width: 1000px; margin: 3rem auto; padding: 0 2rem; }
         
-        /* Table */
         table { width: 100%; border-collapse: collapse; margin-top: 1rem; background: var(--white); box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
         th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #ddd; }
         th { background: var(--brand-blue); color: var(--white); }
@@ -31,7 +32,10 @@
 
     <header>
         <nav class="navbar">
-            <div><strong style="color:var(--brand-red);">KID'S LOVE NURSERY</strong></div>
+            <div class="brand-logo">
+                <img src="IMG-20260707-WA0017.jpg" alt="Logo">
+                <strong style="color:var(--brand-red);">KID'S LOVE NURSERY</strong>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
