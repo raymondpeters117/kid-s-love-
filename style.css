@@ -1,0 +1,361 @@
+/* =========================
+   KID'S LOVE NURSERY
+   Global Stylesheet
+========================= */
+
+:root{
+    --brand-red:#E52421;
+    --brand-yellow:#FFEB3B;
+    --brand-blue:#0077b6;
+    --brand-green:#2E8B57;
+    --dark:#222;
+    --light:#f8f9fa;
+    --white:#ffffff;
+    --grey:#666;
+    --shadow:0 5px 15px rgba(0,0,0,.08);
+    --radius:12px;
+    --transition:.3s ease;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+    background:var(--light);
+    color:var(--dark);
+    line-height:1.7;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    box-shadow:var(--shadow);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+}
+
+.brand-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-logo img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.brand-logo strong{
+    color:var(--brand-red);
+    font-size:1.2rem;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    padding:8px 0;
+    font-weight:600;
+    transition:var(--transition);
+}
+
+.nav-links a:hover,
+.nav-link.active{
+    color:var(--brand-red);
+    border-bottom:3px solid var(--brand-red);
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO BANNER
+========================= */
+
+.header-banner{
+    background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("images/banner.jpg") center/cover;
+    color:#fff;
+    text-align:center;
+    padding:90px 20px;
+}
+
+.header-banner h1{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+
+.header-banner p{
+    max-width:700px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+    display:inline-block;
+    background:var(--brand-red);
+    color:#fff;
+    padding:12px 28px;
+    border-radius:40px;
+    transition:var(--transition);
+}
+
+.btn:hover{
+    background:var(--brand-blue);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:70px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    color:var(--brand-red);
+    font-size:2rem;
+}
+
+.section-title p{
+    color:var(--grey);
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    transition:var(--transition);
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card h3{
+    color:var(--brand-red);
+    margin-bottom:15px;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project-card{
+    background:#fff;
+    padding:25px;
+    border-radius:var(--radius);
+    border-left:6px solid var(--brand-red);
+    box-shadow:var(--shadow);
+}
+
+.cost-tag{
+    float:right;
+    background:var(--brand-yellow);
+    padding:6px 12px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.bank-info{
+    margin-top:50px;
+    padding:35px;
+    text-align:center;
+    background:#e8f4f8;
+    border:2px dashed var(--brand-blue);
+    border-radius:var(--radius);
+}
+
+/* =========================
+   TABLES
+========================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    box-shadow:var(--shadow);
+}
+
+table th{
+    background:var(--brand-red);
+    color:#fff;
+}
+
+table th,
+table td{
+    padding:14px;
+    border:1px solid #ddd;
+}
+
+/* =========================
+   FORMS
+========================= */
+
+form{
+    background:#fff;
+    padding:30px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:12px;
+    margin-bottom:20px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:1rem;
+}
+
+textarea{
+    resize:vertical;
+    min-height:150px;
+}
+
+button{
+    background:var(--brand-red);
+    color:#fff;
+    border:none;
+    padding:12px 30px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:var(--transition);
+}
+
+button:hover{
+    background:var(--brand-blue);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:var(--dark);
+    color:#fff;
+    text-align:center;
+    padding:40px 20px;
+    margin-top:70px;
+}
+
+footer a:hover{
+    color:var(--brand-yellow);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width:768px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:90px;
+        right:0;
+        width:230px;
+        background:#fff;
+        box-shadow:var(--shadow);
+        padding:20px;
+        gap:15px;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .header-banner{
+        padding:70px 20px;
+    }
+
+    .header-banner h1{
+        font-size:2rem;
+    }
+
+}
