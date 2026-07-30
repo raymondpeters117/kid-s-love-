@@ -317,6 +317,180 @@ min-height:260px;
 .header-banner h1{
 font-size:30px;
 }
+   /* =====================================
+   TABLETS
+===================================== */
+
+@media (max-width: 992px){
+
+    .navbar{
+        padding:15px 20px;
+    }
+
+    .logo-title{
+        font-size:18px;
+    }
+
+    .logo-subtitle{
+        font-size:11px;
+    }
+
+    .hero{
+        padding:80px 20px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .contact-card{
+        padding:35px 25px;
+    }
+
+    .info-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width:768px){
+
+    .navbar{
+        padding:15px;
+    }
+
+    .menu-btn{
+        display:block;
+        font-size:32px;
+        color:var(--brand-red);
+        z-index:1001;
+    }
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:90px;
+        left:0;
+        width:100%;
+        background:#fff;
+        flex-direction:column;
+        align-items:center;
+        gap:0;
+        padding:20px 0;
+        box-shadow:0 15px 30px rgba(0,0,0,.12);
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .nav-links li{
+        width:100%;
+        text-align:center;
+    }
+
+    .nav-links a{
+        display:block;
+        width:100%;
+        padding:15px;
+        border-radius:0;
+    }
+
+    .brand-logo img{
+        width:55px;
+        height:55px;
+    }
+
+    .logo-title{
+        font-size:16px;
+    }
+
+    .logo-subtitle{
+        font-size:10px;
+    }
+
+    .hero{
+        padding:70px 20px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .container{
+        padding:15px;
+    }
+
+    .contact-card{
+        padding:25px 18px;
+    }
+
+    .badge{
+        width:120px;
+        height:120px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .info-box{
+        padding:20px;
+    }
+
+    .map-box{
+        padding:25px;
+    }
+
+    footer{
+        padding:25px 15px;
+        font-size:14px;
+    }
+
+}
+
+
+/* =====================================
+   SMALL PHONES
+===================================== */
+
+@media (max-width:480px){
+
+    .hero h1{
+        font-size:26px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .badge{
+        width:100px;
+        height:100px;
+    }
+
+    .contact-card h2{
+        font-size:24px;
+    }
+
+    .info-box h3{
+        font-size:18px;
+    }
+
+}
 
 .header-banner p{
 font-size:14px;
