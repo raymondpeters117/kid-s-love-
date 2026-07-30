@@ -1,361 +1,80 @@
-/* =========================
-   KID'S LOVE NURSERY
-   Global Stylesheet
-========================= */
+/* PREMIUM KID'S LOVE NURSERY STYLESHEET (Starter)
+   Replace your existing style.css with this foundation.
+   Modern glass navigation, colorful cards, responsive layout.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root{
-    --brand-red:#E52421;
-    --brand-yellow:#FFEB3B;
-    --brand-blue:#0077b6;
-    --brand-green:#2E8B57;
-    --dark:#222;
-    --light:#f8f9fa;
-    --white:#ffffff;
-    --grey:#666;
-    --shadow:0 5px 15px rgba(0,0,0,.08);
-    --radius:12px;
-    --transition:.3s ease;
+ --primary:#ff5a5f;
+ --secondary:#4f46e5;
+ --accent:#14b8a6;
+ --yellow:#ffd54a;
+ --bg:#f6fbff;
+ --text:#24324a;
+ --white:#fff;
+ --radius:18px;
+ --shadow:0 15px 40px rgba(0,0,0,.12);
+ --transition:.35s ease;
 }
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-    font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
-    background:var(--light);
-    color:var(--dark);
-    line-height:1.7;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-ul{
-    list-style:none;
-}
-
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-
-/* =========================
-   HEADER
-========================= */
-
+font-family:'Nunito',sans-serif;
+background:linear-gradient(180deg,#f6fbff,#eef9ff);
+color:var(--text);
+line-height:1.7}
+.container{width:min(1200px,92%);margin:auto}
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:#fff;
-    box-shadow:var(--shadow);
-}
-
-.navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 0;
-}
-
-.brand-logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.brand-logo img{
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    object-fit:cover;
-}
-
-.brand-logo strong{
-    color:var(--brand-red);
-    font-size:1.2rem;
-}
-
-.nav-links{
-    display:flex;
-    gap:25px;
-}
-
-.nav-links a{
-    padding:8px 0;
-    font-weight:600;
-    transition:var(--transition);
-}
-
-.nav-links a:hover,
-.nav-link.active{
-    color:var(--brand-red);
-    border-bottom:3px solid var(--brand-red);
-}
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-.menu-btn{
-    display:none;
-    background:none;
-    border:none;
-    font-size:30px;
-    cursor:pointer;
-}
-
-/* =========================
-   HERO BANNER
-========================= */
-
+position:sticky;top:0;z-index:999;
+backdrop-filter:blur(14px);
+background:rgba(255,255,255,.85);
+box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.brand-logo{display:flex;align-items:center;gap:14px;font-family:Poppins,sans-serif;font-weight:700}
+.brand-logo img{width:64px;height:64px;border-radius:50%;border:4px solid #fff;box-shadow:var(--shadow)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-weight:700;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:3px;width:0;background:linear-gradient(90deg,var(--primary),var(--secondary));transition:.3s}
+.nav-links a:hover::after,.nav-links .active::after{width:100%}
 .header-banner{
-    background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("images/banner.jpg") center/cover;
-    color:#fff;
-    text-align:center;
-    padding:90px 20px;
-}
-
-.header-banner h1{
-    font-size:2.5rem;
-    margin-bottom:15px;
-}
-
-.header-banner p{
-    max-width:700px;
-    margin:auto;
-    font-size:1.1rem;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
+padding:120px 20px;
+text-align:center;
+color:#fff;
+background:
+linear-gradient(rgba(26,42,108,.55),rgba(26,42,108,.55)),
+url(images/banner.jpg) center/cover}
+.header-banner h1{font:800 clamp(2.4rem,5vw,4rem) Poppins,sans-serif}
+.header-banner p{max-width:760px;margin:20px auto;font-size:1.15rem}
 .btn{
-    display:inline-block;
-    background:var(--brand-red);
-    color:#fff;
-    padding:12px 28px;
-    border-radius:40px;
-    transition:var(--transition);
-}
-
-.btn:hover{
-    background:var(--brand-blue);
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-section{
-    padding:70px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.section-title h2{
-    color:var(--brand-red);
-    font-size:2rem;
-}
-
-.section-title p{
-    color:var(--grey);
-}
-
-/* =========================
-   CARDS
-========================= */
-
-.card-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
+display:inline-block;
+margin-top:20px;
+padding:14px 30px;
+border-radius:999px;
+background:linear-gradient(90deg,var(--primary),#ff7a45);
+color:#fff;font-weight:700;
+box-shadow:var(--shadow);
+transition:var(--transition)}
+.btn:hover{transform:translateY(-4px) scale(1.03)}
+section{padding:90px 0}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font:800 2.4rem Poppins,sans-serif;color:var(--secondary)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
 .card{
-    background:#fff;
-    padding:25px;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    transition:var(--transition);
-}
-
-.card:hover{
-    transform:translateY(-6px);
-}
-
-.card h3{
-    color:var(--brand-red);
-    margin-bottom:15px;
-}
-
-/* =========================
-   PROJECTS
-========================= */
-
-.project-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-}
-
-.project-card{
-    background:#fff;
-    padding:25px;
-    border-radius:var(--radius);
-    border-left:6px solid var(--brand-red);
-    box-shadow:var(--shadow);
-}
-
-.cost-tag{
-    float:right;
-    background:var(--brand-yellow);
-    padding:6px 12px;
-    border-radius:6px;
-    font-weight:bold;
-}
-
-.bank-info{
-    margin-top:50px;
-    padding:35px;
-    text-align:center;
-    background:#e8f4f8;
-    border:2px dashed var(--brand-blue);
-    border-radius:var(--radius);
-}
-
-/* =========================
-   TABLES
-========================= */
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:#fff;
-    box-shadow:var(--shadow);
-}
-
-table th{
-    background:var(--brand-red);
-    color:#fff;
-}
-
-table th,
-table td{
-    padding:14px;
-    border:1px solid #ddd;
-}
-
-/* =========================
-   FORMS
-========================= */
-
-form{
-    background:#fff;
-    padding:30px;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-}
-
-input,
-textarea,
-select{
-    width:100%;
-    padding:12px;
-    margin-bottom:20px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:1rem;
-}
-
-textarea{
-    resize:vertical;
-    min-height:150px;
-}
-
-button{
-    background:var(--brand-red);
-    color:#fff;
-    border:none;
-    padding:12px 30px;
-    border-radius:30px;
-    cursor:pointer;
-    transition:var(--transition);
-}
-
-button:hover{
-    background:var(--brand-blue);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
+background:rgba(255,255,255,.95);
+border-radius:var(--radius);
+padding:28px;
+box-shadow:var(--shadow);
+transition:var(--transition);
+border-top:6px solid var(--accent)}
+.card:hover{transform:translateY(-10px) rotate(-1deg)}
 footer{
-    background:var(--dark);
-    color:#fff;
-    text-align:center;
-    padding:40px 20px;
-    margin-top:70px;
-}
-
-footer a:hover{
-    color:var(--brand-yellow);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width:768px){
-
-    .menu-btn{
-        display:block;
-    }
-
-    .nav-links{
-        display:none;
-        flex-direction:column;
-        position:absolute;
-        top:90px;
-        right:0;
-        width:230px;
-        background:#fff;
-        box-shadow:var(--shadow);
-        padding:20px;
-        gap:15px;
-    }
-
-    .nav-links.show{
-        display:flex;
-    }
-
-    .header-banner{
-        padding:70px 20px;
-    }
-
-    .header-banner h1{
-        font-size:2rem;
-    }
-
+background:#172033;
+color:#fff;
+padding:60px 20px;
+text-align:center;
+margin-top:80px}
+@media(max-width:768px){
+.nav-links{display:none}
+.header-banner{padding:90px 20px}
+.header-banner h1{font-size:2.3rem}
 }
