@@ -1,425 +1,83 @@
-/* ==========================================
-   KID'S LOVE NURSERY & DAYCARE CENTER
-   Modern Index Page CSS
-   ========================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-:root{
-    --brand-red:#e53935;
-    --brand-blue:#1565c0;
-    --brand-green:#2e7d32;
-    --brand-yellow:#fbc02d;
-    --white:#ffffff;
-    --dark:#1b1b1b;
-    --text:#555;
-    --bg:#f7f9fc;
-    --shadow:0 10px 35px rgba(0,0,0,.08);
-    --radius:18px;
-    --transition:.35s ease;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:var(--bg);
-    color:var(--dark);
-    line-height:1.7;
-}
-
-/* =====================
-   HEADER
-====================== */
-
-header{
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-    background:rgba(255,255,255,.96);
-    backdrop-filter:blur(10px);
-    box-shadow:0 2px 18px rgba(0,0,0,.08);
-    z-index:999;
-}
-
-.nav-container{
-    max-width:1250px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:12px 30px;
-}
-
-/* Logo */
-
-.brand-logo{
-    display:flex;
-    align-items:center;
-    text-decoration:none;
-    gap:15px;
-}
-
-.brand-logo img{
-    width:68px;
-    height:68px;
-    border-radius:50%;
-    border:4px solid var(--brand-red);
-    object-fit:cover;
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
-}
-
-.logo-text-box{
-    display:flex;
-    flex-direction:column;
-}
-
-.logo-title{
-    font-size:20px;
-    font-weight:700;
-    color:var(--brand-red);
-}
-
-.logo-subtitle{
-    font-size:13px;
-    color:#666;
-}
-
-/* Navigation */
-
-.nav-menu{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    list-style:none;
-}
-
-.nav-link{
-    text-decoration:none;
-    color:var(--dark);
-    font-weight:600;
-    padding:10px 18px;
-    border-radius:40px;
-    transition:var(--transition);
-}
-
-.nav-link:hover,
-.nav-link.active{
-    background:var(--brand-red);
-    color:#fff;
-}
-
-.btn-cta{
-    background:var(--brand-blue);
-    color:#fff !important;
-}
-
-.btn-cta:hover{
-    background:var(--brand-green);
-}
-
-/* =====================
- HERO
-====================== */
-
-.hero{
-    margin-top:95px;
-    min-height:88vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:#fff;
-    padding:60px 20px;
-    position:relative;
-    overflow:hidden;
-    background:
-    linear-gradient(rgba(229,57,53,.75),
-    rgba(21,101,192,.75)),
-    url("IMG-20260707-WA0017.jpg") center/cover;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    background:rgba(255,255,255,.08);
-    border-radius:50%;
-    top:-200px;
-    right:-120px;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:350px;
-    height:350px;
-    background:rgba(255,255,255,.05);
-    border-radius:50%;
-    bottom:-150px;
-    left:-100px;
-}
-
-.hero>*{
-    position:relative;
-    z-index:1;
-}
-
-.hero-badge{
-    width:170px;
-    height:170px;
-    border-radius:50%;
-    object-fit:cover;
-    border:8px solid rgba(255,255,255,.9);
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
-    animation:float 5s ease-in-out infinite;
-}
-
-@keyframes float{
-
-0%,100%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-15px);
-}
-
-}
-
-.motto-badge{
-    margin:30px 0;
-    background:rgba(255,255,255,.18);
-    backdrop-filter:blur(8px);
-    padding:12px 28px;
-    border-radius:50px;
-    font-weight:700;
-    letter-spacing:1px;
-}
-
-.hero h1{
-    font-size:52px;
-    max-width:850px;
-    margin-bottom:18px;
-    line-height:1.2;
-}
-
-.hero p{
-    max-width:750px;
-    font-size:19px;
-    margin-bottom:35px;
-}
-
-.hero a{
-    text-decoration:none;
-    transition:.3s;
-    box-shadow:0 8px 25px rgba(0,0,0,.18);
-}
-
-.hero a:hover{
-    transform:translateY(-5px);
-}
-
-/* =====================
- CONTAINER
-====================== */
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:90px 20px;
-}
-
-.section-title{
-    text-align:center;
-    font-size:38px;
-    margin-bottom:60px;
-    color:var(--brand-red);
-    position:relative;
-}
-
-.section-title::after{
-    content:"";
-    width:100px;
-    height:5px;
-    background:var(--brand-blue);
-    display:block;
-    margin:18px auto;
-    border-radius:20px;
-}
-
-/* =====================
- GRID
-====================== */
-
-.grid-3{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:35px;
-}
-
-/* =====================
- CARD
-====================== */
-
-.card{
-    background:#fff;
-    padding:35px;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    transition:var(--transition);
-    border-top:6px solid var(--brand-red);
-    position:relative;
-    overflow:hidden;
-}
-
-.card::before{
-    content:"";
-    position:absolute;
-    width:130px;
-    height:130px;
-    background:rgba(21,101,192,.05);
-    border-radius:50%;
-    right:-40px;
-    top:-40px;
-}
-
-.card:hover{
-    transform:translateY(-12px);
-    box-shadow:0 18px 40px rgba(0,0,0,.12);
-}
-
-.card h3{
-    margin-bottom:18px;
-    color:var(--brand-blue);
-    font-size:23px;
-}
-
-.card p{
-    color:var(--text);
-}
-
-/* =====================
- FOOTER
-====================== */
-
-footer{
-    background:linear-gradient(135deg,var(--brand-red),var(--brand-blue));
-    color:#fff;
-    text-align:center;
-    padding:45px 20px;
-}
-
-footer p{
-    margin:10px 0;
-}
-
-/* =====================
- MOBILE MENU
-====================== */
-
-.mobile-toggle{
-    display:none;
-    background:none;
-    border:none;
-    cursor:pointer;
-}
-
-.mobile-toggle span{
-    display:block;
-    width:28px;
-    height:3px;
-    margin:6px;
-    background:var(--brand-red);
-    border-radius:20px;
-}
-
-/* =====================
- RESPONSIVE
-====================== */
-
-@media(max-width:900px){
-
-.mobile-toggle{
-display:block;
-}
-
-.nav-menu{
-position:absolute;
-top:90px;
-left:0;
-width:100%;
-background:#fff;
-display:none;
-flex-direction:column;
-padding:25px;
-box-shadow:0 12px 25px rgba(0,0,0,.1);
-}
-
-.nav-menu.show{
-display:flex;
-}
-
-.hero{
-margin-top:85px;
-padding:70px 20px;
-}
-
-.hero h1{
-font-size:34px;
-}
-
-.hero p{
-font-size:17px;
-}
-
-.hero-badge{
-width:130px;
-height:130px;
-}
-
-.logo-title{
-font-size:16px;
-}
-
-.logo-subtitle{
-font-size:11px;
-}
-
-}
-
-@media(max-width:600px){
-
-.section-title{
-font-size:30px;
-}
-
-.card{
-padding:28px;
-}
-
-.hero h1{
-font-size:28px;
-}
-
-.hero p{
-font-size:15px;
-}
-
-.motto-badge{
-font-size:12px;
-padding:10px 20px;
-}
-
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kid's Love Nursery and Daycare Center - Nakasozi, Buddo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="brand-logo">
+            <img src="IMG-20260707-WA0017.jpg" alt="Kid's Love Nursery Badge">
+            <div class="logo-text-box">
+                <span class="logo-title">KID'S LOVE NURSERY</span>
+                <span class="logo-subtitle">& DAYCARE CENTER – NAKASOZI</span>
+            </div>
+        </a>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="aboutus.html" class="nav-link">About Us</a></li>
+                <li><a href="admissions.html" class="nav-link">Admissions & Fees</a></li>
+                <li><a href="projects.html" class="nav-link">Development Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="projects.html" class="nav-link btn-cta">Support Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<body>
+    <section class="hero">
+        <img src="IMG-20260707-WA0017.jpg" alt="Official Badge" class="hero-badge"><br>
+        <div class="motto-badge">MOTTO: CARRY YOUR CANDLE AND LIGHT THE WORLD</div>
+        <h1>Welcome to Kid's Love Nursery & pre-primary school</h1>
+        <p>Developing a God-fearing pupil equipped with quality education for the development of the nation.</p>
+        <a href="admissions.html" style="background: var(--white); color: var(--brand-red); padding: 0.8rem 2rem; border-radius: 25px; font-weight: bold; display: inline-block;">Enroll Your Child</a>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">Why Choose Kid's Love?</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Holistic Education</h3>
+                <p>We focus on balanced early childhood development—socialization, character building, pre-literacy skills, and emotional growth.</p>
+            </div>
+            <div class="card" style="border-top-color: var(--brand-blue);">
+                <h3>Safe & Clean Environment</h3>
+                <p>Equipped with strict hygiene routines, metal detector security checks, daily classroom checklists, and ID verification for pickup.</p>
+            </div>
+            <div class="card" style="border-top-color: var(--brand-yellow);">
+                <h3>Community-Focused</h3>
+                <p>Founded by passionate educators Mr. and Mrs. Kirinya Herbert Antony to bring quality, affordable education closer to families in Nakasozi.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>KID'S LOVE NURSERY AND DAYCARE CENTER</strong></p>
+        <p>Nakasozi – Buddo | Contact: 0777860361 / 0704143734 / 0775473861 / 0704943691</p>
+        <p>&copy; 2026 Kid's Love Nursery & Daycare Centre. All Rights Reserved.</p>
+    </footer>
+
+</body>
+<script>
+    // Interactive Mobile Menu Toggle JavaScript
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById("mobileToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        toggleBtn.addEventListener("click", function () {
+            navMenu.classList.toggle("show");
+        });
+    });
+</script>
+
+</html>
