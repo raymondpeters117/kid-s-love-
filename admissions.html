@@ -1,87 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admissions & Fees - Kid's Love Nursery</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        :root { --brand-red: #E52421; --brand-yellow: #FFEB3B; --brand-blue: #0077b6; --dark-text: #1A1A1A; --light-bg: #F8F9FA; --white: #FFFFFF; }
-        body { color: var(--dark-text); background-color: var(--light-bg); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
+    <title>Admissions & Fees | Kid's Love Nursery & Daycare Centre</title>
 
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0.6rem 2rem; }
-        .brand-logo { display: flex; align-items: center; gap: 12px; }
-        .brand-logo img { height: 50px; width: auto; }
-        .nav-links { display: flex; list-style: none; gap: 1.2rem; }
-
-        .header-banner { background: var(--brand-red); color: var(--white); padding: 3rem 2rem; text-align: center; }
-        .container { max-width: 1000px; margin: 3rem auto; padding: 0 2rem; }
-        
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; background: var(--white); box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
-        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background: var(--brand-blue); color: var(--white); }
-
-        .block { background: var(--white); padding: 2rem; border-radius: 10px; margin-top: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-
-        footer { background: var(--dark-text); color: var(--white); text-align: center; padding: 2rem 1rem; margin-top: 4rem; }
-    </style>
+    <link rel="stylesheet" href="admissions.css">
 </head>
+
 <body>
 
+    <!-- ================= HEADER ================= -->
+
     <header>
-        <nav class="navbar">
-            <div class="brand-logo">
-                <img src="IMG-20260707-WA0017.jpg" alt="Logo">
-                <strong style="color:var(--brand-red);">KID'S LOVE NURSERY</strong>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="projects.html">Development Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="navbar">
+
+            <a href="index.html" class="brand-logo">
+                <img src="IMG-20260707-WA0017.jpg" alt="Kid's Love Nursery Logo">
+
+                <div class="logo-text-box">
+                    <span class="logo-title">
+                        KID'S LOVE NURSERY
+                    </span>
+
+                    <span class="logo-subtitle">
+                        & DAYCARE CENTRE – NAKASOZI
+                    </span>
+                </div>
+            </a>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+            <nav>
+
+                <ul class="nav-links" id="navMenu">
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="aboutus.html">About Us</a></li>
+
+                    <li><a href="admissions.html" class="active">Admissions</a></li>
+
+                    <li><a href="projects.html">Development Projects</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
     </header>
 
-    <div class="header-banner">
-        <h1>Admissions & Fees Structure</h1>
-        <p>Affordable, Quality Education for Every Child</p>
-    </div>
+    <!-- ================= HERO ================= -->
 
-    <div class="container">
-        <h2>Fees Breakdown</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Item / Service</th>
-                    <th>Cost (UGX)</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Full Day Tuition</td><td><strong>200,000/=</strong></td><td>Per term</td></tr>
-                <tr><td>Half Day Tuition</td><td><strong>150,000/=</strong></td><td>Per term</td></tr>
-                <tr><td>Development Fee</td><td><strong>30,000/=</strong></td><td>Per year</td></tr>
-                <tr><td>School Uniform & Shoes</td><td><strong>30,000/=</strong></td><td>Navy blue & Sky blue with tie</td></tr>
-                <tr><td>Sportswear</td><td><strong>25,000/=</strong></td><td>Official sports kit</td></tr>
-                <tr><td>Transport Fee</td><td><strong>100,000/=</strong></td><td>Optional pickup service</td></tr>
-                <tr><td>Admission Fee</td><td><strong>10,000/=</strong></td><td>One-time entry fee</td></tr>
-            </tbody>
-        </table>
+    <section class="header-banner">
 
-        <div class="block">
-            <h2 style="color:var(--brand-red);">Class Structure & Placement</h2>
-            <p>Our academic levels consist of <strong>Baby Class</strong>, <strong>Middle Class</strong>, and <strong>Top Class</strong>.</p><br>
-            <p><strong>2-Year Accelerated Program:</strong> Parents who wish for their children to complete nursery in 2 years can apply for custom placement (e.g., Baby to Top or Middle to Top), subject to a Top Class placement test and final approval by management.</p>
-        </div>
-    </div>
+        <h1>Admissions & Fees</h1>
+
+        <p>
+            Affordable Quality Education for Every Child
+        </p>
+
+    </section>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+        <section>
+
+            <h2>School Fees Structure</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Item / Service</th>
+
+                        <th>Amount (UGX)</th>
+
+                        <th>Details</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Full Day Tuition</td>
+                        <td><strong>200,000/=</strong></td>
+                        <td>Per Term</td>
+                    </tr>
+
+                    <tr>
+                        <td>Half Day Tuition</td>
+                        <td><strong>150,000/=</strong></td>
+                        <td>Per Term</td>
+                    </tr>
+
+                    <tr>
+                        <td>Development Fee</td>
+                        <td><strong>30,000/=</strong></td>
+                        <td>Per Year</td>
+                    </tr>
+
+                    <tr>
+                        <td>Uniform & Shoes</td>
+                        <td><strong>30,000/=</strong></td>
+                        <td>Navy Blue & Sky Blue</td>
+                    </tr>
+
+                    <tr>
+                        <td>Sports Wear</td>
+                        <td><strong>25,000/=</strong></td>
+                        <td>Official School Kit</td>
+                    </tr>
+
+                    <tr>
+                        <td>Transport</td>
+                        <td><strong>100,000/=</strong></td>
+                        <td>Optional Service</td>
+                    </tr>
+
+                    <tr>
+                        <td>Admission Fee</td>
+                        <td><strong>10,000/=</strong></td>
+                        <td>Paid Once</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <section class="block">
+
+            <h2>Class Structure & Placement</h2>
+
+            <p>
+
+                We offer three nursery classes:
+
+            </p>
+
+            <br>
+
+            <ul>
+
+                <li>Baby Class</li>
+
+                <li>Middle Class</li>
+
+                <li>Top Class</li>
+
+            </ul>
+
+            <br>
+
+            <p>
+
+                <strong>Accelerated Programme:</strong>
+
+                Children who demonstrate the required academic ability may be
+                admitted into higher classes after successfully completing a
+                placement assessment approved by school management.
+
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
 
     <footer>
-        <p>&copy; 2026 Kid's Love Nursery & Daycare Centre. Nakasozi – Buddo.</p>
+
+        <p>
+
+            <strong>KID'S LOVE NURSERY & DAYCARE CENTRE</strong>
+
+        </p>
+
+        <p>
+
+            Nakasozi – Buddo
+
+        </p>
+
+        <p>
+
+            📞 0777860361 | 0704143734 | 0775473861 | 0704943691
+
+        </p>
+
+        <p>
+
+            © 2026 Kid's Love Nursery & Daycare Centre. All Rights Reserved.
+
+        </p>
+
     </footer>
 
+    <!-- ================= MOBILE MENU ================= -->
+
+    <script>
+        const toggle = document.getElementById("mobileToggle");
+        const menu = document.getElementById("navMenu");
+
+        toggle.addEventListener("click", () => {
+            menu.classList.toggle("show");
+        });
+    </script>
+
 </body>
+
 </html>
