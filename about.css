@@ -1,0 +1,329 @@
+/* ===================================
+   ABOUT US PAGE CSS
+   Kid's Love Nursery & Daycare Centre
+=================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+    --brand-red:#e53935;
+    --brand-blue:#1565c0;
+    --brand-green:#2e7d32;
+    --brand-yellow:#fbc02d;
+
+    --dark:#222;
+    --light:#f5f8fc;
+    --white:#fff;
+
+    --shadow:0 15px 35px rgba(0,0,0,.08);
+    --radius:20px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(to bottom,#f8fbff,#eef5ff);
+    color:#444;
+    line-height:1.7;
+}
+
+/*=====================
+HEADER
+======================*/
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#fff;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    z-index:999;
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.brand-logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+}
+
+.brand-logo img{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    border:4px solid var(--brand-red);
+}
+
+.logo-title{
+    display:block;
+    color:var(--brand-red);
+    font-weight:700;
+    font-size:20px;
+}
+
+.logo-subtitle{
+    font-size:13px;
+    color:#666;
+}
+
+.nav-menu{
+    display:flex;
+    gap:8px;
+    list-style:none;
+}
+
+.nav-link{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.nav-link:hover,
+.nav-link.active{
+    background:var(--brand-red);
+    color:#fff;
+}
+
+.btn-cta{
+    background:var(--brand-blue);
+    color:#fff!important;
+}
+
+.btn-cta:hover{
+    background:var(--brand-green);
+}
+
+/*=====================
+MOBILE MENU
+======================*/
+
+.mobile-toggle{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+}
+
+.mobile-toggle span{
+    display:block;
+    width:28px;
+    height:3px;
+    background:var(--brand-red);
+    margin:6px;
+}
+
+/*=====================
+HEADER BANNER
+======================*/
+
+.header-banner{
+    margin-top:95px;
+    min-height:340px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:40px 20px;
+
+    background:
+    linear-gradient(rgba(21,101,192,.85),
+    rgba(229,57,53,.75)),
+    url("IMG-20260707-WA0017.jpg") center/cover;
+}
+
+.header-banner h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.header-banner p{
+    font-size:20px;
+    background:rgba(255,255,255,.15);
+    padding:12px 25px;
+    border-radius:40px;
+}
+
+/*=====================
+MAIN CONTAINER
+======================*/
+
+.container{
+    width:90%;
+    max-width:1150px;
+    margin:70px auto;
+}
+
+/*=====================
+CONTENT BLOCKS
+======================*/
+
+.block{
+    background:white;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    margin-bottom:45px;
+    padding:40px;
+    position:relative;
+    transition:.4s;
+    overflow:hidden;
+}
+
+.block::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:8px;
+    height:100%;
+    background:linear-gradient(var(--brand-red),var(--brand-blue));
+}
+
+.block:hover{
+    transform:translateY(-8px);
+}
+
+.block h2{
+    color:var(--brand-red);
+    margin-bottom:20px;
+    font-size:30px;
+}
+
+.block p{
+    color:#555;
+}
+
+/*=====================
+ORGANIZATION TREE
+======================*/
+
+.org-tree{
+    margin-top:35px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+}
+
+.org-node{
+    min-width:260px;
+    padding:18px;
+    border-radius:15px;
+    background:linear-gradient(135deg,var(--brand-blue),var(--brand-green));
+    color:white;
+    text-align:center;
+    font-weight:700;
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.org-node:hover{
+    transform:scale(1.05);
+}
+
+.org-tree div:nth-child(even){
+    font-size:30px;
+    color:var(--brand-red);
+}
+
+/*=====================
+FOOTER
+======================*/
+
+footer{
+    background:linear-gradient(135deg,var(--brand-red),var(--brand-blue));
+    color:white;
+    text-align:center;
+    padding:35px;
+    margin-top:70px;
+}
+
+/*=====================
+RESPONSIVE
+======================*/
+
+@media(max-width:900px){
+
+.mobile-toggle{
+display:block;
+}
+
+.nav-menu{
+display:none;
+position:absolute;
+top:90px;
+left:0;
+width:100%;
+background:white;
+flex-direction:column;
+padding:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.nav-menu.show{
+display:flex;
+}
+
+.header-banner h1{
+font-size:38px;
+}
+
+.header-banner p{
+font-size:16px;
+}
+
+.block{
+padding:30px;
+}
+
+.org-node{
+width:100%;
+}
+
+}
+
+@media(max-width:600px){
+
+.logo-title{
+font-size:17px;
+}
+
+.logo-subtitle{
+font-size:11px;
+}
+
+.header-banner{
+min-height:260px;
+}
+
+.header-banner h1{
+font-size:30px;
+}
+
+.header-banner p{
+font-size:14px;
+}
+
+.block h2{
+font-size:24px;
+}
+
+}
