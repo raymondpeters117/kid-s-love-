@@ -1,65 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Kid's Love Nursery</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        :root { --brand-red: #E52421; --brand-yellow: #FFEB3B; --brand-blue: #0077b6; --dark-text: #1A1A1A; --light-bg: #F8F9FA; --white: #FFFFFF; }
-        body { color: var(--dark-text); background-color: var(--light-bg); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
 
-        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0.6rem 2rem; }
-        .brand-logo { display: flex; align-items: center; gap: 12px; }
-        .brand-logo img { height: 50px; width: auto; }
-        .nav-links { display: flex; list-style: none; gap: 1.2rem; }
+    <title>Contact Us | Kid's Love Nursery & Daycare Centre</title>
 
-        .container { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
-        .card { background: var(--white); padding: 2.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
-        .contact-badge { max-width: 180px; margin-bottom: 1.5rem; }
-
-        footer { background: var(--dark-text); color: var(--white); text-align: center; padding: 2rem 1rem; margin-top: 4rem; }
-    </style>
+    <link rel="stylesheet" href="contact.css">
 </head>
+
 <body>
 
+    <!-- ================= HEADER ================= -->
+
     <header>
+
         <nav class="navbar">
-            <div class="brand-logo">
-                <img src="IMG-20260707-WA0017.jpg" alt="Logo">
-                <strong style="color:var(--brand-red);">KID'S LOVE NURSERY</strong>
-            </div>
-            <ul class="nav-links">
+
+            <a href="index.html" class="brand-logo">
+
+                <img src="IMG-20260707-WA0017.jpg"
+                     alt="School Badge">
+
+                <div class="logo-text">
+
+                    <span class="logo-title">
+                        KID'S LOVE NURSERY
+                    </span>
+
+                    <span class="logo-subtitle">
+                        & DAYCARE CENTRE – NAKASOZI
+                    </span>
+
+                </div>
+
+            </a>
+
+            <button class="menu-btn" id="mobileToggle">
+
+                ☰
+
+            </button>
+
+            <ul class="nav-links" id="navMenu">
+
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+
+                <li><a href="aboutus.html">About Us</a></li>
+
                 <li><a href="admissions.html">Admissions</a></li>
+
                 <li><a href="projects.html">Development Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
+
+                <li><a href="contact.html" class="active">Contact</a></li>
+
             </ul>
+
         </nav>
+
     </header>
 
-    <div class="container">
-        <div class="card">
-            <img src="IMG-20260707-WA0017.jpg" alt="Badge" class="contact-badge">
-            <h2 style="color:var(--brand-red);">Contact Information</h2>
-            <br>
-            <p><strong>School Name:</strong> Kid’s Love Nursery and Day Care Centre</p>
-            <p><strong>Location:</strong> Nakasozi – Buddo, Uganda</p>
-            <p><strong>Directors:</strong> Mr. Kirinya Herbert Antony & Mrs. Namponye Roscila Kirinya</p>
-            <br>
-            <p><strong>Phone Numbers:</strong></p>
-            <p style="font-size: 1.1rem; font-weight: bold; color: var(--brand-blue);">
-                0777860361 | 0704143734 | 0775473861 | 0704943691
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <h1>Contact Us</h1>
+
+        <p>
+
+            We'd love to hear from you.
+            Visit us, call us or send us a message.
+
+        </p>
+
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+
+    <main class="container">
+
+        <section class="contact-card">
+
+            <img src="IMG-20260707-WA0017.jpg"
+                 alt="School Badge"
+                 class="badge">
+
+            <h2>Kid's Love Nursery & Daycare Centre</h2>
+
+            <div class="info-grid">
+
+                <div class="info-box">
+
+                    <h3>📍 Location</h3>
+
+                    <p>Nakasozi – Buddo, Uganda</p>
+
+                </div>
+
+                <div class="info-box">
+
+                    <h3>👨‍🏫 Directors</h3>
+
+                    <p>
+
+                        Mr. Kirinya Herbert Antony
+
+                        <br>
+
+                        Mrs. Namponye Roscila Kirinya
+
+                    </p>
+
+                </div>
+
+                <div class="info-box">
+
+                    <h3>📞 Phone Numbers</h3>
+
+                    <p>
+
+                        0777860361
+
+                        <br>
+
+                        0704143734
+
+                        <br>
+
+                        0775473861
+
+                        <br>
+
+                        0704943691
+
+                    </p>
+
+                </div>
+
+                <div class="info-box">
+
+                    <h3>⏰ Working Hours</h3>
+
+                    <p>
+
+                        Monday – Friday
+
+                        <br>
+
+                        7:00 AM – 5:00 PM
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- MAP PLACEHOLDER -->
+
+        <section class="map-box">
+
+            <h2>Find Us</h2>
+
+            <p>
+
+                Google Map can be embedded here later.
+
             </p>
-        </div>
-    </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
 
     <footer>
-        <p>&copy; 2026 Kid's Love Nursery & Daycare Centre. Nakasozi – Buddo.</p>
+
+        <p>
+
+            <strong>
+
+                KID'S LOVE NURSERY & DAYCARE CENTRE
+
+            </strong>
+
+        </p>
+
+        <p>
+
+            Nakasozi – Buddo
+
+        </p>
+
+        <p>
+
+            © 2026 All Rights Reserved.
+
+        </p>
+
     </footer>
 
+    <script>
+
+        const btn=document.getElementById("mobileToggle");
+        const nav=document.getElementById("navMenu");
+
+        btn.addEventListener("click",()=>{
+
+            nav.classList.toggle("show");
+
+        });
+
+    </script>
+
 </body>
+
 </html>
