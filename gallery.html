@@ -529,29 +529,34 @@ All Rights Reserved.
 
 <script>
 
-
-// MOBILE MENU
-
-
-const mobileToggle =
-document.getElementById("mobileToggle");
+const mobileToggle = document.getElementById("mobileToggle");
+const navMenu = document.getElementById("navMenu");
 
 
-const navMenu =
-document.getElementById("navMenu");
+mobileToggle.addEventListener("click",()=>{
+
+    navMenu.classList.toggle("show");
+
+    mobileToggle.classList.toggle("active");
+
+});
 
 
+// Close menu after clicking a link
 
-mobileToggle.onclick = () => {
+document.querySelectorAll(".nav-links a").forEach(link=>{
 
-navMenu.classList.toggle("show");
+    link.addEventListener("click",()=>{
 
-};
+        navMenu.classList.remove("show");
+        mobileToggle.classList.remove("active");
 
+    });
+
+});
 
 
 </script>
-
 
 
 </body>
