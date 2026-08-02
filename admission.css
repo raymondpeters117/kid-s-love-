@@ -512,7 +512,338 @@ transition:.3s;
 
 
 
+/* =========================================
+   ANIMATED HERO SLIDESHOW
+========================================= */
 
+
+.hero{
+
+    min-height:88vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+/* BACKGROUND SLIDES */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-size:cover;
+
+    background-position:center;
+
+    animation:heroSlide 18s infinite;
+
+    z-index:-2;
+
+}
+
+
+/* DARK OVERLAY */
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.60),
+        rgba(0,0,0,.60)
+    );
+
+    z-index:-1;
+
+}
+
+
+
+/* HERO CONTENT */
+
+.hero-content{
+
+    max-width:900px;
+
+    padding:20px;
+
+    animation:heroContent .9s ease;
+
+}
+
+
+
+/* BADGE */
+
+.badge{
+
+    display:inline-block;
+
+    background:var(--yellow);
+
+    color:#222;
+
+    padding:10px 25px;
+
+    border-radius:50px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+
+
+/* TITLE */
+
+.hero h1{
+
+    font-size:3.4rem;
+
+    font-weight:800;
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* DESCRIPTION */
+
+.hero p{
+
+    color:white;
+
+    font-size:1.15rem;
+
+    max-width:750px;
+
+    margin:auto auto 35px;
+
+}
+
+
+
+/* BUTTON AREA */
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+
+
+
+.btn{
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+
+
+.btn:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+
+
+/* =========================================
+   SLIDE IMAGES
+========================================= */
+
+
+@keyframes heroSlide{
+
+
+0%{
+
+background-image:url("classroom.jpg");
+
+transform:scale(1);
+
+}
+
+
+25%{
+
+background-image:url("playground.jpg");
+
+transform:scale(1.08);
+
+}
+
+
+50%{
+
+background-image:url("learning.jpg");
+
+transform:scale(1);
+
+}
+
+
+75%{
+
+background-image:url("children.jpg");
+
+transform:scale(1.08);
+
+}
+
+
+100%{
+
+background-image:url("schoolbus.jpg");
+
+transform:scale(1);
+
+}
+
+
+}
+
+
+
+
+
+/* CONTENT ANIMATION */
+
+
+@keyframes heroContent{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+/* =========================================
+ MOBILE HERO
+========================================= */
+
+
+@media(max-width:900px){
+
+
+.hero{
+
+    min-height:75vh;
+
+}
+
+
+
+.hero h1{
+
+    font-size:2.2rem;
+
+}
+
+
+
+.hero p{
+
+    font-size:15px;
+
+}
+
+
+
+.hero-buttons{
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+
+.btn{
+
+    width:230px;
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.hero h1{
+
+    font-size:1.8rem;
+
+}
+
+
+.hero{
+
+    min-height:65vh;
+
+}
+
+
+}
 /* =========================================
 HERO
 ========================================= */
