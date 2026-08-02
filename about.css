@@ -8,7 +8,7 @@
 
 
 /* ===============================
-   ROOT
+ROOT VARIABLES
 ================================ */
 
 :root{
@@ -19,12 +19,16 @@
     --blue:#1565c0;
     --blue-light:#42a5f5;
 
+    --yellow:#ffc107;
+
     --green:#43a047;
 
     --white:#ffffff;
+
     --light:#f7f9fc;
 
     --dark:#222;
+
     --gray:#666;
 
 
@@ -37,17 +41,24 @@
 }
 
 
+
+
+
 /* ===============================
-   RESET
+RESET
 ================================ */
+
 
 *{
 
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
 
 }
+
 
 
 html{
@@ -60,15 +71,21 @@ html{
 
 body{
 
+
     font-family:'Poppins',sans-serif;
+
 
     background:var(--light);
 
+
     color:var(--dark);
+
 
     line-height:1.8;
 
+
     overflow-x:hidden;
+
 
 }
 
@@ -81,32 +98,45 @@ a{
 }
 
 
+
 img{
 
     max-width:100%;
+
     display:block;
 
 }
 
 
 
+
+
+
+
 /* ===============================
- HEADER
+HEADER
 ================================ */
 
 
 header{
 
+
     position:sticky;
+
 
     top:0;
 
+
     z-index:1000;
+
 
     background:white;
 
+
     box-shadow:
     0 5px 20px rgba(0,0,0,.08);
+
+
 
 }
 
@@ -117,16 +147,22 @@ header{
 
     width:92%;
 
+
     max-width:1350px;
+
 
     margin:auto;
 
 
+
     display:flex;
+
 
     justify-content:space-between;
 
+
     align-items:center;
+
 
 
     padding:15px 0;
@@ -136,16 +172,22 @@ header{
 
 
 
+
+
+
 /* ===============================
- LOGO
+LOGO
 ================================ */
 
 
 .brand-logo{
 
+
     display:flex;
 
+
     align-items:center;
+
 
     gap:15px;
 
@@ -159,6 +201,7 @@ header{
 
     width:70px;
 
+
     height:70px;
 
 
@@ -171,6 +214,7 @@ header{
     border:4px solid var(--orange);
 
 
+
 }
 
 
@@ -179,6 +223,7 @@ header{
 
 
     display:flex;
+
 
     flex-direction:column;
 
@@ -192,7 +237,9 @@ header{
 
     font-size:1.2rem;
 
+
     font-weight:800;
+
 
     color:var(--blue);
 
@@ -206,6 +253,7 @@ header{
 
     font-size:.75rem;
 
+
     color:var(--gray);
 
 
@@ -213,17 +261,22 @@ header{
 
 
 
+
+
+
 /* ===============================
- NAVIGATION
+NAVIGATION
 ================================ */
 
 
-.nav-menu{
+.nav-links{
 
 
     display:flex;
 
+
     align-items:center;
+
 
     gap:30px;
 
@@ -235,18 +288,21 @@ header{
 
 
 
-.nav-menu li{
+.nav-links li{
+
 
     list-style:none;
+
 
 }
 
 
 
-.nav-menu a{
+.nav-links a{
 
 
     color:#333;
+
 
     font-weight:600;
 
@@ -261,7 +317,7 @@ header{
 
 
 
-.nav-menu a::after{
+.nav-links a::after{
 
 
     content:"";
@@ -270,12 +326,14 @@ header{
     position:absolute;
 
 
-    bottom:-8px;
-
     left:0;
 
 
+    bottom:-8px;
+
+
     width:0;
+
 
     height:3px;
 
@@ -290,8 +348,9 @@ header{
 
 
 
-.nav-menu a:hover::after,
-.nav-menu a.active::after{
+.nav-links a:hover::after,
+
+.nav-links a.active::after{
 
 
     width:100%;
@@ -301,8 +360,9 @@ header{
 
 
 
-.nav-menu a:hover,
-.nav-menu a.active{
+.nav-links a:hover,
+
+.nav-links a.active{
 
 
     color:var(--orange);
@@ -312,8 +372,11 @@ header{
 
 
 
+
+
+
 /* ===============================
- MOBILE BUTTON
+MOBILE BUTTON
 ================================ */
 
 
@@ -325,13 +388,14 @@ header{
 
     width:45px;
 
+
     height:45px;
 
 
-    background:var(--orange);
-
-
     border:none;
+
+
+    background:var(--orange);
 
 
     border-radius:10px;
@@ -345,10 +409,12 @@ header{
 
     justify-content:center;
 
+
     align-items:center;
 
 
     gap:5px;
+
 
 
 }
@@ -360,6 +426,7 @@ header{
 
     width:22px;
 
+
     height:3px;
 
 
@@ -369,145 +436,115 @@ header{
     border-radius:10px;
 
 
+    transition:.3s;
+
+
 }
-
-
-
-/* ===============================
- PAGE HERO
-================================ */
-
+/* ===================================================
+   HERO / PAGE BANNER
+=================================================== */
 
 .header-banner{
 
-
-    min-height:350px;
-
+    min-height:360px;
 
     display:flex;
-
-
-    flex-direction:column;
-
-
     justify-content:center;
-
-
     align-items:center;
-
 
     text-align:center;
 
-
     color:white;
+
+    padding:50px 20px;
 
 
     background:
 
-
     linear-gradient(
-    rgba(0,0,0,.55),
-    rgba(0,0,0,.55)
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.55)
     ),
-
 
     url("IMG-20260707-WA0017.jpg");
 
 
-
     background-size:cover;
-
 
     background-position:center;
 
-
-    padding:40px 20px;
-
-
 }
 
+
+.header-banner div{
+
+    max-width:850px;
+
+}
 
 
 .header-banner h1{
 
-
-    font-size:3rem;
+    font-size:3.2rem;
 
     font-weight:800;
 
+    margin-bottom:15px;
 
     animation:fadeDown .8s ease;
 
-
 }
-
 
 
 .header-banner p{
 
-
-    margin-top:15px;
-
+    color:white;
 
     font-size:18px;
 
-
-    color:white;
-
+    animation:fadeUp .8s ease;
 
 }
 
 
 
-/* ===============================
- MAIN CONTENT
-================================ */
+/* ===================================================
+   MAIN CONTAINER
+=================================================== */
 
 
 .container{
 
-
     width:90%;
-
 
     max-width:1200px;
 
-
     margin:auto;
 
-
     padding:80px 0;
-
 
 }
 
 
 
-/* ===============================
- CONTENT CARDS
-================================ */
+/* ===================================================
+   CONTENT BLOCKS
+=================================================== */
 
 
 .block{
 
-
     background:white;
-
 
     padding:45px;
 
-
-    border-radius:20px;
-
-
     margin-bottom:35px;
 
+    border-radius:22px;
 
     box-shadow:var(--shadow);
 
-
     transition:.35s;
-
 
 }
 
@@ -515,9 +552,7 @@ header{
 
 .block:hover{
 
-
     transform:translateY(-8px);
-
 
 }
 
@@ -525,21 +560,15 @@ header{
 
 .block h2{
 
-
     color:var(--blue);
-
-
-    margin-bottom:25px;
-
 
     font-size:2rem;
 
+    margin-bottom:25px;
 
     position:relative;
 
-
-    padding-bottom:10px;
-
+    padding-bottom:12px;
 
 }
 
@@ -547,29 +576,21 @@ header{
 
 .block h2::after{
 
-
     content:"";
 
-
     position:absolute;
-
 
     left:0;
 
     bottom:0;
 
-
-    width:80px;
-
+    width:85px;
 
     height:4px;
 
-
     background:var(--orange);
 
-
     border-radius:20px;
-
 
 }
 
@@ -577,26 +598,33 @@ header{
 
 .block p{
 
-
     color:#555;
 
+    font-size:16px;
 
     margin-bottom:18px;
-
 
 }
 
 
 
-/* ===============================
- ORGANIZATION TREE
-================================ */
+.block strong{
+
+    color:var(--blue);
+
+}
+
+
+
+/* ===================================================
+   ORGANIZATION TREE
+=================================================== */
 
 
 .org-tree{
 
 
-    margin-top:40px;
+    margin-top:45px;
 
 
     display:flex;
@@ -618,29 +646,50 @@ header{
 .org-node{
 
 
-    background:linear-gradient(
-    135deg,
-    var(--blue),
-    var(--blue-light)
-    );
+    width:260px;
+
+
+    padding:18px 25px;
+
+
+    text-align:center;
 
 
     color:white;
 
 
-    padding:15px 45px;
+    font-weight:600;
 
 
     border-radius:50px;
 
 
-    font-weight:600;
+    background:
+
+    linear-gradient(
+        135deg,
+        var(--blue),
+        var(--blue-light)
+    );
 
 
     box-shadow:var(--shadow);
 
 
-    transition:.3s;
+    transition:.35s;
+
+
+}
+
+
+
+.org-node i{
+
+
+    font-size:28px;
+
+
+    margin-bottom:8px;
 
 
 }
@@ -657,13 +706,15 @@ header{
 
 
 
-.director{
+.org-node.director{
 
 
-    background:linear-gradient(
-    135deg,
-    var(--orange),
-    #ff9800
+    background:
+
+    linear-gradient(
+        135deg,
+        var(--orange),
+        #ff9800
     );
 
 
@@ -687,403 +738,19 @@ header{
 
 
 
-/* ===============================
- FOOTER
-================================ */
-
-
-footer{
-
-
-    background:#1d1d1d;
-
-
-    color:white;
-
-
-    padding:50px 8%;
-
-
-    text-align:center;
-
-
-}
-
-
-
-.footer-grid{
-
-
-    max-width:1100px;
-
-
-    margin:auto;
-
-
-    display:grid;
-
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
-
-
-    gap:30px;
-
-
-    margin-bottom:30px;
-
-
-}
-
-
-
-.footer-grid h3{
-
-
-    color:#ffc107;
-
-
-    margin-bottom:15px;
-
-
-}
-
-
-
-.footer-grid p{
-
-
-    color:#ddd;
-
-
-}
-
-
-
-footer hr{
-
-
-    border:none;
-
-
-    height:1px;
-
-
-    background:#444;
-
-
-    margin:30px 0;
-
-
-}
-
-
-
-
-/* ===============================
- ANIMATION
-================================ */
+/* ===================================================
+   ANIMATIONS
+=================================================== */
 
 
 @keyframes fadeDown{
 
 
-from{
-
-opacity:0;
-
-transform:translateY(-30px);
-
-}
-
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-
-}
-
-
-
-
-/* ===============================
- RESPONSIVE
-================================ */
-
-
-@media(max-width:900px){
-
-
-
-.mobile-toggle{
-
-    display:flex;
-
-}
-
-
-
-.nav-menu{
-
-
-    position:absolute;
-
-
-    top:90px;
-
-
-    left:0;
-
-
-    width:100%;
-
-
-    background:white;
-
-
-    display:none;
-
-
-    flex-direction:column;
-
-
-    padding:25px 0;
-
-
-    box-shadow:var(--shadow);
-
-
-}
-
-
-
-.nav-menu.show{
-
-
-    display:flex;
-
-
-}
-
-
-
-.header-banner h1{
-
-
-    font-size:2.2rem;
-
-
-}
-
-
-
-}
-
-
-
-@media(max-width:600px){
-
-
-.navbar{
-
-    width:95%;
-
-}
-
-
-
-.brand-logo img{
-
-
-    width:55px;
-
-    height:55px;
-
-
-}
-
-
-
-.logo-title{
-
-
-    font-size:1rem;
-
-
-}
-
-
-
-.logo-subtitle{
-
-
-    font-size:.65rem;
-
-
-}
-
-
-
-.header-banner{
-
-
-    min-height:260px;
-
-
-}
-
-
-
-.header-banner h1{
-
-
-    font-size:1.8rem;
-
-
-}
-
-
-
-.container{
-
-
-    width:92%;
-
-
-    padding:50px 0;
-
-
-}
-
-
-
-.block{
-
-
-    padding:25px;
-
-
-}
-
-
-
-.block h2{
-
-
-    font-size:1.5rem;
-
-
-}
-
-
-
-.org-node{
-
-
-    width:100%;
-
-
-    text-align:center;
-
-
-}
-
-
-
-}
-/* ==========================================
-   MOBILE NAVIGATION IMPROVEMENT
-========================================== */
-
-@media(max-width:900px){
-
-    .navbar{
-
-        position:relative;
-
-    }
-
-
-    .mobile-toggle{
-
-        display:flex;
-
-        z-index:1100;
-
-    }
-
-
-    .nav-menu{
-
-        position:absolute;
-
-        top:100%;
-
-        left:0;
-
-        width:100%;
-
-        background:white;
-
-        flex-direction:column;
-
-        align-items:center;
-
-        gap:20px;
-
-        padding:30px 0;
-
-        display:none;
-
-        box-shadow:0 15px 30px rgba(0,0,0,.15);
-
-        animation:slideDown .3s ease;
-
-    }
-
-
-    .nav-menu.show{
-
-        display:flex;
-
-    }
-
-
-    .nav-menu li{
-
-        width:100%;
-
-        text-align:center;
-
-    }
-
-
-    .nav-menu a{
-
-        display:block;
-
-        padding:10px;
-
-    }
-
-
-}
-
-
-/* MENU ANIMATION */
-
-@keyframes slideDown{
-
     from{
 
         opacity:0;
 
-        transform:translateY(-20px);
+        transform:translateY(-40px);
 
     }
 
@@ -1096,35 +763,818 @@ transform:translateY(0);
 
     }
 
-}
-
-
-
-/* ANIMATED HAMBURGER */
-
-.mobile-toggle.active span:nth-child(1){
-
-    transform:rotate(45deg) translate(5px,5px);
 
 }
 
 
-.mobile-toggle.active span:nth-child(2){
 
-    opacity:0;
+@keyframes fadeUp{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+
+}
+/* ===================================================
+   FOOTER
+=================================================== */
+
+
+footer{
+
+    background:#1d1d1d;
+
+    color:white;
+
+    padding:60px 8%;
+
+    text-align:center;
 
 }
 
 
-.mobile-toggle.active span:nth-child(3){
 
-    transform:rotate(-45deg) translate(6px,-6px);
+.footer-grid{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:35px;
+
+    margin-bottom:35px;
 
 }
+
+
+
+.footer-grid h3{
+
+    color:var(--yellow);
+
+    font-size:1.2rem;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.footer-grid h3 i{
+
+    color:var(--orange);
+
+    margin-right:8px;
+
+}
+
+
+
+.footer-grid p{
+
+    color:#ddd;
+
+    margin:8px 0;
+
+}
+
+
+
+footer hr{
+
+    border:none;
+
+    height:1px;
+
+    background:#444;
+
+    margin:30px 0;
+
+}
+
+
+
+footer > p{
+
+    color:#bbb;
+
+    font-size:14px;
+
+}
+
+
+
+/* ===================================================
+   MOBILE NAVIGATION
+=================================================== */
+
+
+@media(max-width:900px){
+
+
+    .navbar{
+
+        width:95%;
+
+        position:relative;
+
+    }
+
+
+
+    .mobile-toggle{
+
+        display:flex;
+
+        z-index:2000;
+
+    }
+
+
+
+    .nav-links{
+
+
+        position:absolute;
+
+
+        top:100%;
+
+
+        left:0;
+
+
+        width:100%;
+
+
+        background:white;
+
+
+        display:none;
+
+
+        flex-direction:column;
+
+
+        align-items:center;
+
+
+        gap:0;
+
+
+        padding:25px 0;
+
+
+        box-shadow:
+
+        0 15px 30px rgba(0,0,0,.15);
+
+
+        animation:menuDrop .3s ease;
+
+
+    }
+
+
+
+    .nav-links.show{
+
+
+        display:flex;
+
+
+    }
+
+
+
+    .nav-links li{
+
+
+        width:100%;
+
+
+        text-align:center;
+
+
+    }
+
+
+
+    .nav-links a{
+
+
+        display:block;
+
+
+        width:100%;
+
+
+        padding:15px;
+
+
+        font-size:16px;
+
+
+    }
+
+
+
+    .nav-links a:hover{
+
+
+        background:#f7f9fc;
+
+
+    }
+
+
+
+}
+
+
+
+/* ===================================================
+   HAMBURGER ANIMATION
+=================================================== */
 
 
 .mobile-toggle span{
 
+
+    transition:.35s;
+
+
+}
+
+
+
+.mobile-toggle.active span:nth-child(1){
+
+
+    transform:
+
+    rotate(45deg)
+
+    translate(5px,5px);
+
+
+}
+
+
+
+.mobile-toggle.active span:nth-child(2){
+
+
+    opacity:0;
+
+
+}
+
+
+
+.mobile-toggle.active span:nth-child(3){
+
+
+    transform:
+
+    rotate(-45deg)
+
+    translate(6px,-6px);
+
+
+}
+
+
+
+/* ===================================================
+   TABLET RESPONSIVE
+=================================================== */
+
+
+@media(max-width:900px){
+
+
+    .header-banner{
+
+
+        min-height:280px;
+
+
+    }
+
+
+
+    .header-banner h1{
+
+
+        font-size:2.3rem;
+
+
+    }
+
+
+
+    .container{
+
+
+        padding:60px 0;
+
+
+    }
+
+
+
+    .block{
+
+
+        padding:35px;
+
+
+    }
+
+
+}
+
+
+
+
+/* ===================================================
+   PHONE RESPONSIVE
+=================================================== */
+
+
+@media(max-width:600px){
+
+
+    .brand-logo{
+
+
+        gap:10px;
+
+
+    }
+
+
+
+    .brand-logo img{
+
+
+        width:55px;
+
+        height:55px;
+
+
+    }
+
+
+
+    .logo-title{
+
+
+        font-size:.95rem;
+
+
+    }
+
+
+
+    .logo-subtitle{
+
+
+        font-size:.65rem;
+
+
+    }
+
+
+
+    .header-banner{
+
+
+        min-height:240px;
+
+
+        padding:30px 15px;
+
+
+    }
+
+
+
+    .header-banner h1{
+
+
+        font-size:1.8rem;
+
+
+    }
+
+
+
+    .header-banner p{
+
+
+        font-size:14px;
+
+
+    }
+
+
+
+    .container{
+
+
+        width:92%;
+
+
+        padding:45px 0;
+
+
+    }
+
+
+
+    .block{
+
+
+        padding:25px;
+
+
+        border-radius:15px;
+
+
+    }
+
+
+
+    .block h2{
+
+
+        font-size:1.4rem;
+
+
+    }
+
+
+
+    .block p{
+
+
+        font-size:14px;
+
+
+    }
+
+
+
+    .org-node{
+
+
+        width:100%;
+
+
+        padding:15px;
+
+
+    }
+
+
+
+    footer{
+
+
+        padding:40px 20px;
+
+
+    }
+
+
+
+}
+/* ===================================================
+   FINAL POLISH
+=================================================== */
+
+
+/* Smooth page appearance */
+
+body{
+
+    animation:pageLoad .6s ease;
+
+}
+
+
+@keyframes pageLoad{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+/* ===================================================
+   LINK ACCESSIBILITY
+=================================================== */
+
+
+a:focus,
+button:focus{
+
+    outline:3px solid rgba(255,122,0,.4);
+
+    outline-offset:3px;
+
+}
+
+
+
+/* ===================================================
+   BUTTON / MENU INTERACTION
+=================================================== */
+
+
+.mobile-toggle:hover{
+
+    background:var(--orange-dark);
+
+    transform:scale(1.05);
+
+}
+
+
+
+.mobile-toggle{
+
     transition:.3s;
+
+}
+
+
+
+/* ===================================================
+   LOGO HOVER
+=================================================== */
+
+
+.brand-logo:hover img{
+
+    transform:rotate(5deg) scale(1.05);
+
+}
+
+
+
+.brand-logo img{
+
+    transition:.35s;
+
+}
+
+
+
+/* ===================================================
+   NAV ACTIVE EFFECT
+=================================================== */
+
+
+.nav-links a.active{
+
+    font-weight:700;
+
+}
+
+
+
+.nav-links a.active::after{
+
+    width:100%;
+
+}
+
+
+
+/* ===================================================
+   MANAGEMENT ICON EFFECT
+=================================================== */
+
+
+.org-node i{
+
+    transition:.35s;
+
+}
+
+
+
+.org-node:hover i{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/* ===================================================
+   CONTENT SCROLL EFFECT SUPPORT
+=================================================== */
+
+
+.block,
+.org-node,
+.footer-grid > div{
+
+
+    animation:fadeUp .7s ease both;
+
+
+}
+
+
+
+/* ===================================================
+   CUSTOM SCROLLBAR
+=================================================== */
+
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+
+
+::-webkit-scrollbar-track{
+
+    background:#f1f1f1;
+
+}
+
+
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--orange);
+
+    border-radius:20px;
+
+}
+
+
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--orange-dark);
+
+}
+
+
+
+/* ===================================================
+   LARGE SCREENS
+=================================================== */
+
+
+@media(min-width:1400px){
+
+
+    .navbar{
+
+
+        max-width:1450px;
+
+
+    }
+
+
+
+    .header-banner h1{
+
+
+        font-size:3.8rem;
+
+
+    }
+
+
+
+    .container{
+
+
+        max-width:1300px;
+
+
+    }
+
+
+}
+
+
+
+/* ===================================================
+   EXTRA SMALL DEVICES
+=================================================== */
+
+
+@media(max-width:380px){
+
+
+    .logo-title{
+
+        font-size:.85rem;
+
+    }
+
+
+
+    .logo-subtitle{
+
+        display:none;
+
+    }
+
+
+
+    .mobile-toggle{
+
+        width:40px;
+
+        height:40px;
+
+    }
+
+
+
+    .header-banner h1{
+
+        font-size:1.5rem;
+
+    }
+
+
+
+    .block{
+
+        padding:20px;
+
+    }
+
+
+
+}
+
+
+
+/* ===================================================
+   REDUCED MOTION SUPPORT
+=================================================== */
+
+
+@media(prefers-reduced-motion:reduce){
+
+
+    *{
+
+        animation-duration:0.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:0.01ms !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
 
 }
