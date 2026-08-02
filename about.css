@@ -1,74 +1,74 @@
 /* ===================================================
    KID'S LOVE NURSERY & DAYCARE
-   PROFESSIONAL ADMISSION CSS
-   FIXED VERSION PART 1
+   ABOUT PAGE PROFESSIONAL CSS
 =================================================== */
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 
-/* ================= ROOT ================= */
+/* ===============================
+   ROOT
+================================ */
 
 :root{
 
---orange:#ff7a00;
---orange-dark:#e56b00;
+    --orange:#ff7a00;
+    --orange-dark:#e56b00;
 
---blue:#1565c0;
---blue-light:#42a5f5;
+    --blue:#1565c0;
+    --blue-light:#42a5f5;
 
---green:#43a047;
---yellow:#ffc107;
+    --green:#43a047;
 
---white:#ffffff;
---light:#f7f9fc;
---dark:#222;
---gray:#666;
+    --white:#ffffff;
+    --light:#f7f9fc;
 
-
---shadow-sm:0 5px 20px rgba(0,0,0,.08);
---shadow:0 12px 35px rgba(0,0,0,.12);
---shadow-lg:0 20px 50px rgba(0,0,0,.18);
+    --dark:#222;
+    --gray:#666;
 
 
---radius:18px;
+    --shadow:
+    0 12px 35px rgba(0,0,0,.12);
 
---transition:.35s;
+
+    --transition:.35s;
 
 }
 
 
-/* ================= RESET ================= */
-
+/* ===============================
+   RESET
+================================ */
 
 *{
 
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 
 }
 
 
 html{
 
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 
 }
 
 
+
 body{
 
-font-family:'Poppins',sans-serif;
+    font-family:'Poppins',sans-serif;
 
-background:var(--light);
+    background:var(--light);
 
-color:var(--dark);
+    color:var(--dark);
 
-overflow-x:hidden;
+    line-height:1.8;
 
-line-height:1.7;
+    overflow-x:hidden;
 
 }
 
@@ -76,41 +76,37 @@ line-height:1.7;
 
 a{
 
-text-decoration:none;
+    text-decoration:none;
 
 }
 
 
 img{
 
-max-width:100%;
-display:block;
-
-}
-
-
-section{
-
-padding:90px 8%;
+    max-width:100%;
+    display:block;
 
 }
 
 
 
-/* ================= HEADER ================= */
+/* ===============================
+ HEADER
+================================ */
 
 
 header{
 
-position:sticky;
+    position:sticky;
 
-top:0;
+    top:0;
 
-z-index:1000;
+    z-index:1000;
 
-background:white;
+    background:white;
 
-box-shadow:var(--shadow-sm);
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
 
 }
 
@@ -119,33 +115,40 @@ box-shadow:var(--shadow-sm);
 .navbar{
 
 
-max-width:1350px;
+    width:92%;
 
-margin:auto;
+    max-width:1350px;
 
-padding:15px 40px;
+    margin:auto;
 
-display:flex;
 
-justify-content:space-between;
+    display:flex;
 
-align-items:center;
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    padding:15px 0;
 
 
 }
 
 
 
-/* ================= LOGO ================= */
+/* ===============================
+ LOGO
+================================ */
 
 
 .brand-logo{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-gap:15px;
+    gap:15px;
+
 
 }
 
@@ -154,15 +157,18 @@ gap:15px;
 .brand-logo img{
 
 
-width:68px;
+    width:70px;
 
-height:68px;
+    height:70px;
 
-border-radius:50%;
 
-object-fit:cover;
+    object-fit:cover;
 
-border:4px solid var(--orange);
+
+    border-radius:50%;
+
+
+    border:4px solid var(--orange);
 
 
 }
@@ -172,9 +178,10 @@ border:4px solid var(--orange);
 .logo-text-box{
 
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
+
 
 }
 
@@ -183,11 +190,12 @@ flex-direction:column;
 .logo-title{
 
 
-font-size:1.15rem;
+    font-size:1.2rem;
 
-font-weight:800;
+    font-weight:800;
 
-color:var(--blue);
+    color:var(--blue);
+
 
 }
 
@@ -196,133 +204,151 @@ color:var(--blue);
 .logo-subtitle{
 
 
-font-size:.75rem;
+    font-size:.75rem;
 
-color:#666;
-
-}
-
-
-
-
-/* ================= NAVIGATION ================= */
-
-
-.nav-links{
-
-
-display:flex;
-
-gap:30px;
-
-list-style:none;
-
-}
-
-
-
-.nav-links li{
-
-list-style:none;
-
-}
-
-
-
-.nav-links a{
-
-
-color:#333;
-
-font-weight:600;
-
-position:relative;
-
-transition:.3s;
+    color:var(--gray);
 
 
 }
 
 
 
-.nav-links a::after{
+/* ===============================
+ NAVIGATION
+================================ */
 
 
-content:"";
+.nav-menu{
 
-position:absolute;
 
-bottom:-8px;
+    display:flex;
 
-left:0;
+    align-items:center;
 
-height:3px;
+    gap:30px;
 
-width:0;
 
-background:var(--orange);
-
-transition:.3s;
-
-border-radius:20px;
+    list-style:none;
 
 
 }
 
 
 
-.nav-links a:hover::after,
+.nav-menu li{
 
-.nav-links .active::after{
+    list-style:none;
+
+}
 
 
-width:100%;
+
+.nav-menu a{
+
+
+    color:#333;
+
+    font-weight:600;
+
+
+    position:relative;
+
+
+    transition:.3s;
 
 
 }
 
 
 
-.nav-links a:hover,
-
-.nav-links .active{
+.nav-menu a::after{
 
 
-color:var(--orange);
+    content:"";
+
+
+    position:absolute;
+
+
+    bottom:-8px;
+
+    left:0;
+
+
+    width:0;
+
+    height:3px;
+
+
+    background:var(--orange);
+
+
+    transition:.3s;
+
 
 }
 
 
 
+.nav-menu a:hover::after,
+.nav-menu a.active::after{
 
 
-/* ================= MOBILE MENU ================= */
+    width:100%;
+
+
+}
+
+
+
+.nav-menu a:hover,
+.nav-menu a.active{
+
+
+    color:var(--orange);
+
+
+}
+
+
+
+/* ===============================
+ MOBILE BUTTON
+================================ */
 
 
 .mobile-toggle{
 
 
-display:none;
+    display:none;
 
-width:45px;
 
-height:45px;
+    width:45px;
 
-border:none;
+    height:45px;
 
-background:var(--orange);
 
-border-radius:10px;
+    background:var(--orange);
 
-cursor:pointer;
 
-flex-direction:column;
+    border:none;
 
-justify-content:center;
 
-align-items:center;
+    border-radius:10px;
 
-gap:5px;
+
+    cursor:pointer;
+
+
+    flex-direction:column;
+
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    gap:5px;
 
 
 }
@@ -332,2281 +358,641 @@ gap:5px;
 .mobile-toggle span{
 
 
-width:22px;
+    width:22px;
 
-height:3px;
+    height:3px;
 
-background:white;
 
-border-radius:10px;
+    background:white;
 
 
-}
-
-
-
-/* ================= HERO ================= */
-
-
-.hero{
-
-
-min-height:88vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-color:white;
-
-
-background:
-
-linear-gradient(
-rgba(0,0,0,.55),
-rgba(0,0,0,.55)
-),
-
-url("IMG-20260707-WA0017.jpg");
-
-background-size:cover;
-
-background-position:center;
-
-
-}
-
-
-
-.hero-content{
-
-
-max-width:850px;
-
-}
-
-
-
-.badge{
-
-
-display:inline-block;
-
-background:var(--yellow);
-
-color:#222;
-
-padding:10px 25px;
-
-border-radius:50px;
-
-font-weight:700;
-
-margin-bottom:25px;
-
-
-}
-
-
-
-.hero h1{
-
-
-font-size:3.2rem;
-
-font-weight:800;
-
-margin-bottom:20px;
-
-
-}
-
-
-
-.hero p{
-
-
-color:white;
-
-font-size:1.1rem;
-
-margin-bottom:35px;
-
-
-}
-
-
-
-/* ================= BUTTONS ================= */
-
-
-.hero-buttons{
-
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-
-}
-
-
-
-.btn{
-
-
-padding:15px 35px;
-
-border-radius:50px;
-
-background:var(--orange);
-
-color:white;
-
-font-weight:600;
-
-transition:.35s;
-
-
-}
-
-
-
-.btn:hover{
-
-
-background:var(--orange-dark);
-
-transform:translateY(-5px);
-
-
-}
-
-
-
-.secondary{
-
-
-background:white;
-
-color:var(--blue);
-
-
-}
-
-
-
-.secondary:hover{
-
-
-background:var(--blue);
-
-color:white;
-
-
-}
-/* ===================================================
-   STATISTICS SECTION
-=================================================== */
-
-
-.statistics{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:30px;
-
-background:linear-gradient(
-135deg,
-var(--blue),
-var(--blue-light)
-);
-
-}
-
-
-
-.stat-card{
-
-background:rgba(255,255,255,.15);
-
-backdrop-filter:blur(10px);
-
-padding:40px 20px;
-
-border-radius:20px;
-
-text-align:center;
-
-color:white;
-
-transition:.35s;
-
-}
-
-
-
-.stat-card:hover{
-
-transform:translateY(-10px);
-
-background:rgba(255,255,255,.25);
-
-}
-
-
-
-.stat-card i{
-
-font-size:45px;
-
-color:var(--yellow);
-
-margin-bottom:20px;
-
-}
-
-
-
-.stat-card h2{
-
-font-size:2.5rem;
-
-color:white;
-
-}
-
-
-
-.stat-card p{
-
-color:white;
-
-}
-
-
-
-/* ===================================================
-   WHY CHOOSE US
-=================================================== */
-
-
-.why{
-
-text-align:center;
-
-background:white;
-
-}
-
-
-
-.why h2{
-
-font-size:2.4rem;
-
-color:var(--blue);
-
-margin-bottom:50px;
-
-}
-
-
-
-.feature-grid{
-
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-gap:30px;
-
-
-}
-
-
-
-.feature-card{
-
-
-background:white;
-
-padding:40px 30px;
-
-border-radius:20px;
-
-box-shadow:var(--shadow);
-
-transition:.35s;
-
-
-}
-
-
-
-.feature-card:hover{
-
-transform:translateY(-10px);
-
-}
-
-
-
-.feature-card i{
-
-
-font-size:50px;
-
-color:var(--orange);
-
-margin-bottom:20px;
-
-
-}
-
-
-
-.feature-card h3{
-
-
-color:var(--blue);
-
-margin-bottom:15px;
-
-
-}
-
-
-
-
-
-/* ===================================================
-   FEES SECTION
-=================================================== */
-
-
-.fees{
-
-
-background:white;
-
-text-align:center;
-
-
-}
-
-
-
-.fees h2,
-.classes h2,
-.requirements h2,
-.payments h2,
-.admission-form-section h2,
-.calculator h2,
-.faq h2,
-.gallery h2,
-.testimonials h2,
-.contact-section h2{
-
-
-font-size:2.3rem;
-
-color:var(--blue);
-
-margin-bottom:20px;
-
-
-}
-
-
-
-.section-description{
-
-
-max-width:700px;
-
-margin:auto;
-
-color:var(--gray);
-
-margin-bottom:40px;
-
-
-}
-
-
-
-.fees table{
-
-
-width:100%;
-
-border-collapse:collapse;
-
-background:white;
-
-box-shadow:var(--shadow);
-
-border-radius:18px;
-
-overflow:hidden;
-
-
-}
-
-
-
-.fees thead{
-
-
-background:linear-gradient(
-135deg,
-var(--blue),
-var(--blue-light)
-);
-
-color:white;
-
-
-}
-
-
-
-.fees th{
-
-
-padding:18px;
-
-}
-
-
-
-.fees td{
-
-
-padding:16px;
-
-border-bottom:1px solid #eee;
-
-
-}
-
-
-
-.fees tbody tr:hover{
-
-
-background:#f4f8ff;
-
-
-}
-
-
-
-
-
-/* ===================================================
-   CLASSES
-=================================================== */
-
-
-.classes{
-
-
-background:var(--light);
-
-text-align:center;
-
-
-}
-
-
-
-.class-grid{
-
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:30px;
-
-margin-top:40px;
-
-
-}
-
-
-
-.class-card{
-
-
-background:white;
-
-padding:35px;
-
-border-radius:20px;
-
-box-shadow:var(--shadow);
-
-transition:.35s;
-
-
-}
-
-
-
-.class-card:hover{
-
-
-transform:translateY(-10px);
-
-
-}
-
-
-
-.class-card i{
-
-
-font-size:55px;
-
-color:var(--orange);
-
-margin-bottom:20px;
-
-
-}
-
-
-
-.class-card h3{
-
-
-color:var(--blue);
-
-margin-bottom:15px;
-
-
-}
-
-
-
-.class-card span{
-
-
-display:inline-block;
-
-background:var(--yellow);
-
-padding:8px 20px;
-
-border-radius:30px;
-
-font-weight:600;
-
-margin-top:20px;
-
-
-}
-
-
-
-
-/* ===================================================
-   REQUIREMENTS
-=================================================== */
-
-
-.requirements{
-
-
-background:white;
-
-text-align:center;
-
-
-}
-
-
-
-.requirement-box{
-
-
-max-width:700px;
-
-margin:40px auto;
-
-padding:40px;
-
-background:white;
-
-border-radius:20px;
-
-box-shadow:var(--shadow);
-
-
-}
-
-
-
-.requirement-box ul{
-
-
-list-style:none;
-
-
-}
-
-
-
-.requirement-box li{
-
-
-padding:18px;
-
-border-bottom:1px solid #eee;
-
-text-align:left;
-
-padding-left:45px;
-
-position:relative;
-
-
-}
-
-
-
-.requirement-box li::before{
-
-
-content:"✔";
-
-position:absolute;
-
-left:15px;
-
-color:var(--green);
-
-font-weight:bold;
-
-font-size:20px;
-
-
-}
-
-
-
-
-/* ===================================================
-   PAYMENT METHODS
-=================================================== */
-
-
-.payments{
-
-
-background:#f1f7ff;
-
-text-align:center;
-
-
-}
-
-
-
-.payment-grid{
-
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(260px,1fr));
-
-gap:30px;
-
-margin-top:40px;
-
-
-}
-
-
-
-.payment-card{
-
-
-background:white;
-
-padding:35px;
-
-border-radius:20px;
-
-box-shadow:var(--shadow);
-
-transition:.35s;
-
-
-}
-
-
-
-.payment-card:hover{
-
-
-transform:translateY(-10px);
-
-
-}
-
-
-
-.payment-card i{
-
-
-font-size:50px;
-
-color:var(--orange);
-
-margin-bottom:20px;
-
-
-}
-
-
-
-.payment-card h3{
-
-
-color:var(--blue);
-
-margin-bottom:15px;
-
-
-}
-/* ===================================================
-   ONLINE ADMISSION FORM
-=================================================== */
-
-
-.admission-form-section{
-
-background:white;
-
-}
-
-
-
-.admission-form-section > p{
-
-text-align:center;
-
-color:var(--gray);
-
-margin-bottom:40px;
-
-}
-
-
-
-#admissionForm{
-
-
-max-width:950px;
-
-margin:auto;
-
-padding:45px;
-
-background:white;
-
-border-radius:20px;
-
-box-shadow:var(--shadow);
-
-
-}
-
-
-
-#admissionForm h3{
-
-
-color:var(--blue);
-
-margin:35px 0 20px;
-
-border-left:5px solid var(--orange);
-
-padding-left:15px;
-
-
-}
-
-
-
-.input-grid{
-
-
-display:grid;
-
-grid-template-columns:
-
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:20px;
-
-
-}
-
-
-
-input,
-select,
-textarea{
-
-
-width:100%;
-
-padding:15px;
-
-border:2px solid #ddd;
-
-border-radius:12px;
-
-font-family:'Poppins',sans-serif;
-
-outline:none;
-
-transition:.3s;
-
-
-}
-
-
-
-input:focus,
-select:focus,
-textarea:focus{
-
-
-border-color:var(--blue);
-
-box-shadow:0 0 10px rgba(21,101,192,.15);
-
-
-}
-
-
-
-textarea{
-
-
-resize:vertical;
-
-margin-top:10px;
-
-
-}
-
-
-
-input[type=file]{
-
-
-background:#f8f8f8;
-
-margin-top:10px;
-
-
-}
-
-
-
-label{
-
-
-font-weight:500;
-
-margin:15px 0;
-
-display:block;
-
-
-}
-
-
-
-.agreement{
-
-
-display:flex;
-
-align-items:center;
-
-gap:10px;
-
-
-}
-
-
-
-.agreement input{
-
-
-width:auto;
-
-
-}
-
-
-
-#admissionForm button{
-
-
-padding:15px 35px;
-
-border:none;
-
-border-radius:50px;
-
-font-weight:600;
-
-font-size:16px;
-
-cursor:pointer;
-
-margin-top:20px;
-
-transition:.35s;
-
-
-}
-
-
-
-button[type="submit"]{
-
-
-background:var(--orange);
-
-color:white;
-
-
-}
-
-
-
-button[type="submit"]:hover{
-
-
-background:var(--orange-dark);
-
-transform:translateY(-4px);
-
-
-}
-
-
-
-button[type="reset"]{
-
-
-background:var(--blue);
-
-color:white;
-
-margin-left:15px;
-
-
-}
-
-
-
-
-/* ===================================================
-   FEE CALCULATOR
-=================================================== */
-
-
-.calculator{
-
-
-background:linear-gradient(
-135deg,
-var(--blue),
-var(--blue-light)
-);
-
-text-align:center;
-
-color:white;
-
-
-}
-
-
-
-.calculator h2{
-
-
-color:white;
-
-}
-
-
-
-.calculator-box{
-
-
-max-width:550px;
-
-margin:auto;
-
-background:white;
-
-color:#222;
-
-padding:40px;
-
-border-radius:20px;
-
-box-shadow:var(--shadow);
-
-
-}
-
-
-
-.calculator-box label{
-
-
-text-align:left;
-
-font-weight:600;
-
-}
-
-
-
-.calculator-box h3{
-
-
-margin:30px 0;
-
-font-size:28px;
-
-color:var(--blue);
-
-
-}
-
-
-
-#totalFee{
-
-
-color:var(--orange);
-
-font-weight:800;
-
-
-}
-
-
-
-#calculate{
-
-
-width:100%;
-
-background:var(--orange);
-
-color:white;
-
-border:none;
-
-padding:16px;
-
-border-radius:50px;
-
-font-size:17px;
-
-font-weight:600;
-
-cursor:pointer;
-
-
-}
-
-
-
-#calculate:hover{
-
-
-background:var(--orange-dark);
-
-
-}
-
-
-
-
-
-/* ===================================================
-   FAQ SECTION
-=================================================== */
-
-
-.faq{
-
-
-background:white;
-
-text-align:center;
-
-
-}
-
-
-
-.faq-container{
-
-
-max-width:900px;
-
-margin:auto;
-
-
-}
-
-
-
-.faq-item{
-
-
-background:white;
-
-margin-bottom:20px;
-
-border-radius:15px;
-
-box-shadow:var(--shadow);
-
-overflow:hidden;
-
-
-}
-
-
-
-.faq-question{
-
-
-width:100%;
-
-padding:22px;
-
-border:none;
-
-background:white;
-
-cursor:pointer;
-
-display:flex;
-
-justify-content:space-between;
-
-font-size:17px;
-
-font-weight:600;
-
-color:var(--blue);
-
-
-}
-
-
-
-.faq-question:hover{
-
-
-background:#f5f8ff;
-
-
-}
-
-
-
-.faq-answer{
-
-
-display:none;
-
-padding:0 25px 20px;
-
-text-align:left;
-
-
-}
-
-
-
-.faq-item.active .faq-answer{
-
-
-display:block;
-
-
-}
-
-
-
-
-/* ===================================================
-   GALLERY
-=================================================== */
-
-
-.gallery{
-
+    border-radius:10px;
 
-background:#f8fbff;
 
-text-align:center;
-
-
-}
-
-
-
-.gallery-grid{
-
-
-display:grid;
-
-grid-template-columns:
-
-repeat(auto-fit,minmax(260px,1fr));
-
-gap:25px;
-
-
-}
-
-
-
-.gallery-grid img{
-
-
-width:100%;
-
-height:260px;
-
-object-fit:cover;
-
-border-radius:18px;
-
-box-shadow:var(--shadow);
-
-transition:.35s;
-
-
-}
-
-
-
-.gallery-grid img:hover{
-
-
-transform:scale(1.05);
-
-
-}
-
-
-
-
-
-/* ===================================================
-   TESTIMONIALS
-=================================================== */
-
-
-.testimonials{
-
-
-background:white;
-
-text-align:center;
-
-
-}
-
-
-
-.testimonial-grid{
-
-
-display:grid;
-
-grid-template-columns:
-
-repeat(auto-fit,minmax(280px,1fr));
-
-gap:30px;
-
-
-}
-
-
-
-.testimonial-card{
-
-
-background:white;
-
-padding:35px;
-
-border-radius:20px;
-
-box-shadow:var(--shadow);
-
-transition:.35s;
-
-
 }
 
 
 
-.testimonial-card:hover{
+/* ===============================
+ PAGE HERO
+================================ */
 
 
-transform:translateY(-8px);
+.header-banner{
 
-
-}
 
+    min-height:350px;
 
 
-.stars{
+    display:flex;
 
 
-color:#ffc107;
+    flex-direction:column;
 
-font-size:25px;
 
-margin-bottom:20px;
+    justify-content:center;
 
 
-}
+    align-items:center;
 
 
+    text-align:center;
 
-.testimonial-card h4{
 
+    color:white;
 
-color:var(--orange);
 
-margin-top:20px;
+    background:
 
 
-}
+    linear-gradient(
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.55)
+    ),
 
 
+    url("IMG-20260707-WA0017.jpg");
 
 
-/* ===================================================
-   CONTACT
-=================================================== */
 
+    background-size:cover;
 
-.contact-section{
 
+    background-position:center;
 
-background:#eef6ff;
 
-text-align:center;
+    padding:40px 20px;
 
 
 }
 
 
 
-.contact-grid{
+.header-banner h1{
 
 
-display:grid;
+    font-size:3rem;
 
-grid-template-columns:
+    font-weight:800;
 
-repeat(auto-fit,minmax(250px,1fr));
 
-gap:30px;
+    animation:fadeDown .8s ease;
 
 
 }
 
 
 
-.contact-card{
+.header-banner p{
 
 
-background:white;
+    margin-top:15px;
 
-padding:35px;
 
-border-radius:20px;
+    font-size:18px;
 
-box-shadow:var(--shadow);
 
-transition:.35s;
+    color:white;
 
 
 }
 
 
 
-.contact-card:hover{
+/* ===============================
+ MAIN CONTENT
+================================ */
 
 
-transform:translateY(-8px);
+.container{
 
-
-}
 
+    width:90%;
 
 
-.contact-card i{
+    max-width:1200px;
 
 
-font-size:45px;
+    margin:auto;
 
-color:var(--orange);
 
-margin-bottom:20px;
+    padding:80px 0;
 
 
 }
-
-
-
-.contact-card h3{
-
 
-color:var(--blue);
 
-margin-bottom:15px;
 
+/* ===============================
+ CONTENT CARDS
+================================ */
 
-}
-
-
-
 
-/* ===================================================
-   WHATSAPP BUTTON
-=================================================== */
+.block{
 
 
-.whatsapp-btn{
+    background:white;
 
 
-display:inline-flex;
+    padding:45px;
 
-align-items:center;
 
-gap:10px;
+    border-radius:20px;
 
-margin-top:45px;
 
-padding:15px 35px;
+    margin-bottom:35px;
 
-background:#25D366;
 
-color:white;
+    box-shadow:var(--shadow);
 
-border-radius:50px;
 
-font-weight:600;
+    transition:.35s;
 
 
 }
-
-
-
-.whatsapp-btn:hover{
-
 
-background:#1da851;
 
 
-}
-/* ===================================================
-   ONLINE ADMISSION FORM
-=================================================== */
+.block:hover{
 
 
-.admission-form-section{
+    transform:translateY(-8px);
 
-background:white;
 
 }
-
-
-
-.admission-form-section > p{
 
-text-align:center;
 
-color:var(--gray);
 
-margin-bottom:40px;
+.block h2{
 
-}
-
 
+    color:var(--blue);
 
-#admissionForm{
 
+    margin-bottom:25px;
 
-max-width:950px;
 
-margin:auto;
+    font-size:2rem;
 
-padding:45px;
 
-background:white;
+    position:relative;
 
-border-radius:20px;
 
-box-shadow:var(--shadow);
+    padding-bottom:10px;
 
 
 }
 
 
 
-#admissionForm h3{
+.block h2::after{
 
 
-color:var(--blue);
+    content:"";
 
-margin:35px 0 20px;
 
-border-left:5px solid var(--orange);
+    position:absolute;
 
-padding-left:15px;
 
+    left:0;
 
-}
+    bottom:0;
 
 
+    width:80px;
 
-.input-grid{
 
+    height:4px;
 
-display:grid;
 
-grid-template-columns:
+    background:var(--orange);
 
-repeat(auto-fit,minmax(250px,1fr));
 
-gap:20px;
+    border-radius:20px;
 
 
 }
-
 
 
-input,
-select,
-textarea{
 
+.block p{
 
-width:100%;
 
-padding:15px;
+    color:#555;
 
-border:2px solid #ddd;
 
-border-radius:12px;
+    margin-bottom:18px;
 
-font-family:'Poppins',sans-serif;
 
-outline:none;
-
-transition:.3s;
-
-
 }
-
-
-
-input:focus,
-select:focus,
-textarea:focus{
-
-
-border-color:var(--blue);
 
-box-shadow:0 0 10px rgba(21,101,192,.15);
 
 
-}
-
+/* ===============================
+ ORGANIZATION TREE
+================================ */
 
 
-textarea{
+.org-tree{
 
 
-resize:vertical;
+    margin-top:40px;
 
-margin-top:10px;
 
-
-}
+    display:flex;
 
 
+    flex-direction:column;
 
-input[type=file]{
 
+    align-items:center;
 
-background:#f8f8f8;
 
-margin-top:10px;
+    gap:15px;
 
 
 }
-
-
-
-label{
-
 
-font-weight:500;
 
-margin:15px 0;
 
-display:block;
+.org-node{
 
 
-}
-
+    background:linear-gradient(
+    135deg,
+    var(--blue),
+    var(--blue-light)
+    );
 
 
-.agreement{
+    color:white;
 
 
-display:flex;
+    padding:15px 45px;
 
-align-items:center;
 
-gap:10px;
+    border-radius:50px;
 
-
-}
 
+    font-weight:600;
 
 
-.agreement input{
+    box-shadow:var(--shadow);
 
 
-width:auto;
+    transition:.3s;
 
 
 }
-
-
-
-#admissionForm button{
-
 
-padding:15px 35px;
 
-border:none;
 
-border-radius:50px;
+.org-node:hover{
 
-font-weight:600;
 
-font-size:16px;
+    transform:scale(1.08);
 
-cursor:pointer;
 
-margin-top:20px;
-
-transition:.35s;
-
-
 }
-
 
 
-button[type="submit"]{
 
+.director{
 
-background:var(--orange);
 
-color:white;
+    background:linear-gradient(
+    135deg,
+    var(--orange),
+    #ff9800
+    );
 
 
 }
-
-
-
-button[type="submit"]:hover{
-
 
-background:var(--orange-dark);
 
-transform:translateY(-4px);
 
+.arrow{
 
-}
-
 
+    font-size:35px;
 
-button[type="reset"]{
 
+    color:var(--orange);
 
-background:var(--blue);
 
-color:white;
+    font-weight:bold;
 
-margin-left:15px;
 
-
 }
-
 
 
 
-/* ===================================================
-   FEE CALCULATOR
-=================================================== */
+/* ===============================
+ FOOTER
+================================ */
 
 
-.calculator{
+footer{
 
 
-background:linear-gradient(
-135deg,
-var(--blue),
-var(--blue-light)
-);
+    background:#1d1d1d;
 
-text-align:center;
 
-color:white;
+    color:white;
 
 
-}
-
+    padding:50px 8%;
 
 
-.calculator h2{
+    text-align:center;
 
 
-color:white;
-
 }
-
 
 
-.calculator-box{
 
+.footer-grid{
 
-max-width:550px;
 
-margin:auto;
+    max-width:1100px;
 
-background:white;
 
-color:#222;
+    margin:auto;
 
-padding:40px;
 
-border-radius:20px;
+    display:grid;
 
-box-shadow:var(--shadow);
 
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
 
-}
-
 
+    gap:30px;
 
-.calculator-box label{
 
+    margin-bottom:30px;
 
-text-align:left;
 
-font-weight:600;
-
 }
 
 
 
-.calculator-box h3{
+.footer-grid h3{
 
 
-margin:30px 0;
+    color:#ffc107;
 
-font-size:28px;
 
-color:var(--blue);
+    margin-bottom:15px;
 
 
 }
-
 
 
-#totalFee{
 
+.footer-grid p{
 
-color:var(--orange);
 
-font-weight:800;
+    color:#ddd;
 
 
 }
-
-
-
-#calculate{
-
 
-width:100%;
 
-background:var(--orange);
 
-color:white;
+footer hr{
 
-border:none;
 
-padding:16px;
+    border:none;
 
-border-radius:50px;
 
-font-size:17px;
+    height:1px;
 
-font-weight:600;
 
-cursor:pointer;
+    background:#444;
 
 
-}
-
-
-
-#calculate:hover{
+    margin:30px 0;
 
 
-background:var(--orange-dark);
-
-
 }
-
-
 
 
 
-/* ===================================================
-   FAQ SECTION
-=================================================== */
-
-
-.faq{
-
-
-background:white;
-
-text-align:center;
-
-
-}
 
+/* ===============================
+ ANIMATION
+================================ */
 
 
-.faq-container{
+@keyframes fadeDown{
 
 
-max-width:900px;
+from{
 
-margin:auto;
+opacity:0;
 
+transform:translateY(-30px);
 
 }
 
 
+to{
 
-.faq-item{
+opacity:1;
 
+transform:translateY(0);
 
-background:white;
-
-margin-bottom:20px;
-
-border-radius:15px;
-
-box-shadow:var(--shadow);
-
-overflow:hidden;
-
-
 }
-
-
-
-.faq-question{
-
-
-width:100%;
-
-padding:22px;
-
-border:none;
-
-background:white;
-
-cursor:pointer;
-
-display:flex;
 
-justify-content:space-between;
 
-font-size:17px;
-
-font-weight:600;
-
-color:var(--blue);
-
-
 }
-
-
-
-.faq-question:hover{
-
 
-background:#f5f8ff;
 
 
-}
-
 
+/* ===============================
+ RESPONSIVE
+================================ */
 
-.faq-answer{
 
+@media(max-width:900px){
 
-display:none;
 
-padding:0 25px 20px;
 
-text-align:left;
+.mobile-toggle{
 
+    display:flex;
 
 }
-
-
 
-.faq-item.active .faq-answer{
 
-
-display:block;
-
-
-}
 
+.nav-menu{
 
 
+    position:absolute;
 
-/* ===================================================
-   GALLERY
-=================================================== */
 
+    top:90px;
 
-.gallery{
 
+    left:0;
 
-background:#f8fbff;
 
-text-align:center;
+    width:100%;
 
 
-}
+    background:white;
 
 
+    display:none;
 
-.gallery-grid{
 
+    flex-direction:column;
 
-display:grid;
 
-grid-template-columns:
+    padding:25px 0;
 
-repeat(auto-fit,minmax(260px,1fr));
 
-gap:25px;
+    box-shadow:var(--shadow);
 
 
 }
-
-
-
-.gallery-grid img{
 
 
-width:100%;
 
-height:260px;
+.nav-menu.show{
 
-object-fit:cover;
 
-border-radius:18px;
+    display:flex;
 
-box-shadow:var(--shadow);
 
-transition:.35s;
-
-
 }
 
 
 
-.gallery-grid img:hover{
+.header-banner h1{
 
 
-transform:scale(1.05);
+    font-size:2.2rem;
 
 
 }
-
-
 
 
 
-/* ===================================================
-   TESTIMONIALS
-=================================================== */
-
-
-.testimonials{
-
-
-background:white;
-
-text-align:center;
-
-
 }
-
 
 
-.testimonial-grid{
 
+@media(max-width:600px){
 
-display:grid;
 
-grid-template-columns:
+.navbar{
 
-repeat(auto-fit,minmax(280px,1fr));
+    width:95%;
 
-gap:30px;
-
-
 }
-
-
-
-.testimonial-card{
-
-
-background:white;
-
-padding:35px;
 
-border-radius:20px;
 
-box-shadow:var(--shadow);
 
-transition:.35s;
+.brand-logo img{
 
 
-}
-
-
-
-.testimonial-card:hover{
+    width:55px;
 
+    height:55px;
 
-transform:translateY(-8px);
 
-
 }
-
 
 
-.stars{
 
+.logo-title{
 
-color:#ffc107;
 
-font-size:25px;
+    font-size:1rem;
 
-margin-bottom:20px;
 
-
 }
-
 
 
-.testimonial-card h4{
 
+.logo-subtitle{
 
-color:var(--orange);
 
-margin-top:20px;
+    font-size:.65rem;
 
 
 }
 
 
 
+.header-banner{
 
-/* ===================================================
-   CONTACT
-=================================================== */
 
+    min-height:260px;
 
-.contact-section{
 
-
-background:#eef6ff;
-
-text-align:center;
-
-
 }
 
 
 
-.contact-grid{
+.header-banner h1{
 
 
-display:grid;
+    font-size:1.8rem;
 
-grid-template-columns:
 
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:30px;
-
-
 }
-
-
-
-.contact-card{
-
-
-background:white;
-
-padding:35px;
-
-border-radius:20px;
-
-box-shadow:var(--shadow);
-
-transition:.35s;
 
 
-}
 
+.container{
 
 
-.contact-card:hover{
+    width:92%;
 
 
-transform:translateY(-8px);
+    padding:50px 0;
 
 
 }
-
 
 
-.contact-card i{
 
+.block{
 
-font-size:45px;
 
-color:var(--orange);
+    padding:25px;
 
-margin-bottom:20px;
 
-
 }
-
 
 
-.contact-card h3{
 
+.block h2{
 
-color:var(--blue);
 
-margin-bottom:15px;
+    font-size:1.5rem;
 
 
 }
-
-
-
-
-/* ===================================================
-   WHATSAPP BUTTON
-=================================================== */
 
 
-.whatsapp-btn{
 
+.org-node{
 
-display:inline-flex;
 
-align-items:center;
+    width:100%;
 
-gap:10px;
 
-margin-top:45px;
+    text-align:center;
 
-padding:15px 35px;
 
-background:#25D366;
-
-color:white;
-
-border-radius:50px;
-
-font-weight:600;
-
-
 }
-
-
-
-.whatsapp-btn:hover{
-
 
-background:#1da851;
 
 
 }
