@@ -1,12 +1,40 @@
-/* =========================================
-   KID'S LOVE NURSERY
+/* =====================================================
+   KID'S LOVE NURSERY & DAYCARE
    PARENTS & TEACHERS PORTAL CSS
-========================================= */
+   PROFESSIONAL VERSION
+===================================================== */
 
 
-/* GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+:root{
+
+--orange:#ff7a00;
+--orange-dark:#e56700;
+
+--blue:#1565c0;
+--blue-light:#42a5f5;
+
+--green:#43a047;
+--yellow:#ffc107;
+
+--white:#fff;
+--light:#f7f9fc;
+
+--dark:#222;
+--gray:#666;
+
+--shadow:
+0 12px 35px rgba(0,0,0,.12);
+
+--shadow-lg:
+0 20px 45px rgba(0,0,0,.18);
+
+--radius:20px;
+
+}
 
 
 
@@ -25,264 +53,41 @@ body{
 
 min-height:100vh;
 
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
 background:
 
 linear-gradient(
-rgba(21,101,192,.7),
-rgba(255,122,0,.7)
+rgba(21,101,192,.75),
+rgba(255,122,0,.65)
 ),
 
 url("IMG-20260707-WA0017.jpg");
-
 
 background-size:cover;
 
 background-position:center;
 
-}
+background-attachment:fixed;
 
-
-
-/* LOGIN BOX */
-
-
-.login-box{
-
-
-width:400px;
-
-background:white;
-
-padding:40px 35px;
-
-border-radius:25px;
-
-
-box-shadow:
-
-0 15px 40px rgba(0,0,0,.2);
-
-
-text-align:center;
-
-
-animation:slide .6s ease;
-
-
-}
-
-
-
-@keyframes slide{
-
-
-from{
-
-transform:translateY(-40px);
-
-opacity:0;
-
-}
-
-
-to{
-
-transform:translateY(0);
-
-opacity:1;
-
-}
-
+color:var(--dark);
 
 }
 
 
 
 
-
-.login-box h1{
-
-
-font-size:30px;
-
-color:#1565c0;
-
-margin-bottom:30px;
-
-font-weight:700;
-
-
-}
-
-
-
-
-/* INPUTS */
-
-
-.login-box input,
-.login-box select{
-
-
-width:100%;
-
-padding:14px 18px;
-
-margin:12px 0;
-
-border:1px solid #ddd;
-
-border-radius:30px;
-
-font-size:15px;
-
-outline:none;
-
-transition:.3s;
-
-
-}
-
-
-
-.login-box input:focus,
-.login-box select:focus{
-
-
-border-color:#ff7a00;
-
-box-shadow:0 0 10px rgba(255,122,0,.3);
-
-
-}
-
-
-
-
-
-/* BUTTON */
-
-
-.login-box button{
-
-
-width:100%;
-
-padding:14px;
-
-margin-top:20px;
-
-
-border:none;
-
-border-radius:30px;
-
-
-background:#ff7a00;
-
-
-color:white;
-
-
-font-size:17px;
-
-font-weight:600;
-
-
-cursor:pointer;
-
-
-transition:.3s;
-
-
-}
-
-
-
-.login-box button:hover{
-
-
-background:#1565c0;
-
-transform:translateY(-3px);
-
-
-}
-
-
-
-
-/* REGISTER LINK */
-
-
-.login-box p{
-
-
-margin-top:25px;
-
-color:#666;
-
-font-size:14px;
-
-
-}
-
-
-
-.login-box a{
-
-
-color:#ff7a00;
-
-font-weight:600;
+a{
 
 text-decoration:none;
 
-
 }
 
 
 
-.login-box a:hover{
+/* =====================================================
+HEADER
+===================================================== */
 
 
-text-decoration:underline;
-
-
-}
-
-
-
-/* RESPONSIVE */
-
-
-@media(max-width:500px){
-
-
-.login-box{
-
-width:90%;
-
-padding:35px 25px;
-
-}
-
-
-
-.login-box h1{
-
-font-size:25px;
-
-}
-
-
-}
 header{
 
 position:sticky;
@@ -307,17 +112,14 @@ margin:auto;
 
 display:flex;
 
-align-items:center;
-
 justify-content:space-between;
+
+align-items:center;
 
 padding:15px 40px;
 
 }
 
-
-
-/* LOGO */
 
 
 .brand-logo{
@@ -331,11 +133,12 @@ gap:15px;
 }
 
 
+
 .brand-logo img{
 
-width:70px;
+width:65px;
 
-height:70px;
+height:65px;
 
 border-radius:50%;
 
@@ -346,22 +149,14 @@ border:4px solid var(--orange);
 }
 
 
-.logo-text{
-
-display:flex;
-
-flex-direction:column;
-
-}
-
 
 .logo-title{
-
-font-size:1.2rem;
 
 font-weight:800;
 
 color:var(--blue);
+
+font-size:1.3rem;
 
 }
 
@@ -376,8 +171,7 @@ color:#777;
 
 
 
-
-/* NAVIGATION */
+/* NAV LINKS */
 
 
 .nav-links{
@@ -391,54 +185,20 @@ list-style:none;
 }
 
 
-
 .nav-links a{
-
-color:#333;
 
 font-weight:600;
 
+color:#333;
+
+transition:.3s;
+
 position:relative;
 
-transition:.3s;
-
 }
 
 
-
-.nav-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-bottom:-8px;
-
-height:3px;
-
-width:0;
-
-background:var(--orange);
-
-transition:.3s;
-
-}
-
-
-
-.nav-links a:hover::after,
-.nav-links .active::after{
-
-width:100%;
-
-}
-
-
-
-.nav-links a:hover,
-.nav-links .active{
+.nav-links a:hover{
 
 color:var(--orange);
 
@@ -447,29 +207,532 @@ color:var(--orange);
 
 
 
+/* =====================================================
+LOGIN PAGE
+===================================================== */
 
-/* MOBILE BUTTON */
 
+.login-container{
 
-.menu-btn{
+min-height:90vh;
 
-display:none;
+display:flex;
 
-background:var(--orange);
+justify-content:center;
 
-border:none;
-
-color:white;
-
-font-size:25px;
-
-width:45px;
-
-height:45px;
-
-border-radius:10px;
-
-cursor:pointer;
+align-items:center;
 
 }
 
+
+
+.login-box{
+
+
+width:420px;
+
+padding:45px 35px;
+
+background:rgba(255,255,255,.95);
+
+border-radius:25px;
+
+box-shadow:var(--shadow-lg);
+
+text-align:center;
+
+animation:show .7s ease;
+
+}
+
+
+
+@keyframes show{
+
+from{
+
+opacity:0;
+
+transform:translateY(-40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+.login-box h1{
+
+color:var(--blue);
+
+font-size:30px;
+
+margin-bottom:30px;
+
+}
+
+
+
+.login-box input,
+.login-box select{
+
+
+width:100%;
+
+padding:15px 20px;
+
+margin:12px 0;
+
+border-radius:30px;
+
+border:1px solid #ddd;
+
+outline:none;
+
+font-size:15px;
+
+transition:.3s;
+
+}
+
+
+
+.login-box input:focus,
+.login-box select:focus{
+
+border-color:var(--orange);
+
+box-shadow:0 0 12px rgba(255,122,0,.3);
+
+}
+
+
+
+.login-box button{
+
+
+width:100%;
+
+padding:15px;
+
+margin-top:20px;
+
+border:none;
+
+border-radius:30px;
+
+background:var(--orange);
+
+color:white;
+
+font-size:17px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+
+.login-box button:hover{
+
+background:var(--blue);
+
+transform:translateY(-4px);
+
+}
+
+
+
+
+/* =====================================================
+PORTAL DASHBOARD
+===================================================== */
+
+
+.portal{
+
+padding:60px 8%;
+
+}
+
+
+
+.welcome{
+
+
+background:white;
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+margin-bottom:40px;
+
+}
+
+
+
+.welcome h2{
+
+color:var(--blue);
+
+}
+
+
+
+.welcome span{
+
+color:var(--orange);
+
+font-weight:700;
+
+}
+
+
+
+/* DASHBOARD CARDS */
+
+
+.dashboard-grid{
+
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+}
+
+
+
+.portal-card{
+
+
+background:white;
+
+padding:30px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+transition:.35s;
+
+text-align:center;
+
+}
+
+
+
+.portal-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:var(--shadow-lg);
+
+}
+
+
+
+.portal-card i{
+
+
+font-size:40px;
+
+color:var(--orange);
+
+margin-bottom:20px;
+
+}
+
+
+
+.portal-card h3{
+
+color:var(--blue);
+
+}
+
+
+
+.portal-card p{
+
+color:var(--gray);
+
+}
+
+
+
+
+
+/* =====================================================
+TABLES
+===================================================== */
+
+
+.table-container{
+
+
+background:white;
+
+padding:30px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+overflow-x:auto;
+
+}
+
+
+
+table{
+
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+
+
+table th{
+
+
+background:var(--blue);
+
+color:white;
+
+padding:15px;
+
+}
+
+
+
+table td{
+
+
+padding:14px;
+
+border-bottom:1px solid #ddd;
+
+}
+
+
+
+table tr:hover{
+
+background:#f7f7f7;
+
+}
+
+
+
+/* =====================================================
+BUTTONS
+===================================================== */
+
+
+.btn{
+
+
+display:inline-block;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+background:var(--orange);
+
+color:white;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+
+
+.btn:hover{
+
+background:var(--blue);
+
+transform:translateY(-3px);
+
+}
+
+
+
+
+.logout{
+
+
+background:#e53935;
+
+}
+
+
+
+
+/* =====================================================
+PROFILE
+===================================================== */
+
+
+.profile-card{
+
+
+background:white;
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+display:flex;
+
+align-items:center;
+
+gap:25px;
+
+}
+
+
+
+.profile-card img{
+
+
+width:100px;
+
+height:100px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid var(--orange);
+
+}
+
+
+
+.profile-card h3{
+
+color:var(--blue);
+
+}
+
+
+
+
+/* =====================================================
+FOOTER
+===================================================== */
+
+
+footer{
+
+background:#1d1d1d;
+
+padding:50px 20px;
+
+text-align:center;
+
+color:white;
+
+}
+
+
+footer strong{
+
+color:var(--yellow);
+
+}
+
+
+
+
+
+/* =====================================================
+RESPONSIVE
+===================================================== */
+
+
+@media(max-width:900px){
+
+
+.navbar{
+
+padding:15px 20px;
+
+}
+
+
+.portal{
+
+padding:40px 5%;
+
+}
+
+
+.profile-card{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+
+}
+
+
+
+@media(max-width:500px){
+
+
+.login-box{
+
+width:90%;
+
+padding:35px 25px;
+
+}
+
+
+.logo-title{
+
+font-size:1rem;
+
+}
+
+
+.dashboard-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+}
