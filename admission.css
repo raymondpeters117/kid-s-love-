@@ -1,31 +1,32 @@
-/* ==========================================
+/* ===================================
    GOOGLE FONT
-========================================== */
+=================================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/* ==========================================
+/* ===================================
    ROOT VARIABLES
-========================================== */
-
+=================================== */
 :root{
-    --brand-orange:#ff7a00;
-    --brand-blue:#1976d2;
-    --brand-green:#2e9d45;
-    --brand-yellow:#ffc107;
 
+    --orange:#ff7a00;
+    --blue:#1976d2;
+    --green:#2e9d45;
+    --yellow:#ffc107;
+
+    --dark:#222;
     --white:#fff;
     --light:#f7f9fc;
-    --dark:#222;
     --gray:#666;
 
-    --shadow:0 12px 35px rgba(0,0,0,.12);
+    --shadow:0 10px 30px rgba(0,0,0,.12);
     --radius:18px;
     --transition:.35s;
+
 }
 
-/* ==========================================
+/* ===================================
    RESET
-========================================== */
+=================================== */
 
 *{
     margin:0;
@@ -38,28 +39,30 @@ html{
 }
 
 body{
+
     font-family:'Poppins',sans-serif;
     background:var(--light);
     color:var(--dark);
-    line-height:1.8;
+    line-height:1.7;
+
 }
 
 a{
     text-decoration:none;
 }
 
-/* ==========================================
+/* ===================================
    HEADER
-========================================== */
+=================================== */
 
 header{
 
     position:sticky;
     top:0;
-    z-index:999;
+    z-index:1000;
 
-    background:white;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    background:var(--white);
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
 
 }
 
@@ -78,7 +81,9 @@ header{
 
 }
 
-/* LOGO */
+/* ===================================
+   LOGO
+=================================== */
 
 .brand-logo{
 
@@ -96,7 +101,7 @@ header{
     border-radius:50%;
     object-fit:cover;
 
-    border:4px solid var(--brand-orange);
+    border:4px solid var(--orange);
 
 }
 
@@ -109,39 +114,44 @@ header{
 
 .logo-title{
 
-    font-size:1.15rem;
+    font-size:1.2rem;
     font-weight:800;
-    color:var(--brand-blue);
+    color:var(--blue);
 
 }
 
 .logo-subtitle{
 
     font-size:.75rem;
-    color:var(--gray);
+    color:#777;
 
 }
 
-/* ==========================================
- NAVIGATION
-========================================== */
+/* ===================================
+   NAVIGATION
+=================================== */
 
 .nav-menu{
 
-    display:flex;
     list-style:none;
-    gap:28px;
-
+    display:flex;
+    gap:30px;
     align-items:center;
+
+}
+
+.nav-menu li{
+
+    list-style:none;
 
 }
 
 .nav-link{
 
-    color:var(--dark);
+    color:#333;
     font-weight:600;
-    transition:var(--transition);
     position:relative;
+    transition:.3s;
 
 }
 
@@ -156,7 +166,7 @@ header{
     width:0;
     height:3px;
 
-    background:var(--brand-orange);
+    background:var(--orange);
 
     transition:.3s;
 
@@ -172,50 +182,48 @@ header{
 .nav-link:hover,
 .nav-link.active{
 
-    color:var(--brand-orange);
+    color:var(--orange);
 
 }
 
-/* SUPPORT BUTTON */
-
 .btn-cta{
 
-    background:var(--brand-orange);
-    color:white !important;
+    background:var(--orange);
+    color:white!important;
 
-    padding:12px 22px;
+    padding:11px 22px;
     border-radius:40px;
 
 }
 
 .btn-cta:hover{
 
-    background:#e36d00;
+    background:#e46b00;
 
 }
 
-/* ==========================================
- MOBILE BUTTON
-========================================== */
+/* ===================================
+   MOBILE MENU
+=================================== */
 
 .mobile-toggle{
 
     display:none;
 
-    width:45px;
-    height:45px;
+    width:46px;
+    height:46px;
 
     border:none;
     cursor:pointer;
 
-    background:var(--brand-orange);
+    background:var(--orange);
 
     border-radius:10px;
 
+    flex-direction:column;
     justify-content:center;
     align-items:center;
 
-    flex-direction:column;
     gap:5px;
 
 }
@@ -230,13 +238,13 @@ header{
 
 }
 
-/* ==========================================
- HEADER BANNER
-========================================== */
+/* ===================================
+   HERO
+=================================== */
 
 .header-banner{
 
-    min-height:330px;
+    min-height:360px;
 
     display:flex;
     justify-content:center;
@@ -249,8 +257,10 @@ header{
 
     background:
 
-    linear-gradient(rgba(0,0,0,.55),
-    rgba(0,0,0,.55)),
+    linear-gradient(
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.55)
+    ),
 
     url("IMG-20260707-WA0017.jpg");
 
@@ -270,14 +280,14 @@ header{
 
 .header-banner p{
 
-    margin-top:18px;
+    margin-top:20px;
     font-size:18px;
 
 }
 
-/* ==========================================
- MAIN CONTAINER
-========================================== */
+/* ===================================
+   MAIN CONTENT
+=================================== */
 
 .container{
 
@@ -285,41 +295,41 @@ header{
     max-width:1200px;
 
     margin:auto;
-    padding:70px 0;
+    padding:80px 0;
 
 }
 
-/* ==========================================
- BLOCKS
-========================================== */
+/* ===================================
+   ABOUT CARDS
+=================================== */
 
 .block{
 
     background:white;
 
-    padding:40px;
-
-    border-radius:18px;
+    border-radius:var(--radius);
 
     box-shadow:var(--shadow);
 
+    padding:40px;
+
     margin-bottom:35px;
 
-    transition:.3s;
+    transition:.35s;
 
 }
 
 .block:hover{
 
-    transform:translateY(-8px);
+    transform:translateY(-10px);
 
 }
 
 .block h2{
 
-    color:var(--brand-blue);
+    color:var(--blue);
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 
     position:relative;
 
@@ -331,15 +341,15 @@ header{
 
     content:"";
 
-    width:80px;
-    height:4px;
-
-    background:var(--brand-orange);
-
     position:absolute;
 
     left:0;
     bottom:0;
+
+    width:80px;
+    height:4px;
+
+    background:var(--orange);
 
     border-radius:20px;
 
@@ -352,9 +362,15 @@ header{
 
 }
 
-/* ==========================================
- ORGANISATION CHART
-========================================== */
+.block strong{
+
+    color:var(--orange);
+
+}
+
+/* ===================================
+   ORGANISATION CHART
+=================================== */
 
 .org-tree{
 
@@ -362,7 +378,6 @@ header{
 
     display:flex;
     flex-direction:column;
-
     align-items:center;
 
     gap:12px;
@@ -371,10 +386,15 @@ header{
 
 .org-node{
 
-    background:var(--brand-blue);
+    background:linear-gradient(
+        135deg,
+        var(--blue),
+        #42a5f5
+    );
+
     color:white;
 
-    padding:14px 35px;
+    padding:15px 40px;
 
     border-radius:40px;
 
@@ -392,9 +412,9 @@ header{
 
 }
 
-/* ==========================================
- FOOTER
-========================================== */
+/* ===================================
+   FOOTER
+=================================== */
 
 footer{
 
@@ -404,15 +424,21 @@ footer{
 
     text-align:center;
 
-    padding:30px;
+    padding:35px;
 
     margin-top:60px;
 
 }
 
-/* ==========================================
- RESPONSIVE
-========================================== */
+footer p{
+
+    font-size:15px;
+
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
 
 @media(max-width:900px){
 
@@ -424,9 +450,11 @@ footer{
 
 .nav-menu{
 
+    display:none;
+
     position:absolute;
 
-    top:90px;
+    top:95px;
     left:0;
 
     width:100%;
@@ -435,11 +463,9 @@ footer{
 
     flex-direction:column;
 
-    display:none;
-
     padding:25px 0;
 
-    box-shadow:0 15px 25px rgba(0,0,0,.12);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
 
 }
 
@@ -480,7 +506,7 @@ footer{
 
 .header-banner{
 
-    min-height:250px;
+    min-height:270px;
 
 }
 
@@ -504,7 +530,7 @@ footer{
 
 .block h2{
 
-    font-size:1.3rem;
+    font-size:1.4rem;
 
 }
 
