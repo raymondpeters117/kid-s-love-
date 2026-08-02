@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
 
 
 <title>
-Kid's Love Nursery | Parents & Teachers Portal
+Kid's Love Nursery | Portal Login
 </title>
 
 
@@ -18,11 +19,6 @@ Kid's Love Nursery | Parents & Teachers Portal
 
 <link rel="stylesheet" href="portal.css">
 
-
-<!-- Font Awesome Icons -->
-
-<link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
 </head>
@@ -55,16 +51,12 @@ alt="Kid's Love Nursery Logo">
 
 
 <span class="logo-title">
-
 KID'S LOVE NURSERY
-
 </span>
 
 
 <span class="logo-subtitle">
-
 & DAYCARE CENTRE – NAKASOZI
-
 </span>
 
 
@@ -77,20 +69,15 @@ KID'S LOVE NURSERY
 
 
 
+
 <button class="mobile-toggle"
-id="mobileToggle"
-aria-label="Toggle Navigation">
+id="mobileToggle">
 
 
-<span></span>
-
-<span></span>
-
-<span></span>
+☰
 
 
 </button>
-
 
 
 
@@ -116,13 +103,11 @@ About Us
 
 
 
-
 <li>
 <a href="academics.html">
 Academics
 </a>
 </li>
-
 
 
 
@@ -134,7 +119,6 @@ Admissions
 
 
 
-
 <li>
 <a href="gallery.html">
 Gallery
@@ -143,13 +127,11 @@ Gallery
 
 
 
-
 <li>
 <a href="projects.html">
 Projects
 </a>
 </li>
-
 
 
 
@@ -172,6 +154,7 @@ Portal
 </ul>
 
 
+
 </nav>
 
 
@@ -183,42 +166,77 @@ Portal
 
 
 
-<!-- ================= LOGIN SECTION ================= -->
+
+<!-- ================= PORTAL LOGIN ================= -->
 
 
-
-<main class="login-container">
+<section class="login-container">
 
 
 
 <div class="login-box">
 
 
+
 <h1>
-
+<i class="fa fa-school"></i>
+<br>
 Kid's Love Portal
-
 </h1>
+
+
+
+
+<p>
+Login to access your school account
+</p>
+
+
+
+
+
 <form onsubmit="login(); return false;">
 
-<div class="input-box">
+
+
+
+
+
+<div class="input-group">
+
+
+<label>
+Email Address
+</label>
+
 
 <input 
-id="email"
 type="email"
-placeholder="Enter your email"
+id="email"
+placeholder="Enter email"
 required>
 
 
 </div>
 
 
-<div class="input-box">
+
+
+
+
+
+
+<div class="input-group">
+
+
+<label>
+Password
+</label>
 
 
 <input 
-id="password"
 type="password"
+id="password"
 placeholder="Enter password"
 required>
 
@@ -227,21 +245,30 @@ required>
 
 
 
+
+
+
+
+
+<div class="input-group">
+
+
+<label>
+Account Type
+</label>
+
+
 <select id="role">
 
 
 <option value="parent">
-
 Parent
-
 </option>
 
 
 
 <option value="teacher">
-
 Teacher
-
 </option>
 
 
@@ -257,14 +284,9 @@ Teacher
 
 
 
-
 <button type="submit">
 
-
-<i class="fa-solid fa-right-to-bracket"></i>
-
 Login
-
 
 </button>
 
@@ -272,15 +294,16 @@ Login
 
 
 
-<p class="register-link">
+
+
+<p>
 
 
 Don't have an account?
 
+
 <a href="register.html">
-
 Register
-
 </a>
 
 
@@ -288,8 +311,9 @@ Register
 
 
 
-</form>
 
+
+</form>
 
 
 
@@ -297,7 +321,7 @@ Register
 
 
 
-</main>
+</section>
 
 
 
@@ -318,10 +342,14 @@ Kid's Love Nursery & Daycare Centre
 
 
 <p>
-
-© 2026 All Rights Reserved
-
+Learning Today, Leading Tomorrow
 </p>
+
+
+<p>
+© 2026 All Rights Reserved
+</p>
+
 
 
 </footer>
@@ -340,22 +368,21 @@ Kid's Love Nursery & Daycare Centre
 <script>
 
 
-const toggle =
+const menuButton =
 document.getElementById("mobileToggle");
 
 
-const menu =
+const nav =
 document.getElementById("navMenu");
 
 
 
-toggle.onclick = () =>{
+menuButton.onclick = function(){
 
-
-menu.classList.toggle("show");
-
+nav.classList.toggle("show");
 
 };
+
 
 
 </script>
@@ -364,4 +391,6 @@ menu.classList.toggle("show");
 
 </body>
 
+
 </html>
+```
