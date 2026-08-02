@@ -1,27 +1,24 @@
 /* ===================================================
    KID'S LOVE NURSERY & DAYCARE
-   ABOUT PAGE PROFESSIONAL CSS
+   ABOUT PAGE PREMIUM CSS
+   WITH HERO SLIDESHOW
 =================================================== */
 
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-
 /* ===============================
-ROOT VARIABLES
+   ROOT VARIABLES
 ================================ */
 
 :root{
 
-    --orange:#ff7a00;
-    --orange-dark:#e56b00;
+    --brand-red:#e53935;
 
-    --blue:#1565c0;
-    --blue-light:#42a5f5;
+    --brand-blue:#1565c0;
 
-    --yellow:#ffc107;
+    --brand-green:#43a047;
 
-    --green:#43a047;
+    --brand-yellow:#fbc02d;
+
 
     --white:#ffffff;
 
@@ -32,15 +29,24 @@ ROOT VARIABLES
     --gray:#666;
 
 
-    --shadow:
-    0 12px 35px rgba(0,0,0,.12);
+    --shadow-sm:
+    0 5px 15px rgba(0,0,0,.08);
 
 
-    --transition:.35s;
+    --shadow-md:
+    0 10px 30px rgba(0,0,0,.12);
+
+
+    --shadow-lg:
+    0 18px 45px rgba(0,0,0,.18);
+
+
+    --radius:18px;
+
+
+    --transition:.35s ease;
 
 }
-
-
 
 
 
@@ -71,21 +77,15 @@ html{
 
 body{
 
-
     font-family:'Poppins',sans-serif;
-
 
     background:var(--light);
 
-
     color:var(--dark);
-
 
     line-height:1.8;
 
-
     overflow-x:hidden;
-
 
 }
 
@@ -111,8 +111,6 @@ img{
 
 
 
-
-
 /* ===============================
 HEADER
 ================================ */
@@ -133,12 +131,11 @@ header{
     background:white;
 
 
-    box-shadow:
-    0 5px 20px rgba(0,0,0,.08);
-
+    box-shadow:var(--shadow-sm);
 
 
 }
+
 
 
 
@@ -154,22 +151,22 @@ header{
     margin:auto;
 
 
+    padding:15px 0;
+
 
     display:flex;
-
-
-    justify-content:space-between;
 
 
     align-items:center;
 
 
+    justify-content:space-between;
 
-    padding:15px 0;
+
+    position:relative;
 
 
 }
-
 
 
 
@@ -211,11 +208,24 @@ LOGO
     border-radius:50%;
 
 
-    border:4px solid var(--orange);
+    border:4px solid var(--brand-red);
 
+
+    transition:.35s;
 
 
 }
+
+
+
+.brand-logo:hover img{
+
+
+    transform:rotate(5deg) scale(1.05);
+
+
+}
+
 
 
 
@@ -241,10 +251,11 @@ LOGO
     font-weight:800;
 
 
-    color:var(--blue);
+    color:var(--brand-blue);
 
 
 }
+
 
 
 
@@ -263,7 +274,6 @@ LOGO
 
 
 
-
 /* ===============================
 NAVIGATION
 ================================ */
@@ -275,33 +285,24 @@ NAVIGATION
     display:flex;
 
 
-    align-items:center;
+    list-style:none;
 
 
     gap:30px;
 
 
-    list-style:none;
+    align-items:center;
 
 
 }
 
-
-
-.nav-links li{
-
-
-    list-style:none;
-
-
-}
 
 
 
 .nav-links a{
 
 
-    color:#333;
+    color:var(--dark);
 
 
     font-weight:600;
@@ -310,7 +311,7 @@ NAVIGATION
     position:relative;
 
 
-    transition:.3s;
+    transition:var(--transition);
 
 
 }
@@ -332,13 +333,13 @@ NAVIGATION
     bottom:-8px;
 
 
-    width:0;
-
-
     height:3px;
 
 
-    background:var(--orange);
+    width:0;
+
+
+    background:var(--brand-red);
 
 
     transition:.3s;
@@ -349,6 +350,7 @@ NAVIGATION
 
 
 .nav-links a:hover::after,
+
 
 .nav-links a.active::after{
 
@@ -362,10 +364,11 @@ NAVIGATION
 
 .nav-links a:hover,
 
+
 .nav-links a.active{
 
 
-    color:var(--orange);
+    color:var(--brand-red);
 
 
 }
@@ -374,9 +377,8 @@ NAVIGATION
 
 
 
-
 /* ===============================
-MOBILE BUTTON
+MOBILE TOGGLE
 ================================ */
 
 
@@ -395,10 +397,10 @@ MOBILE BUTTON
     border:none;
 
 
-    background:var(--orange);
-
-
     border-radius:10px;
+
+
+    background:var(--brand-red);
 
 
     cursor:pointer;
@@ -416,7 +418,6 @@ MOBILE BUTTON
     gap:5px;
 
 
-
 }
 
 
@@ -424,7 +425,7 @@ MOBILE BUTTON
 .mobile-toggle span{
 
 
-    width:22px;
+    width:23px;
 
 
     height:3px;
@@ -441,25 +442,49 @@ MOBILE BUTTON
 
 }
 /* ===================================================
-   HERO / PAGE BANNER
+   HERO SLIDESHOW
 =================================================== */
+
 
 .header-banner{
 
-    min-height:360px;
+    min-height:420px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     text-align:center;
 
     color:white;
 
-    padding:50px 20px;
+    position:relative;
+
+    overflow:hidden;
+
+}
 
 
-    background:
+
+/* BACKGROUND SLIDES */
+
+.header-banner::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+
+    background-size:cover;
+
+    background-position:center;
+
+
+    background-image:
 
     linear-gradient(
         rgba(0,0,0,.55),
@@ -469,42 +494,151 @@ MOBILE BUTTON
     url("IMG-20260707-WA0017.jpg");
 
 
-    background-size:cover;
+    animation:heroSlide 18s infinite;
 
-    background-position:center;
+
+    z-index:-1;
 
 }
 
+
+
+/* HERO TEXT */
 
 .header-banner div{
 
-    max-width:850px;
+    max-width:900px;
+
+    padding:20px;
+
+    animation:heroContent 1s ease;
 
 }
+
 
 
 .header-banner h1{
 
-    font-size:3.2rem;
+    font-size:3.3rem;
 
     font-weight:800;
 
-    margin-bottom:15px;
+    color:white;
 
-    animation:fadeDown .8s ease;
+    text-shadow:
+
+    0 5px 20px rgba(0,0,0,.5);
 
 }
 
 
+
 .header-banner p{
+
+    margin-top:20px;
 
     color:white;
 
     font-size:18px;
 
-    animation:fadeUp .8s ease;
+}
+
+
+
+/* HERO IMAGE CHANGING ANIMATION */
+
+@keyframes heroSlide{
+
+
+0%{
+
+background-image:
+
+linear-gradient(
+rgba(0,0,0,.55),
+rgba(0,0,0,.55)
+),
+
+url("IMG-20260707-WA0017.jpg");
 
 }
+
+
+
+33%{
+
+background-image:
+
+linear-gradient(
+rgba(21,101,192,.55),
+rgba(21,101,192,.55)
+),
+
+url("classroom.jpg");
+
+}
+
+
+
+66%{
+
+background-image:
+
+linear-gradient(
+rgba(67,160,71,.55),
+rgba(67,160,71,.55)
+),
+
+url("children.jpg");
+
+}
+
+
+
+100%{
+
+background-image:
+
+linear-gradient(
+rgba(0,0,0,.55),
+rgba(0,0,0,.55)
+),
+
+url("IMG-20260707-WA0017.jpg");
+
+}
+
+
+}
+
+
+
+
+@keyframes heroContent{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
 
 
 
@@ -527,24 +661,67 @@ MOBILE BUTTON
 
 
 
+
+
 /* ===================================================
-   CONTENT BLOCKS
+   INFORMATION CARDS
 =================================================== */
 
 
 .block{
 
+
     background:white;
+
 
     padding:45px;
 
-    margin-bottom:35px;
 
-    border-radius:22px;
+    border-radius:var(--radius);
 
-    box-shadow:var(--shadow);
 
-    transition:.35s;
+    margin-bottom:40px;
+
+
+    box-shadow:var(--shadow-md);
+
+
+    position:relative;
+
+
+    overflow:hidden;
+
+
+    transition:var(--transition);
+
+
+}
+
+
+
+.block::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    left:0;
+
+
+    top:0;
+
+
+    width:5px;
+
+
+    height:100%;
+
+
+    background:var(--brand-red);
+
 
 }
 
@@ -552,23 +729,33 @@ MOBILE BUTTON
 
 .block:hover{
 
-    transform:translateY(-8px);
+
+    transform:translateY(-10px);
+
+
+    box-shadow:var(--shadow-lg);
+
 
 }
 
 
 
+
+
 .block h2{
 
-    color:var(--blue);
+
+    color:var(--brand-blue);
+
 
     font-size:2rem;
 
+
     margin-bottom:25px;
+
 
     position:relative;
 
-    padding-bottom:12px;
 
 }
 
@@ -576,33 +763,42 @@ MOBILE BUTTON
 
 .block h2::after{
 
+
     content:"";
 
-    position:absolute;
 
-    left:0;
+    display:block;
 
-    bottom:0;
 
-    width:85px;
+    width:80px;
+
 
     height:4px;
 
-    background:var(--orange);
+
+    background:var(--brand-yellow);
+
+
+    margin-top:10px;
+
 
     border-radius:20px;
+
 
 }
 
 
 
+
+
 .block p{
 
-    color:#555;
 
-    font-size:16px;
+    color:var(--gray);
+
 
     margin-bottom:18px;
+
 
 }
 
@@ -610,14 +806,20 @@ MOBILE BUTTON
 
 .block strong{
 
-    color:var(--blue);
+
+    color:var(--brand-green);
+
 
 }
 
 
 
+
+
+
+
 /* ===================================================
-   ORGANIZATION TREE
+   MANAGEMENT STRUCTURE
 =================================================== */
 
 
@@ -636,20 +838,22 @@ MOBILE BUTTON
     align-items:center;
 
 
-    gap:15px;
+    gap:18px;
 
 
 }
 
 
 
+
+
 .org-node{
 
 
-    width:260px;
+    width:280px;
 
 
-    padding:18px 25px;
+    padding:20px;
 
 
     text-align:center;
@@ -658,7 +862,7 @@ MOBILE BUTTON
     color:white;
 
 
-    font-weight:600;
+    font-weight:700;
 
 
     border-radius:50px;
@@ -666,14 +870,19 @@ MOBILE BUTTON
 
     background:
 
+
     linear-gradient(
+
         135deg,
-        var(--blue),
-        var(--blue-light)
+
+        var(--brand-blue),
+
+        #42a5f5
+
     );
 
 
-    box-shadow:var(--shadow);
+    box-shadow:var(--shadow-md);
 
 
     transition:.35s;
@@ -683,16 +892,18 @@ MOBILE BUTTON
 
 
 
+
 .org-node i{
 
 
-    font-size:28px;
+    font-size:30px;
 
 
-    margin-bottom:8px;
+    margin-bottom:10px;
 
 
 }
+
 
 
 
@@ -702,7 +913,11 @@ MOBILE BUTTON
     transform:scale(1.08);
 
 
+    box-shadow:var(--shadow-lg);
+
+
 }
+
 
 
 
@@ -711,14 +926,20 @@ MOBILE BUTTON
 
     background:
 
+
     linear-gradient(
+
         135deg,
-        var(--orange),
-        #ff9800
+
+        var(--brand-red),
+
+        #ff7043
+
     );
 
 
 }
+
 
 
 
@@ -728,65 +949,10 @@ MOBILE BUTTON
     font-size:35px;
 
 
-    color:var(--orange);
+    color:var(--brand-yellow);
 
 
     font-weight:bold;
-
-
-}
-
-
-
-/* ===================================================
-   ANIMATIONS
-=================================================== */
-
-
-@keyframes fadeDown{
-
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(-40px);
-
-    }
-
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-
-}
-
-
-
-@keyframes fadeUp{
-
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(40px);
-
-    }
-
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
 
 
 }
@@ -797,13 +963,18 @@ MOBILE BUTTON
 
 footer{
 
-    background:#1d1d1d;
+
+    background:#111;
+
 
     color:white;
 
+
     padding:60px 8%;
 
+
     text-align:center;
+
 
 }
 
@@ -811,30 +982,71 @@ footer{
 
 .footer-grid{
 
+
     max-width:1200px;
+
 
     margin:auto;
 
+
     display:grid;
+
 
     grid-template-columns:
     repeat(auto-fit,minmax(250px,1fr));
 
+
     gap:35px;
 
-    margin-bottom:35px;
+
+    margin-bottom:40px;
+
 
 }
 
 
 
+.footer-grid div{
+
+
+    background:rgba(255,255,255,.05);
+
+
+    padding:30px;
+
+
+    border-radius:var(--radius);
+
+
+    transition:var(--transition);
+
+
+}
+
+
+
+.footer-grid div:hover{
+
+
+    transform:translateY(-8px);
+
+
+    background:rgba(255,255,255,.1);
+
+
+}
+
+
+
+
 .footer-grid h3{
 
-    color:var(--yellow);
 
-    font-size:1.2rem;
+    color:var(--brand-yellow);
+
 
     margin-bottom:15px;
+
 
 }
 
@@ -842,9 +1054,12 @@ footer{
 
 .footer-grid h3 i{
 
-    color:var(--orange);
+
+    color:var(--brand-red);
+
 
     margin-right:8px;
+
 
 }
 
@@ -852,23 +1067,29 @@ footer{
 
 .footer-grid p{
 
+
     color:#ddd;
 
-    margin:8px 0;
 
 }
 
 
 
+
 footer hr{
+
 
     border:none;
 
+
     height:1px;
+
 
     background:#444;
 
-    margin:30px 0;
+
+    margin:35px 0;
+
 
 }
 
@@ -876,11 +1097,17 @@ footer hr{
 
 footer > p{
 
-    color:#bbb;
+
+    color:#aaa;
+
 
     font-size:14px;
 
+
 }
+
+
+
 
 
 
@@ -892,23 +1119,29 @@ footer > p{
 @media(max-width:900px){
 
 
+
     .navbar{
+
 
         width:95%;
 
-        position:relative;
 
     }
+
 
 
 
     .mobile-toggle{
 
+
         display:flex;
+
 
         z-index:2000;
 
+
     }
+
 
 
 
@@ -945,15 +1178,15 @@ footer > p{
         padding:25px 0;
 
 
-        box-shadow:
-
-        0 15px 30px rgba(0,0,0,.15);
+        box-shadow:var(--shadow-md);
 
 
-        animation:menuDrop .3s ease;
+        animation:menuOpen .35s ease;
 
 
     }
+
+
 
 
 
@@ -964,6 +1197,8 @@ footer > p{
 
 
     }
+
+
 
 
 
@@ -980,29 +1215,30 @@ footer > p{
 
 
 
+
+
     .nav-links a{
 
 
         display:block;
 
 
-        width:100%;
-
-
         padding:15px;
 
 
-        font-size:16px;
+        width:100%;
 
 
     }
+
+
 
 
 
     .nav-links a:hover{
 
 
-        background:#f7f9fc;
+        background:var(--light);
 
 
     }
@@ -1013,19 +1249,10 @@ footer > p{
 
 
 
+
 /* ===================================================
    HAMBURGER ANIMATION
 =================================================== */
-
-
-.mobile-toggle span{
-
-
-    transition:.35s;
-
-
-}
-
 
 
 .mobile-toggle.active span:nth-child(1){
@@ -1042,6 +1269,7 @@ footer > p{
 
 
 
+
 .mobile-toggle.active span:nth-child(2){
 
 
@@ -1049,6 +1277,8 @@ footer > p{
 
 
 }
+
+
 
 
 
@@ -1066,6 +1296,11 @@ footer > p{
 
 
 
+
+
+
+
+
 /* ===================================================
    TABLET RESPONSIVE
 =================================================== */
@@ -1074,46 +1309,64 @@ footer > p{
 @media(max-width:900px){
 
 
-    .header-banner{
+
+.header-banner{
 
 
-        min-height:280px;
-
-
-    }
-
-
-
-    .header-banner h1{
-
-
-        font-size:2.3rem;
-
-
-    }
-
-
-
-    .container{
-
-
-        padding:60px 0;
-
-
-    }
-
-
-
-    .block{
-
-
-        padding:35px;
-
-
-    }
+    min-height:300px;
 
 
 }
+
+
+
+
+.header-banner h1{
+
+
+    font-size:2.4rem;
+
+
+}
+
+
+
+
+.header-banner p{
+
+
+    font-size:16px;
+
+
+}
+
+
+
+
+.container{
+
+
+    padding:60px 0;
+
+
+}
+
+
+
+.block{
+
+
+    padding:35px;
+
+
+}
+
+
+
+}
+
+
+
 
 
 
@@ -1126,433 +1379,573 @@ footer > p{
 @media(max-width:600px){
 
 
-    .brand-logo{
 
+.brand-logo img{
 
-        gap:10px;
 
+    width:55px;
 
-    }
 
+    height:55px;
 
 
-    .brand-logo img{
+}
 
 
-        width:55px;
 
-        height:55px;
 
+.logo-title{
 
-    }
 
+    font-size:.95rem;
 
 
-    .logo-title{
+}
 
 
-        font-size:.95rem;
 
 
-    }
+.logo-subtitle{
 
 
+    font-size:.65rem;
 
-    .logo-subtitle{
 
+}
 
-        font-size:.65rem;
 
 
-    }
 
+.header-banner{
 
 
-    .header-banner{
+    min-height:250px;
 
 
-        min-height:240px;
+}
 
 
-        padding:30px 15px;
 
 
-    }
+.header-banner h1{
 
 
+    font-size:1.8rem;
 
-    .header-banner h1{
 
+}
 
-        font-size:1.8rem;
 
 
-    }
 
+.header-banner p{
 
 
-    .header-banner p{
+    font-size:14px;
 
 
-        font-size:14px;
+}
 
 
-    }
 
 
+.container{
 
-    .container{
 
+    width:92%;
 
-        width:92%;
 
+    padding:45px 0;
 
-        padding:45px 0;
 
+}
 
-    }
 
 
 
-    .block{
+.block{
 
 
-        padding:25px;
+    padding:25px;
 
 
-        border-radius:15px;
+    border-radius:15px;
 
 
-    }
+}
 
 
 
-    .block h2{
 
 
-        font-size:1.4rem;
+.block h2{
 
 
-    }
+    font-size:1.4rem;
 
 
+}
 
-    .block p{
 
 
-        font-size:14px;
 
 
-    }
+.block p{
 
 
+    font-size:14px;
 
-    .org-node{
 
+}
 
-        width:100%;
 
 
-        padding:15px;
 
 
-    }
+.org-node{
 
 
+    width:100%;
 
-    footer{
 
+    font-size:14px;
 
-        padding:40px 20px;
 
+}
 
-    }
+
+
+
+
+footer{
+
+
+    padding:40px 20px;
+
+
+}
+
+
+
+
+.footer-grid div{
+
+
+    padding:20px;
+
+
+}
+
 
 
 
 }
 /* ===================================================
-   FINAL POLISH
+   FINAL ANIMATIONS
 =================================================== */
 
 
-/* Smooth page appearance */
+@keyframes fadeUp{
 
-body{
-
-    animation:pageLoad .6s ease;
-
-}
-
-
-@keyframes pageLoad{
 
     from{
 
+
         opacity:0;
 
+
+        transform:translateY(40px);
+
+
     }
+
 
     to{
 
+
         opacity:1;
+
+
+        transform:translateY(0);
+
 
     }
 
+
 }
+
+
+
+
+
+@keyframes fadeDown{
+
+
+    from{
+
+
+        opacity:0;
+
+
+        transform:translateY(-40px);
+
+
+    }
+
+
+    to{
+
+
+        opacity:1;
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+}
+
+
 
 
 
 /* ===================================================
-   LINK ACCESSIBILITY
+   PAGE LOAD EFFECT
+=================================================== */
+
+
+body{
+
+
+    animation:pageAppear .7s ease;
+
+
+}
+
+
+
+@keyframes pageAppear{
+
+
+    from{
+
+
+        opacity:0;
+
+
+    }
+
+
+    to{
+
+
+        opacity:1;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+/* ===================================================
+   CONTENT ANIMATION
+=================================================== */
+
+
+.block{
+
+
+    animation:fadeUp .8s ease both;
+
+
+}
+
+
+
+
+.org-node{
+
+
+    animation:fadeUp .8s ease both;
+
+
+}
+
+
+
+
+
+
+/* ===================================================
+   BUTTON AND INTERACTION EFFECTS
+=================================================== */
+
+
+button{
+
+
+    font-family:'Poppins',sans-serif;
+
+
+}
+
+
+
+
+
+.mobile-toggle{
+
+
+    transition:.35s;
+
+
+}
+
+
+
+
+.mobile-toggle:hover{
+
+
+    transform:scale(1.1);
+
+
+}
+
+
+
+
+
+
+/* ===================================================
+   SCROLLBAR
+=================================================== */
+
+
+::-webkit-scrollbar{
+
+
+    width:10px;
+
+
+}
+
+
+
+
+::-webkit-scrollbar-track{
+
+
+    background:#eeeeee;
+
+
+}
+
+
+
+
+
+::-webkit-scrollbar-thumb{
+
+
+    background:var(--brand-red);
+
+
+    border-radius:20px;
+
+
+}
+
+
+
+
+
+::-webkit-scrollbar-thumb:hover{
+
+
+    background:#b71c1c;
+
+
+}
+
+
+
+
+
+
+/* ===================================================
+   FOCUS ACCESSIBILITY
 =================================================== */
 
 
 a:focus,
 button:focus{
 
-    outline:3px solid rgba(255,122,0,.4);
 
-    outline-offset:3px;
+    outline:3px solid var(--brand-yellow);
+
+
+    outline-offset:4px;
+
 
 }
+
+
+
 
 
 
 /* ===================================================
-   BUTTON / MENU INTERACTION
-=================================================== */
-
-
-.mobile-toggle:hover{
-
-    background:var(--orange-dark);
-
-    transform:scale(1.05);
-
-}
-
-
-
-.mobile-toggle{
-
-    transition:.3s;
-
-}
-
-
-
-/* ===================================================
-   LOGO HOVER
-=================================================== */
-
-
-.brand-logo:hover img{
-
-    transform:rotate(5deg) scale(1.05);
-
-}
-
-
-
-.brand-logo img{
-
-    transition:.35s;
-
-}
-
-
-
-/* ===================================================
-   NAV ACTIVE EFFECT
-=================================================== */
-
-
-.nav-links a.active{
-
-    font-weight:700;
-
-}
-
-
-
-.nav-links a.active::after{
-
-    width:100%;
-
-}
-
-
-
-/* ===================================================
-   MANAGEMENT ICON EFFECT
-=================================================== */
-
-
-.org-node i{
-
-    transition:.35s;
-
-}
-
-
-
-.org-node:hover i{
-
-    transform:translateY(-5px);
-
-}
-
-
-
-/* ===================================================
-   CONTENT SCROLL EFFECT SUPPORT
-=================================================== */
-
-
-.block,
-.org-node,
-.footer-grid > div{
-
-
-    animation:fadeUp .7s ease both;
-
-
-}
-
-
-
-/* ===================================================
-   CUSTOM SCROLLBAR
-=================================================== */
-
-
-::-webkit-scrollbar{
-
-    width:10px;
-
-}
-
-
-
-::-webkit-scrollbar-track{
-
-    background:#f1f1f1;
-
-}
-
-
-
-::-webkit-scrollbar-thumb{
-
-    background:var(--orange);
-
-    border-radius:20px;
-
-}
-
-
-
-::-webkit-scrollbar-thumb:hover{
-
-    background:var(--orange-dark);
-
-}
-
-
-
-/* ===================================================
-   LARGE SCREENS
+   LARGE SCREEN IMPROVEMENT
 =================================================== */
 
 
 @media(min-width:1400px){
 
 
-    .navbar{
+
+.navbar{
 
 
-        max-width:1450px;
-
-
-    }
-
-
-
-    .header-banner h1{
-
-
-        font-size:3.8rem;
-
-
-    }
-
-
-
-    .container{
-
-
-        max-width:1300px;
-
-
-    }
+    max-width:1500px;
 
 
 }
 
 
 
+
+.container{
+
+
+    max-width:1300px;
+
+
+}
+
+
+
+
+
+.header-banner h1{
+
+
+    font-size:4rem;
+
+
+}
+
+
+
+
+}
+
+
+
+
 /* ===================================================
-   EXTRA SMALL DEVICES
+   VERY SMALL DEVICES
 =================================================== */
 
 
 @media(max-width:380px){
 
 
-    .logo-title{
 
-        font-size:.85rem;
-
-    }
+.brand-logo{
 
 
+    gap:8px;
 
-    .logo-subtitle{
 
-        display:none;
-
-    }
+}
 
 
 
-    .mobile-toggle{
 
-        width:40px;
-
-        height:40px;
-
-    }
+.logo-title{
 
 
+    font-size:.8rem;
 
-    .header-banner h1{
 
-        font-size:1.5rem;
-
-    }
+}
 
 
 
-    .block{
 
-        padding:20px;
+.logo-subtitle{
 
-    }
+
+    display:none;
+
+
+}
+
+
+
+
+
+.mobile-toggle{
+
+
+    width:40px;
+
+
+    height:40px;
+
+
+}
+
+
+
+
+
+.header-banner h1{
+
+
+    font-size:1.5rem;
+
+
+}
+
+
+
+
+
+.block{
+
+
+    padding:20px;
+
+
+}
+
+
+
+
+
+.org-node{
+
+
+    padding:15px;
+
+
+}
 
 
 
 }
+
+
+
 
 
 
@@ -1564,17 +1957,24 @@ button:focus{
 @media(prefers-reduced-motion:reduce){
 
 
-    *{
 
-        animation-duration:0.01ms !important;
+*{
 
-        animation-iteration-count:1 !important;
 
-        transition-duration:0.01ms !important;
+    animation-duration:.01ms !important;
 
-        scroll-behavior:auto !important;
 
-    }
+    animation-iteration-count:1 !important;
+
+
+    transition-duration:.01ms !important;
+
+
+    scroll-behavior:auto !important;
+
+
+}
+
 
 
 }
