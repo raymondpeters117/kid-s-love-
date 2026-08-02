@@ -1,4 +1,16 @@
+/* ===================================================
+   KID'S LOVE NURSERY & DAYCARE
+   ABOUT PAGE PROFESSIONAL CSS
+   WITH ANIMATED HERO SLIDESHOW
+=================================================== */
+
+
+/* ===============================
+   ROOT VARIABLES
+================================ */
+
 :root{
+
     --brand-red:#e53935;
     --brand-blue:#1565c0;
     --brand-green:#43a047;
@@ -9,10 +21,1751 @@
     --dark:#222;
     --gray:#666;
 
-    --shadow-sm:0 5px 15px rgba(0,0,0,.08);
-    --shadow-md:0 10px 30px rgba(0,0,0,.12);
-    --shadow-lg:0 18px 45px rgba(0,0,0,.18);
+    --shadow-sm:
+    0 5px 15px rgba(0,0,0,.08);
+
+    --shadow-md:
+    0 10px 30px rgba(0,0,0,.12);
+
+    --shadow-lg:
+    0 18px 45px rgba(0,0,0,.18);
 
     --radius:18px;
+
     --transition:.35s ease;
+
+}
+
+
+/* ===============================
+ RESET
+================================ */
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--light);
+
+    color:var(--dark);
+
+    line-height:1.7;
+
+    overflow-x:hidden;
+
+}
+
+
+
+a{
+
+    text-decoration:none;
+
+}
+
+
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+
+
+/* ===============================
+ HEADER
+================================ */
+
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+
+
+.navbar{
+
+    width:92%;
+
+    max-width:1350px;
+
+    margin:auto;
+
+    padding:15px 0;
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+/* ===============================
+ LOGO
+================================ */
+
+
+.brand-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+
+.brand-logo img{
+
+
+    width:70px;
+
+    height:70px;
+
+
+    object-fit:cover;
+
+
+    border-radius:50%;
+
+
+    border:4px solid var(--brand-red);
+
+
+    transition:.4s;
+
+
+}
+
+
+
+.brand-logo img:hover{
+
+    transform:rotate(10deg) scale(1.05);
+
+}
+
+
+
+.logo-text-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+
+.logo-title{
+
+    font-size:1.25rem;
+
+    font-weight:800;
+
+    color:var(--brand-blue);
+
+}
+
+
+
+.logo-subtitle{
+
+    color:var(--gray);
+
+    font-size:.75rem;
+
+}
+
+
+
+/* ===============================
+ NAVIGATION
+================================ */
+
+
+.nav-links{
+
+
+    display:flex;
+
+    gap:30px;
+
+    list-style:none;
+
+    align-items:center;
+
+
+}
+
+
+
+.nav-links li{
+
+    list-style:none;
+
+}
+
+
+
+.nav-links a{
+
+
+    color:var(--dark);
+
+    font-weight:600;
+
+    position:relative;
+
+    transition:var(--transition);
+
+
+}
+
+
+
+.nav-links a::after{
+
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    height:3px;
+
+    width:0;
+
+    background:var(--brand-red);
+
+    transition:.3s;
+
+
+}
+
+
+
+.nav-links a:hover::after,
+
+.nav-links a.active::after{
+
+
+    width:100%;
+
+
+}
+
+
+
+.nav-links a:hover,
+
+.nav-links a.active{
+
+
+    color:var(--brand-red);
+
+
+}
+
+
+
+/* ===============================
+ MOBILE TOGGLE
+================================ */
+
+
+.mobile-toggle{
+
+
+    display:none;
+
+
+    width:45px;
+
+    height:45px;
+
+
+    border:none;
+
+    cursor:pointer;
+
+
+    background:var(--brand-red);
+
+
+    border-radius:12px;
+
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:5px;
+
+
+}
+
+
+
+.mobile-toggle span{
+
+
+    width:24px;
+
+    height:3px;
+
+    background:white;
+
+    border-radius:20px;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+/* Hamburger animation */
+
+
+.mobile-toggle.active span:nth-child(1){
+
+    transform:
+
+    rotate(45deg)
+    translate(5px,5px);
+
+}
+
+
+.mobile-toggle.active span:nth-child(2){
+
+    opacity:0;
+
+}
+
+
+.mobile-toggle.active span:nth-child(3){
+
+    transform:
+
+    rotate(-45deg)
+    translate(6px,-6px);
+
+}
+/* ===============================
+   HERO SLIDESHOW
+================================ */
+
+
+.header-banner{
+
+    min-height:420px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:50px 20px;
+
+
+}
+
+
+/* Animated background images */
+
+.header-banner::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+
+    background-image:
+
+    linear-gradient(
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.55)
+    ),
+
+    url("IMG-20260707-WA0017.jpg");
+
+
+    background-size:cover;
+
+    background-position:center;
+
+
+    animation:
+
+    heroSlide 18s infinite;
+
+
+    z-index:0;
+
+}
+
+
+
+
+.header-banner div{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:900px;
+
+}
+
+
+
+.header-banner h1{
+
+
+    font-size:3.2rem;
+
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+
+    animation:
+
+    fadeDown .9s ease;
+
+
+}
+
+
+
+.header-banner p{
+
+
+    margin-top:18px;
+
+    font-size:1.1rem;
+
+    color:white;
+
+
+    animation:
+
+    fadeUp 1.2s ease;
+
+
+}
+
+
+
+/* Background slideshow animation */
+
+
+@keyframes heroSlide{
+
+
+0%{
+
+background-image:
+
+linear-gradient(
+rgba(0,0,0,.55),
+rgba(0,0,0,.55)
+),
+
+url("IMG-20260707-WA0017.jpg");
+
+}
+
+
+
+33%{
+
+background-image:
+
+linear-gradient(
+rgba(0,0,0,.55),
+rgba(0,0,0,.55)
+),
+
+url("school.jpg");
+
+}
+
+
+
+
+66%{
+
+background-image:
+
+linear-gradient(
+rgba(0,0,0,.55),
+rgba(0,0,0,.55)
+),
+
+url("children.jpg");
+
+}
+
+
+
+100%{
+
+background-image:
+
+linear-gradient(
+rgba(0,0,0,.55),
+rgba(0,0,0,.55)
+),
+
+url("playground.jpg");
+
+}
+
+
+}
+
+
+
+
+/* ===============================
+ ANIMATIONS
+================================ */
+
+
+@keyframes fadeDown{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(-40px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+@keyframes fadeUp{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+/* ===============================
+ MAIN CONTAINER
+================================ */
+
+
+.container{
+
+
+width:90%;
+
+max-width:1200px;
+
+margin:auto;
+
+padding:80px 0;
+
+
+}
+
+
+
+
+
+/* ===============================
+ CONTENT BLOCKS
+================================ */
+
+
+.block{
+
+
+background:var(--white);
+
+
+padding:45px;
+
+
+border-radius:var(--radius);
+
+
+margin-bottom:40px;
+
+
+box-shadow:var(--shadow-md);
+
+
+transition:var(--transition);
+
+
+position:relative;
+
+overflow:hidden;
+
+
+}
+
+
+
+
+.block::before{
+
+
+content:"";
+
+
+position:absolute;
+
+
+top:0;
+
+left:0;
+
+
+width:6px;
+
+height:100%;
+
+
+background:
+
+linear-gradient(
+var(--brand-red),
+var(--brand-blue)
+);
+
+
+}
+
+
+
+
+.block:hover{
+
+
+transform:
+
+translateY(-10px);
+
+
+box-shadow:var(--shadow-lg);
+
+
+}
+
+
+
+
+
+.block h2{
+
+
+font-size:2rem;
+
+
+color:var(--brand-blue);
+
+
+margin-bottom:25px;
+
+
+position:relative;
+
+
+}
+
+
+
+
+.block h2::after{
+
+
+content:"";
+
+
+position:absolute;
+
+
+left:0;
+
+
+bottom:-8px;
+
+
+height:4px;
+
+
+width:80px;
+
+
+background:var(--brand-red);
+
+
+border-radius:20px;
+
+
+}
+
+
+
+
+
+.block p{
+
+
+color:var(--gray);
+
+
+margin-bottom:18px;
+
+
+font-size:16px;
+
+
+}
+
+
+
+.block strong{
+
+
+color:var(--brand-blue);
+
+
+}
+
+
+
+/* ===============================
+ MANAGEMENT TREE
+================================ */
+
+
+.org-tree{
+
+
+margin-top:40px;
+
+
+display:flex;
+
+
+flex-direction:column;
+
+
+align-items:center;
+
+
+gap:15px;
+
+
+}
+
+
+
+
+
+.org-node{
+
+
+width:260px;
+
+
+padding:18px;
+
+
+text-align:center;
+
+
+background:
+
+
+linear-gradient(
+135deg,
+var(--brand-blue),
+#42a5f5
+);
+
+
+color:white;
+
+
+font-weight:700;
+
+
+border-radius:50px;
+
+
+box-shadow:var(--shadow-md);
+
+
+transition:var(--transition);
+
+
+}
+
+
+
+
+.org-node:hover{
+
+
+transform:
+
+scale(1.08);
+
+
+}
+
+
+
+
+.org-node.director{
+
+
+background:
+
+
+linear-gradient(
+135deg,
+var(--brand-red),
+#ff7043
+);
+
+
+}
+
+
+
+
+.arrow{
+
+
+font-size:35px;
+
+
+font-weight:bold;
+
+
+color:var(--brand-red);
+
+
+animation:
+
+bounce 1.5s infinite;
+
+
+}
+
+
+
+
+@keyframes bounce{
+
+
+50%{
+
+transform:translateY(10px);
+
+}
+
+
+}
+/* ===============================
+   FOOTER
+================================ */
+
+
+footer{
+
+
+    background:#1b1b1b;
+
+
+    color:white;
+
+
+    padding:60px 8%;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+.footer-grid{
+
+
+    max-width:1200px;
+
+
+    margin:auto;
+
+
+    display:grid;
+
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+
+    gap:40px;
+
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+.footer-grid h3{
+
+
+    color:var(--brand-yellow);
+
+
+    font-size:1.2rem;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.footer-grid h3 i{
+
+
+    color:var(--brand-red);
+
+
+    margin-right:8px;
+
+
+}
+
+
+
+.footer-grid p{
+
+
+    color:#ddd;
+
+
+    margin:8px 0;
+
+
+}
+
+
+
+footer hr{
+
+
+    border:none;
+
+
+    height:1px;
+
+
+    background:#444;
+
+
+    margin:30px 0;
+
+
+}
+
+
+
+footer>p{
+
+
+    color:#aaa;
+
+
+}
+
+
+
+/* ===============================
+ RESPONSIVE DESIGN
+================================ */
+
+
+
+@media(max-width:950px){
+
+
+
+.navbar{
+
+
+    width:95%;
+
+
+}
+
+
+
+.mobile-toggle{
+
+
+    display:flex;
+
+
+}
+
+
+
+.nav-links{
+
+
+    position:absolute;
+
+
+    top:100%;
+
+
+    left:0;
+
+
+    width:100%;
+
+
+    background:white;
+
+
+    flex-direction:column;
+
+
+    gap:0;
+
+
+    padding:25px 0;
+
+
+    display:none;
+
+
+    box-shadow:var(--shadow-md);
+
+
+    animation:menuDown .35s ease;
+
+
+}
+
+
+
+
+.nav-links.show{
+
+
+    display:flex;
+
+
+}
+
+
+
+
+.nav-links li{
+
+
+    width:100%;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+.nav-links a{
+
+
+    display:block;
+
+
+    padding:14px;
+
+
+}
+
+
+
+
+.nav-links a:hover{
+
+
+    background:#f7f9fc;
+
+
+}
+
+
+
+.header-banner{
+
+
+    min-height:330px;
+
+
+}
+
+
+
+
+.header-banner h1{
+
+
+    font-size:2.4rem;
+
+
+}
+
+
+
+}
+
+
+
+@keyframes menuDown{
+
+
+from{
+
+
+opacity:0;
+
+transform:translateY(-20px);
+
+
+}
+
+
+to{
+
+
+opacity:1;
+
+transform:translateY(0);
+
+
+}
+
+
+}
+
+
+
+
+@media(max-width:600px){
+
+
+
+.logo-title{
+
+
+    font-size:1rem;
+
+
+}
+
+
+
+.logo-subtitle{
+
+
+    font-size:.65rem;
+
+
+}
+
+
+
+.brand-logo img{
+
+
+    width:55px;
+
+
+    height:55px;
+
+
+}
+
+
+
+
+.header-banner{
+
+
+    min-height:260px;
+
+
+    padding:30px 15px;
+
+
+}
+
+
+
+
+.header-banner h1{
+
+
+    font-size:1.8rem;
+
+
+}
+
+
+
+
+.header-banner p{
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+.container{
+
+
+    width:92%;
+
+
+    padding:50px 0;
+
+
+}
+
+
+
+
+.block{
+
+
+    padding:25px;
+
+
+    border-radius:15px;
+
+
+}
+
+
+
+
+.block h2{
+
+
+    font-size:1.4rem;
+
+
+}
+
+
+
+
+.org-node{
+
+
+    width:100%;
+
+
+    font-size:15px;
+
+
+}
+
+
+
+.footer-grid{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+}
+/* ===================================================
+   EXTRA PROFESSIONAL EFFECTS
+=================================================== */
+
+
+/* ===============================
+   SCROLL REVEAL STYLE
+================================ */
+
+
+.block,
+.org-node,
+.footer-grid div{
+
+
+    animation:
+
+    reveal .8s ease both;
+
+
+}
+
+
+
+@keyframes reveal{
+
+
+from{
+
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+
+}
+
+
+to{
+
+
+    opacity:1;
+
+    transform:translateY(0);
+
+
+}
+
+
+}
+
+
+
+
+
+/* ===============================
+   ICON ANIMATIONS
+================================ */
+
+
+.org-node i{
+
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+    display:inline-block;
+
+    transition:.35s;
+
+
+}
+
+
+
+.org-node:hover i{
+
+
+    transform:
+
+    rotateY(360deg);
+
+
+}
+
+
+
+
+
+.footer-grid i{
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.footer-grid h3:hover i{
+
+
+    transform:scale(1.3);
+
+
+}
+
+
+
+/* ===============================
+   HERO TEXT EFFECT
+================================ */
+
+
+.header-banner h1{
+
+
+    text-shadow:
+
+    0 5px 20px rgba(0,0,0,.5);
+
+
+}
+
+
+
+
+.header-banner p{
+
+
+    text-shadow:
+
+    0 3px 12px rgba(0,0,0,.5);
+
+
+}
+
+
+
+
+
+/* ===============================
+   SMOOTH PAGE LOAD
+================================ */
+
+
+body{
+
+
+    animation:
+
+    pageLoad .7s ease;
+
+
+}
+
+
+
+@keyframes pageLoad{
+
+
+from{
+
+
+opacity:0;
+
+
+}
+
+
+
+to{
+
+
+opacity:1;
+
+
+}
+
+
+}
+
+
+
+
+
+/* ===============================
+   CUSTOM SCROLLBAR
+================================ */
+
+
+::-webkit-scrollbar{
+
+
+    width:10px;
+
+
+}
+
+
+
+::-webkit-scrollbar-track{
+
+
+    background:#eee;
+
+
+}
+
+
+
+::-webkit-scrollbar-thumb{
+
+
+    background:
+
+    linear-gradient(
+    var(--brand-red),
+    var(--brand-blue)
+    );
+
+
+    border-radius:20px;
+
+
+}
+
+
+
+::-webkit-scrollbar-thumb:hover{
+
+
+    background:var(--brand-blue);
+
+
+}
+
+
+
+
+
+/* ===============================
+   BUTTON STYLE SUPPORT
+================================ */
+
+
+button{
+
+
+    font-family:'Poppins',sans-serif;
+
+
+}
+
+
+
+
+
+/* ===============================
+   MOBILE TOUCH IMPROVEMENTS
+================================ */
+
+
+@media(max-width:600px){
+
+
+    .mobile-toggle{
+
+
+        width:42px;
+
+        height:42px;
+
+
+    }
+
+
+
+    .mobile-toggle span{
+
+
+        width:20px;
+
+
+    }
+
+
+
+    .header-banner::before{
+
+
+        animation-duration:25s;
+
+
+    }
+
+
+}
+
+
+
+/* ===============================
+   HERO SLIDESHOW IMAGE ZOOM
+================================ */
+
+
+.header-banner::before{
+
+
+    animation:
+
+    heroSlide 18s infinite,
+    heroZoom 18s infinite;
+
+
+}
+
+
+
+@keyframes heroZoom{
+
+
+0%{
+
+
+    background-size:100%;
+
+
+}
+
+
+50%{
+
+
+    background-size:115%;
+
+
+}
+
+
+
+100%{
+
+
+    background-size:100%;
+
+
+}
+
+
+}
+
+
+
+
+/* ===============================
+   ACCESSIBILITY
+================================ */
+
+
+a:focus,
+button:focus{
+
+
+    outline:3px solid var(--brand-yellow);
+
+    outline-offset:4px;
+
+
 }
