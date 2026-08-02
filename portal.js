@@ -1,60 +1,29 @@
-/* =====================================================
-   KID'S LOVE NURSERY
-   MOBILE NAVIGATION TOGGLE
-===================================================== */
+// ================================
+// MOBILE NAVIGATION TOGGLE
+// ================================
 
 
 const mobileToggle = document.getElementById("mobileToggle");
-
 const navMenu = document.getElementById("navMenu");
 
 
-
-if(mobileToggle && navMenu){
-
-
-    mobileToggle.addEventListener("click",()=>{
+mobileToggle.addEventListener("click", function(){
 
 
-        navMenu.classList.toggle("show");
+    navMenu.classList.toggle("show");
 
 
-        // Change button icon
+    // Change menu icon
 
-        if(navMenu.classList.contains("show")){
+    if(navMenu.classList.contains("show")){
 
-            mobileToggle.innerHTML="✖";
+        mobileToggle.innerHTML = "✖";
 
-        }
+    }else{
 
-        else{
+        mobileToggle.innerHTML = "☰";
 
-            mobileToggle.innerHTML="☰";
-
-        }
+    }
 
 
-    });
-
-
-
-    // Close menu when clicking a link
-
-    document.querySelectorAll(".nav-links a")
-    .forEach(link=>{
-
-
-        link.addEventListener("click",()=>{
-
-            navMenu.classList.remove("show");
-
-            mobileToggle.innerHTML="☰";
-
-        });
-
-
-    });
-
-
-
-}
+});
