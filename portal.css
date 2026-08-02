@@ -1,297 +1,285 @@
+/* =========================================
+   KID'S LOVE NURSERY
+   PARENTS & TEACHERS PORTAL CSS
+========================================= */
+
+
+/* GOOGLE FONT */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+
 *{
+
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:'Poppins',sans-serif;
+
 }
+
 
 
 body{
-background:#f7f9fc;
-color:#333;
-}
 
-
-/* HEADER */
-
-header{
+min-height:100vh;
 
 display:flex;
-justify-content:space-between;
+
+justify-content:center;
+
 align-items:center;
-padding:15px 8%;
-background:white;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
-
-}
-
-
-
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-
-.logo img{
-
-width:60px;
-height:60px;
-border-radius:50%;
-object-fit:cover;
-
-}
-
-
-
-nav a{
-
-text-decoration:none;
-margin-left:25px;
-color:#333;
-font-weight:500;
-
-}
-
-
-nav .active{
-
-color:#ff7a00;
-
-}
-
-
-
-/* HERO */
-
-
-.hero{
 
 background:
+
 linear-gradient(
-rgba(0,0,0,.5),
-rgba(0,0,0,.5)
+rgba(21,101,192,.7),
+rgba(255,122,0,.7)
 ),
-url("kids.jpg");
 
+url("../images/school-bg.jpg");
 
-height:350px;
 
 background-size:cover;
+
 background-position:center;
 
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
-color:white;
-text-align:center;
-
 }
 
 
 
-.hero h1{
-
-font-size:45px;
-
-}
+/* LOGIN BOX */
 
 
-.hero p{
-
-font-size:18px;
-
-}
+.login-box{
 
 
-
-/* PORTAL */
-
-
-.portal{
-
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:40px;
-padding:70px 10%;
-
-}
-
-
-
-.card{
+width:400px;
 
 background:white;
-padding:40px;
-text-align:center;
-border-radius:20px;
+
+padding:40px 35px;
+
+border-radius:25px;
+
 
 box-shadow:
-0 10px 30px rgba(0,0,0,.1);
+
+0 15px 40px rgba(0,0,0,.2);
+
+
+text-align:center;
+
+
+animation:slide .6s ease;
+
+
+}
+
+
+
+@keyframes slide{
+
+
+from{
+
+transform:translateY(-40px);
+
+opacity:0;
+
+}
+
+
+to{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+
+}
+
+
+
+
+
+.login-box h1{
+
+
+font-size:30px;
+
+color:#1565c0;
+
+margin-bottom:30px;
+
+font-weight:700;
+
+
+}
+
+
+
+
+/* INPUTS */
+
+
+.login-box input,
+.login-box select{
+
+
+width:100%;
+
+padding:14px 18px;
+
+margin:12px 0;
+
+border:1px solid #ddd;
+
+border-radius:30px;
+
+font-size:15px;
+
+outline:none;
 
 transition:.3s;
 
-}
-
-
-
-.card:hover{
-
-transform:translateY(-10px);
 
 }
 
 
 
-.icon{
+.login-box input:focus,
+.login-box select:focus{
 
-font-size:50px;
+
+border-color:#ff7a00;
+
+box-shadow:0 0 10px rgba(255,122,0,.3);
+
 
 }
 
 
 
-.card h2{
-
-margin:20px 0;
-color:#1565c0;
-
-}
 
 
+/* BUTTON */
 
-.card button{
 
-margin-top:25px;
+.login-box button{
 
-padding:12px 35px;
+
+width:100%;
+
+padding:14px;
+
+margin-top:20px;
+
 
 border:none;
 
 border-radius:30px;
 
+
 background:#ff7a00;
+
 
 color:white;
 
-font-size:16px;
+
+font-size:17px;
+
+font-weight:600;
+
 
 cursor:pointer;
 
-}
 
+transition:.3s;
 
-
-/* FEATURES */
-
-
-.features{
-
-padding:50px 10%;
-text-align:center;
 
 }
 
 
 
-.feature-grid{
+.login-box button:hover{
 
-display:grid;
-
-grid-template-columns:repeat(4,1fr);
-
-gap:25px;
-
-margin-top:40px;
-
-}
-
-
-
-.feature-grid div{
-
-background:white;
-
-padding:25px;
-
-border-radius:15px;
-
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-
-}
-
-
-
-.notice{
-
-margin:50px 10%;
-
-padding:30px;
-
-background:#fff3e0;
-
-border-left:6px solid #ff7a00;
-
-border-radius:10px;
-
-}
-
-
-
-footer{
 
 background:#1565c0;
 
-color:white;
+transform:translateY(-3px);
 
-text-align:center;
-
-padding:20px;
 
 }
 
 
 
 
-@media(max-width:800px){
+/* REGISTER LINK */
 
 
-header{
-
-flex-direction:column;
-
-}
+.login-box p{
 
 
-nav{
+margin-top:25px;
 
-margin-top:20px;
+color:#666;
 
-}
+font-size:14px;
 
-
-.portal{
-
-grid-template-columns:1fr;
 
 }
 
 
 
-.feature-grid{
+.login-box a{
 
-grid-template-columns:1fr;
+
+color:#ff7a00;
+
+font-weight:600;
+
+text-decoration:none;
+
 
 }
 
 
-.hero h1{
 
-font-size:30px;
+.login-box a:hover{
+
+
+text-decoration:underline;
+
 
 }
+
+
+
+/* RESPONSIVE */
+
+
+@media(max-width:500px){
+
+
+.login-box{
+
+width:90%;
+
+padding:35px 25px;
+
+}
+
+
+
+.login-box h1{
+
+font-size:25px;
+
+}
+
 
 }
