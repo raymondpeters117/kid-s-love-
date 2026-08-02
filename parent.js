@@ -47,7 +47,71 @@ user.phone;
 
 document.getElementById("childName").innerHTML =
 user.child || "No child assigned";
+// LOAD ATTENDANCE
 
+
+let attendance =
+JSON.parse(
+localStorage.getItem("attendance")
+) || [];
+
+
+
+let attendanceBox =
+document.getElementById("attendance");
+
+
+
+let childAttendance =
+attendance.filter(
+item =>
+item.student === user.child
+);
+
+
+
+
+if(childAttendance.length===0){
+
+
+attendanceBox.innerHTML =
+"No attendance records yet";
+
+
+}
+
+else{
+
+
+attendanceBox.innerHTML="";
+
+
+childAttendance.forEach(item=>{
+
+
+attendanceBox.innerHTML +=
+
+`
+<p>
+📅 ${item.date}
+<br>
+Status:
+<b>${item.status}</b>
+
+<br>
+Teacher:
+${item.teacher}
+
+</p>
+<hr>
+`;
+
+
+
+});
+
+
+}
 
 
 
