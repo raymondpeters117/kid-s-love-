@@ -1,12 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Portal Login</title>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Kid's Love Nursery | Parents & Teachers Portal
+</title>
+
+
+<link rel="icon" href="IMG-20260707-WA0017.jpg">
+
+
 <link rel="stylesheet" href="portal.css">
 
+
+<!-- Font Awesome Icons -->
+
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
 </head>
+
+
+
+<body>
+
+
+
+<!-- ================= HEADER ================= -->
+
+
 <header>
 
 
@@ -18,7 +47,7 @@
 
 
 <img src="IMG-20260707-WA0017.jpg"
-alt="Kid's Love Nursery Badge">
+alt="Kid's Love Nursery Logo">
 
 
 
@@ -48,19 +77,19 @@ KID'S LOVE NURSERY
 
 
 
-
 <button class="mobile-toggle"
 id="mobileToggle"
-aria-label="Open menu">
+aria-label="Toggle Navigation">
 
 
 <span></span>
+
 <span></span>
+
 <span></span>
 
 
 </button>
-
 
 
 
@@ -106,9 +135,8 @@ Admissions
 
 
 
-
 <li>
-<a href="gallery.html" class="active">
+<a href="gallery.html">
 Gallery
 </a>
 </li>
@@ -116,14 +144,11 @@ Gallery
 
 
 
-
 <li>
 <a href="projects.html">
-Development Projects
+Projects
 </a>
 </li>
-
-
 
 
 
@@ -134,13 +159,17 @@ Contact
 </a>
 </li>
 
-<li>
-  <a href="portal.html">
-    Portal
-  </a>
-</li>
-</ul>
 
+
+<li>
+<a href="portal.html" class="active">
+Portal
+</a>
+</li>
+
+
+
+</ul>
 
 
 </nav>
@@ -149,55 +178,260 @@ Contact
 </header>
 
 
-<body>
+
+
+
+
+
+<!-- ================= LOGIN SECTION ================= -->
+
+
+
+<main class="login-container">
+
 
 
 <div class="login-box">
 
 
-<h1>Kid's Love Portal</h1>
 
+<div class="portal-icon">
 
-<input id="email" placeholder="Email">
+<i class="fa-solid fa-school"></i>
 
-
-<input id="password" type="password" placeholder="Password">
-
-
-
-<select id="role">
-
-<option value="parent">
-Parent
-</option>
-
-
-<option value="teacher">
-Teacher
-</option>
-
-</select>
+</div>
 
 
 
-<button onclick="login()">
-Login
-</button>
+
+<h1>
+
+Kid's Love Portal
+
+</h1>
 
 
-<p>
-No account?
-<a href="register.html">
-Register
-</a>
+
+
+<p class="login-text">
+
+Access your child's learning and school information
+
 </p>
+
+
+
+
+
+
+<form onsubmit="login(); return false;">
+
+
+
+<label for="email">
+
+Email Address
+
+</label>
+
+
+<div class="input-box">
+
+
+<i class="fa-solid fa-envelope"></i>
+
+
+<input 
+id="email"
+type="email"
+placeholder="Enter your email"
+required>
 
 
 </div>
 
 
 
+
+
+
+
+
+<label for="password">
+
+Password
+
+</label>
+
+
+<div class="input-box">
+
+
+<i class="fa-solid fa-lock"></i>
+
+
+<input 
+id="password"
+type="password"
+placeholder="Enter password"
+required>
+
+
+</div>
+
+
+
+
+
+
+
+<label for="role">
+
+Login As
+
+</label>
+
+
+<div class="input-box">
+
+
+<i class="fa-solid fa-user"></i>
+
+
+
+<select id="role">
+
+
+<option value="parent">
+
+Parent
+
+</option>
+
+
+
+<option value="teacher">
+
+Teacher
+
+</option>
+
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+
+<button type="submit">
+
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+Login
+
+
+</button>
+
+
+
+
+
+<p class="register-link">
+
+
+Don't have an account?
+
+<a href="register.html">
+
+Register
+
+</a>
+
+
+</p>
+
+
+
+</form>
+
+
+
+
+</div>
+
+
+
+</main>
+
+
+
+
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+
+<footer>
+
+
+<strong>
+Kid's Love Nursery & Daycare Centre
+</strong>
+
+
+<p>
+
+© 2026 All Rights Reserved
+
+</p>
+
+
+</footer>
+
+
+
+
+
+
+
+
 <script src="auth.js"></script>
+
+
+
+<script>
+
+
+const toggle =
+document.getElementById("mobileToggle");
+
+
+const menu =
+document.getElementById("navMenu");
+
+
+
+toggle.onclick = () =>{
+
+
+menu.classList.toggle("show");
+
+
+};
+
+
+</script>
+
 
 
 </body>
