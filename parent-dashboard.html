@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Parent Dashboard | Kid's Love Nursery
+</title>
+
+
+<link rel="stylesheet" href="css/dashboard.css">
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+
+<h2>
+Kid's Love Nursery Portal
+</h2>
+
+</div>
+
+
+<button onclick="logout()">
+Logout
+</button>
+
+
+</header>
+
+
+
+
+
+<section class="welcome">
+
+
+<h1>
+Welcome, <span id="parentName"></span>
+</h1>
+
+<p>
+Parent Dashboard
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="dashboard">
+
+
+
+<!-- Parent Profile -->
+
+<div class="card">
+
+
+<h2>
+👨‍👩‍👧 Parent Profile
+</h2>
+
+
+<p>
+Name:
+<span id="name"></span>
+</p>
+
+
+<p>
+Email:
+<span id="email"></span>
+</p>
+
+
+<p>
+Phone:
+<span id="phone"></span>
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Child Profile -->
+
+<div class="card">
+
+
+<h2>
+👧 Child Profile
+</h2>
+
+
+<p>
+Child Name:
+<span id="childName"></span>
+</p>
+
+
+<p>
+Class:
+<span id="childClass">
+Baby Class
+</span>
+</p>
+
+
+<p>
+Teacher:
+<span id="teacher">
+Not Assigned
+</span>
+</p>
+
+
+<p>
+Admission No:
+<span id="admission">
+KL001
+</span>
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Attendance -->
+
+
+<div class="card">
+
+
+<h2>
+📅 Attendance
+</h2>
+
+
+<h3 id="attendance">
+90%
+</h3>
+
+
+<p>
+Attendance Rate
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Fees -->
+
+
+<div class="card">
+
+
+<h2>
+💰 School Fees
+</h2>
+
+
+<p>
+Total Fees:
+UGX 800,000
+</p>
+
+
+<p>
+Paid:
+UGX 500,000
+</p>
+
+
+<p>
+Balance:
+UGX 300,000
+</p>
+
+
+<button>
+Pay Fees
+</button>
+
+
+</div>
+
+
+
+
+
+
+<!-- Reports -->
+
+
+<div class="card">
+
+
+<h2>
+📄 Report Card
+</h2>
+
+
+<p>
+View your child's academic performance.
+</p>
+
+
+<button onclick="downloadReport()">
+
+Download PDF
+
+</button>
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+<script src="js/parent.js"></script>
+
+
+</body>
+
+</html>
