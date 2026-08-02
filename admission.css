@@ -1,931 +1,518 @@
-/* ===============================
-   GLOBAL SETTINGS
-================================ */
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================
+   ROOT VARIABLES
+========================================== */
+
+:root{
+    --brand-orange:#ff7a00;
+    --brand-blue:#1976d2;
+    --brand-green:#2e9d45;
+    --brand-yellow:#ffc107;
+
+    --white:#fff;
+    --light:#f7f9fc;
+    --dark:#222;
+    --gray:#666;
+
+    --shadow:0 12px 35px rgba(0,0,0,.12);
+    --radius:18px;
+    --transition:.35s;
+}
+
+/* ==========================================
+   RESET
+========================================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
 }
-
 
 html{
     scroll-behavior:smooth;
 }
 
-
 body{
-    background:#f7f9fc;
-    color:#333;
-    line-height:1.6;
+    font-family:'Poppins',sans-serif;
+    background:var(--light);
+    color:var(--dark);
+    line-height:1.8;
 }
-
 
 a{
     text-decoration:none;
 }
 
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-
-
-
-
-/* ===============================
+/* ==========================================
    HEADER
-================================ */
-
+========================================== */
 
 header{
-    background:white;
+
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:999;
+
+    background:white;
     box-shadow:0 5px 20px rgba(0,0,0,.08);
+
 }
 
+.nav-container{
 
+    width:92%;
+    max-width:1300px;
 
-.navbar{
-
-    width:90%;
     margin:auto;
+
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    padding:15px 0;
+    align-items:center;
+
+    padding:14px 0;
 
 }
 
-
+/* LOGO */
 
 .brand-logo{
 
     display:flex;
     align-items:center;
-    gap:12px;
-    color:#123;
+    gap:15px;
 
 }
-
-
 
 .brand-logo img{
 
     width:65px;
     height:65px;
-    object-fit:cover;
+
     border-radius:50%;
+    object-fit:cover;
+
+    border:4px solid var(--brand-orange);
 
 }
 
+.logo-text-box{
 
-
-.logo-text-box h2{
-
-    color:#00695c;
-    font-size:20px;
+    display:flex;
+    flex-direction:column;
 
 }
 
+.logo-title{
 
-
-.logo-text-box span{
-
-    font-size:12px;
-    color:#555;
+    font-size:1.15rem;
+    font-weight:800;
+    color:var(--brand-blue);
 
 }
 
+.logo-subtitle{
 
+    font-size:.75rem;
+    color:var(--gray);
 
+}
 
+/* ==========================================
+ NAVIGATION
+========================================== */
 
-.nav-links{
+.nav-menu{
 
     display:flex;
     list-style:none;
-    gap:25px;
+    gap:28px;
+
+    align-items:center;
 
 }
 
+.nav-link{
 
+    color:var(--dark);
+    font-weight:600;
+    transition:var(--transition);
+    position:relative;
 
-.nav-links a{
+}
 
-    color:#333;
-    font-weight:500;
+.nav-link::after{
+
+    content:"";
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+    height:3px;
+
+    background:var(--brand-orange);
+
     transition:.3s;
 
 }
 
+.nav-link:hover::after,
+.nav-link.active::after{
 
-
-.nav-links a:hover,
-.nav-links .active{
-
-    color:#00897b;
+    width:100%;
 
 }
 
+.nav-link:hover,
+.nav-link.active{
 
+    color:var(--brand-orange);
 
+}
+
+/* SUPPORT BUTTON */
+
+.btn-cta{
+
+    background:var(--brand-orange);
+    color:white !important;
+
+    padding:12px 22px;
+    border-radius:40px;
+
+}
+
+.btn-cta:hover{
+
+    background:#e36d00;
+
+}
+
+/* ==========================================
+ MOBILE BUTTON
+========================================== */
 
 .mobile-toggle{
 
     display:none;
-    background:none;
-    border:0;
+
+    width:45px;
+    height:45px;
+
+    border:none;
     cursor:pointer;
 
-}
+    background:var(--brand-orange);
 
+    border-radius:10px;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+    gap:5px;
+
+}
 
 .mobile-toggle span{
 
-    display:block;
-    width:30px;
+    width:22px;
     height:3px;
-    background:#00897b;
-    margin:5px;
+
+    background:white;
+    border-radius:5px;
 
 }
 
+/* ==========================================
+ HEADER BANNER
+========================================== */
 
+.header-banner{
 
+    min-height:330px;
 
-
-
-
-/* ===============================
- HERO SECTION
-================================ */
-
-
-.hero{
-
-    min-height:600px;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
     text-align:center;
 
+    color:white;
+
     background:
-    linear-gradient(
-    rgba(0,0,0,.55),
-    rgba(0,0,0,.55)
-    ),
-    url("school.jpg");
+
+    linear-gradient(rgba(0,0,0,.55),
+    rgba(0,0,0,.55)),
+
+    url("IMG-20260707-WA0017.jpg");
 
     background-size:cover;
     background-position:center;
 
-}
-
-
-
-.hero-content{
-
-    color:white;
-    max-width:800px;
-    padding:20px;
+    padding:40px 20px;
 
 }
 
+.header-banner h1{
 
-
-.badge{
-
-    background:#00bfa5;
-    padding:8px 20px;
-    border-radius:30px;
-    display:inline-block;
-    margin-bottom:20px;
+    font-size:3rem;
+    font-weight:800;
 
 }
 
+.header-banner p{
 
-
-.hero h1{
-
-    font-size:50px;
-    margin-bottom:20px;
-
-}
-
-
-
-.hero p{
-
+    margin-top:18px;
     font-size:18px;
 
 }
 
+/* ==========================================
+ MAIN CONTAINER
+========================================== */
 
+.container{
 
+    width:90%;
+    max-width:1200px;
 
-.hero-buttons{
-
-    margin-top:30px;
+    margin:auto;
+    padding:70px 0;
 
 }
 
+/* ==========================================
+ BLOCKS
+========================================== */
 
+.block{
 
-.btn{
+    background:white;
 
-    display:inline-block;
-    padding:14px 30px;
-    background:#00bfa5;
-    color:white;
-    border-radius:30px;
-    margin:10px;
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:35px;
+
     transition:.3s;
 
 }
 
+.block:hover{
 
-
-.btn:hover{
-
-    transform:translateY(-5px);
+    transform:translateY(-8px);
 
 }
 
+.block h2{
 
+    color:var(--brand-blue);
 
-.btn.secondary{
-
-    background:white;
-    color:#00897b;
-
-}
-
-
-
-
-
-
-
-/* ===============================
- STATISTICS
-================================ */
-
-
-.statistics{
-
-    width:90%;
-    margin:50px auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-
-}
-
-
-
-.stat-card{
-
-    background:white;
-    padding:30px;
-    text-align:center;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-}
-
-
-
-.stat-card i{
-
-    font-size:35px;
-    color:#00a896;
-
-}
-
-
-
-.stat-card h2{
-
-    color:#00695c;
-    margin:10px;
-
-}
-
-
-
-
-
-
-
-
-/* ===============================
- HEADINGS
-================================ */
-
-
-section{
-
-    padding:60px 8%;
-
-}
-
-
-section h2{
-
-    text-align:center;
-    font-size:35px;
-    color:#00695c;
     margin-bottom:20px;
 
-}
+    position:relative;
 
-
-.section-description{
-
-    text-align:center;
-    margin-bottom:30px;
+    padding-bottom:10px;
 
 }
 
+.block h2::after{
 
+    content:"";
 
+    width:80px;
+    height:4px;
 
+    background:var(--brand-orange);
 
+    position:absolute;
 
+    left:0;
+    bottom:0;
 
-/* ===============================
- FEATURES
-================================ */
-
-
-.feature-grid{
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-
-}
-
-
-
-.feature-card{
-
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-}
-
-
-
-.feature-card i{
-
-    font-size:40px;
-    color:#00bfa5;
-
-}
-
-
-
-.feature-card h3{
-
-    margin:15px 0;
-
-}
-
-
-
-
-
-
-
-/* ===============================
- TABLE
-================================ */
-
-
-table{
-
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    margin-top:30px;
-
-}
-
-
-
-th{
-
-    background:#00897b;
-    color:white;
-
-}
-
-
-
-th,td{
-
-    padding:15px;
-    border:1px solid #ddd;
-    text-align:center;
-
-}
-
-
-
-tr:hover{
-
-    background:#f1fdfb;
-
-}
-
-
-
-
-
-
-
-/* ===============================
- CLASSES
-================================ */
-
-
-.class-grid{
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-
-}
-
-
-
-.class-card{
-
-    background:white;
-    padding:30px;
-    text-align:center;
-    border-radius:15px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-
-}
-
-
-
-.class-card i{
-
-    font-size:40px;
-    color:#00a896;
-
-}
-
-
-
-.class-card span{
-
-    color:#00897b;
-    font-weight:bold;
-
-}
-
-
-
-
-
-
-
-/* ===============================
- FORM
-================================ */
-
-
-.admission-form-section{
-
-    background:#eefaf8;
-
-}
-
-
-
-form{
-
-    background:white;
-    padding:35px;
     border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.1);
 
 }
 
+.block p{
 
-
-form h3{
-
-    margin:25px 0 15px;
-    color:#00695c;
+    color:#555;
+    font-size:16px;
 
 }
 
+/* ==========================================
+ ORGANISATION CHART
+========================================== */
 
+.org-tree{
 
-.input-grid{
+    margin-top:35px;
 
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
+    display:flex;
+    flex-direction:column;
 
-}
+    align-items:center;
 
-
-
-input,
-select,
-textarea{
-
-    width:100%;
-    padding:14px;
-    border:1px solid #ccc;
-    border-radius:10px;
-    outline:none;
+    gap:12px;
 
 }
 
+.org-node{
 
-
-input:focus,
-select:focus,
-textarea:focus{
-
-    border-color:#00a896;
-
-}
-
-
-
-
-form button{
-
-    padding:14px 25px;
-    border:none;
-    border-radius:30px;
-    background:#00897b;
+    background:var(--brand-blue);
     color:white;
-    cursor:pointer;
-    margin:10px;
+
+    padding:14px 35px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
 
 }
 
+.org-node:hover{
 
-
-
-
-
-/* ===============================
- FAQ
-================================ */
-
-
-.faq-item{
-
-    background:white;
-    margin:15px auto;
-    border-radius:10px;
-    overflow:hidden;
+    transform:scale(1.05);
 
 }
 
-
-
-.faq-question{
-
-    width:100%;
-    padding:20px;
-    border:none;
-    background:white;
-    text-align:left;
-    cursor:pointer;
-    font-size:17px;
-
-}
-
-
-
-.faq-answer{
-
-    padding:20px;
-    display:none;
-
-}
-
-
-
-
-
-
-
-/* ===============================
- GALLERY
-================================ */
-
-
-.gallery-grid{
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-
-}
-
-
-
-.gallery-grid img{
-
-    height:250px;
-    width:100%;
-    object-fit:cover;
-    border-radius:15px;
-
-}
-
-
-
-
-
-
-
-/* ===============================
- TESTIMONIALS
-================================ */
-
-
-.testimonial-grid{
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-
-}
-
-
-
-.testimonial-card{
-
-    background:white;
-    padding:30px;
-    border-radius:15px;
-
-}
-
-
-
-.stars{
-
-    color:#ffc107;
-    font-size:25px;
-
-}
-
-
-
-
-
-
-
-/* ===============================
- CONTACT
-================================ */
-
-
-.contact-grid{
-
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-
-}
-
-
-
-.contact-card{
-
-    background:white;
-    text-align:center;
-    padding:30px;
-    border-radius:15px;
-
-}
-
-
-
-.contact-card i{
-
-    font-size:35px;
-    color:#00897b;
-
-}
-
-
-
-.whatsapp-btn{
-
-    display:block;
-    width:max-content;
-    margin:30px auto;
-    padding:15px 25px;
-    background:#25d366;
-    color:white;
-    border-radius:30px;
-
-}
-
-
-
-
-
-
-
-/* ===============================
+/* ==========================================
  FOOTER
-================================ */
-
+========================================== */
 
 footer{
 
-    background:#003c3c;
+    background:#222;
+
     color:white;
+
     text-align:center;
-    padding:40px;
+
+    padding:30px;
+
+    margin-top:60px;
 
 }
 
-
-
-.social-links a{
-
-    color:white;
-    margin:10px;
-    font-size:25px;
-
-}
-
-
-
-
-
-#topBtn{
-
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    border:none;
-    background:#00897b;
-    color:white;
-    padding:15px;
-    border-radius:50%;
-    cursor:pointer;
-
-}
-
-
-
-
-
-
-
-/* ===============================
- RESPONSIVE DESIGN
-================================ */
-
+/* ==========================================
+ RESPONSIVE
+========================================== */
 
 @media(max-width:900px){
 
-
-.nav-links{
-
-    position:absolute;
-    top:80px;
-    left:0;
-    width:100%;
-    background:white;
-    flex-direction:column;
-    text-align:center;
-    display:none;
-    padding:20px;
-
-}
-
-
-
-.nav-links.show{
+.mobile-toggle{
 
     display:flex;
 
 }
 
+.nav-menu{
 
+    position:absolute;
 
-.mobile-toggle{
+    top:90px;
+    left:0;
 
-    display:block;
+    width:100%;
 
-}
+    background:white;
 
+    flex-direction:column;
 
+    display:none;
 
-.statistics,
-.feature-grid,
-.class-grid,
-.contact-grid,
-.testimonial-grid{
+    padding:25px 0;
 
-    grid-template-columns:1fr 1fr;
-
-}
-
-
-
-.hero h1{
-
-    font-size:35px;
+    box-shadow:0 15px 25px rgba(0,0,0,.12);
 
 }
 
+.nav-menu.show{
 
-
-.input-grid{
-
-    grid-template-columns:1fr;
+    display:flex;
 
 }
 
+.header-banner h1{
 
-
-.gallery-grid{
-
-    grid-template-columns:1fr 1fr;
+    font-size:2.2rem;
 
 }
 
+.logo-title{
+
+    font-size:1rem;
 
 }
 
+.logo-subtitle{
 
+    font-size:.7rem;
 
+}
 
+}
 
 @media(max-width:600px){
 
+.brand-logo img{
 
-.statistics,
-.feature-grid,
-.class-grid,
-.contact-grid,
-.testimonial-grid,
-.gallery-grid{
-
-    grid-template-columns:1fr;
+    width:55px;
+    height:55px;
 
 }
 
+.header-banner{
 
+    min-height:250px;
 
-.logo-text-box h2{
+}
+
+.header-banner h1{
+
+    font-size:1.8rem;
+
+}
+
+.header-banner p{
 
     font-size:15px;
 
 }
 
+.block{
 
-
-.hero h1{
-
-    font-size:28px;
+    padding:25px;
 
 }
 
+.block h2{
 
-
-section{
-
-    padding:40px 5%;
+    font-size:1.3rem;
 
 }
 
+.org-node{
 
-
-table{
-
-    font-size:13px;
+    width:100%;
+    text-align:center;
 
 }
-
 
 }
