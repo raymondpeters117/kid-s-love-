@@ -1,111 +1,343 @@
+/* =====================================================
+ KID'S LOVE NURSERY & DAYCARE CENTRE
+ PROFESSIONAL GALLERY CSS
+===================================================== */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+:root{
+
+--orange:#ff7a00;
+--orange-dark:#e56700;
+
+--blue:#1565c0;
+--blue-light:#42a5f5;
+
+--green:#43a047;
+--yellow:#ffc107;
+
+--white:#fff;
+--light:#f7f9fc;
+
+--dark:#222;
+--gray:#666;
+
+--shadow:
+0 12px 35px rgba(0,0,0,.12);
+
+--shadow-lg:
+0 20px 45px rgba(0,0,0,.18);
+
+--radius:20px;
+
+}
+
+
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Poppins, sans-serif;
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+
+html{
+
+scroll-behavior:smooth;
+
 }
 
 
 body{
 
-background:#f7f9fc;
-color:#333;
+font-family:'Poppins',sans-serif;
+
+background:var(--light);
+
+color:var(--dark);
+
+line-height:1.7;
+
+overflow-x:hidden;
 
 }
 
 
 
-/* NAVBAR */
+a{
 
-.navbar{
+text-decoration:none;
 
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
+}
+
+
+img,video{
+
+max-width:100%;
+display:block;
+
+}
+
+
+
+
+
+/* ================= HEADER ================= */
+
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:999;
 
 background:white;
 
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+box-shadow:0 5px 15px rgba(0,0,0,.08);
 
 }
 
 
-.logo{
 
-font-size:25px;
-font-weight:700;
-color:#e53935;
+.navbar{
 
-}
+max-width:1350px;
 
-
-.navbar ul{
+margin:auto;
 
 display:flex;
-gap:25px;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:15px 40px;
+
+}
+
+
+
+/* LOGO */
+
+
+.brand-logo{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+
+.brand-logo img{
+
+width:70px;
+
+height:70px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:4px solid var(--orange);
+
+}
+
+
+.logo-text{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+
+.logo-title{
+
+font-size:1.2rem;
+
+font-weight:800;
+
+color:var(--blue);
+
+}
+
+
+.logo-subtitle{
+
+font-size:.75rem;
+
+color:#777;
+
+}
+
+
+
+
+/* NAVIGATION */
+
+
+.nav-links{
+
+display:flex;
+
+gap:30px;
+
 list-style:none;
 
 }
 
 
-.navbar a{
 
-text-decoration:none;
+.nav-links a{
+
 color:#333;
-font-weight:500;
+
+font-weight:600;
+
+position:relative;
+
+transition:.3s;
 
 }
 
 
-.navbar .active{
 
-color:#1565c0;
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-8px;
+
+height:3px;
+
+width:0;
+
+background:var(--orange);
+
+transition:.3s;
 
 }
 
 
 
-/* HERO */
+.nav-links a:hover::after,
+.nav-links .active::after{
+
+width:100%;
+
+}
+
+
+
+.nav-links a:hover,
+.nav-links .active{
+
+color:var(--orange);
+
+}
+
+
+
+
+
+/* MOBILE BUTTON */
+
+
+.menu-btn{
+
+display:none;
+
+background:var(--orange);
+
+border:none;
+
+color:white;
+
+font-size:25px;
+
+width:45px;
+
+height:45px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+/* ================= HERO ================= */
 
 
 .hero{
 
-height:300px;
+min-height:55vh;
 
 display:flex;
-flex-direction:column;
+
 justify-content:center;
+
 align-items:center;
+
+text-align:center;
+
+color:white;
+
 
 background:
 
 linear-gradient(
-rgba(0,0,0,.5),
-rgba(0,0,0,.5)
+rgba(0,0,0,.6),
+rgba(0,0,0,.6)
 ),
 
 url("images/gallery-banner.jpg");
 
+
 background-size:cover;
 
-color:white;
-
-text-align:center;
+background-position:center;
 
 }
+
 
 
 .hero h1{
 
-font-size:45px;
+font-size:3.2rem;
+
+font-weight:800;
 
 }
+
 
 
 .hero p{
 
-margin-top:15px;
+max-width:700px;
+
+margin-top:20px;
+
+font-size:18px;
+
+color:#eee;
 
 }
 
@@ -113,61 +345,69 @@ margin-top:15px;
 
 
 
-/* VIDEO FEATURE */
+/* ================= SECTIONS ================= */
+
+
+section{
+
+padding:80px 8%;
+
+}
+
+
+
+h2{
+
+text-align:center;
+
+font-size:2.3rem;
+
+color:var(--blue);
+
+margin-bottom:45px;
+
+}
+
+
+
+
+
+/* ================= FEATURE VIDEO ================= */
 
 
 .featured-video{
 
-padding:50px 8%;
 text-align:center;
 
 }
 
 
-.featured-video h2{
 
-margin-bottom:25px;
+.video-box{
+
+max-width:1000px;
+
+margin:auto;
 
 }
+
 
 
 .video-box video{
 
-width:90%;
-max-width:900px;
+width:100%;
 
-border-radius:20px;
+border-radius:25px;
 
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-
-}
-
-
-
-
-/* GALLERY */
-
-
-.gallery-section{
-
-padding:40px 8%;
-
-}
-
-
-.gallery-section h2{
-
-text-align:center;
-
-margin-bottom:30px;
-
-color:#1565c0;
+box-shadow:var(--shadow-lg);
 
 }
 
 
 
-/* VIDEO CARDS */
+
+
+/* ================= VIDEO GALLERY ================= */
 
 
 .video-grid{
@@ -176,9 +416,9 @@ display:grid;
 
 grid-template-columns:
 
-repeat(auto-fit,minmax(300px,1fr));
+repeat(auto-fit,minmax(280px,1fr));
 
-gap:25px;
+gap:30px;
 
 }
 
@@ -188,38 +428,43 @@ gap:25px;
 
 background:white;
 
-padding:15px;
+padding:20px;
 
-border-radius:15px;
+border-radius:22px;
 
-box-shadow:0 5px 20px rgba(0,0,0,.1);
+box-shadow:var(--shadow);
 
-transition:.3s;
+transition:.35s;
 
 }
+
 
 
 .video-card:hover{
 
-transform:translateY(-8px);
+transform:translateY(-10px);
 
 }
+
 
 
 .video-card video{
 
 width:100%;
 
-border-radius:10px;
+border-radius:15px;
 
 }
+
 
 
 .video-card h3{
 
 text-align:center;
 
-margin-top:15px;
+margin-top:18px;
+
+color:var(--blue);
 
 }
 
@@ -227,7 +472,7 @@ margin-top:15px;
 
 
 
-/* IMAGE GRID */
+/* ================= IMAGE GALLERY ================= */
 
 
 .image-grid{
@@ -236,31 +481,35 @@ display:grid;
 
 grid-template-columns:
 
-repeat(auto-fit,minmax(220px,1fr));
+repeat(auto-fit,minmax(240px,1fr));
 
-gap:20px;
+gap:25px;
 
 }
+
 
 
 .image-grid img{
 
-width:100%;
+height:260px;
 
-height:220px;
+width:100%;
 
 object-fit:cover;
 
-border-radius:15px;
+border-radius:20px;
 
-transition:.3s;
+box-shadow:var(--shadow);
+
+transition:.4s;
 
 }
+
 
 
 .image-grid img:hover{
 
-transform:scale(1.05);
+transform:scale(1.06);
 
 }
 
@@ -268,48 +517,216 @@ transform:scale(1.05);
 
 
 
+/* ================= FOOTER ================= */
+
+
 footer{
 
-background:#1565c0;
+background:#1d1d1d;
 
 color:white;
 
 text-align:center;
 
-padding:20px;
+padding:60px 20px;
 
-margin-top:40px;
+margin-top:50px;
+
+}
+
+
+
+footer strong{
+
+color:var(--yellow);
+
+font-size:1.2rem;
+
+}
+
+
+footer p{
+
+margin:10px;
+
+color:#ddd;
 
 }
 
 
 
 
-/* MOBILE */
 
-@media(max-width:700px){
+/* ================= ANIMATION ================= */
+
+
+.video-card,
+.image-grid img{
+
+animation:fadeUp .8s ease;
+
+}
+
+
+
+@keyframes fadeUp{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+
+/* ================= MOBILE ================= */
+
+
+@media(max-width:900px){
+
 
 .navbar{
 
-flex-direction:column;
-
-gap:20px;
+padding:15px 20px;
 
 }
 
 
-.navbar ul{
+.menu-btn{
+
+display:block;
+
+}
+
+
+
+.nav-links{
+
+position:absolute;
+
+top:90px;
+
+left:0;
+
+width:100%;
+
+background:white;
 
 flex-direction:column;
 
-text-align:center;
+align-items:center;
+
+padding:30px;
+
+gap:25px;
+
+display:none;
+
+box-shadow:var(--shadow);
 
 }
+
+
+
+.nav-links.show{
+
+display:flex;
+
+}
+
 
 
 .hero h1{
 
-font-size:32px;
+font-size:2.2rem;
+
+}
+
+
+
+section{
+
+padding:60px 5%;
+
+}
+
+
+
+}
+
+
+
+
+@media(max-width:600px){
+
+
+.brand-logo img{
+
+width:55px;
+
+height:55px;
+
+}
+
+
+.logo-title{
+
+font-size:1rem;
+
+}
+
+
+.logo-subtitle{
+
+font-size:.65rem;
+
+}
+
+
+
+.hero h1{
+
+font-size:1.8rem;
+
+}
+
+
+.hero p{
+
+font-size:15px;
+
+}
+
+
+h2{
+
+font-size:1.8rem;
+
+}
+
+
+
+.image-grid img{
+
+height:220px;
 
 }
 
