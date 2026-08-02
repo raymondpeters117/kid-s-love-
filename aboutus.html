@@ -566,20 +566,44 @@ info@kidslove.ac.ug
 
 <script>
 
-
-const toggleBtn =
-document.getElementById("mobileToggle");
+document.addEventListener("DOMContentLoaded",()=>{
 
 
-const navMenu =
-document.getElementById("navMenu");
+const toggleBtn=document.getElementById("mobileToggle");
 
+const navMenu=document.getElementById("navMenu");
 
 
 toggleBtn.addEventListener("click",()=>{
 
 
-navMenu.classList.toggle("show");
+    navMenu.classList.toggle("show");
+
+
+    toggleBtn.classList.toggle("active");
+
+
+});
+
+
+
+// Close menu after clicking a link
+
+document.querySelectorAll(".nav-menu a").forEach(link=>{
+
+
+    link.addEventListener("click",()=>{
+
+
+        navMenu.classList.remove("show");
+
+        toggleBtn.classList.remove("active");
+
+
+    });
+
+
+});
 
 
 });
