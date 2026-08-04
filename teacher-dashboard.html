@@ -4,100 +4,142 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Teacher Dashboard | Kid's Love Nursery
-</title>
+<title>Teacher Dashboard | Kid's Love Nursery</title>
 
 <link rel="stylesheet" href="teacher.css">
 
-</head>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+</head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 
 <header>
 
-<h2>
-Kid's Love Teacher Portal
-</h2>
+<div class="logo">
 
+<h2>Kid's Love Teacher Portal</h2>
 
-<button onclick="logout()">
+</div>
+
+<div>
+
+<button class="logout-btn" onclick="logout()">
+<i class="fa-solid fa-right-from-bracket"></i>
 Logout
 </button>
 
+</div>
 
 </header>
 
-
+<!-- ================= WELCOME ================= -->
 
 <section class="welcome">
 
 <h1>
-Welcome, <span id="teacherName"></span>
+Welcome,
+<span id="teacherName">Teacher</span>
 </h1>
 
 <p>
-Teacher Dashboard
+Manage your students, attendance and academic records.
 </p>
 
 </section>
 
-
-
-
+<!-- ================= DASHBOARD ================= -->
 
 <section class="dashboard">
 
-
-
-<!-- TEACHER PROFILE -->
+<!-- ================= PROFILE ================= -->
 
 <div class="card">
 
 <h2>
+<i class="fa-solid fa-user"></i>
 Teacher Profile
 </h2>
 
+<div class="profile">
 
 <p>
-Name:
+<strong>Name:</strong>
 <span id="name"></span>
 </p>
 
-
 <p>
-Email:
+<strong>Email:</strong>
 <span id="email"></span>
 </p>
 
-
 <p>
-Phone:
+<strong>Phone:</strong>
 <span id="phone"></span>
 </p>
 
+</div>
 
 </div>
 
-
-
-
-
-
-<!-- STUDENTS -->
+<!-- ================= STATISTICS ================= -->
 
 <div class="card">
 
-
 <h2>
-Students
+<i class="fa-solid fa-chart-column"></i>
+Dashboard Statistics
 </h2>
 
+<div class="stats">
+
+<div class="stat">
+
+<h3 id="totalStudents">
+0
+</h3>
+
+<p>Total Students</p>
+
+</div>
+
+<div class="stat">
+
+<h3 id="presentToday">
+0
+</h3>
+
+<p>Present</p>
+
+</div>
+
+<div class="stat">
+
+<h3 id="absentToday">
+0
+</h3>
+
+<p>Absent</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ================= STUDENTS ================= -->
+
+<div class="card">
+
+<h2>
+<i class="fa-solid fa-users"></i>
+Students
+</h2>
 
 <div id="students">
 
@@ -105,42 +147,108 @@ Loading students...
 
 </div>
 
-
 </div>
 
+<!-- ================= CLASS LIST ================= -->
 
-
-
-
-
-
-<!-- ATTENDANCE -->
-
-<div class="card">
-
+<div class="card full-width">
 
 <h2>
-Attendance
+<i class="fa-solid fa-book-open"></i>
+Class List
 </h2>
 
+<div class="filters">
 
-<input 
-id="studentName"
-placeholder="Student Name">
+<input
+type="text"
+id="searchStudent"
+placeholder="Search student..."
+onkeyup="searchStudent()">
 
+<select id="filterClass" onchange="filterStudents()">
 
-<select id="status">
-
-<option>
-Present
+<option value="All">
+All Classes
 </option>
 
-<option>
-Absent
+<option value="Baby Class">
+Baby Class
+</option>
+
+<option value="Middle Class">
+Middle Class
+</option>
+
+<option value="Top Class">
+Top Class
 </option>
 
 </select>
 
+</div>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>No.</th>
+<th>Name</th>
+<th>Class</th>
+<th>Age</th>
+<th>Gender</th>
+<th>Parent</th>
+<th>Phone</th>
+
+</tr>
+
+</thead>
+
+<tbody id="classTable">
+
+<tr>
+
+<td colspan="7">
+
+Loading Class List...
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- ================= ATTENDANCE ================= -->
+
+<div class="card">
+
+<h2>
+<i class="fa-solid fa-calendar-check"></i>
+Attendance
+</h2>
+
+<input
+type="text"
+id="studentName"
+placeholder="Student Name">
+
+<select id="status">
+
+<option>Present</option>
+
+<option>Absent</option>
+
+</select>
 
 <button onclick="saveAttendance()">
 
@@ -148,47 +256,35 @@ Save Attendance
 
 </button>
 
-
 </div>
 
-
-
-
-
-
-
-
-<!-- RESULTS -->
-
-<!-- RESULTS -->
+<!-- ================= RESULTS ================= -->
 
 <div class="card">
 
 <h2>
-📊 Add Student Results
+<i class="fa-solid fa-graduation-cap"></i>
+Student Results
 </h2>
 
-
-<input 
+<input
+type="text"
 id="resultStudent"
 placeholder="Student Name">
 
-
-<input 
+<input
+type="text"
 id="subject"
 placeholder="Subject">
 
-
-<input 
+<input
+type="number"
 id="marks"
 placeholder="Marks (%)">
 
-
 <textarea
 id="comment"
-placeholder="Teacher comment">
-</textarea>
-
+placeholder="Teacher's Comment"></textarea>
 
 <button onclick="saveResult()">
 
@@ -196,19 +292,107 @@ Save Result
 
 </button>
 
+</div>
+
+<!-- ================= REPORT CARDS ================= -->
+
+<div class="card">
+
+<h2>
+<i class="fa-solid fa-file-lines"></i>
+Report Cards
+</h2>
+
+<p>
+
+Generate a student's report card.
+
+</p>
+
+<input
+type="text"
+id="reportStudent"
+placeholder="Student Name">
+
+<button onclick="generateReport()">
+
+Generate Report
+
+</button>
 
 </div>
 
+<!-- ================= ANNOUNCEMENTS ================= -->
 
+<div class="card">
 
+<h2>
+<i class="fa-solid fa-bullhorn"></i>
+Announcements
+</h2>
 
+<textarea
+id="announcement"
+placeholder="Write announcement to parents..."></textarea>
+
+<button onclick="postAnnouncement()">
+
+Post Announcement
+
+</button>
+
+</div>
+
+<!-- ================= RECENT ATTENDANCE ================= -->
+
+<div class="card full-width">
+
+<h2>
+<i class="fa-solid fa-clock-rotate-left"></i>
+Recent Attendance
+</h2>
+
+<div id="attendanceHistory">
+
+No attendance records.
+
+</div>
+
+</div>
+
+<!-- ================= RECENT RESULTS ================= -->
+
+<div class="card full-width">
+
+<h2>
+<i class="fa-solid fa-square-poll-vertical"></i>
+Recent Results
+</h2>
+
+<div id="resultsHistory">
+
+No results available.
+
+</div>
+
+</div>
 
 </section>
 
+<!-- ================= FOOTER ================= -->
 
+<footer>
+
+<p>
+
+© 2026 Kid's Love Nursery & Daycare Centre.
+All Rights Reserved.
+
+</p>
+
+</footer>
 
 <script src="teacher.js"></script>
-
 
 </body>
 
