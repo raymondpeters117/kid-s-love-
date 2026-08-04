@@ -1,576 +1,583 @@
-/* =====================================================
-   KID'S LOVE NURSERY
-   PARENT / TEACHER DASHBOARD CSS
-===================================================== */
+/*====================================================
+    KID'S LOVE NURSERY
+    TEACHER DASHBOARD CSS
+=====================================================*/
 
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-
-
-:root{
-
---orange:#ff7a00;
---orange-dark:#e56700;
-
---blue:#1565c0;
---blue-light:#42a5f5;
-
---green:#43a047;
---yellow:#ffc107;
-
---white:#ffffff;
---light:#f7f9fc;
-
---dark:#222;
---gray:#666;
-
-
---shadow-sm:
-0 5px 15px rgba(0,0,0,.08);
-
-
---shadow:
-0 12px 35px rgba(0,0,0,.12);
-
-
---shadow-lg:
-0 18px 45px rgba(0,0,0,.18);
-
-
---radius:20px;
-
-
-}
-
-
+/* ===============================
+   RESET
+================================ */
 
 *{
 
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
 
 }
-
 
 
 body{
 
-background:var(--light);
-
-color:var(--dark);
-
-line-height:1.7;
+    background:#f4f7fb;
+    color:#333;
+    min-height:100vh;
 
 }
 
 
 
-/* ================= HEADER ================= */
-
+/* ===============================
+   HEADER
+================================ */
 
 header{
 
-background:white;
+    background:#1565c0;
+    color:white;
 
-padding:15px 8%;
+    padding:20px 8%;
 
-display:flex;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-justify-content:space-between;
-
-align-items:center;
-
-position:sticky;
-
-top:0;
-
-z-index:1000;
-
-box-shadow:var(--shadow-sm);
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
 
 }
-
 
 
 header h2{
 
-color:var(--blue);
-
-font-weight:800;
+    font-size:24px;
 
 }
 
 
 
-header button{
+.logout-btn{
+
+    background:#ff7a00;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
 
 
-background:var(--orange);
+.logout-btn:hover{
 
-color:white;
+    background:#e65100;
 
-border:none;
-
-padding:12px 30px;
-
-border-radius:50px;
-
-cursor:pointer;
-
-font-weight:600;
-
-transition:.3s;
+    transform:translateY(-2px);
 
 }
 
 
 
-header button:hover{
-
-background:var(--blue);
-
-transform:translateY(-3px);
-
-}
-
-
-
-
-/* ================= WELCOME ================= */
+/* ===============================
+   WELCOME SECTION
+================================ */
 
 
 .welcome{
 
-text-align:center;
-
-padding:60px 8%;
-
-background:
-
-linear-gradient(
-135deg,
-var(--blue),
-var(--blue-light)
-);
-
-color:white;
+    padding:35px 8%;
 
 }
-
 
 
 .welcome h1{
 
-font-size:2.5rem;
+    color:#1565c0;
 
-color:white;
+    font-size:32px;
 
 }
-
 
 
 .welcome p{
 
-color:white;
+    color:#666;
 
-margin-top:10px;
+    margin-top:10px;
 
 }
 
 
 
-
-
-/* ================= DASHBOARD ================= */
+/* ===============================
+   DASHBOARD GRID
+================================ */
 
 
 .dashboard{
 
+    padding:0 8% 40px;
 
-padding:50px 8%;
+    display:grid;
 
+    grid-template-columns:
 
-display:grid;
+    repeat(auto-fit,minmax(320px,1fr));
 
-
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-
-
-gap:30px;
-
+    gap:25px;
 
 }
 
 
 
-
-
-/* ================= CARDS ================= */
+/* ===============================
+   CARDS
+================================ */
 
 
 .card{
 
+    background:white;
 
-background:white;
+    padding:25px;
 
+    border-radius:15px;
 
-padding:35px;
+    box-shadow:
 
-
-border-radius:25px;
-
-
-box-shadow:var(--shadow);
-
-
-transition:.35s;
-
+    0 8px 20px rgba(0,0,0,.08);
 
 }
-
-
-
-.card:hover{
-
-
-transform:translateY(-10px);
-
-
-box-shadow:var(--shadow-lg);
-
-
-}
-
-
-
 
 
 .card h2{
 
+    color:#1565c0;
 
-color:var(--blue);
+    margin-bottom:20px;
 
-
-margin-bottom:20px;
-
-
-font-size:1.4rem;
-
+    font-size:21px;
 
 }
 
 
 
+.full-width{
 
-
-.card i{
-
-
-font-size:45px;
-
-color:var(--orange);
-
-margin-bottom:20px;
+    grid-column:1/-1;
 
 }
 
 
 
+/* ===============================
+   PROFILE
+================================ */
 
 
-/* ================= INPUTS ================= */
+.profile p{
+
+    margin:12px 0;
+
+}
+
+
+
+/* ===============================
+   STATISTICS
+================================ */
+
+
+.stats{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+
+.stat{
+
+    flex:1;
+
+    background:#e3f2fd;
+
+    padding:20px;
+
+    text-align:center;
+
+    border-radius:12px;
+
+}
+
+
+.stat h3{
+
+    color:#1565c0;
+
+    font-size:30px;
+
+}
+
+
+.stat p{
+
+    margin-top:5px;
+
+}
+
+
+
+/* ===============================
+   STUDENT CARDS
+================================ */
+
+
+.student-card{
+
+    background:#f8f9fa;
+
+    padding:15px;
+
+    margin-bottom:12px;
+
+    border-radius:10px;
+
+    border-left:5px solid #1565c0;
+
+}
+
+
+.student-card h4{
+
+    color:#1565c0;
+
+}
+
+
+
+/* ===============================
+   SEARCH & FILTER
+================================ */
+
+
+.filters{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+}
+
+
+.filters input,
+.filters select{
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    width:100%;
+
+}
+
+
+
+/* ===============================
+   TABLE
+================================ */
+
+
+.table-container{
+
+    overflow-x:auto;
+
+}
+
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+
+
+thead{
+
+    background:#1565c0;
+
+    color:white;
+
+}
+
+
+
+th,
+td{
+
+    padding:13px;
+
+    text-align:left;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+
+
+tbody tr:hover{
+
+    background:#eef6ff;
+
+}
+
+
+
+/* ===============================
+   INPUTS
+================================ */
 
 
 input,
 select,
 textarea{
 
+    width:100%;
 
-width:100%;
+    padding:12px;
 
+    margin-bottom:12px;
 
-padding:15px;
+    border-radius:8px;
 
+    border:1px solid #ccc;
 
-margin:10px 0;
-
-
-border-radius:12px;
-
-
-border:2px solid #ddd;
-
-
-outline:none;
-
-
-font-size:15px;
-
-
-transition:.3s;
-
+    outline:none;
 
 }
 
 
+textarea{
+
+    height:100px;
+
+    resize:none;
+
+}
 
 
 input:focus,
 select:focus,
 textarea:focus{
 
-
-border-color:var(--blue);
-
-
-box-shadow:0 0 10px rgba(21,101,192,.2);
-
+    border-color:#1565c0;
 
 }
 
 
 
-
-/* ================= BUTTONS ================= */
-
-
-.card button{
+/* ===============================
+   BUTTONS
+================================ */
 
 
-background:var(--orange);
+button{
+
+    background:#1565c0;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
 
 
-color:white;
+button:hover{
 
-
-border:none;
-
-
-padding:14px 30px;
-
-
-border-radius:50px;
-
-
-cursor:pointer;
-
-
-font-size:16px;
-
-
-font-weight:600;
-
-
-transition:.3s;
-
+    background:#0d47a1;
 
 }
 
 
 
-
-.card button:hover{
-
-
-background:var(--blue);
+/* ===============================
+   ATTENDANCE HISTORY
+================================ */
 
 
-transform:translateY(-4px);
+.attendance-item{
 
+    display:flex;
 
-}
+    justify-content:space-between;
 
+    align-items:center;
 
+    background:#f8f9fa;
 
+    padding:15px;
 
+    margin-bottom:10px;
 
-/* ================= TABLE SUPPORT ================= */
-
-
-table{
-
-
-width:100%;
-
-border-collapse:collapse;
-
-background:white;
-
-border-radius:20px;
-
-overflow:hidden;
-
-box-shadow:var(--shadow);
-
+    border-radius:10px;
 
 }
 
 
 
-th{
+.present{
 
+    color:green;
 
-background:var(--blue);
-
-color:white;
-
-padding:15px;
-
+    font-weight:bold;
 
 }
 
 
 
-td{
+.absent{
 
+    color:red;
 
-padding:14px;
-
-border-bottom:1px solid #eee;
-
+    font-weight:bold;
 
 }
 
 
 
-
-/* ================= PROFILE ================= */
-
-
-.profile{
+/* ===============================
+   RESULTS
+================================ */
 
 
-display:flex;
+.result-card{
 
-align-items:center;
+    background:#f8f9fa;
 
-gap:20px;
+    padding:15px;
 
+    margin-bottom:12px;
 
-}
-
-
-
-.profile img{
-
-
-width:90px;
-
-height:90px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:4px solid var(--orange);
-
+    border-radius:10px;
 
 }
 
 
 
+.result-card h4{
 
-/* ================= FOOTER ================= */
+    color:#1565c0;
+
+    margin-bottom:8px;
+
+}
+
+
+
+/* ===============================
+   FOOTER
+================================ */
 
 
 footer{
 
+    background:#1565c0;
 
-background:#1d1d1d;
+    color:white;
 
-color:white;
+    text-align:center;
 
-text-align:center;
-
-padding:40px 20px;
-
+    padding:20px;
 
 }
 
 
 
-footer strong{
+/* ===============================
+   MOBILE DESIGN
+================================ */
 
 
-color:var(--yellow);
-
-
-}
-
-
-
-
-/* ================= MOBILE ================= */
-
-
-@media(max-width:800px){
-
+@media(max-width:768px){
 
 
 header{
 
+    flex-direction:column;
 
-padding:15px 5%;
+    gap:15px;
 
-
-}
-
-
-
-header h2{
-
-
-font-size:18px;
-
+    text-align:center;
 
 }
-
-
-
-.dashboard{
-
-
-grid-template-columns:1fr;
-
-
-padding:35px 5%;
-
-
-}
-
-
-
-.welcome{
-
-
-padding:40px 20px;
-
-
-}
-
 
 
 .welcome h1{
 
+    font-size:25px;
 
-font-size:1.8rem;
+}
 
+
+.dashboard{
+
+    padding:0 5% 30px;
 
 }
 
 
 
-.card{
+.stats{
 
-
-padding:25px;
-
+    flex-direction:column;
 
 }
+
+
+
+.filters{
+
+    flex-direction:column;
+
+}
+
+
+
+.attendance-item{
+
+    flex-direction:column;
+
+    gap:10px;
+
+    align-items:flex-start;
+
+}
+
 
 
 }
