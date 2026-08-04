@@ -1,148 +1,363 @@
 /*====================================================
     KID'S LOVE NURSERY
     TEACHER DASHBOARD
-    PART 1
+    PART 1 (RECREATED)
+    LOGIN • PROFILE • STUDENTS • STATISTICS
 =====================================================*/
 
 
-// ===============================
-// LOGIN CHECK
-// ===============================
+// =====================================
+// GLOBAL DATA
+// =====================================
 
-const teacher = JSON.parse(localStorage.getItem("loggedTeacher"));
+let teacher = null;
 
-if (!teacher) {
-
-    alert("Please login first.");
-
-    window.location.href = "portal.html";
-
-}
+let students = [];
 
 
 
-// ===============================
-// LOAD PROFILE
-// ===============================
 
-function loadTeacher() {
+// =====================================
+// CHECK TEACHER LOGIN
+// =====================================
 
-    document.getElementById("teacherName").textContent =
-        teacher.name || "Teacher";
 
-    document.getElementById("name").textContent =
-        teacher.name || "-";
+function checkTeacherLogin(){
 
-    document.getElementById("email").textContent =
-        teacher.email || "-";
 
-    document.getElementById("phone").textContent =
-        teacher.phone || "-";
-
-}
+    teacher = JSON.parse(
+        localStorage.getItem("loggedTeacher")
+    );
 
 
 
-// ===============================
-// LOGOUT
-// ===============================
+    if(!teacher){
 
-function logout() {
 
-    if (confirm("Logout from teacher portal?")) {
+        alert(
+            "Please login first."
+        );
 
-        localStorage.removeItem("loggedTeacher");
 
-        window.location.href = "portal.html";
+        window.location.href =
+        "portal.html";
+
+
+        return false;
+
 
     }
 
+
+    return true;
+
+
 }
 
 
 
-// ===============================
-// LOAD REGISTERED STUDENTS
-// ===============================
-
-let students =
-JSON.parse(localStorage.getItem("students")) || [];
 
 
 
-// ===============================
-// DASHBOARD STUDENT SUMMARY
-// ===============================
+// =====================================
+// LOAD TEACHER PROFILE
+// =====================================
 
-function loadStudents() {
+
+function loadTeacher(){
+
+
+    if(!teacher)
+    return;
+
+
+
+    const teacherName =
+    document.getElementById(
+        "teacherName"
+    );
+
+
+    const name =
+    document.getElementById(
+        "name"
+    );
+
+
+    const email =
+    document.getElementById(
+        "email"
+    );
+
+
+    const phone =
+    document.getElementById(
+        "phone"
+    );
+
+
+
+
+
+    if(teacherName)
+
+    teacherName.textContent =
+    teacher.name || "Teacher";
+
+
+
+
+
+    if(name)
+
+    name.textContent =
+    teacher.name || "-";
+
+
+
+
+
+    if(email)
+
+    email.textContent =
+    teacher.email || "-";
+
+
+
+
+
+    if(phone)
+
+    phone.textContent =
+    teacher.phone || "-";
+
+
+
+}
+
+
+
+
+
+
+// =====================================
+// LOGOUT
+// =====================================
+
+
+function logout(){
+
+
+
+    const confirmLogout =
+    confirm(
+        "Logout from teacher portal?"
+    );
+
+
+
+    if(confirmLogout){
+
+
+        localStorage.removeItem(
+            "loggedTeacher"
+        );
+
+
+        window.location.href =
+        "portal.html";
+
+
+    }
+
+
+}
+
+
+
+
+
+
+// =====================================
+// LOAD STUDENTS FROM STORAGE
+// =====================================
+
+
+function getStudents(){
+
+
+
+    students = JSON.parse(
+
+        localStorage.getItem(
+            "students"
+        )
+
+    ) || [];
+
+
+
+}
+
+
+
+
+
+
+// =====================================
+// DISPLAY STUDENT CARDS
+// =====================================
+
+
+function loadStudents(){
+
+
 
     const container =
-    document.getElementById("students");
+    document.getElementById(
+        "students"
+    );
 
-    container.innerHTML = "";
 
-    if (students.length === 0) {
+
+    if(!container)
+    return;
+
+
+
+
+
+    container.innerHTML="";
+
+
+
+
+
+    if(students.length===0){
+
 
         container.innerHTML =
 
         `
-        <p>No students registered.</p>
+        <p>
+        No students registered.
+        </p>
         `;
+
 
         updateStatistics();
 
         return;
 
+
     }
 
-    students.forEach((student,index)=>{
+
+
+
+
+    students.forEach(student=>{
+
 
         container.innerHTML +=
 
+
         `
+
         <div class="student-card">
 
-            <h4>${student.name}</h4>
+
+            <h4>
+            ${student.name || "-"}
+            </h4>
+
 
             <p>
-            <strong>Class:</strong>
-            ${student.class}
+
+            <strong>
+            Class:
+            </strong>
+
+            ${student.class || "-"}
+
             </p>
 
+
+
             <p>
-            <strong>Age:</strong>
-            ${student.age}
+
+            <strong>
+            Age:
+            </strong>
+
+            ${student.age || "-"}
+
             </p>
+
 
         </div>
+
+
         `;
+
+
 
     });
 
+
+
+
+
     updateStatistics();
+
+
 
 }
 
 
 
-// ===============================
-// CLASS LIST
-// ===============================
 
-function loadClassList(list = students){
+
+
+// =====================================
+// CLASS TABLE
+// =====================================
+
+
+function loadClassList(
+    list = students
+){
+
+
 
     const table =
-    document.getElementById("classTable");
+    document.getElementById(
+        "classTable"
+    );
 
-    if(!table) return;
 
-    table.innerHTML = "";
+
+    if(!table)
+    return;
+
+
+
+
+
+    table.innerHTML="";
+
+
+
+
 
     if(list.length===0){
 
+
         table.innerHTML =
 
+
         `
+
         <tr>
 
         <td colspan="7">
@@ -152,177 +367,389 @@ function loadClassList(list = students){
         </td>
 
         </tr>
+
         `;
+
 
         return;
 
+
     }
 
-    list.forEach((student,index)=>{
+
+
+
+
+
+    list.forEach(
+    (student,index)=>{
+
+
 
         table.innerHTML +=
 
+
         `
+
         <tr>
 
-        <td>${index+1}</td>
 
-        <td>${student.name}</td>
+        <td>
+        ${index+1}
+        </td>
 
-        <td>${student.class}</td>
 
-        <td>${student.age}</td>
+        <td>
+        ${student.name || "-"}
+        </td>
 
-        <td>${student.gender}</td>
 
-        <td>${student.parent}</td>
+        <td>
+        ${student.class || "-"}
+        </td>
 
-        <td>${student.phone}</td>
+
+        <td>
+        ${student.age || "-"}
+        </td>
+
+
+        <td>
+        ${student.gender || "-"}
+        </td>
+
+
+        <td>
+        ${student.parent || "-"}
+        </td>
+
+
+        <td>
+        ${student.phone || "-"}
+        </td>
+
 
         </tr>
+
+
         `;
+
+
 
     });
 
+
+
 }
 
 
 
-// ===============================
+
+
+
+// =====================================
 // SEARCH STUDENTS
-// ===============================
+// =====================================
+
 
 function searchStudent(){
 
-    const keyword =
 
-    document.getElementById("searchStudent")
 
-    .value
-
-    .toLowerCase();
-
-    const filtered = students.filter(student =>
-
-        student.name
-        .toLowerCase()
-        .includes(keyword)
-
+    const input =
+    document.getElementById(
+        "searchStudent"
     );
 
-    loadClassList(filtered);
-
-}
 
 
+    if(!input)
+    return;
 
-// ===============================
-// FILTER BY CLASS
-// ===============================
 
-function filterStudents(){
 
-    const selected =
 
-    document.getElementById("filterClass")
 
-    .value;
+    const keyword =
+    input.value
+    .toLowerCase();
 
-    if(selected==="All"){
 
-        loadClassList(students);
 
-        return;
 
-    }
 
     const filtered =
 
     students.filter(student=>{
 
-        return student.class===selected;
+
+        return student.name
+        .toLowerCase()
+        .includes(keyword);
+
 
     });
 
-    loadClassList(filtered);
+
+
+
+
+    loadClassList(
+        filtered
+    );
+
+
 
 }
 
 
 
-// ===============================
+
+
+
+// =====================================
+// FILTER BY CLASS
+// =====================================
+
+
+function filterStudents(){
+
+
+
+    const select =
+    document.getElementById(
+        "filterClass"
+    );
+
+
+
+    if(!select)
+    return;
+
+
+
+
+
+    const selected =
+    select.value;
+
+
+
+
+
+    if(selected==="All"){
+
+
+        loadClassList(
+            students
+        );
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+    const filtered =
+
+    students.filter(student=>{
+
+
+        return student.class === selected;
+
+
+    });
+
+
+
+
+
+    loadClassList(
+        filtered
+    );
+
+
+
+}
+
+
+
+
+
+
+// =====================================
 // DASHBOARD STATISTICS
-// ===============================
+// =====================================
+
 
 function updateStatistics(){
 
-    document.getElementById("totalStudents").textContent =
 
+
+    const total =
+    document.getElementById(
+        "totalStudents"
+    );
+
+
+
+    if(total)
+
+    total.textContent =
     students.length;
+
+
+
+
+
+
 
     const attendance =
 
-    JSON.parse(localStorage.getItem("attendance"))
+    JSON.parse(
 
-    || [];
+        localStorage.getItem(
+            "attendance"
+        )
+
+    ) || [];
+
+
+
+
 
     let present = 0;
 
     let absent = 0;
 
+
+
+
+
     attendance.forEach(record=>{
+
 
         if(record.status==="Present"){
 
+
             present++;
 
-        }else{
-
-            absent++;
 
         }
 
+        else{
+
+
+            absent++;
+
+
+        }
+
+
     });
 
-    document.getElementById("presentToday").textContent =
 
+
+
+
+
+
+    const presentBox =
+    document.getElementById(
+        "presentToday"
+    );
+
+
+
+    const absentBox =
+    document.getElementById(
+        "absentToday"
+    );
+
+
+
+
+
+
+    if(presentBox)
+
+    presentBox.textContent =
     present;
 
-    document.getElementById("absentToday").textContent =
 
+
+
+
+    if(absentBox)
+
+    absentBox.textContent =
     absent;
+
+
 
 }
 
 
 
-// ===============================
-// REFRESH STUDENTS
-// ===============================
+
+
+
+// =====================================
+// REFRESH DATA
+// =====================================
+
 
 function refreshStudents(){
 
-    students =
 
-    JSON.parse(localStorage.getItem("students"))
 
-    || [];
+    getStudents();
+
 
     loadStudents();
 
+
     loadClassList();
+
 
 }
 
 
 
-// ===============================
-// INITIALIZE
-// ===============================
 
-loadTeacher();
 
-refreshStudents();
+
+// =====================================
+// START PART 1
+// =====================================
+
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+()=>{
+
+
+    if(!checkTeacherLogin())
+
+    return;
+
+
+
+    loadTeacher();
+
+
+    refreshStudents();
+
+
+
+});
 /*====================================================
     KID'S LOVE NURSERY
     TEACHER DASHBOARD
@@ -331,11 +758,34 @@ refreshStudents();
 =====================================================*/
 
 
+
 // =====================================
-// ATTENDANCE STORAGE
+// ATTENDANCE DATA
 // =====================================
 
-let attendance = JSON.parse(localStorage.getItem("attendance")) || [];
+
+let attendance = [];
+
+
+
+
+
+function loadAttendanceData(){
+
+
+    attendance = JSON.parse(
+
+        localStorage.getItem(
+            "attendance"
+        )
+
+    ) || [];
+
+
+}
+
+
+
 
 
 
@@ -343,155 +793,397 @@ let attendance = JSON.parse(localStorage.getItem("attendance")) || [];
 // SAVE ATTENDANCE
 // =====================================
 
-function saveAttendance() {
 
-    const studentName = document.getElementById("studentName").value.trim();
+function saveAttendance(){
 
-    const status = document.getElementById("status").value;
 
-    if (studentName === "") {
 
-        alert("Enter student name.");
+    const studentInput =
+    document.getElementById(
+        "studentName"
+    );
+
+
+    const statusInput =
+    document.getElementById(
+        "status"
+    );
+
+
+
+    if(!studentInput || !statusInput)
+
+    return;
+
+
+
+
+
+    const studentName =
+    studentInput.value.trim();
+
+
+
+    const status =
+    statusInput.value;
+
+
+
+
+
+    if(studentName===""){
+
+
+        alert(
+            "Enter student name."
+        );
+
 
         return;
 
+
     }
 
-    // Check if student exists
-    const student = students.find(s =>
-        s.name.toLowerCase() === studentName.toLowerCase()
+
+
+
+
+
+    const student =
+
+    students.find(s=>
+
+
+        s.name.toLowerCase()
+        ===
+        studentName.toLowerCase()
+
+
     );
 
-    if (!student) {
 
-        alert("Student not found.");
+
+
+
+    if(!student){
+
+
+        alert(
+            "Student not found."
+        );
+
 
         return;
 
+
     }
 
-    const today = new Date().toLocaleDateString();
 
-    // Prevent duplicate attendance for same day
-    const existing = attendance.find(record =>
-        record.student.toLowerCase() === studentName.toLowerCase() &&
-        record.date === today
+
+
+
+
+
+    const today =
+
+    new Date()
+    .toLocaleDateString();
+
+
+
+
+
+
+    const existing =
+
+    attendance.find(record=>
+
+
+        record.student.toLowerCase()
+        ===
+        student.name.toLowerCase()
+
+        &&
+
+        record.date===today
+
+
     );
 
-    if (existing) {
 
-        existing.status = status;
 
-    } else {
+
+
+    if(existing){
+
+
+        existing.status =
+        status;
+
+
+    }
+
+    else{
+
+
 
         attendance.push({
 
-            id: Date.now(),
 
-            student: studentName,
+            id:
+            Date.now(),
 
-            class: student.class,
 
-            status: status,
+            student:
+            student.name,
 
-            date: today
+
+            class:
+            student.class || "-",
+
+
+            status:
+            status,
+
+
+            date:
+            today
+
+
 
         });
 
+
     }
 
-    localStorage.setItem("attendance", JSON.stringify(attendance));
 
-    document.getElementById("studentName").value = "";
 
-    document.getElementById("status").selectedIndex = 0;
+
+
+
+    localStorage.setItem(
+
+        "attendance",
+
+        JSON.stringify(
+            attendance
+        )
+
+    );
+
+
+
+
+
+
+
+    studentInput.value="";
+
+
+    statusInput.selectedIndex=0;
+
+
+
+
 
     loadAttendanceHistory();
 
+
     updateStatistics();
 
-    alert("Attendance saved successfully.");
+
+
+
+
+    alert(
+        "Attendance saved."
+    );
+
+
 
 }
 
 
 
+
+
+
 // =====================================
-// LOAD ATTENDANCE HISTORY
+// DISPLAY ATTENDANCE HISTORY
 // =====================================
 
-function loadAttendanceHistory() {
 
-    const container = document.getElementById("attendanceHistory");
+function loadAttendanceHistory(){
 
-    if (!container) return;
 
-    attendance = JSON.parse(localStorage.getItem("attendance")) || [];
 
-    if (attendance.length === 0) {
+    const container =
+    document.getElementById(
+        "attendanceHistory"
+    );
 
-        container.innerHTML = "<p>No attendance records.</p>";
+
+
+    if(!container)
+
+    return;
+
+
+
+
+
+    loadAttendanceData();
+
+
+
+
+
+    if(attendance.length===0){
+
+
+
+        container.innerHTML =
+
+        `
+
+        <p>
+        No attendance records.
+        </p>
+
+        `;
+
 
         return;
 
+
     }
 
-    let html = "";
+
+
+
+
+
+    let html="";
+
+
+
+
 
     attendance
-        .slice()
-        .reverse()
-        .forEach(record => {
+    .slice()
+    .reverse()
+    .forEach(record=>{
 
-            html += `
 
-            <div class="attendance-item">
 
-                <div>
 
-                    <strong>${record.student}</strong><br>
 
-                    <small>${record.class}</small><br>
+        html +=
 
-                    <small>${record.date}</small>
 
-                </div>
+        `
 
-                <div>
+        <div class="attendance-item">
 
-                    <span class="${record.status.toLowerCase()}">
 
-                        ${record.status}
+            <div>
 
-                    </span>
 
-                </div>
+                <strong>
 
-                <div>
+                ${record.student}
 
-                    <button onclick="editAttendance(${record.id})">
+                </strong>
 
-                        Edit
 
-                    </button>
+                <br>
 
-                    <button onclick="deleteAttendance(${record.id})">
 
-                        Delete
+                <small>
 
-                    </button>
+                Class:
+                ${record.class}
 
-                </div>
+                </small>
+
+
+                <br>
+
+
+                <small>
+
+                ${record.date}
+
+                </small>
+
 
             </div>
 
-            `;
 
-        });
 
-    container.innerHTML = html;
+
+            <div>
+
+
+                <span class="${record.status.toLowerCase()}">
+
+                ${record.status}
+
+                </span>
+
+
+            </div>
+
+
+
+
+            <div>
+
+
+                <button onclick="editAttendance(${record.id})">
+
+                Edit
+
+                </button>
+
+
+
+
+
+                <button onclick="deleteAttendance(${record.id})">
+
+                Delete
+
+                </button>
+
+
+            </div>
+
+
+
+        </div>
+
+
+        `;
+
+
+
+    });
+
+
+
+
+
+    container.innerHTML =
+    html;
+
+
 
 }
+
+
+
+
 
 
 
@@ -499,33 +1191,93 @@ function loadAttendanceHistory() {
 // EDIT ATTENDANCE
 // =====================================
 
-function editAttendance(id) {
 
-    attendance = JSON.parse(localStorage.getItem("attendance")) || [];
+function editAttendance(id){
 
-    const record = attendance.find(item => item.id === id);
 
-    if (!record) return;
 
-    const newStatus = prompt(
+    loadAttendanceData();
 
-        "Enter status (Present/Absent)",
+
+
+
+
+    const record =
+
+    attendance.find(item=>
+
+        item.id===id
+
+    );
+
+
+
+
+
+    if(!record)
+
+    return;
+
+
+
+
+
+
+    const status =
+
+    prompt(
+
+        "Enter Present or Absent",
 
         record.status
 
     );
 
-    if (!newStatus) return;
 
-    record.status = newStatus;
 
-    localStorage.setItem("attendance", JSON.stringify(attendance));
+
+
+    if(!status)
+
+    return;
+
+
+
+
+
+    record.status =
+    status;
+
+
+
+
+
+    localStorage.setItem(
+
+        "attendance",
+
+        JSON.stringify(
+            attendance
+        )
+
+    );
+
+
+
+
 
     loadAttendanceHistory();
 
+
     updateStatistics();
 
+
+
 }
+
+
+
+
 
 
 
@@ -533,122 +1285,310 @@ function editAttendance(id) {
 // DELETE ATTENDANCE
 // =====================================
 
-function deleteAttendance(id) {
 
-    if (!confirm("Delete this attendance record?")) {
+function deleteAttendance(id){
 
-        return;
 
-    }
 
-    attendance = attendance.filter(record => record.id !== id);
+    if(!confirm(
 
-    localStorage.setItem("attendance", JSON.stringify(attendance));
+        "Delete this attendance?"
+
+    ))
+
+    return;
+
+
+
+
+
+
+    loadAttendanceData();
+
+
+
+
+
+    attendance =
+
+    attendance.filter(record=>
+
+
+        record.id!==id
+
+
+    );
+
+
+
+
+
+
+
+    localStorage.setItem(
+
+        "attendance",
+
+        JSON.stringify(
+            attendance
+        )
+
+    );
+
+
+
+
+
 
     loadAttendanceHistory();
 
+
     updateStatistics();
+
+
 
 }
 
 
 
+
+
+
 // =====================================
-// MARK EVERY STUDENT PRESENT
+// MARK ALL STUDENTS PRESENT
 // =====================================
 
-function markAllPresent() {
 
-    const today = new Date().toLocaleDateString();
+function markAllPresent(){
 
-    students.forEach(student => {
 
-        const exists = attendance.find(record =>
 
-            record.student === student.name &&
-            record.date === today
+    loadAttendanceData();
+
+
+
+
+
+    const today =
+
+    new Date()
+    .toLocaleDateString();
+
+
+
+
+
+    students.forEach(student=>{
+
+
+
+        const exists =
+
+        attendance.find(record=>
+
+
+            record.student===student.name
+
+            &&
+
+            record.date===today
+
 
         );
 
-        if (!exists) {
+
+
+
+
+        if(!exists){
+
+
 
             attendance.push({
 
-                id: Date.now() + Math.random(),
 
-                student: student.name,
 
-                class: student.class,
+                id:
+                Date.now()+Math.random(),
 
-                status: "Present",
 
-                date: today
+                student:
+                student.name,
+
+
+                class:
+                student.class || "-",
+
+
+                status:
+                "Present",
+
+
+                date:
+                today
+
+
 
             });
 
+
+
         }
+
+
 
     });
 
-    localStorage.setItem("attendance", JSON.stringify(attendance));
+
+
+
+
+
+    localStorage.setItem(
+
+        "attendance",
+
+        JSON.stringify(
+            attendance
+        )
+
+    );
+
+
+
+
 
     loadAttendanceHistory();
 
+
     updateStatistics();
 
-    alert("All students marked Present.");
+
+
+
+
+    alert(
+        "All students marked Present."
+    );
+
+
 
 }
 
 
 
+
+
+
 // =====================================
-// TODAY'S ATTENDANCE SUMMARY
+// TODAY SUMMARY
 // =====================================
 
-function attendanceSummary() {
 
-    const today = new Date().toLocaleDateString();
+function attendanceSummary(){
 
-    let present = 0;
 
-    let absent = 0;
 
-    attendance.forEach(record => {
+    loadAttendanceData();
 
-        if (record.date === today) {
 
-            if (record.status === "Present") {
 
-                present++;
 
-            } else {
 
-                absent++;
+    const today =
 
-            }
+    new Date()
+    .toLocaleDateString();
+
+
+
+
+
+    let present=0;
+
+    let absent=0;
+
+
+
+
+
+    attendance.forEach(record=>{
+
+
+        if(record.date===today){
+
+
+
+            if(record.status==="Present")
+
+            present++;
+
+
+            else
+
+            absent++;
+
 
         }
 
+
+
     });
 
-    console.log("Today's Attendance");
 
-    console.log("Present:", present);
 
-    console.log("Absent:", absent);
+
+
+    console.log(
+        "Today's Present:",
+        present
+    );
+
+
+
+    console.log(
+        "Today's Absent:",
+        absent
+    );
+
+
 
 }
 
 
 
+
+
+
 // =====================================
-// INITIALIZE PART 2
+// START PART 2
 // =====================================
 
-loadAttendanceHistory();
 
-attendanceSummary();
+document.addEventListener(
+
+"DOMContentLoaded",
+
+()=>{
+
+
+    if(!teacher)
+
+    return;
+
+
+
+    loadAttendanceData();
+
+
+    loadAttendanceHistory();
+
+
+    attendanceSummary();
+
+
+
+});
 /*====================================================
     KID'S LOVE NURSERY
     TEACHER DASHBOARD
@@ -657,183 +1597,570 @@ attendanceSummary();
 =====================================================*/
 
 
+
 // =====================================
 // RESULTS STORAGE
 // =====================================
 
-let results = JSON.parse(localStorage.getItem("results")) || [];
+
+let results = [];
+
+
+
+
+
+function loadResultsData(){
+
+
+    results = JSON.parse(
+
+        localStorage.getItem(
+            "results"
+        )
+
+    ) || [];
+
+
+}
+
+
+
 
 
 
 // =====================================
-// SAVE RESULT
+// SAVE RESULTS
 // =====================================
 
-function saveResult() {
 
-    const student = document.getElementById("resultStudent").value.trim();
+function saveResult(){
 
-    const subject = document.getElementById("subject").value.trim();
 
-    const marks = document.getElementById("marks").value.trim();
 
-    const comment = document.getElementById("comment").value.trim();
-
-    if (student === "" || subject === "" || marks === "") {
-
-        alert("Please complete all required fields.");
-
-        return;
-
-    }
-
-    const exists = students.find(s =>
-        s.name.toLowerCase() === student.toLowerCase()
+    const studentInput =
+    document.getElementById(
+        "resultStudent"
     );
 
-    if (!exists) {
 
-        alert("Student not found.");
+    const subjectInput =
+    document.getElementById(
+        "subject"
+    );
+
+
+    const marksInput =
+    document.getElementById(
+        "marks"
+    );
+
+
+    const commentInput =
+    document.getElementById(
+        "comment"
+    );
+
+
+
+
+
+    if(!studentInput ||
+       !subjectInput ||
+       !marksInput)
+
+    return;
+
+
+
+
+
+
+
+    const studentName =
+    studentInput.value.trim();
+
+
+
+    const subject =
+    subjectInput.value.trim();
+
+
+
+    const marks =
+    marksInput.value.trim();
+
+
+
+    const comment =
+    commentInput ?
+    commentInput.value.trim()
+    :
+    "";
+
+
+
+
+
+
+
+    if(
+        studentName==="" ||
+        subject==="" ||
+        marks===""
+
+    ){
+
+
+        alert(
+            "Complete required fields."
+        );
+
 
         return;
 
+
     }
+
+
+
+
+
+
+    const student =
+
+    students.find(s=>
+
+
+        s.name.toLowerCase()
+        ===
+        studentName.toLowerCase()
+
+
+    );
+
+
+
+
+
+
+    if(!student){
+
+
+        alert(
+            "Student not found."
+        );
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+
+    loadResultsData();
+
+
+
+
 
     results.push({
 
-        id: Date.now(),
 
-        student,
+        id:
+        Date.now(),
 
+
+        student:
+        student.name,
+
+
+        subject:
         subject,
 
-        marks: Number(marks),
 
+        marks:
+        Number(marks),
+
+
+        comment:
         comment,
 
-        date: new Date().toLocaleDateString()
+
+        date:
+        new Date()
+        .toLocaleDateString()
+
+
 
     });
 
-    localStorage.setItem("results", JSON.stringify(results));
 
-    document.getElementById("resultStudent").value = "";
-    document.getElementById("subject").value = "";
-    document.getElementById("marks").value = "";
-    document.getElementById("comment").value = "";
+
+
+
+
+
+    localStorage.setItem(
+
+        "results",
+
+        JSON.stringify(
+            results
+        )
+
+    );
+
+
+
+
+
+
+    studentInput.value="";
+
+    subjectInput.value="";
+
+    marksInput.value="";
+
+
+
+    if(commentInput)
+
+    commentInput.value="";
+
+
+
+
 
     loadResults();
 
-    alert("Result saved successfully.");
+
+
+    alert(
+        "Result saved successfully."
+    );
+
+
 
 }
 
 
 
+
+
+
+
 // =====================================
-// LOAD RESULTS
+// DISPLAY RESULTS
 // =====================================
 
-function loadResults() {
 
-    const container = document.getElementById("resultsHistory");
+function loadResults(){
 
-    if (!container) return;
 
-    results = JSON.parse(localStorage.getItem("results")) || [];
 
-    if (results.length === 0) {
+    const container =
+    document.getElementById(
+        "resultsHistory"
+    );
 
-        container.innerHTML = "<p>No results available.</p>";
 
-        return;
 
-    }
+    if(!container)
 
-    let html = "";
+    return;
 
-    results.slice().reverse().forEach(result => {
 
-        html += `
 
-        <div class="result-card">
 
-            <h4>${result.student}</h4>
 
-            <p><strong>Subject:</strong> ${result.subject}</p>
+    loadResultsData();
 
-            <p><strong>Marks:</strong> ${result.marks}%</p>
 
-            <p><strong>Comment:</strong> ${result.comment}</p>
 
-            <small>${result.date}</small>
 
-        </div>
+
+
+    if(results.length===0){
+
+
+
+        container.innerHTML =
+
+        `
+
+        <p>
+        No results available.
+        </p>
 
         `;
 
+
+        return;
+
+
+    }
+
+
+
+
+
+
+
+    let html="";
+
+
+
+
+
+
+    results
+    .slice()
+    .reverse()
+    .forEach(result=>{
+
+
+
+
+
+        html +=
+
+
+        `
+
+        <div class="result-card">
+
+
+            <h4>
+
+            ${result.student}
+
+            </h4>
+
+
+
+            <p>
+
+            Subject:
+            ${result.subject}
+
+            </p>
+
+
+
+
+            <p>
+
+            Marks:
+            ${result.marks}%
+
+            </p>
+
+
+
+
+            <p>
+
+            Comment:
+            ${result.comment || "-"}
+
+            </p>
+
+
+
+            <small>
+
+            ${result.date}
+
+            </small>
+
+
+        </div>
+
+
+        `;
+
+
+
     });
 
-    container.innerHTML = html;
+
+
+
+
+
+    container.innerHTML =
+    html;
+
+
 
 }
 
 
 
+
+
+
+
 // =====================================
-// REPORT CARD
+// GENERATE REPORT CARD
 // =====================================
 
-function generateReport() {
 
-    const studentName =
-        document.getElementById("reportStudent").value.trim();
+function generateReport(){
 
-    if (studentName === "") {
 
-        alert("Enter a student name.");
 
-        return;
-
-    }
-
-    const studentResults = results.filter(result =>
-        result.student.toLowerCase() === studentName.toLowerCase()
+    const input =
+    document.getElementById(
+        "reportStudent"
     );
 
-    if (studentResults.length === 0) {
 
-        alert("No results found.");
+
+    if(!input)
+
+    return;
+
+
+
+
+
+    const studentName =
+    input.value.trim();
+
+
+
+
+
+
+    if(studentName===""){
+
+
+        alert(
+            "Enter student name."
+        );
+
 
         return;
 
+
     }
 
-    let report = "KID'S LOVE NURSERY REPORT CARD\n\n";
 
-    report += "Student: " + studentName + "\n\n";
 
-    studentResults.forEach(result => {
+
+
+
+
+    loadResultsData();
+
+
+
+
+
+
+    const studentResults =
+
+    results.filter(result=>
+
+
+        result.student.toLowerCase()
+        ===
+        studentName.toLowerCase()
+
+
+    );
+
+
+
+
+
+
+    if(studentResults.length===0){
+
+
+        alert(
+            "No results found."
+        );
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+
+    let report =
+
+`
+KID'S LOVE NURSERY
+REPORT CARD
+
+
+Student:
+${studentName}
+
+
+`;
+
+
+
+
+
+
+
+    studentResults.forEach(result=>{
+
+
 
         report +=
-            result.subject +
-            " : " +
-            result.marks +
-            "%\n";
+
+`
+
+Subject:
+${result.subject}
+
+Marks:
+${result.marks}%
+
+Comment:
+${result.comment}
+
+
+--------------------
+
+
+`;
+
+
 
     });
 
-    report += "\nTeacher's Comments:\n";
 
-    studentResults.forEach(result => {
 
-        report += "- " + result.comment + "\n";
 
-    });
+
 
     alert(report);
 
+
+
 }
+
+
+
+
+
 
 
 
@@ -841,82 +2168,313 @@ function generateReport() {
 // ANNOUNCEMENTS
 // =====================================
 
-function postAnnouncement() {
+
+function postAnnouncement(){
+
+
+
+    const input =
+    document.getElementById(
+        "announcement"
+    );
+
+
+
+    if(!input)
+
+    return;
+
+
+
+
+
+
 
     const message =
-        document.getElementById("announcement").value.trim();
+    input.value.trim();
 
-    if (message === "") {
 
-        alert("Write an announcement first.");
+
+
+
+
+
+    if(message===""){
+
+
+        alert(
+            "Write announcement first."
+        );
+
 
         return;
 
+
     }
 
-    const announcements =
-        JSON.parse(localStorage.getItem("announcements")) || [];
+
+
+
+
+
+    let announcements =
+
+    JSON.parse(
+
+        localStorage.getItem(
+            "announcements"
+        )
+
+    ) || [];
+
+
+
+
+
 
     announcements.push({
 
+
+        message:
         message,
 
-        date: new Date().toLocaleString()
+
+        date:
+        new Date()
+        .toLocaleString()
+
+
 
     });
+
+
+
+
+
 
     localStorage.setItem(
+
         "announcements",
-        JSON.stringify(announcements)
+
+        JSON.stringify(
+            announcements
+        )
+
     );
 
-    document.getElementById("announcement").value = "";
-
-    alert("Announcement posted successfully.");
-
-}
 
 
 
-// =====================================
-// LOAD ANNOUNCEMENTS
-// =====================================
 
-function loadAnnouncements() {
 
-    const announcements =
-        JSON.parse(localStorage.getItem("announcements")) || [];
-
-    console.log("Announcements");
-
-    announcements.forEach(item => {
-
-        console.log(item.date + " - " + item.message);
-
-    });
-
-}
+    input.value="";
 
 
 
-// =====================================
-// DASHBOARD INITIALIZATION
-// =====================================
 
-function initializeDashboard() {
-
-    loadTeacher();
-
-    refreshStudents();
-
-    loadAttendanceHistory();
-
-    loadResults();
 
     loadAnnouncements();
 
-    updateStatistics();
+
+
+
+    alert(
+        "Announcement posted."
+    );
+
+
 
 }
 
-window.onload = initializeDashboard;
+
+
+
+
+
+
+// =====================================
+// DISPLAY ANNOUNCEMENTS
+// =====================================
+
+
+function loadAnnouncements(){
+
+
+
+    const container =
+    document.getElementById(
+        "announcementList"
+    );
+
+
+
+    if(!container)
+
+    return;
+
+
+
+
+
+
+
+    const announcements =
+
+    JSON.parse(
+
+        localStorage.getItem(
+            "announcements"
+        )
+
+    ) || [];
+
+
+
+
+
+
+
+    if(announcements.length===0){
+
+
+
+        container.innerHTML=
+
+        `
+
+        <p>
+        No announcements.
+        </p>
+
+        `;
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+
+    let html="";
+
+
+
+
+
+
+    announcements
+    .slice()
+    .reverse()
+    .forEach(item=>{
+
+
+
+        html +=
+
+
+        `
+
+        <div class="announcement-card">
+
+
+            <p>
+
+            ${item.message}
+
+            </p>
+
+
+
+            <small>
+
+            ${item.date}
+
+            </small>
+
+
+        </div>
+
+
+        `;
+
+
+
+    });
+
+
+
+
+
+
+    container.innerHTML =
+    html;
+
+
+
+}
+
+
+
+
+
+
+
+// =====================================
+// FINAL DASHBOARD INITIALIZATION
+// =====================================
+
+
+function initializeDashboard(){
+
+
+
+    if(!teacher)
+
+    return;
+
+
+
+
+
+    loadTeacher();
+
+
+    refreshStudents();
+
+
+    loadAttendanceHistory();
+
+
+    loadResults();
+
+
+    loadAnnouncements();
+
+
+    updateStatistics();
+
+
+
+}
+
+
+
+
+
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+()=>{
+
+
+    initializeDashboard();
+
+
+});
