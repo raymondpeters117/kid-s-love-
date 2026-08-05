@@ -1,68 +1,55 @@
 /*====================================================
     KID'S LOVE NURSERY
-    TEACHER DASHBOARD
-    PART 1 (RECREATED)
-    LOGIN • PROFILE • STUDENTS • STATISTICS
+    TEACHER DASHBOARD JS
+
+    PART 1
+    LOGIN
+    PROFILE
+    STUDENTS
+    SEARCH
+    STATISTICS
 =====================================================*/
 
 
-// =====================================
-// GLOBAL DATA
-// =====================================
+// ================================
+// GLOBAL VARIABLES
+// ================================
 
 let teacher = null;
-
 let students = [];
 
 
 
-
-// =====================================
-// CHECK TEACHER LOGIN
-// =====================================
-
+// ================================
+// CHECK LOGIN
+// ================================
 
 function checkTeacherLogin(){
-
 
     teacher = JSON.parse(
         localStorage.getItem("loggedTeacher")
     );
 
 
-
     if(!teacher){
 
+        alert("Please login first.");
 
-        alert(
-            "Please login first."
-        );
-
-
-        window.location.href =
-        "portal.html";
-
+        window.location.href="portal.html";
 
         return false;
-
-
     }
 
 
     return true;
-
-
 }
 
 
 
 
-
-
-// =====================================
+// ================================
 // LOAD TEACHER PROFILE
-// =====================================
-
+// ================================
 
 function loadTeacher(){
 
@@ -72,63 +59,48 @@ function loadTeacher(){
 
 
 
-    const teacherName =
-    document.getElementById(
-        "teacherName"
-    );
+    const elements = {
 
+        teacherName:
+        document.getElementById("teacherName"),
 
-    const name =
-    document.getElementById(
-        "name"
-    );
+        name:
+        document.getElementById("name"),
 
+        email:
+        document.getElementById("email"),
 
-    const email =
-    document.getElementById(
-        "email"
-    );
+        phone:
+        document.getElementById("phone")
 
-
-    const phone =
-    document.getElementById(
-        "phone"
-    );
+    };
 
 
 
+    if(elements.teacherName)
 
-
-    if(teacherName)
-
-    teacherName.textContent =
+    elements.teacherName.textContent =
     teacher.name || "Teacher";
 
 
 
+    if(elements.name)
 
-
-    if(name)
-
-    name.textContent =
+    elements.name.textContent =
     teacher.name || "-";
 
 
 
+    if(elements.email)
 
-
-    if(email)
-
-    email.textContent =
+    elements.email.textContent =
     teacher.email || "-";
 
 
 
+    if(elements.phone)
 
-
-    if(phone)
-
-    phone.textContent =
+    elements.phone.textContent =
     teacher.phone || "-";
 
 
@@ -138,25 +110,14 @@ function loadTeacher(){
 
 
 
-
-
-// =====================================
+// ================================
 // LOGOUT
-// =====================================
-
+// ================================
 
 function logout(){
 
 
-
-    const confirmLogout =
-    confirm(
-        "Logout from teacher portal?"
-    );
-
-
-
-    if(confirmLogout){
+    if(confirm("Logout from teacher portal?")){
 
 
         localStorage.removeItem(
@@ -164,8 +125,7 @@ function logout(){
         );
 
 
-        window.location.href =
-        "portal.html";
+        window.location.href="portal.html";
 
 
     }
@@ -176,25 +136,17 @@ function logout(){
 
 
 
-
-
-// =====================================
-// LOAD STUDENTS FROM STORAGE
-// =====================================
-
+// ================================
+// GET STUDENTS
+// ================================
 
 function getStudents(){
 
 
-
-    students = JSON.parse(
-
-        localStorage.getItem(
-            "students"
-        )
-
+    students =
+    JSON.parse(
+        localStorage.getItem("students")
     ) || [];
-
 
 
 }
@@ -202,21 +154,15 @@ function getStudents(){
 
 
 
-
-
-// =====================================
-// DISPLAY STUDENT CARDS
-// =====================================
-
+// ================================
+// LOAD STUDENT CARDS
+// ================================
 
 function loadStudents(){
 
 
-
     const container =
-    document.getElementById(
-        "students"
-    );
+    document.getElementById("students");
 
 
 
@@ -225,11 +171,7 @@ function loadStudents(){
 
 
 
-
-
     container.innerHTML="";
-
-
 
 
 
@@ -237,7 +179,6 @@ function loadStudents(){
 
 
         container.innerHTML =
-
         `
         <p>
         No students registered.
@@ -248,10 +189,7 @@ function loadStudents(){
         updateStatistics();
 
         return;
-
-
     }
-
 
 
 
@@ -261,11 +199,8 @@ function loadStudents(){
 
         container.innerHTML +=
 
-
         `
-
         <div class="student-card">
-
 
             <h4>
             ${student.name || "-"}
@@ -273,43 +208,32 @@ function loadStudents(){
 
 
             <p>
-
-            <strong>
-            Class:
-            </strong>
-
+            <b>Class:</b>
             ${student.class || "-"}
-
             </p>
 
 
+            <p>
+            <b>Age:</b>
+            ${student.age || "-"}
+            </p>
+
 
             <p>
-
-            <strong>
-            Age:
-            </strong>
-
-            ${student.age || "-"}
-
+            <b>Gender:</b>
+            ${student.gender || "-"}
             </p>
 
 
         </div>
-
-
         `;
-
 
 
     });
 
 
 
-
-
     updateStatistics();
-
 
 
 }
@@ -317,23 +241,16 @@ function loadStudents(){
 
 
 
+// ================================
+// LOAD CLASS TABLE
+// ================================
 
-
-// =====================================
-// CLASS TABLE
-// =====================================
-
-
-function loadClassList(
-    list = students
-){
+function loadClassList(list = students){
 
 
 
     const table =
-    document.getElementById(
-        "classTable"
-    );
+    document.getElementById("classTable");
 
 
 
@@ -342,10 +259,7 @@ function loadClassList(
 
 
 
-
-
     table.innerHTML="";
-
 
 
 
@@ -353,26 +267,20 @@ function loadClassList(
     if(list.length===0){
 
 
-        table.innerHTML =
-
+        table.innerHTML=
 
         `
-
         <tr>
 
         <td colspan="7">
-
         No students found.
-
         </td>
 
         </tr>
-
         `;
 
 
         return;
-
 
     }
 
@@ -380,58 +288,31 @@ function loadClassList(
 
 
 
-
-    list.forEach(
-    (student,index)=>{
-
+    list.forEach((student,index)=>{
 
 
         table.innerHTML +=
 
 
         `
-
         <tr>
 
+        <td>${index+1}</td>
 
-        <td>
-        ${index+1}
-        </td>
+        <td>${student.name || "-"}</td>
 
+        <td>${student.class || "-"}</td>
 
-        <td>
-        ${student.name || "-"}
-        </td>
+        <td>${student.age || "-"}</td>
 
+        <td>${student.gender || "-"}</td>
 
-        <td>
-        ${student.class || "-"}
-        </td>
+        <td>${student.parent || "-"}</td>
 
-
-        <td>
-        ${student.age || "-"}
-        </td>
-
-
-        <td>
-        ${student.gender || "-"}
-        </td>
-
-
-        <td>
-        ${student.parent || "-"}
-        </td>
-
-
-        <td>
-        ${student.phone || "-"}
-        </td>
+        <td>${student.phone || "-"}</td>
 
 
         </tr>
-
-
         `;
 
 
@@ -445,15 +326,11 @@ function loadClassList(
 
 
 
-
-
-// =====================================
+// ================================
 // SEARCH STUDENTS
-// =====================================
-
+// ================================
 
 function searchStudent(){
-
 
 
     const input =
@@ -468,12 +345,10 @@ function searchStudent(){
 
 
 
-
-
     const keyword =
     input.value
-    .toLowerCase();
-
+    .toLowerCase()
+    .trim();
 
 
 
@@ -483,21 +358,21 @@ function searchStudent(){
     students.filter(student=>{
 
 
-        return student.name
-        .toLowerCase()
-        .includes(keyword);
+        return (
+
+            student.name &&
+            student.name
+            .toLowerCase()
+            .includes(keyword)
+
+        );
 
 
     });
 
 
 
-
-
-    loadClassList(
-        filtered
-    );
-
+    loadClassList(filtered);
 
 
 }
@@ -505,15 +380,11 @@ function searchStudent(){
 
 
 
-
-
-// =====================================
-// FILTER BY CLASS
-// =====================================
-
+// ================================
+// FILTER CLASS
+// ================================
 
 function filterStudents(){
-
 
 
     const select =
@@ -522,18 +393,13 @@ function filterStudents(){
     );
 
 
-
     if(!select)
     return;
 
 
 
-
-
-    const selected =
+    let selected =
     select.value;
-
-
 
 
 
@@ -547,10 +413,7 @@ function filterStudents(){
 
         return;
 
-
     }
-
-
 
 
 
@@ -567,12 +430,7 @@ function filterStudents(){
 
 
 
-
-
-    loadClassList(
-        filtered
-    );
-
+    loadClassList(filtered);
 
 
 }
@@ -580,15 +438,11 @@ function filterStudents(){
 
 
 
-
-
-// =====================================
+// ================================
 // DASHBOARD STATISTICS
-// =====================================
-
+// ================================
 
 function updateStatistics(){
-
 
 
     const total =
@@ -605,21 +459,13 @@ function updateStatistics(){
 
 
 
-
-
-
-
-    const attendance =
+    let attendance =
 
     JSON.parse(
-
         localStorage.getItem(
             "attendance"
         )
-
     ) || [];
-
-
 
 
 
@@ -629,21 +475,25 @@ function updateStatistics(){
 
 
 
+    const today =
+    new Date()
+    .toLocaleDateString();
+
+
 
 
     attendance.forEach(record=>{
 
 
-        if(record.status==="Present"){
+        if(record.date === today){
 
+
+            if(record.status==="Present")
 
             present++;
 
 
-        }
-
-        else{
-
+            else
 
             absent++;
 
@@ -652,8 +502,6 @@ function updateStatistics(){
 
 
     });
-
-
 
 
 
@@ -673,15 +521,10 @@ function updateStatistics(){
 
 
 
-
-
-
     if(presentBox)
 
     presentBox.textContent =
     present;
-
-
 
 
 
@@ -697,22 +540,16 @@ function updateStatistics(){
 
 
 
-
-
-// =====================================
-// REFRESH DATA
-// =====================================
-
+// ================================
+// REFRESH STUDENTS
+// ================================
 
 function refreshStudents(){
 
 
-
     getStudents();
 
-
     loadStudents();
-
 
     loadClassList();
 
@@ -722,15 +559,11 @@ function refreshStudents(){
 
 
 
-
-
-// =====================================
-// START PART 1
-// =====================================
-
+// ================================
+// START DASHBOARD
+// ================================
 
 document.addEventListener(
-
 "DOMContentLoaded",
 
 ()=>{
@@ -748,27 +581,28 @@ document.addEventListener(
     refreshStudents();
 
 
-
 });
 /*====================================================
     KID'S LOVE NURSERY
-    TEACHER DASHBOARD
+    TEACHER DASHBOARD JS
+
     PART 2
     ATTENDANCE MANAGEMENT
 =====================================================*/
 
 
-
-// =====================================
+// ================================
 // ATTENDANCE DATA
-// =====================================
-
+// ================================
 
 let attendance = [];
 
 
 
 
+// ================================
+// LOAD ATTENDANCE
+// ================================
 
 function loadAttendanceData(){
 
@@ -788,11 +622,9 @@ function loadAttendanceData(){
 
 
 
-
-// =====================================
+// ================================
 // SAVE ATTENDANCE
-// =====================================
-
+// ================================
 
 function saveAttendance(){
 
@@ -818,9 +650,9 @@ function saveAttendance(){
 
 
 
-
-    const studentName =
-    studentInput.value.trim();
+    const name =
+    studentInput.value
+    .trim();
 
 
 
@@ -829,9 +661,7 @@ function saveAttendance(){
 
 
 
-
-
-    if(studentName===""){
+    if(name===""){
 
 
         alert(
@@ -841,22 +671,21 @@ function saveAttendance(){
 
         return;
 
-
     }
-
-
 
 
 
 
     const student =
 
-    students.find(s=>
+    students.find(student=>
 
 
-        s.name.toLowerCase()
+        student.name &&
+        student.name
+        .toLowerCase()
         ===
-        studentName.toLowerCase()
+        name.toLowerCase()
 
 
     );
@@ -882,6 +711,8 @@ function saveAttendance(){
 
 
 
+    loadAttendanceData();
+
 
 
     const today =
@@ -893,19 +724,16 @@ function saveAttendance(){
 
 
 
-
     const existing =
 
     attendance.find(record=>
 
 
-        record.student.toLowerCase()
-        ===
-        student.name.toLowerCase()
+        record.student === student.name
 
         &&
 
-        record.date===today
+        record.date === today
 
 
     );
@@ -924,7 +752,6 @@ function saveAttendance(){
     }
 
     else{
-
 
 
         attendance.push({
@@ -950,12 +777,10 @@ function saveAttendance(){
             today
 
 
-
         });
 
 
     }
-
 
 
 
@@ -975,15 +800,7 @@ function saveAttendance(){
 
 
 
-
-
     studentInput.value="";
-
-
-    statusInput.selectedIndex=0;
-
-
-
 
 
     loadAttendanceHistory();
@@ -993,12 +810,9 @@ function saveAttendance(){
 
 
 
-
-
     alert(
         "Attendance saved."
     );
-
 
 
 }
@@ -1008,13 +822,12 @@ function saveAttendance(){
 
 
 
-// =====================================
-// DISPLAY ATTENDANCE HISTORY
-// =====================================
 
+// ================================
+// DISPLAY ATTENDANCE HISTORY
+// ================================
 
 function loadAttendanceHistory(){
-
 
 
     const container =
@@ -1030,10 +843,7 @@ function loadAttendanceHistory(){
 
 
 
-
-
     loadAttendanceData();
-
 
 
 
@@ -1041,15 +851,12 @@ function loadAttendanceHistory(){
     if(attendance.length===0){
 
 
-
-        container.innerHTML =
+        container.innerHTML=
 
         `
-
         <p>
         No attendance records.
         </p>
-
         `;
 
 
@@ -1062,9 +869,7 @@ function loadAttendanceHistory(){
 
 
 
-
     let html="";
-
 
 
 
@@ -1073,8 +878,6 @@ function loadAttendanceHistory(){
     .slice()
     .reverse()
     .forEach(record=>{
-
-
 
 
 
@@ -1088,32 +891,19 @@ function loadAttendanceHistory(){
 
             <div>
 
-
-                <strong>
-
+                <h4>
                 ${record.student}
-
-                </strong>
-
-
-                <br>
+                </h4>
 
 
-                <small>
-
+                <p>
                 Class:
                 ${record.class}
-
-                </small>
-
-
-                <br>
+                </p>
 
 
                 <small>
-
                 ${record.date}
-
                 </small>
 
 
@@ -1124,8 +914,9 @@ function loadAttendanceHistory(){
 
             <div>
 
-
-                <span class="${record.status.toLowerCase()}">
+                <span class="
+                ${record.status.toLowerCase()}
+                ">
 
                 ${record.status}
 
@@ -1140,7 +931,9 @@ function loadAttendanceHistory(){
             <div>
 
 
-                <button onclick="editAttendance(${record.id})">
+                <button onclick="
+                editAttendance(${record.id})
+                ">
 
                 Edit
 
@@ -1148,13 +941,14 @@ function loadAttendanceHistory(){
 
 
 
-
-
-                <button onclick="deleteAttendance(${record.id})">
+                <button onclick="
+                deleteAttendance(${record.id})
+                ">
 
                 Delete
 
                 </button>
+
 
 
             </div>
@@ -1167,16 +961,12 @@ function loadAttendanceHistory(){
         `;
 
 
-
     });
-
-
 
 
 
     container.innerHTML =
     html;
-
 
 
 }
@@ -1187,18 +977,15 @@ function loadAttendanceHistory(){
 
 
 
-// =====================================
+// ================================
 // EDIT ATTENDANCE
-// =====================================
-
+// ================================
 
 function editAttendance(id){
 
 
 
     loadAttendanceData();
-
-
 
 
 
@@ -1212,8 +999,6 @@ function editAttendance(id){
 
 
 
-
-
     if(!record)
 
     return;
@@ -1221,13 +1006,11 @@ function editAttendance(id){
 
 
 
-
-
-    const status =
+    const newStatus =
 
     prompt(
 
-        "Enter Present or Absent",
+        "Change status to Present or Absent",
 
         record.status
 
@@ -1236,19 +1019,19 @@ function editAttendance(id){
 
 
 
-
-    if(!status)
+    if(
+        newStatus !== "Present"
+        &&
+        newStatus !== "Absent"
+    )
 
     return;
 
 
 
 
-
     record.status =
-    status;
-
-
+    newStatus;
 
 
 
@@ -1265,12 +1048,10 @@ function editAttendance(id){
 
 
 
-
     loadAttendanceHistory();
 
 
     updateStatistics();
-
 
 
 }
@@ -1281,19 +1062,16 @@ function editAttendance(id){
 
 
 
-// =====================================
+// ================================
 // DELETE ATTENDANCE
-// =====================================
-
+// ================================
 
 function deleteAttendance(id){
 
 
 
     if(!confirm(
-
-        "Delete this attendance?"
-
+        "Delete attendance record?"
     ))
 
     return;
@@ -1301,10 +1079,7 @@ function deleteAttendance(id){
 
 
 
-
-
     loadAttendanceData();
-
 
 
 
@@ -1314,12 +1089,10 @@ function deleteAttendance(id){
     attendance.filter(record=>
 
 
-        record.id!==id
+        record.id !== id
 
 
     );
-
-
 
 
 
@@ -1339,12 +1112,10 @@ function deleteAttendance(id){
 
 
 
-
     loadAttendanceHistory();
 
 
     updateStatistics();
-
 
 
 }
@@ -1354,18 +1125,16 @@ function deleteAttendance(id){
 
 
 
-// =====================================
-// MARK ALL STUDENTS PRESENT
-// =====================================
 
+// ================================
+// MARK ALL PRESENT
+// ================================
 
 function markAllPresent(){
 
 
 
     loadAttendanceData();
-
-
 
 
 
@@ -1387,11 +1156,11 @@ function markAllPresent(){
         attendance.find(record=>
 
 
-            record.student===student.name
+            record.student === student.name
 
             &&
 
-            record.date===today
+            record.date === today
 
 
         );
@@ -1407,9 +1176,10 @@ function markAllPresent(){
             attendance.push({
 
 
-
                 id:
-                Date.now()+Math.random(),
+                Date.now()
+                +
+                Math.random(),
 
 
                 student:
@@ -1428,7 +1198,6 @@ function markAllPresent(){
                 today
 
 
-
             });
 
 
@@ -1437,8 +1206,8 @@ function markAllPresent(){
 
 
 
-    });
 
+    });
 
 
 
@@ -1465,12 +1234,9 @@ function markAllPresent(){
 
 
 
-
-
     alert(
         "All students marked Present."
     );
-
 
 
 }
@@ -1480,18 +1246,16 @@ function markAllPresent(){
 
 
 
-// =====================================
-// TODAY SUMMARY
-// =====================================
 
+// ================================
+// TODAY SUMMARY
+// ================================
 
 function attendanceSummary(){
 
 
 
     loadAttendanceData();
-
-
 
 
 
@@ -1503,11 +1267,9 @@ function attendanceSummary(){
 
 
 
+    let present = 0;
 
-    let present=0;
-
-    let absent=0;
-
+    let absent = 0;
 
 
 
@@ -1516,7 +1278,6 @@ function attendanceSummary(){
 
 
         if(record.date===today){
-
 
 
             if(record.status==="Present")
@@ -1532,25 +1293,18 @@ function attendanceSummary(){
         }
 
 
-
     });
 
 
 
 
+    return {
 
-    console.log(
-        "Today's Present:",
-        present
-    );
+        present,
 
-
-
-    console.log(
-        "Today's Absent:",
         absent
-    );
 
+    };
 
 
 }
@@ -1560,10 +1314,10 @@ function attendanceSummary(){
 
 
 
-// =====================================
-// START PART 2
-// =====================================
 
+// ================================
+// LOAD WHEN DASHBOARD OPENS
+// ================================
 
 document.addEventListener(
 
@@ -1584,30 +1338,32 @@ document.addEventListener(
     loadAttendanceHistory();
 
 
-    attendanceSummary();
-
-
 
 });
 /*====================================================
     KID'S LOVE NURSERY
-    TEACHER DASHBOARD
+    TEACHER DASHBOARD JS
+
     PART 3
-    RESULTS • REPORTS • ANNOUNCEMENTS
+    RESULTS
+    REPORT CARDS
+    ANNOUNCEMENTS
 =====================================================*/
 
 
 
-// =====================================
-// RESULTS STORAGE
-// =====================================
-
+// ================================
+// RESULTS DATA
+// ================================
 
 let results = [];
 
 
 
 
+// ================================
+// LOAD RESULTS
+// ================================
 
 function loadResultsData(){
 
@@ -1628,10 +1384,10 @@ function loadResultsData(){
 
 
 
-// =====================================
-// SAVE RESULTS
-// =====================================
 
+// ================================
+// SAVE RESULT
+// ================================
 
 function saveResult(){
 
@@ -1664,13 +1420,13 @@ function saveResult(){
 
 
 
-    if(!studentInput ||
-       !subjectInput ||
-       !marksInput)
+    if(
+        !studentInput ||
+        !subjectInput ||
+        !marksInput
+    )
 
     return;
-
-
 
 
 
@@ -1687,7 +1443,9 @@ function saveResult(){
 
 
     const marks =
-    marksInput.value.trim();
+    Number(
+        marksInput.value
+    );
 
 
 
@@ -1701,23 +1459,19 @@ function saveResult(){
 
 
 
-
-
     if(
         studentName==="" ||
         subject==="" ||
-        marks===""
-
+        !marks
     ){
 
 
         alert(
-            "Complete required fields."
+            "Fill all required fields."
         );
 
 
         return;
-
 
     }
 
@@ -1726,14 +1480,18 @@ function saveResult(){
 
 
 
+
     const student =
 
-    students.find(s=>
+    students.find(student=>
 
 
-        s.name.toLowerCase()
+        student.name &&
+        student.name
+        .toLowerCase()
         ===
-        studentName.toLowerCase()
+        studentName
+        .toLowerCase()
 
 
     );
@@ -1753,7 +1511,6 @@ function saveResult(){
 
         return;
 
-
     }
 
 
@@ -1763,7 +1520,6 @@ function saveResult(){
 
 
     loadResultsData();
-
 
 
 
@@ -1784,7 +1540,7 @@ function saveResult(){
 
 
         marks:
-        Number(marks),
+        marks,
 
 
         comment:
@@ -1796,9 +1552,7 @@ function saveResult(){
         .toLocaleDateString()
 
 
-
     });
-
 
 
 
@@ -1845,7 +1599,6 @@ function saveResult(){
     );
 
 
-
 }
 
 
@@ -1854,10 +1607,10 @@ function saveResult(){
 
 
 
-// =====================================
-// DISPLAY RESULTS
-// =====================================
 
+// ================================
+// DISPLAY RESULTS
+// ================================
 
 function loadResults(){
 
@@ -1877,9 +1630,7 @@ function loadResults(){
 
 
 
-
     loadResultsData();
-
 
 
 
@@ -1888,15 +1639,12 @@ function loadResults(){
     if(results.length===0){
 
 
-
-        container.innerHTML =
+        container.innerHTML=
 
         `
-
         <p>
         No results available.
         </p>
-
         `;
 
 
@@ -1910,10 +1658,7 @@ function loadResults(){
 
 
 
-
     let html="";
-
-
 
 
 
@@ -1922,8 +1667,6 @@ function loadResults(){
     .slice()
     .reverse()
     .forEach(result=>{
-
-
 
 
 
@@ -1936,47 +1679,47 @@ function loadResults(){
 
 
             <h4>
-
             ${result.student}
-
             </h4>
 
 
-
             <p>
-
             Subject:
             ${result.subject}
-
             </p>
 
 
 
-
             <p>
-
             Marks:
             ${result.marks}%
-
             </p>
 
 
 
-
             <p>
-
             Comment:
             ${result.comment || "-"}
-
             </p>
 
 
 
             <small>
-
             ${result.date}
-
             </small>
+
+
+
+            <br>
+
+
+            <button onclick="
+            deleteResult(${result.id})
+            ">
+
+            Delete
+
+            </button>
 
 
         </div>
@@ -1991,11 +1734,8 @@ function loadResults(){
 
 
 
-
-
     container.innerHTML =
     html;
-
 
 
 }
@@ -2006,10 +1746,69 @@ function loadResults(){
 
 
 
-// =====================================
-// GENERATE REPORT CARD
-// =====================================
+// ================================
+// DELETE RESULT
+// ================================
 
+function deleteResult(id){
+
+
+
+    if(!confirm(
+        "Delete this result?"
+    ))
+
+    return;
+
+
+
+
+    loadResultsData();
+
+
+
+
+    results =
+
+    results.filter(result=>
+
+
+        result.id !== id
+
+
+    );
+
+
+
+
+    localStorage.setItem(
+
+        "results",
+
+        JSON.stringify(
+            results
+        )
+
+    );
+
+
+
+
+    loadResults();
+
+
+}
+
+
+
+
+
+
+
+
+// ================================
+// GENERATE REPORT CARD
+// ================================
 
 function generateReport(){
 
@@ -2029,16 +1828,14 @@ function generateReport(){
 
 
 
-
-    const studentName =
+    const name =
     input.value.trim();
 
 
 
 
 
-
-    if(studentName===""){
+    if(name===""){
 
 
         alert(
@@ -2047,7 +1844,6 @@ function generateReport(){
 
 
         return;
-
 
     }
 
@@ -2063,19 +1859,19 @@ function generateReport(){
 
 
 
-
     const studentResults =
 
     results.filter(result=>
 
 
-        result.student.toLowerCase()
+        result.student
+        .toLowerCase()
         ===
-        studentName.toLowerCase()
+        name
+        .toLowerCase()
 
 
     );
-
 
 
 
@@ -2091,10 +1887,7 @@ function generateReport(){
 
         return;
 
-
     }
-
-
 
 
 
@@ -2104,11 +1897,11 @@ function generateReport(){
 
 `
 KID'S LOVE NURSERY
-REPORT CARD
+STUDENT REPORT CARD
 
 
 Student:
-${studentName}
+${name}
 
 
 `;
@@ -2118,14 +1911,14 @@ ${studentName}
 
 
 
-
     studentResults.forEach(result=>{
-
 
 
         report +=
 
+
 `
+------------------------
 
 Subject:
 ${result.subject}
@@ -2133,11 +1926,8 @@ ${result.subject}
 Marks:
 ${result.marks}%
 
-Comment:
-${result.comment}
-
-
---------------------
+Teacher Comment:
+${result.comment || "-"}
 
 
 `;
@@ -2151,7 +1941,11 @@ ${result.comment}
 
 
 
-    alert(report);
+
+    downloadReportPDF(
+        name,
+        report
+    );
 
 
 
@@ -2164,10 +1958,74 @@ ${result.comment}
 
 
 
-// =====================================
-// ANNOUNCEMENTS
-// =====================================
+// ================================
+// DOWNLOAD PDF REPORT
+// ================================
 
+function downloadReportPDF(
+    student,
+    text
+){
+
+
+
+    const blob =
+
+    new Blob(
+
+        [text],
+
+        {
+            type:
+            "application/pdf"
+        }
+
+    );
+
+
+
+
+    const url =
+    URL.createObjectURL(blob);
+
+
+
+    const link =
+    document.createElement("a");
+
+
+
+    link.href=url;
+
+
+
+    link.download =
+    student
+    +
+    "_Report_Card.pdf";
+
+
+
+    link.click();
+
+
+
+    URL.revokeObjectURL(url);
+
+
+}
+
+
+
+
+
+
+
+
+
+// ================================
+// ANNOUNCEMENTS
+// ================================
 
 function postAnnouncement(){
 
@@ -2188,12 +2046,8 @@ function postAnnouncement(){
 
 
 
-
-
     const message =
     input.value.trim();
-
-
 
 
 
@@ -2203,12 +2057,11 @@ function postAnnouncement(){
 
 
         alert(
-            "Write announcement first."
+            "Write announcement."
         );
 
 
         return;
-
 
     }
 
@@ -2235,6 +2088,10 @@ function postAnnouncement(){
     announcements.push({
 
 
+        id:
+        Date.now(),
+
+
         message:
         message,
 
@@ -2246,6 +2103,7 @@ function postAnnouncement(){
 
 
     });
+
 
 
 
@@ -2266,21 +2124,11 @@ function postAnnouncement(){
 
 
 
-
     input.value="";
 
 
 
-
-
     loadAnnouncements();
-
-
-
-
-    alert(
-        "Announcement posted."
-    );
 
 
 
@@ -2292,10 +2140,11 @@ function postAnnouncement(){
 
 
 
-// =====================================
-// DISPLAY ANNOUNCEMENTS
-// =====================================
 
+
+// ================================
+// SHOW ANNOUNCEMENTS
+// ================================
 
 function loadAnnouncements(){
 
@@ -2316,9 +2165,7 @@ function loadAnnouncements(){
 
 
 
-
-
-    const announcements =
+    let announcements =
 
     JSON.parse(
 
@@ -2333,24 +2180,19 @@ function loadAnnouncements(){
 
 
 
-
     if(announcements.length===0){
-
 
 
         container.innerHTML=
 
         `
-
         <p>
         No announcements.
         </p>
-
         `;
 
 
         return;
-
 
     }
 
@@ -2358,10 +2200,7 @@ function loadAnnouncements(){
 
 
 
-
-
-    let html="";
-
+    container.innerHTML="";
 
 
 
@@ -2374,7 +2213,7 @@ function loadAnnouncements(){
 
 
 
-        html +=
+        container.innerHTML +=
 
 
         `
@@ -2383,17 +2222,12 @@ function loadAnnouncements(){
 
 
             <p>
-
             ${item.message}
-
             </p>
 
 
-
             <small>
-
             ${item.date}
-
             </small>
 
 
@@ -2403,17 +2237,7 @@ function loadAnnouncements(){
         `;
 
 
-
     });
-
-
-
-
-
-
-    container.innerHTML =
-    html;
-
 
 
 }
@@ -2424,10 +2248,9 @@ function loadAnnouncements(){
 
 
 
-// =====================================
-// FINAL DASHBOARD INITIALIZATION
-// =====================================
-
+// ================================
+// FINAL INITIALIZATION
+// ================================
 
 function initializeDashboard(){
 
@@ -2436,8 +2259,6 @@ function initializeDashboard(){
     if(!teacher)
 
     return;
-
-
 
 
 
@@ -2457,7 +2278,6 @@ function initializeDashboard(){
 
 
     updateStatistics();
-
 
 
 }
