@@ -1,75 +1,47 @@
-/* ===================================================
-   KID'S LOVE NURSERY & DAYCARE
-   ABOUT PAGE PREMIUM CSS
-   WITH HERO SLIDESHOW
-=================================================== */
+/* =====================================================
+   KID'S LOVE NURSERY
+   ABOUT PAGE MODERN CSS
+===================================================== */
 
 
-/* ===============================
-   ROOT VARIABLES
-================================ */
+/* ================= ROOT ================= */
 
 :root{
 
-    --brand-red:#e53935;
-
-    --brand-blue:#1565c0;
-
-    --brand-green:#43a047;
-
-    --brand-yellow:#fbc02d;
-
-
-    --white:#ffffff;
-
-    --light:#f7f9fc;
+    --red:#E52421;
+    --yellow:#FFEB3B;
+    --blue:#0077b6;
+    --green:#2E8B57;
 
     --dark:#222;
+    --white:#ffffff;
+    --light:#f8f9fa;
+    --grey:#666;
 
-    --gray:#666;
+    --shadow:0 8px 25px rgba(0,0,0,.12);
 
+    --radius:15px;
 
-    --shadow-sm:
-    0 5px 15px rgba(0,0,0,.08);
-
-
-    --shadow-md:
-    0 10px 30px rgba(0,0,0,.12);
-
-
-    --shadow-lg:
-    0 18px 45px rgba(0,0,0,.18);
-
-
-    --radius:18px;
-
-
-    --transition:.35s ease;
+    --transition:.4s ease;
 
 }
 
 
 
-/* ===============================
-RESET
-================================ */
 
+/* ================= RESET ================= */
 
 *{
 
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
-
-}
-
-
-
-html{
-
-    scroll-behavior:smooth;
+    font-family:
+    "Segoe UI",
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
 
 }
 
@@ -77,15 +49,9 @@ html{
 
 body{
 
-    font-family:'Poppins',sans-serif;
-
-    background:var(--light);
-
+    background:#f5f7fb;
     color:var(--dark);
-
-    line-height:1.8;
-
-    overflow-x:hidden;
+    line-height:1.7;
 
 }
 
@@ -94,6 +60,7 @@ body{
 a{
 
     text-decoration:none;
+    color:inherit;
 
 }
 
@@ -102,92 +69,47 @@ a{
 img{
 
     max-width:100%;
-
     display:block;
 
 }
 
 
 
-
-
-/* ===============================
-HEADER
-================================ */
+/* ================= NAVIGATION ================= */
 
 
 header{
 
-
-    position:sticky;
-
-
-    top:0;
-
-
-    z-index:1000;
-
-
     background:white;
-
-
-    box-shadow:var(--shadow-sm);
-
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:var(--shadow);
 
 }
-
 
 
 
 .navbar{
 
-
-    width:92%;
-
-
-    max-width:1350px;
-
-
+    max-width:1200px;
     margin:auto;
-
-
-    padding:15px 0;
-
+    padding:10px 25px;
 
     display:flex;
-
-
     align-items:center;
-
-
     justify-content:space-between;
-
-
-    position:relative;
-
 
 }
 
 
 
 
-
-/* ===============================
-LOGO
-================================ */
-
-
 .brand-logo{
 
-
     display:flex;
-
-
     align-items:center;
-
-
-    gap:15px;
-
+    gap:12px;
 
 }
 
@@ -195,34 +117,10 @@ LOGO
 
 .brand-logo img{
 
-
-    width:70px;
-
-
-    height:70px;
-
-
+    width:65px;
+    height:65px;
     object-fit:cover;
-
-
     border-radius:50%;
-
-
-    border:4px solid var(--brand-red);
-
-
-    transition:.35s;
-
-
-}
-
-
-
-.brand-logo:hover img{
-
-
-    transform:rotate(5deg) scale(1.05);
-
 
 }
 
@@ -231,12 +129,8 @@ LOGO
 
 .logo-text-box{
 
-
     display:flex;
-
-
     flex-direction:column;
-
 
 }
 
@@ -244,179 +138,67 @@ LOGO
 
 .logo-title{
 
-
-    font-size:1.2rem;
-
-
-    font-weight:800;
-
-
-    color:var(--brand-blue);
-
+    color:var(--red);
+    font-size:22px;
+    font-weight:900;
 
 }
-
 
 
 
 .logo-subtitle{
 
-
-    font-size:.75rem;
-
-
-    color:var(--gray);
-
+    color:var(--blue);
+    font-size:12px;
+    font-weight:bold;
 
 }
 
 
 
-
-
-/* ===============================
-NAVIGATION
-================================ */
 
 
 .nav-links{
 
-
     display:flex;
-
-
     list-style:none;
-
-
-    gap:30px;
-
-
-    align-items:center;
-
+    gap:18px;
 
 }
-
 
 
 
 .nav-links a{
 
-
-    color:var(--dark);
-
-
+    padding:8px 12px;
     font-weight:600;
-
-
-    position:relative;
-
-
     transition:var(--transition);
-
-
-}
-
-
-
-.nav-links a::after{
-
-
-    content:"";
-
-
-    position:absolute;
-
-
-    left:0;
-
-
-    bottom:-8px;
-
-
-    height:3px;
-
-
-    width:0;
-
-
-    background:var(--brand-red);
-
-
-    transition:.3s;
-
-
-}
-
-
-
-.nav-links a:hover::after,
-
-
-.nav-links a.active::after{
-
-
-    width:100%;
-
 
 }
 
 
 
 .nav-links a:hover,
+.nav-links .active{
 
-
-.nav-links a.active{
-
-
-    color:var(--brand-red);
-
+    color:white;
+    background:var(--red);
+    border-radius:20px;
 
 }
 
 
 
-
-
-/* ===============================
-MOBILE TOGGLE
-================================ */
+/* MOBILE BUTTON */
 
 
 .mobile-toggle{
 
-
     display:none;
 
-
-    width:45px;
-
-
-    height:45px;
-
-
+    background:none;
     border:none;
-
-
-    border-radius:10px;
-
-
-    background:var(--brand-red);
-
-
     cursor:pointer;
-
-
-    flex-direction:column;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    gap:5px;
-
 
 }
 
@@ -424,366 +206,265 @@ MOBILE TOGGLE
 
 .mobile-toggle span{
 
-
-    width:23px;
-
-
+    display:block;
+    width:28px;
     height:3px;
-
-
-    background:white;
-
-
-    border-radius:10px;
-
-
+    margin:5px;
+    background:var(--dark);
     transition:.3s;
 
-
 }
-/* ===================================================
-   HERO SLIDESHOW
-=================================================== */
 
 
-.header-banner{
 
-    min-height:420px;
 
-    display:flex;
 
-    justify-content:center;
+/* ================= HERO SLIDER ================= */
 
-    align-items:center;
 
-    text-align:center;
+.hero-slider{
 
-    color:white;
-
+    height:75vh;
     position:relative;
-
     overflow:hidden;
 
 }
 
 
 
-/* BACKGROUND SLIDES */
 
-.header-banner::before{
+.slide{
+
+    position:absolute;
+    inset:0;
+
+    opacity:0;
+    transform:scale(1.1);
+
+    transition:1s ease;
+
+}
+
+
+
+.slide.active{
+
+    opacity:1;
+    transform:scale(1);
+
+}
+
+
+
+
+.slide img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+
+
+
+.slide::after{
 
     content:"";
 
     position:absolute;
-
     inset:0;
 
-
-    background-size:cover;
-
-    background-position:center;
-
-
-    background-image:
-
+    background:
     linear-gradient(
-        rgba(0,0,0,.55),
-        rgba(0,0,0,.55)
-    ),
-
-    url("IMG-20260707-WA0017.jpg");
-
-
-    animation:heroSlide 18s infinite;
-
-
-    z-index:-1;
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.65)
+    );
 
 }
 
 
 
-/* HERO TEXT */
 
-.header-banner div{
+.slide-content{
 
-    max-width:900px;
+    position:absolute;
+    top:50%;
+    left:50%;
 
-    padding:20px;
-
-    animation:heroContent 1s ease;
-
-}
-
-
-
-.header-banner h1{
-
-    font-size:3.3rem;
-
-    font-weight:800;
+    transform:
+    translate(-50%,-50%);
 
     color:white;
+    text-align:center;
 
-    text-shadow:
+    z-index:2;
 
-    0 5px 20px rgba(0,0,0,.5);
+    max-width:800px;
 
 }
 
 
 
-.header-banner p{
+.slide-content h1{
 
-    margin-top:20px;
+    font-size:50px;
+    font-weight:900;
 
+}
+
+
+
+.slide-content p{
+
+    font-size:20px;
+
+}
+
+
+
+
+/* SLIDER BUTTONS */
+
+
+.prev,
+.next{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    background:white;
+
+    border:none;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    z-index:5;
+
+}
+
+
+
+.prev{
+
+    left:20px;
+
+}
+
+
+
+.next{
+
+    right:20px;
+
+}
+
+
+
+
+.prev:hover,
+.next:hover{
+
+    background:var(--red);
     color:white;
 
-    font-size:18px;
-
-}
-
-
-
-/* HERO IMAGE CHANGING ANIMATION */
-
-@keyframes heroSlide{
-
-
-0%{
-
-background-image:
-
-linear-gradient(
-rgba(0,0,0,.55),
-rgba(0,0,0,.55)
-),
-
-url("IMG-20260707-WA0017.jpg");
-
-}
-
-
-
-33%{
-
-background-image:
-
-linear-gradient(
-rgba(21,101,192,.55),
-rgba(21,101,192,.55)
-),
-
-url("classroom.jpg");
-
-}
-
-
-
-66%{
-
-background-image:
-
-linear-gradient(
-rgba(67,160,71,.55),
-rgba(67,160,71,.55)
-),
-
-url("children.jpg");
-
-}
-
-
-
-100%{
-
-background-image:
-
-linear-gradient(
-rgba(0,0,0,.55),
-rgba(0,0,0,.55)
-),
-
-url("IMG-20260707-WA0017.jpg");
-
-}
-
-
-}
-
-
-
-
-@keyframes heroContent{
-
-
-from{
-
-opacity:0;
-
-transform:translateY(50px);
-
-}
-
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-
 }
 
 
 
 
 
+.slider-dots{
 
-/* ===================================================
-   MAIN CONTAINER
-=================================================== */
+    position:absolute;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:10px;
+
+    z-index:5;
+
+}
+
+
+
+.dot{
+
+    width:12px;
+    height:12px;
+
+    background:white;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+}
+
+
+
+.dot.active{
+
+    background:var(--red);
+
+}
+
+
+
+
+/* ================= CONTENT ================= */
 
 
 .container{
 
-    width:90%;
-
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:80px 0;
+    max-width:1100px;
+    margin:50px auto;
+    padding:20px;
 
 }
 
-
-
-
-
-/* ===================================================
-   INFORMATION CARDS
-=================================================== */
 
 
 .block{
 
-
     background:white;
 
+    padding:35px;
 
-    padding:45px;
-
+    margin-bottom:35px;
 
     border-radius:var(--radius);
 
-
-    margin-bottom:40px;
-
-
-    box-shadow:var(--shadow-md);
-
-
-    position:relative;
-
-
-    overflow:hidden;
-
-
-    transition:var(--transition);
-
+    box-shadow:var(--shadow);
 
 }
-
-
-
-.block::before{
-
-
-    content:"";
-
-
-    position:absolute;
-
-
-    left:0;
-
-
-    top:0;
-
-
-    width:5px;
-
-
-    height:100%;
-
-
-    background:var(--brand-red);
-
-
-}
-
-
-
-.block:hover{
-
-
-    transform:translateY(-10px);
-
-
-    box-shadow:var(--shadow-lg);
-
-
-}
-
-
 
 
 
 .block h2{
 
+    color:var(--blue);
 
-    color:var(--brand-blue);
+    margin-bottom:20px;
 
+    border-left:6px solid var(--red);
 
-    font-size:2rem;
-
-
-    margin-bottom:25px;
-
-
-    position:relative;
-
-
-}
-
-
-
-.block h2::after{
-
-
-    content:"";
-
-
-    display:block;
-
-
-    width:80px;
-
-
-    height:4px;
-
-
-    background:var(--brand-yellow);
-
-
-    margin-top:10px;
-
-
-    border-radius:20px;
-
+    padding-left:15px;
 
 }
 
@@ -793,22 +474,7 @@ transform:translateY(0);
 
 .block p{
 
-
-    color:var(--gray);
-
-
-    margin-bottom:18px;
-
-
-}
-
-
-
-.block strong{
-
-
-    color:var(--brand-green);
-
+    margin-bottom:15px;
 
 }
 
@@ -816,165 +482,87 @@ transform:translateY(0);
 
 
 
-
-
-/* ===================================================
-   MANAGEMENT STRUCTURE
-=================================================== */
+/* ================= MANAGEMENT TREE ================= */
 
 
 .org-tree{
 
-
-    margin-top:45px;
-
+    margin-top:30px;
 
     display:flex;
 
-
     flex-direction:column;
-
 
     align-items:center;
 
-
-    gap:18px;
-
-
 }
-
-
 
 
 
 .org-node{
 
-
-    width:280px;
-
-
-    padding:20px;
-
-
-    text-align:center;
-
+    background:var(--blue);
 
     color:white;
 
+    padding:20px;
 
-    font-weight:700;
+    width:250px;
 
+    text-align:center;
 
-    border-radius:50px;
+    border-radius:15px;
 
+    font-weight:bold;
 
-    background:
-
-
-    linear-gradient(
-
-        135deg,
-
-        var(--brand-blue),
-
-        #42a5f5
-
-    );
-
-
-    box-shadow:var(--shadow-md);
-
-
-    transition:.35s;
-
+    box-shadow:var(--shadow);
 
 }
-
 
 
 
 .org-node i{
 
-
-    font-size:30px;
-
-
-    margin-bottom:10px;
-
+    font-size:35px;
 
 }
 
 
 
+.director{
 
-.org-node:hover{
-
-
-    transform:scale(1.08);
-
-
-    box-shadow:var(--shadow-lg);
-
+    background:var(--red);
 
 }
-
-
-
-
-.org-node.director{
-
-
-    background:
-
-
-    linear-gradient(
-
-        135deg,
-
-        var(--brand-red),
-
-        #ff7043
-
-    );
-
-
-}
-
 
 
 
 .arrow{
 
-
     font-size:35px;
 
+    color:var(--green);
 
-    color:var(--brand-yellow);
-
-
-    font-weight:bold;
-
+    margin:10px;
 
 }
-/* ===================================================
-   FOOTER
-=================================================== */
+
+
+
+
+
+/* ================= FOOTER ================= */
 
 
 footer{
 
-
     background:#111;
-
 
     color:white;
 
-
-    padding:60px 8%;
-
+    padding:40px 20px;
 
     text-align:center;
-
 
 }
 
@@ -982,127 +570,46 @@ footer{
 
 .footer-grid{
 
-
-    max-width:1200px;
-
+    max-width:1000px;
 
     margin:auto;
 
-
     display:grid;
 
-
     grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
+    repeat(3,1fr);
 
-
-    gap:35px;
-
-
-    margin-bottom:40px;
-
+    gap:30px;
 
 }
 
 
 
-.footer-grid div{
+footer h3{
 
+    color:var(--yellow);
 
-    background:rgba(255,255,255,.05);
-
-
-    padding:30px;
-
-
-    border-radius:var(--radius);
-
-
-    transition:var(--transition);
-
+    margin-bottom:10px;
 
 }
 
 
 
-.footer-grid div:hover{
+footer a:hover{
 
-
-    transform:translateY(-8px);
-
-
-    background:rgba(255,255,255,.1);
-
+    color:var(--yellow);
 
 }
 
-
-
-
-.footer-grid h3{
-
-
-    color:var(--brand-yellow);
-
-
-    margin-bottom:15px;
-
-
-}
-
-
-
-.footer-grid h3 i{
-
-
-    color:var(--brand-red);
-
-
-    margin-right:8px;
-
-
-}
-
-
-
-.footer-grid p{
-
-
-    color:#ddd;
-
-
-}
 
 
 
 
 footer hr{
 
+    margin:30px 0;
 
-    border:none;
-
-
-    height:1px;
-
-
-    background:#444;
-
-
-    margin:35px 0;
-
-
-}
-
-
-
-footer > p{
-
-
-    color:#aaa;
-
-
-    font-size:14px;
-
+    border:.5px solid #555;
 
 }
 
@@ -1110,738 +617,81 @@ footer > p{
 
 
 
-
-/* ===================================================
-   MOBILE NAVIGATION
-=================================================== */
+/* ================= MOBILE ================= */
 
 
 @media(max-width:900px){
 
 
+.nav-links{
 
-    .navbar{
+    position:absolute;
 
+    top:85px;
 
-        width:95%;
-
-
-    }
-
-
-
-
-    .mobile-toggle{
-
-
-        display:flex;
-
-
-        z-index:2000;
-
-
-    }
-
-
-
-
-    .nav-links{
-
-
-        position:absolute;
-
-
-        top:100%;
-
-
-        left:0;
-
-
-        width:100%;
-
-
-        background:white;
-
-
-        display:none;
-
-
-        flex-direction:column;
-
-
-        align-items:center;
-
-
-        gap:0;
-
-
-        padding:25px 0;
-
-
-        box-shadow:var(--shadow-md);
-
-
-        animation:menuOpen .35s ease;
-
-
-    }
-
-
-
-
-
-    .nav-links.show{
-
-
-        display:flex;
-
-
-    }
-
-
-
-
-
-    .nav-links li{
-
-
-        width:100%;
-
-
-        text-align:center;
-
-
-    }
-
-
-
-
-
-    .nav-links a{
-
-
-        display:block;
-
-
-        padding:15px;
-
-
-        width:100%;
-
-
-    }
-
-
-
-
-
-    .nav-links a:hover{
-
-
-        background:var(--light);
-
-
-    }
-
-
-
-}
-
-
-
-
-/* ===================================================
-   HAMBURGER ANIMATION
-=================================================== */
-
-
-.mobile-toggle.active span:nth-child(1){
-
-
-    transform:
-
-    rotate(45deg)
-
-    translate(5px,5px);
-
-
-}
-
-
-
-
-.mobile-toggle.active span:nth-child(2){
-
-
-    opacity:0;
-
-
-}
-
-
-
-
-
-.mobile-toggle.active span:nth-child(3){
-
-
-    transform:
-
-    rotate(-45deg)
-
-    translate(6px,-6px);
-
-
-}
-
-
-
-
-
-
-
-
-/* ===================================================
-   TABLET RESPONSIVE
-=================================================== */
-
-
-@media(max-width:900px){
-
-
-
-.header-banner{
-
-
-    min-height:300px;
-
-
-}
-
-
-
-
-.header-banner h1{
-
-
-    font-size:2.4rem;
-
-
-}
-
-
-
-
-.header-banner p{
-
-
-    font-size:16px;
-
-
-}
-
-
-
-
-.container{
-
-
-    padding:60px 0;
-
-
-}
-
-
-
-.block{
-
-
-    padding:35px;
-
-
-}
-
-
-
-}
-
-
-
-
-
-
-
-/* ===================================================
-   PHONE RESPONSIVE
-=================================================== */
-
-
-@media(max-width:600px){
-
-
-
-.brand-logo img{
-
-
-    width:55px;
-
-
-    height:55px;
-
-
-}
-
-
-
-
-.logo-title{
-
-
-    font-size:.95rem;
-
-
-}
-
-
-
-
-.logo-subtitle{
-
-
-    font-size:.65rem;
-
-
-}
-
-
-
-
-.header-banner{
-
-
-    min-height:250px;
-
-
-}
-
-
-
-
-.header-banner h1{
-
-
-    font-size:1.8rem;
-
-
-}
-
-
-
-
-.header-banner p{
-
-
-    font-size:14px;
-
-
-}
-
-
-
-
-.container{
-
-
-    width:92%;
-
-
-    padding:45px 0;
-
-
-}
-
-
-
-
-.block{
-
-
-    padding:25px;
-
-
-    border-radius:15px;
-
-
-}
-
-
-
-
-
-.block h2{
-
-
-    font-size:1.4rem;
-
-
-}
-
-
-
-
-
-.block p{
-
-
-    font-size:14px;
-
-
-}
-
-
-
-
-
-.org-node{
-
+    left:0;
 
     width:100%;
 
+    background:white;
 
-    font-size:14px;
+    flex-direction:column;
 
+    text-align:center;
 
-}
-
-
-
-
-
-footer{
-
-
-    padding:40px 20px;
-
-
-}
-
-
-
-
-.footer-grid div{
-
+    display:none;
 
     padding:20px;
 
-
 }
 
 
 
+.nav-links.show{
+
+    display:flex;
 
 }
-/* ===================================================
-   FINAL ANIMATIONS
-=================================================== */
-
-
-@keyframes fadeUp{
-
-
-    from{
-
-
-        opacity:0;
-
-
-        transform:translateY(40px);
-
-
-    }
-
-
-    to{
-
-
-        opacity:1;
-
-
-        transform:translateY(0);
-
-
-    }
-
-
-}
-
-
-
-
-
-@keyframes fadeDown{
-
-
-    from{
-
-
-        opacity:0;
-
-
-        transform:translateY(-40px);
-
-
-    }
-
-
-    to{
-
-
-        opacity:1;
-
-
-        transform:translateY(0);
-
-
-    }
-
-
-}
-
-
-
-
-
-/* ===================================================
-   PAGE LOAD EFFECT
-=================================================== */
-
-
-body{
-
-
-    animation:pageAppear .7s ease;
-
-
-}
-
-
-
-@keyframes pageAppear{
-
-
-    from{
-
-
-        opacity:0;
-
-
-    }
-
-
-    to{
-
-
-        opacity:1;
-
-
-    }
-
-
-}
-
-
-
-
-
-
-/* ===================================================
-   CONTENT ANIMATION
-=================================================== */
-
-
-.block{
-
-
-    animation:fadeUp .8s ease both;
-
-
-}
-
-
-
-
-.org-node{
-
-
-    animation:fadeUp .8s ease both;
-
-
-}
-
-
-
-
-
-
-/* ===================================================
-   BUTTON AND INTERACTION EFFECTS
-=================================================== */
-
-
-button{
-
-
-    font-family:'Poppins',sans-serif;
-
-
-}
-
-
 
 
 
 .mobile-toggle{
 
-
-    transition:.35s;
-
+    display:block;
 
 }
 
 
 
+.hero-slider{
 
-.mobile-toggle:hover{
-
-
-    transform:scale(1.1);
-
+    height:55vh;
 
 }
 
 
 
+.slide-content h1{
 
-
-
-/* ===================================================
-   SCROLLBAR
-=================================================== */
-
-
-::-webkit-scrollbar{
-
-
-    width:10px;
-
+    font-size:32px;
 
 }
 
 
 
+.slide-content p{
 
-::-webkit-scrollbar-track{
-
-
-    background:#eeeeee;
-
+    font-size:16px;
 
 }
 
 
 
+.footer-grid{
 
-
-::-webkit-scrollbar-thumb{
-
-
-    background:var(--brand-red);
-
-
-    border-radius:20px;
-
+    grid-template-columns:1fr;
 
 }
-
-
-
-
-
-::-webkit-scrollbar-thumb:hover{
-
-
-    background:#b71c1c;
-
-
-}
-
-
-
-
-
-
-/* ===================================================
-   FOCUS ACCESSIBILITY
-=================================================== */
-
-
-a:focus,
-button:focus{
-
-
-    outline:3px solid var(--brand-yellow);
-
-
-    outline-offset:4px;
-
-
-}
-
-
-
-
-
-
-/* ===================================================
-   LARGE SCREEN IMPROVEMENT
-=================================================== */
-
-
-@media(min-width:1400px){
-
-
-
-.navbar{
-
-
-    max-width:1500px;
-
-
-}
-
-
-
-
-.container{
-
-
-    max-width:1300px;
-
-
-}
-
-
-
-
-
-.header-banner h1{
-
-
-    font-size:4rem;
-
-
-}
-
 
 
 
@@ -1849,129 +699,28 @@ button:focus{
 
 
 
-
-/* ===================================================
-   VERY SMALL DEVICES
-=================================================== */
-
-
-@media(max-width:380px){
-
-
-
-.brand-logo{
-
-
-    gap:8px;
-
-
-}
-
-
+@media(max-width:500px){
 
 
 .logo-title{
 
-
-    font-size:.8rem;
-
+    font-size:16px;
 
 }
-
 
 
 
 .logo-subtitle{
 
-
-    display:none;
-
+    font-size:10px;
 
 }
-
-
-
-
-
-.mobile-toggle{
-
-
-    width:40px;
-
-
-    height:40px;
-
-
-}
-
-
-
-
-
-.header-banner h1{
-
-
-    font-size:1.5rem;
-
-
-}
-
-
 
 
 
 .block{
 
-
     padding:20px;
-
-
-}
-
-
-
-
-
-.org-node{
-
-
-    padding:15px;
-
-
-}
-
-
-
-}
-
-
-
-
-
-
-/* ===================================================
-   REDUCED MOTION SUPPORT
-=================================================== */
-
-
-@media(prefers-reduced-motion:reduce){
-
-
-
-*{
-
-
-    animation-duration:.01ms !important;
-
-
-    animation-iteration-count:1 !important;
-
-
-    transition-duration:.01ms !important;
-
-
-    scroll-behavior:auto !important;
-
 
 }
 
