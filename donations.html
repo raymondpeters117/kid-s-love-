@@ -406,24 +406,25 @@ every child can learn and grow.
 <h2>Bank Account Details</h2>
 
 <div class="bank-box">
-
-<p><strong>Bank:</strong> Equity Bank Uganda</p>
-
-<p><strong>Account Name:</strong> Namponye Roscila</p>
-
-<p><strong>Account Number:</strong> 1012103044692</p>
-
-<p><strong>Branch:</strong> Buddo</p>
-
-<p><strong>Swift Code:</strong> EQBLUGKA</p>
-
+    <p><strong>Bank:</strong> Equity Bank Uganda</p>
+    <p><strong>Account Name:</strong> Namponye Roscila</p>
+    <p><strong>Account Number:</strong> <span id="accountNumber">1012103044692</span></p>
+    <p><strong>Branch:</strong> Buddo</p>
+    <p><strong>Swift Code:</strong> EQBLUGKA</p>
+    
+    <button class="btn" onclick="copyAccountNumber()">Copy Account Number</button>
 </div>
 
-<a href="#bank-details" class="btn">Continue to Donate</a>
-
-</div>
-
-<div class="section">
+<script>
+function copyAccountNumber() {
+    const accNum = document.getElementById("accountNumber").innerText;
+    navigator.clipboard.writeText(accNum).then(() => {
+        alert("Account number 1012103044692 copied to clipboard!");
+    }).catch(err => {
+        console.error("Failed to copy: ", err);
+    });
+}
+</script>
 
 <h2>Mobile Money</h2>
 
