@@ -146,11 +146,344 @@ SECTION TITLE
 HEADER
 =========================*/
 
+/*=====================================================
+   MODERN NAVIGATION SYSTEM
+=====================================================*/
+
+
 header{
 
     position:fixed;
 
     top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:999;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+
+    transition:.4s ease;
+
+}
+
+
+
+header.scrolled{
+
+    background:white;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.15);
+
+}
+
+
+
+/* NAVBAR */
+
+.navbar{
+
+    width:min(1200px,92%);
+
+    height:90px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+/* LOGO */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+
+.logo img{
+
+    width:65px;
+
+    height:65px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:3px solid var(--primary);
+
+    transition:.4s;
+
+}
+
+
+.logo img:hover{
+
+    transform:rotate(8deg) scale(1.05);
+
+}
+
+
+
+.logo-text h2{
+
+    font-size:24px;
+
+    color:var(--primary);
+
+    font-weight:800;
+
+}
+
+
+
+.logo-text span{
+
+    display:block;
+
+    color:var(--secondary);
+
+    font-size:12px;
+
+    letter-spacing:1px;
+
+}
+
+
+
+/* NAV LINKS */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+
+.nav-links li{
+
+    position:relative;
+
+}
+
+
+
+.nav-links a{
+
+    position:relative;
+
+    padding:12px 18px;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#333;
+
+    transition:.35s ease;
+
+}
+
+
+
+/* HOVER EFFECT */
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:5px;
+
+    width:0;
+
+    height:3px;
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+    transform:translateX(-50%);
+
+    transition:.35s;
+
+}
+
+
+
+.nav-links a:hover::after{
+
+    width:60%;
+
+}
+
+
+
+.nav-links a:hover{
+
+    color:var(--primary);
+
+}
+
+
+
+
+
+/* ACTIVE PAGE */
+
+
+.nav-links .active{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+
+
+.nav-links .active::after{
+
+    display:none;
+
+}
+
+
+
+/* PORTAL BUTTON */
+
+
+.portal-btn{
+
+    background:linear-gradient(
+        135deg,
+        var(--secondary),
+        #00a8e8
+    );
+
+    color:white !important;
+
+    padding:12px 25px !important;
+
+    box-shadow:0 8px 20px rgba(0,119,182,.3);
+
+}
+
+
+
+.portal-btn:hover{
+
+    transform:translateY(-3px);
+
+    background:linear-gradient(
+        135deg,
+        var(--green),
+        #3cb371
+    );
+
+}
+
+
+
+/* MOBILE MENU BUTTON */
+
+
+.menu-btn{
+
+    display:none;
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    background:var(--primary);
+
+    color:white;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    transition:.3s;
+
+}
+
+
+
+.menu-btn:hover{
+
+    transform:rotate(90deg);
+
+}
+
+
+
+
+
+/*=====================================================
+   MOBILE NAVIGATION
+=====================================================*/
+
+
+@media(max-width:900px){
+
+
+.navbar{
+
+    height:80px;
+
+}
+
+
+
+.menu-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+
+.nav-links{
+
+    position:absolute;
+
+    top:80px;
 
     left:0;
 
@@ -158,26 +491,56 @@ header{
 
     background:white;
 
-    z-index:999;
+    flex-direction:column;
 
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
+    padding:25px 0;
+
+    gap:10px;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+
+    transform:translateY(-120%);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.4s ease;
 
 }
 
 
-.navbar{
 
-    width:min(1200px,94%);
+.nav-links.active{
 
-    margin:auto;
+    transform:translateY(0);
 
-    height:90px;
+    opacity:1;
 
-    display:flex;
+    pointer-events:auto;
 
-    justify-content:space-between;
+}
 
-    align-items:center;
+
+
+.nav-links a{
+
+    width:90%;
+
+    text-align:center;
+
+}
+
+
+
+.portal-btn{
+
+    width:90%;
+
+}
+
+
 
 }
 
