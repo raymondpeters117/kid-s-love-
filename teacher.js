@@ -1,455 +1,260 @@
-// ==========================================
-// KID'S LOVE NURSERY PORTAL LOGIN JS
-// ==========================================
+/* =====================================================
+   KID'S LOVE NURSERY
+   TEACHER DASHBOARD JAVASCRIPT
+===================================================== */
 
 
-// ==========================================
-// CREATE DEFAULT ACCOUNTS ONLY ONCE
-// ==========================================
+/* ===============================
+   CHECK TEACHER LOGIN
+================================ */
 
-const defaultTeachers = [
-    {
-        id: 1,
-        name: "Mr. Peter",
-        email: "teacher@school.com",
-        password: "teacher123",
-        phone: "0700000000",
-        subject: "Mathematics"
-    }
-];
+const teacher =
+JSON.parse(localStorage.getItem("loggedTeacher"));
 
 
-const defaultParents = [
-    {
-        id: 1,
-        name: "Mrs. Sarah",
-        email: "parent@school.com",
-        password: "parent123",
-        child: "John Peter",
-        phone: "0711111111"
-    }
-];
+if(!teacher){
 
+    alert("Please login first.");
 
-
-// Save accounts only if they do not exist
-
-if (!localStorage.getItem("teachers")) {
-
-    localStorage.setItem(
-        "teachers",
-        JSON.stringify(defaultTeachers)
-    );
+    window.location.href="portal.html";
 
 }
 
 
-if (!localStorage.getItem("parents")) {
+/* ===============================
+   LOAD TEACHER PROFILE
+================================ */
 
-    localStorage.setItem(
-        "parents",
-        JSON.stringify(defaultParents)
-    );
+function loadTeacherProfile(){
+
+
+    if(!teacher) return;
+
+
+    document.getElementById("teacherName").textContent =
+    teacher.name || "Teacher";
+
+
+    document.getElementById("name").textContent =
+    teacher.name || "-";
+
+
+    document.getElementById("email").textContent =
+    teacher.email || "-";
+
+
+    document.getElementById("phone").textContent =
+    teacher.phone || "-";
+
+
+    document.getElementById("subject").textContent =
+    teacher.subject || "General";
+
 
 }
 
 
 
-// ==========================================
-// LOGIN FUNCTION
-// ==========================================
+/* ===============================
+   LOAD STUDENTS
+================================ */
 
+let students =
+JSON.parse(localStorage.getItem("students")) || [];
 
-const loginForm = document.getElementById("loginForm");
 
 
-if (loginForm) {
+function loadStudents(){
 
 
-    loginForm.addEventListener("submit", function(e){
+    let table =
+    document.getElementById("classTable");
 
 
-        e.preventDefault();
+    let studentBox =
+    document.getElementById("students");
 
 
+    if(!table) return;
 
-        const email =
-        document.getElementById("email")
-        .value
-        .trim()
-        .toLowerCase();
 
 
+    table.innerHTML="";
 
-        const password =
-        document.getElementById("password")
-        .value
-        .trim();
 
+    studentBox.innerHTML="";
 
 
-        const role =
-        document.getElementById("role")
-        .value;
 
+    if(students.length===0){
 
 
-        if(!email || !password || !role){
-
-            alert("Please fill in all fields.");
-
-            return;
-
-        }
-
-
-
-        // Remove old sessions
-
-        localStorage.removeItem("loggedTeacher");
-
-        localStorage.removeItem("loggedParent");
-
-
-
-
-        // ==================================
-        // TEACHER LOGIN
-        // ==================================
-
-
-        if(role === "teacher"){
-
-
-            const teachers =
-            JSON.parse(
-                localStorage.getItem("teachers")
-            ) || [];
-
-
-
-            const teacher =
-            teachers.find(t =>
-
-                t.email.toLowerCase() === email
-                &&
-                t.password === password
-
-            );
-
-
-
-            if(!teacher){
-
-
-                alert(
-                    "Invalid teacher email or password."
-                );
-
-                return;
-
-            }
-
-
-
-
-            localStorage.setItem(
-                "loggedTeacher",
-                JSON.stringify(teacher)
-            );
-
-
-
-            alert(
-                "Teacher login successful."
-            );
-
-
-
-            window.location.href =
-            "teacher.html";
-
-
-
-        }
-
-
-
-
-
-        // ==================================
-        // PARENT LOGIN
-        // ==================================
-
-
-        else if(role === "parent"){
-
-
-            const parents =
-            JSON.parse(
-                localStorage.getItem("parents")
-            ) || [];
-
-
-
-            const parent =
-            parents.find(p =>
-
-
-                p.email.toLowerCase() === email
-                &&
-                p.password === password
-
-
-            );
-
-
-
-            if(!parent){
-
-
-                alert(
-                    "Invalid parent email or password."
-                );
-
-
-                return;
-
-            }
-
-
-
-
-            localStorage.setItem(
-                "loggedParent",
-                JSON.stringify(parent)
-            );
-
-
-
-            alert(
-                "Parent login successful."
-            );
-
-
-
-            window.location.href =
-            "parent.html";
-
-
-        }
-
-
-
-
-        else{
-
-
-            alert("Please select a valid role.");
-
-        }
-
-
-
-    });
-
-
-}
-// ==========================================
-// LOAD CLASS LIST
-// ==========================================
-
-function loadClassList() {
-
-    const classList =
-    document.getElementById("classList");
-
-
-    if (!classList) return;
-
-
-    students =
-    JSON.parse(localStorage.getItem("students")) || [];
-
-
-    classList.innerHTML = "";
-
-
-    if(students.length === 0){
-
-        classList.innerHTML = `
-            <tr>
-                <td colspan="5">
-                    No students registered yet.
-                </td>
-            </tr>
+        table.innerHTML=
+        `
+        <tr>
+        <td colspan="7">
+        No students registered.
+        </td>
+        </tr>
         `;
 
+
+        studentBox.innerHTML=
+        `
+        <p class="empty-message">
+        No students available
+        </p>
+        `;
+
+
         return;
+
     }
+
 
 
 
     students.forEach((student,index)=>{
 
 
-        const row = document.createElement("tr");
+        table.innerHTML +=
+
+        `
+        <tr>
+
+        <td>${index+1}</td>
+
+        <td>${student.name || "-"}</td>
+
+        <td>${student.class || "-"}</td>
+
+        <td>${student.age || "-"}</td>
+
+        <td>${student.gender || "-"}</td>
+
+        <td>${student.parent || "-"}</td>
+
+        <td>${student.phone || "-"}</td>
 
 
-        row.innerHTML = `
-
-            <td>${index + 1}</td>
-
-            <td>${student.name || "-"}</td>
-
-            <td>${student.age || "-"}</td>
-
-            <td>${student.class || "Baby Class"}</td>
-
-            <td>${student.parent || "-"}</td>
-
+        </tr>
         `;
 
 
-        classList.appendChild(row);
 
 
-    });
-// Load class lists
-function loadClassLists(){
+        studentBox.innerHTML +=
 
-    let students = JSON.parse(localStorage.getItem("students")) || [];
+        `
+        <div class="student-card">
 
-    let classSelect = document.getElementById("classSelect");
-    let classStudents = document.getElementById("classStudents");
+        <h4>
+        ${student.name}
+        </h4>
 
+        <p>
+        Class: ${student.class}
+        </p>
 
-    // Get unique classes
-    let classes = [...new Set(students.map(student => student.class))];
+        <p>
+        Gender: ${student.gender}
+        </p>
 
+        <p>
+        Parent: ${student.parent}
+        </p>
 
-    // Add classes to dropdown
-    classes.forEach(cls => {
-
-        let option = document.createElement("option");
-        option.value = cls;
-        option.textContent = cls;
-
-        classSelect.appendChild(option);
-
-    });
-
-
-    // Display students when class is selected
-    classSelect.addEventListener("change", function(){
-
-        let selectedClass = this.value;
-
-        classStudents.innerHTML = "";
-
-
-        let filteredStudents = students.filter(
-            student => student.class === selectedClass
-        );
-
-
-        if(filteredStudents.length === 0){
-
-            classStudents.innerHTML =
-            "<p>No students found in this class</p>";
-
-            return;
-        }
-
-
-        let table = `
-        <table border="1" width="100%">
-            <tr>
-                <th>No.</th>
-                <th>Name</th>
-                <th>Gender</th>
-            </tr>
+        </div>
         `;
 
 
-        filteredStudents.forEach((student,index)=>{
-
-            table += `
-            <tr>
-                <td>${index+1}</td>
-                <td>${student.name}</td>
-                <td>${student.gender}</td>
-            </tr>
-            `;
-
-        });
-
-
-        table += "</table>";
-
-        classStudents.innerHTML = table;
 
     });
 
-}
-
-
-loadClassLists();
-function loadClassLists(){
-
-
-let students =
-JSON.parse(localStorage.getItem("students")) || [];
-
-
-let list =
-document.getElementById("classList");
-
-
-
-if(!list) return;
-
-
-
-list.innerHTML="";
-
-
-
-if(students.length===0){
-
-list.innerHTML=
-"<p>No students registered yet</p>";
-
-return;
 
 }
 
 
 
-students.forEach((student,index)=>{
+/* ===============================
+   SEARCH STUDENTS
+================================ */
+
+function searchStudent(){
 
 
-list.innerHTML += `
+    let search =
+    document.getElementById("searchStudent")
+    .value
+    .toLowerCase();
 
-<div class="student-card">
 
-<h4>${index+1}. ${student.name}</h4>
 
-<p>
-Class: ${student.class}
-</p>
+    let rows =
+    document.querySelectorAll("#classTable tr");
 
-<p>
-Gender: ${student.gender}
-</p>
 
-<p>
-Parent: ${student.parent}
-</p>
 
-</div>
+    rows.forEach(row=>{
 
-`;
+
+        row.style.display =
+        row.textContent
+        .toLowerCase()
+        .includes(search)
+        ?
+        ""
+        :
+        "none";
+
+
+    });
+
+
+}
+
+
+
+/* ===============================
+   FILTER BY CLASS
+================================ */
+
+function filterStudents(){
+
+
+let selected =
+document.getElementById("filterClass").value;
+
+
+
+let rows =
+document.querySelectorAll("#classTable tr");
+
+
+
+rows.forEach(row=>{
+
+
+if(selected==="All"){
+
+row.style.display="";
+
+}
+
+else{
+
+
+row.style.display =
+row.cells[2] &&
+row.cells[2].textContent===selected
+?
+""
+:
+"none";
+
+
+}
+
 
 
 });
@@ -459,35 +264,116 @@ Parent: ${student.parent}
 
 
 
-loadClassLists();
-}
 /* ===============================
-TEACHER LOGOUT FUNCTION
+   DASHBOARD STATISTICS
 ================================ */
 
-const logoutBtn = document.getElementById("logoutBtn");
+function loadStatistics(){
 
 
-if(logoutBtn){
-
-    logoutBtn.addEventListener("click",()=>{
-
-
-        // Remove logged teacher session
-        localStorage.removeItem("loggedTeacher");
+let total =
+document.getElementById("totalStudents");
 
 
-        // Optional: remove other temporary sessions
-        // localStorage.removeItem("currentUser");
+if(total){
 
-
-        alert("You have logged out successfully");
-
-
-        // Return to portal login
-        window.location.href = "portal.html";
-
-
-    });
+total.textContent =
+students.length;
 
 }
+
+
+
+let attendance =
+JSON.parse(localStorage.getItem("attendance"))
+|| [];
+
+
+
+let present = 0;
+
+let absent = 0;
+
+
+
+attendance.forEach(record=>{
+
+
+if(record.status==="Present"){
+
+present++;
+
+}
+
+
+if(record.status==="Absent"){
+
+absent++;
+
+}
+
+
+});
+
+
+
+document.getElementById("presentToday")
+.textContent = present;
+
+
+
+document.getElementById("absentToday")
+.textContent = absent;
+
+
+
+}
+
+
+
+/* ===============================
+   LOGOUT
+================================ */
+
+function logout(){
+
+
+let confirmLogout =
+confirm("Logout from teacher portal?");
+
+
+
+if(confirmLogout){
+
+
+localStorage.removeItem("loggedTeacher");
+
+
+window.location.href="portal.html";
+
+
+}
+
+
+}
+
+
+
+/* ===============================
+   START DASHBOARD
+================================ */
+
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+
+loadTeacherProfile();
+
+loadStudents();
+
+loadStatistics();
+
+
+});
