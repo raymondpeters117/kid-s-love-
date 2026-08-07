@@ -292,6 +292,84 @@ behavior:"smooth"
 
 
 };
+/* ===================================
+KID'S LOVE NURSERY
+ADMISSION SYSTEM
+=================================== */
 
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+const form=document.getElementById("admissionForm");
+
+
+if(form){
+
+
+form.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+
+
+let students =
+JSON.parse(localStorage.getItem("students")) || [];
+
+
+
+let student={
+
+
+id:Date.now(),
+
+name:
+document.getElementById("childName").value,
+
+
+class:
+document.getElementById("className").value,
+
+
+gender:
+document.getElementById("gender").value,
+
+
+parent:
+document.getElementById("parentName").value,
+
+
+date:
+new Date().toLocaleDateString()
+
+
+};
+
+
+
+students.push(student);
+
+
+
+localStorage.setItem(
+"students",
+JSON.stringify(students)
+);
+
+
+
+alert("Child admission saved successfully");
+
+
+form.reset();
+
+
+});
+
+
+}
+
+
+});
 
 }
