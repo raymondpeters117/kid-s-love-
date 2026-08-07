@@ -395,5 +395,69 @@ function loadClassLists(){
 
 
 loadClassLists();
+function loadClassLists(){
 
+
+let students =
+JSON.parse(localStorage.getItem("students")) || [];
+
+
+let list =
+document.getElementById("classList");
+
+
+
+if(!list) return;
+
+
+
+list.innerHTML="";
+
+
+
+if(students.length===0){
+
+list.innerHTML=
+"<p>No students registered yet</p>";
+
+return;
+
+}
+
+
+
+students.forEach((student,index)=>{
+
+
+list.innerHTML += `
+
+<div class="student-card">
+
+<h4>${index+1}. ${student.name}</h4>
+
+<p>
+Class: ${student.class}
+</p>
+
+<p>
+Gender: ${student.gender}
+</p>
+
+<p>
+Parent: ${student.parent}
+</p>
+
+</div>
+
+`;
+
+
+});
+
+
+}
+
+
+
+loadClassLists();
 }
