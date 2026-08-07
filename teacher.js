@@ -315,6 +315,85 @@ function loadClassList() {
 
 
     });
+// Load class lists
+function loadClassLists(){
 
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+
+    let classSelect = document.getElementById("classSelect");
+    let classStudents = document.getElementById("classStudents");
+
+
+    // Get unique classes
+    let classes = [...new Set(students.map(student => student.class))];
+
+
+    // Add classes to dropdown
+    classes.forEach(cls => {
+
+        let option = document.createElement("option");
+        option.value = cls;
+        option.textContent = cls;
+
+        classSelect.appendChild(option);
+
+    });
+
+
+    // Display students when class is selected
+    classSelect.addEventListener("change", function(){
+
+        let selectedClass = this.value;
+
+        classStudents.innerHTML = "";
+
+
+        let filteredStudents = students.filter(
+            student => student.class === selectedClass
+        );
+
+
+        if(filteredStudents.length === 0){
+
+            classStudents.innerHTML =
+            "<p>No students found in this class</p>";
+
+            return;
+        }
+
+
+        let table = `
+        <table border="1" width="100%">
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Gender</th>
+            </tr>
+        `;
+
+
+        filteredStudents.forEach((student,index)=>{
+
+            table += `
+            <tr>
+                <td>${index+1}</td>
+                <td>${student.name}</td>
+                <td>${student.gender}</td>
+            </tr>
+            `;
+
+        });
+
+
+        table += "</table>";
+
+        classStudents.innerHTML = table;
+
+    });
+
+}
+
+
+loadClassLists();
 
 }
