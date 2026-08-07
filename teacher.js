@@ -1,252 +1,257 @@
 // ==========================================
-// KID'S LOVE NURSERY
-// TEACHER DASHBOARD JS
+// KID'S LOVE NURSERY PORTAL LOGIN JS
 // ==========================================
-
-let teacher = null;
-let students = [];
-let attendance = [];
-let results = [];
 
 
 // ==========================================
-// CHECK TEACHER LOGIN
+// CREATE DEFAULT ACCOUNTS ONLY ONCE
 // ==========================================
 
-function checkTeacherLogin() {
-
-    const savedTeacher = localStorage.getItem("loggedTeacher");
-
-    if (!savedTeacher) {
-
-        alert("Please login first.");
-        window.location.href = "portal.html";
-        return false;
+const defaultTeachers = [
+    {
+        id: 1,
+        name: "Mr. Peter",
+        email: "teacher@school.com",
+        password: "teacher123",
+        phone: "0700000000",
+        subject: "Mathematics"
     }
+];
 
 
-    try {
+const defaultParents = [
+    {
+        id: 1,
+        name: "Mrs. Sarah",
+        email: "parent@school.com",
+        password: "parent123",
+        child: "John Peter",
+        phone: "0711111111"
+    }
+];
 
-        teacher = JSON.parse(savedTeacher);
 
 
-        if (!teacher || !teacher.email) {
+// Save accounts only if they do not exist
 
-            throw new Error("Invalid teacher data");
+if (!localStorage.getItem("teachers")) {
+
+    localStorage.setItem(
+        "teachers",
+        JSON.stringify(defaultTeachers)
+    );
+
+}
+
+
+if (!localStorage.getItem("parents")) {
+
+    localStorage.setItem(
+        "parents",
+        JSON.stringify(defaultParents)
+    );
+
+}
+
+
+
+// ==========================================
+// LOGIN FUNCTION
+// ==========================================
+
+
+const loginForm = document.getElementById("loginForm");
+
+
+if (loginForm) {
+
+
+    loginForm.addEventListener("submit", function(e){
+
+
+        e.preventDefault();
+
+
+
+        const email =
+        document.getElementById("email")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+
+        const password =
+        document.getElementById("password")
+        .value
+        .trim();
+
+
+
+        const role =
+        document.getElementById("role")
+        .value;
+
+
+
+        if(!email || !password || !role){
+
+            alert("Please fill in all fields.");
+
+            return;
+
         }
 
 
-    } catch(error) {
 
-        console.error(error);
+        // Remove old sessions
 
         localStorage.removeItem("loggedTeacher");
 
-        alert("Your login session expired.");
+        localStorage.removeItem("loggedParent");
 
-        window.location.href = "portal.html";
 
-        return false;
-    }
 
 
-    return true;
-}
+        // ==================================
+        // TEACHER LOGIN
+        // ==================================
 
 
+        if(role === "teacher"){
 
-// ==========================================
-// LOAD TEACHER PROFILE
-// ==========================================
 
-function loadTeacherProfile() {
+            const teachers =
+            JSON.parse(
+                localStorage.getItem("teachers")
+            ) || [];
 
 
-    if (!teacher) return;
 
+            const teacher =
+            teachers.find(t =>
 
-    const teacherName =
-        document.getElementById("teacherName");
+                t.email.toLowerCase() === email
+                &&
+                t.password === password
 
+            );
 
-    const name =
-        document.getElementById("name");
 
 
-    const email =
-        document.getElementById("email");
+            if(!teacher){
 
 
-    const phone =
-        document.getElementById("phone");
+                alert(
+                    "Invalid teacher email or password."
+                );
 
+                return;
 
-    const subject =
-        document.getElementById("subject");
+            }
 
 
 
-    if (teacherName)
-        teacherName.textContent = teacher.name || "Teacher";
 
+            localStorage.setItem(
+                "loggedTeacher",
+                JSON.stringify(teacher)
+            );
 
-    if (name)
-        name.textContent = teacher.name || "-";
 
 
-    if (email)
-        email.textContent = teacher.email || "-";
+            alert(
+                "Teacher login successful."
+            );
 
 
-    if (phone)
-        phone.textContent = teacher.phone || "-";
 
+            window.location.href =
+            "teacher.html";
 
-    if (subject)
-        subject.textContent = teacher.subject || "-";
 
-}
 
+        }
 
 
-// ==========================================
-// LOAD STUDENTS
-// ==========================================
 
-function loadStudents(){
 
-    students =
-    JSON.parse(localStorage.getItem("students")) || [];
 
+        // ==================================
+        // PARENT LOGIN
+        // ==================================
 
-    console.log("Students:", students);
 
-}
+        else if(role === "parent"){
 
 
+            const parents =
+            JSON.parse(
+                localStorage.getItem("parents")
+            ) || [];
 
-// ==========================================
-// LOAD ATTENDANCE
-// ==========================================
 
-function loadAttendance(){
 
-    attendance =
-    JSON.parse(localStorage.getItem("attendance")) || [];
+            const parent =
+            parents.find(p =>
 
 
-    console.log("Attendance:", attendance);
+                p.email.toLowerCase() === email
+                &&
+                p.password === password
 
-}
 
+            );
 
 
-// ==========================================
-// LOAD RESULTS
-// ==========================================
 
-function loadResults(){
+            if(!parent){
 
-    results =
-    JSON.parse(localStorage.getItem("results")) || [];
 
+                alert(
+                    "Invalid parent email or password."
+                );
 
-    console.log("Results:", results);
 
-}
+                return;
 
+            }
 
 
-// ==========================================
-// DISPLAY SUMMARY
-// ==========================================
 
-function loadDashboardSummary(){
 
+            localStorage.setItem(
+                "loggedParent",
+                JSON.stringify(parent)
+            );
 
-    const studentCount =
-    document.getElementById("studentCount");
 
 
-    const attendanceCount =
-    document.getElementById("attendanceCount");
+            alert(
+                "Parent login successful."
+            );
 
 
-    const resultCount =
-    document.getElementById("resultCount");
 
+            window.location.href =
+            "parent.html";
 
 
-    if(studentCount)
-        studentCount.textContent = students.length;
+        }
 
 
-    if(attendanceCount)
-        attendanceCount.textContent = attendance.length;
 
 
-    if(resultCount)
-        resultCount.textContent = results.length;
+        else{
 
-}
 
+            alert("Please select a valid role.");
 
+        }
 
-// ==========================================
-// LOGOUT
-// ==========================================
 
-function logout(){
 
+    });
 
-    const confirmLogout =
-    confirm("Logout from teacher portal?");
-
-
-    if(!confirmLogout)
-        return;
-
-
-    localStorage.removeItem("loggedTeacher");
-
-
-    window.location.href="portal.html";
 
 }
-
-
-
-// ==========================================
-// START DASHBOARD
-// ==========================================
-
-
-document.addEventListener("DOMContentLoaded",()=>{
-
-
-    if(!checkTeacherLogin())
-        return;
-
-
-    loadTeacherProfile();
-
-
-    loadStudents();
-
-
-    loadAttendance();
-
-
-    loadResults();
-
-
-    loadDashboardSummary();
-
-
-
-    console.log(
-        "Logged Teacher:",
-        teacher
-    );
-
-});
