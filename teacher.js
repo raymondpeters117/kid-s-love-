@@ -1,6 +1,6 @@
 // ==========================================
 // KID'S LOVE NURSERY
-// Teacher Dashboard
+// TEACHER DASHBOARD
 // ==========================================
 
 let teacher = null;
@@ -8,75 +8,83 @@ let students = [];
 let attendance = [];
 let results = [];
 
+// -----------------------------
+// CHECK LOGIN
+// -----------------------------
 function checkTeacherLogin() {
 
-    const savedTeacher = localStorage.getItem("loggedTeacher");
+    const saved = localStorage.getItem("loggedTeacher");
 
-    if (!savedTeacher) {
-
+    if (!saved) {
         alert("Please login first.");
-        window.location.replace("portal.html");
+        window.location.href = "portal.html";
         return false;
-
     }
 
-    teacher = JSON.parse(savedTeacher);
+    try {
+        teacher = JSON.parse(saved);
+    } catch (e) {
+        localStorage.removeItem("loggedTeacher");
+        alert("Login session is invalid.");
+        window.location.href = "portal.html";
+        return false;
+    }
 
     return true;
 }
 
+// -----------------------------
+// LOAD PROFILE
+// -----------------------------
 function loadTeacherProfile() {
 
     if (!teacher) return;
 
-    const ids = {
-        teacherName: teacher.name,
-        name: teacher.name,
-        email: teacher.email,
-        phone: teacher.phone
-    };
+    document.getElementById("teacherName").textContent =
+        teacher.name || "Teacher";
 
-    Object.keys(ids).forEach(id => {
+    document.getElementById("name").textContent =
+        teacher.name || "-";
 
-        const element = document.getElementById(id);
+    document.getElementById("email").textContent =
+        teacher.email || "-";
 
-        if (element) {
-            element.textContent = ids[id] || "-";
-        }
-
-    });
-
+    document.getElementById("phone").textContent =
+        teacher.phone || "-";
 }
 
-function logoutTeacher() {
-
-    if (!confirm("Logout?")) return;
-
-    localStorage.removeItem("loggedTeacher");
-
-    window.location.replace("portal.html");
-
-}
-
+// -----------------------------
+// LOAD DATA
+// -----------------------------
 function loadStudents() {
-
     students = JSON.parse(localStorage.getItem("students")) || [];
-
 }
 
 function loadAttendance() {
-
     attendance = JSON.parse(localStorage.getItem("attendance")) || [];
-
 }
 
 function loadResults() {
-
     results = JSON.parse(localStorage.getItem("results")) || [];
-
 }
 
-function initializeDashboard() {
+// -----------------------------
+// LOGOUT
+// -----------------------------
+function logout() {
+
+    if (!confirm("Logout from teacher portal?"))
+        return;
+
+    localStorage.removeItem("loggedTeacher");
+
+    window.location.href = "portal.html";
+}
+
+// -----------------------------
+// START
+// -----------------------------
+document.addEventListener("DOMContentLoaded", () => {
 
     if (!checkTeacherLogin()) return;
 
@@ -88,6 +96,7 @@ function initializeDashboard() {
 
     loadResults();
 
-}
+    console.log("Teacher Dashboard Loaded");
+    console.log(teacher);
 
-document.addEventListener("DOMContentLoaded", initializeDashboard);
+});
