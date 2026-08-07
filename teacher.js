@@ -255,3 +255,66 @@ if (loginForm) {
 
 
 }
+// ==========================================
+// LOAD CLASS LIST
+// ==========================================
+
+function loadClassList() {
+
+    const classList =
+    document.getElementById("classList");
+
+
+    if (!classList) return;
+
+
+    students =
+    JSON.parse(localStorage.getItem("students")) || [];
+
+
+    classList.innerHTML = "";
+
+
+    if(students.length === 0){
+
+        classList.innerHTML = `
+            <tr>
+                <td colspan="5">
+                    No students registered yet.
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+
+
+    students.forEach((student,index)=>{
+
+
+        const row = document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td>${index + 1}</td>
+
+            <td>${student.name || "-"}</td>
+
+            <td>${student.age || "-"}</td>
+
+            <td>${student.class || "Baby Class"}</td>
+
+            <td>${student.parent || "-"}</td>
+
+        `;
+
+
+        classList.appendChild(row);
+
+
+    });
+
+
+}
