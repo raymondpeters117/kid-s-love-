@@ -1,365 +1,99 @@
 // ==========================================
-// WEBSITE MAIN JAVASCRIPT
+// PORTAL LOGIN SYSTEM
 // ==========================================
 
-
-// ==========================================
-// MOBILE NAVIGATION MENU
-// ==========================================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const mobileToggle = document.getElementById("mobileToggle");
-    const navMenu = document.getElementById("navMenu");
-
-
-    if (mobileToggle && navMenu) {
-
-
-        mobileToggle.addEventListener("click", () => {
-
-            navMenu.classList.toggle("show");
-
-
-            // Change menu icon
-
-            if (navMenu.classList.contains("show")) {
-
-                mobileToggle.innerHTML = "✖";
-
-            } else {
-
-                mobileToggle.innerHTML = "☰";
-
-            }
-
-        });
-
-
-
-        // Close menu when clicking a link
-
-        document.querySelectorAll("#navMenu a").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                navMenu.classList.remove("show");
-
-                mobileToggle.innerHTML = "☰";
-
-            });
-
-        });
-
-
-
-        // Close menu outside click
-
-        document.addEventListener("click", (event) => {
-
-            if (
-                !navMenu.contains(event.target) &&
-                !mobileToggle.contains(event.target)
-            ) {
-
-                navMenu.classList.remove("show");
-
-                mobileToggle.innerHTML = "☰";
-
-            }
-
-        });
-
-
-    }
-
-
-
-// ==========================================
-// SMOOTH SCROLLING
-// ==========================================
-
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-
-    anchor.addEventListener("click", function(e){
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-
-        if(target){
-
-            e.preventDefault();
-
-
-            target.scrollIntoView({
-
-                behavior:"smooth"
-
-            });
-
+// Create default accounts (only once)
+if (!localStorage.getItem("teachers")) {
+    const teachers = [
+        {
+            id: 1,
+            name: "Mr. Peter",
+            email: "teacher@school.com",
+            password: "teacher123",
+            subject: "Mathematics"
         }
+    ];
 
-    });
-
-
-});
-
-
-
-
-// ==========================================
-// BACK TO TOP BUTTON
-// ==========================================
-
-
-const topButton = document.getElementById("backTop");
-
-
-if(topButton){
-
-
-    window.addEventListener("scroll",()=>{
-
-
-        if(window.scrollY > 300){
-
-            topButton.style.display="block";
-
-        }else{
-
-            topButton.style.display="none";
-
-        }
-
-
-    });
-
-
-
-    topButton.addEventListener("click",()=>{
-
-
-        window.scrollTo({
-
-            top:0,
-
-            behavior:"smooth"
-
-        });
-
-
-    });
-
-
+    localStorage.setItem("teachers", JSON.stringify(teachers));
 }
 
-
-
-
-// ==========================================
-// FOOTER YEAR AUTOMATIC UPDATE
-// ==========================================
-
-
-const year = document.getElementById("year");
-
-
-if(year){
-
-    year.textContent = new Date().getFullYear();
-
-}
-
-
-
-
-// ==========================================
-// PASSWORD SHOW / HIDE
-// ==========================================
-
-
-const passwordInput = document.getElementById("password");
-
-const showPassword = document.getElementById("showPassword");
-
-
-if(passwordInput && showPassword){
-
-
-    showPassword.addEventListener("click",()=>{
-
-
-        if(passwordInput.type === "password"){
-
-
-            passwordInput.type="text";
-
-            showPassword.innerHTML="🙈";
-
-
-        }else{
-
-
-            passwordInput.type="password";
-
-            showPassword.innerHTML="👁️";
-
-
+if (!localStorage.getItem("parents")) {
+    const parents = [
+        {
+            id: 1,
+            name: "Mrs. Sarah",
+            email: "parent@school.com",
+            password: "parent123",
+            child: "John Peter"
         }
+    ];
 
-
-    });
-
-
+    localStorage.setItem("parents", JSON.stringify(parents));
 }
-
-
-
-
-// ==========================================
-// LOGIN VALIDATION
-// ==========================================
-
 
 const loginForm = document.getElementById("loginForm");
 
+if (loginForm) {
 
-if(loginForm){
-
-
-    loginForm.addEventListener("submit",(e)=>{
-
+    loginForm.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const role = document.getElementById("role").value;
 
-
-        const username =
-        document.getElementById("username").value.trim();
-
-
-        const password =
-        document.getElementById("password").value.trim();
-
-
-
-        if(username === "" || password === ""){
-
-
-            alert("Please fill all fields");
-
+        if (!email || !password || !role) {
+            alert("Please complete all fields.");
             return;
-
         }
 
+        if (role === "teacher") {
 
+            const teachers =
+                JSON.parse(localStorage.getItem("teachers")) || [];
 
-        // Example login
+            const teacher = teachers.find(t =>
+                t.email === email &&
+                t.password === password
+            );
 
-        if(username === "admin" && password === "1234"){
+            if (!teacher) {
+                alert("Invalid teacher credentials.");
+                return;
+            }
 
+            localStorage.setItem(
+                "loggedTeacher",
+                JSON.stringify(teacher)
+            );
 
-            alert("Login Successful");
-
-
-            window.location.href="index.html";
-
-
-        }else{
-
-
-            alert("Wrong username or password");
-
-
+            window.location.href = "teacher.html";
         }
 
+        else if (role === "parent") {
 
+            const parents =
+                JSON.parse(localStorage.getItem("parents")) || [];
 
-    });
+            const parent = parents.find(p =>
+                p.email === email &&
+                p.password === password
+            );
 
+            if (!parent) {
+                alert("Invalid parent credentials.");
+                return;
+            }
 
-}
+            localStorage.setItem(
+                "loggedParent",
+                JSON.stringify(parent)
+            );
 
-
-
-
-// ==========================================
-// CONTACT FORM VALIDATION
-// ==========================================
-
-
-const contactForm = document.getElementById("contactForm");
-
-
-if(contactForm){
-
-
-    contactForm.addEventListener("submit",(e)=>{
-
-
-        e.preventDefault();
-
-
-
-        alert("Thank you! Your message has been sent.");
-
-
-        contactForm.reset();
-
+            window.location.href = "parent.html";
+        }
 
     });
 
-
 }
-
-
-
-// ==========================================
-// DARK MODE TOGGLE
-// ==========================================
-
-
-const darkToggle = document.getElementById("darkToggle");
-
-
-if(darkToggle){
-
-
-    darkToggle.addEventListener("click",()=>{
-
-
-        document.body.classList.toggle("dark-mode");
-
-
-
-        localStorage.setItem(
-
-            "darkMode",
-
-            document.body.classList.contains("dark-mode")
-
-        );
-
-
-    });
-
-
-
-    // Load saved mode
-
-    if(localStorage.getItem("darkMode") === "true"){
-
-
-        document.body.classList.add("dark-mode");
-
-
-    }
-
-
-}
-
-
-
-});
