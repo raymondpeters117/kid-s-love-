@@ -1,6 +1,6 @@
 // ==========================================
 // KID'S LOVE NURSERY
-// TEACHER DASHBOARD
+// TEACHER DASHBOARD JS
 // ==========================================
 
 let teacher = null;
@@ -8,95 +8,245 @@ let students = [];
 let attendance = [];
 let results = [];
 
-// -----------------------------
-// CHECK LOGIN
-// -----------------------------
+
+// ==========================================
+// CHECK TEACHER LOGIN
+// ==========================================
+
 function checkTeacherLogin() {
 
-    const saved = localStorage.getItem("loggedTeacher");
+    const savedTeacher = localStorage.getItem("loggedTeacher");
 
-    if (!saved) {
+    if (!savedTeacher) {
+
         alert("Please login first.");
         window.location.href = "portal.html";
         return false;
     }
 
+
     try {
-        teacher = JSON.parse(saved);
-    } catch (e) {
+
+        teacher = JSON.parse(savedTeacher);
+
+
+        if (!teacher || !teacher.email) {
+
+            throw new Error("Invalid teacher data");
+        }
+
+
+    } catch(error) {
+
+        console.error(error);
+
         localStorage.removeItem("loggedTeacher");
-        alert("Login session is invalid.");
+
+        alert("Your login session expired.");
+
         window.location.href = "portal.html";
+
         return false;
     }
+
 
     return true;
 }
 
-// -----------------------------
-// LOAD PROFILE
-// -----------------------------
+
+
+// ==========================================
+// LOAD TEACHER PROFILE
+// ==========================================
+
 function loadTeacherProfile() {
+
 
     if (!teacher) return;
 
-    document.getElementById("teacherName").textContent =
-        teacher.name || "Teacher";
 
-    document.getElementById("name").textContent =
-        teacher.name || "-";
+    const teacherName =
+        document.getElementById("teacherName");
 
-    document.getElementById("email").textContent =
-        teacher.email || "-";
 
-    document.getElementById("phone").textContent =
-        teacher.phone || "-";
+    const name =
+        document.getElementById("name");
+
+
+    const email =
+        document.getElementById("email");
+
+
+    const phone =
+        document.getElementById("phone");
+
+
+    const subject =
+        document.getElementById("subject");
+
+
+
+    if (teacherName)
+        teacherName.textContent = teacher.name || "Teacher";
+
+
+    if (name)
+        name.textContent = teacher.name || "-";
+
+
+    if (email)
+        email.textContent = teacher.email || "-";
+
+
+    if (phone)
+        phone.textContent = teacher.phone || "-";
+
+
+    if (subject)
+        subject.textContent = teacher.subject || "-";
+
 }
 
-// -----------------------------
-// LOAD DATA
-// -----------------------------
-function loadStudents() {
-    students = JSON.parse(localStorage.getItem("students")) || [];
+
+
+// ==========================================
+// LOAD STUDENTS
+// ==========================================
+
+function loadStudents(){
+
+    students =
+    JSON.parse(localStorage.getItem("students")) || [];
+
+
+    console.log("Students:", students);
+
 }
 
-function loadAttendance() {
-    attendance = JSON.parse(localStorage.getItem("attendance")) || [];
+
+
+// ==========================================
+// LOAD ATTENDANCE
+// ==========================================
+
+function loadAttendance(){
+
+    attendance =
+    JSON.parse(localStorage.getItem("attendance")) || [];
+
+
+    console.log("Attendance:", attendance);
+
 }
 
-function loadResults() {
-    results = JSON.parse(localStorage.getItem("results")) || [];
+
+
+// ==========================================
+// LOAD RESULTS
+// ==========================================
+
+function loadResults(){
+
+    results =
+    JSON.parse(localStorage.getItem("results")) || [];
+
+
+    console.log("Results:", results);
+
 }
 
-// -----------------------------
+
+
+// ==========================================
+// DISPLAY SUMMARY
+// ==========================================
+
+function loadDashboardSummary(){
+
+
+    const studentCount =
+    document.getElementById("studentCount");
+
+
+    const attendanceCount =
+    document.getElementById("attendanceCount");
+
+
+    const resultCount =
+    document.getElementById("resultCount");
+
+
+
+    if(studentCount)
+        studentCount.textContent = students.length;
+
+
+    if(attendanceCount)
+        attendanceCount.textContent = attendance.length;
+
+
+    if(resultCount)
+        resultCount.textContent = results.length;
+
+}
+
+
+
+// ==========================================
 // LOGOUT
-// -----------------------------
-function logout() {
+// ==========================================
 
-    if (!confirm("Logout from teacher portal?"))
+function logout(){
+
+
+    const confirmLogout =
+    confirm("Logout from teacher portal?");
+
+
+    if(!confirmLogout)
         return;
+
 
     localStorage.removeItem("loggedTeacher");
 
-    window.location.href = "portal.html";
+
+    window.location.href="portal.html";
+
 }
 
-// -----------------------------
-// START
-// -----------------------------
-document.addEventListener("DOMContentLoaded", () => {
 
-    if (!checkTeacherLogin()) return;
+
+// ==========================================
+// START DASHBOARD
+// ==========================================
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+    if(!checkTeacherLogin())
+        return;
+
 
     loadTeacherProfile();
 
+
     loadStudents();
+
 
     loadAttendance();
 
+
     loadResults();
 
-    console.log("Teacher Dashboard Loaded");
-    console.log(teacher);
+
+    loadDashboardSummary();
+
+
+
+    console.log(
+        "Logged Teacher:",
+        teacher
+    );
 
 });
