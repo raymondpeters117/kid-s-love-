@@ -461,3 +461,33 @@ Parent: ${student.parent}
 
 loadClassLists();
 }
+/* ===============================
+TEACHER LOGOUT FUNCTION
+================================ */
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+
+if(logoutBtn){
+
+    logoutBtn.addEventListener("click",()=>{
+
+
+        // Remove logged teacher session
+        localStorage.removeItem("loggedTeacher");
+
+
+        // Optional: remove other temporary sessions
+        // localStorage.removeItem("currentUser");
+
+
+        alert("You have logged out successfully");
+
+
+        // Return to portal login
+        window.location.href = "portal.html";
+
+
+    });
+
+}
