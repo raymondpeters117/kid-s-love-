@@ -1,3 +1,14 @@
+const teacher =
+JSON.parse(localStorage.getItem("loggedTeacher"));
+
+
+if(!teacher){
+
+    alert("Please login first.");
+
+    window.location.href="portal.html";
+
+}
 /* =====================================================
    KID'S LOVE NURSERY
    TEACHER DASHBOARD JAVASCRIPT
