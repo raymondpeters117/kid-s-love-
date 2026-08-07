@@ -1,38 +1,48 @@
-const teacher =
-JSON.parse(localStorage.getItem("loggedTeacher"));
-
-
-if(!teacher){
-
-    alert("Please login first.");
-
-    window.location.href="portal.html";
-
-}/* =====================================================
+/* =====================================================
    KID'S LOVE NURSERY
    TEACHER DASHBOARD JAVASCRIPT
 ===================================================== */
 
 
 /* ===============================
-   CHECK TEACHER LOGIN
+CHECK TEACHER LOGIN
 ================================ */
 
-const teacher =
-JSON.parse(localStorage.getItem("loggedTeacher"));
+let teacher = null;
 
 
-if(!teacher){
+document.addEventListener("DOMContentLoaded",()=>{
 
-    alert("Please login first.");
 
-    window.location.href="portal.html";
+    teacher = JSON.parse(
+        localStorage.getItem("loggedTeacher")
+    );
 
-}
+
+    if(!teacher){
+
+        alert("Please login first.");
+
+        window.location.href="portal.html";
+
+        return;
+
+    }
+
+
+    loadTeacherProfile();
+
+    loadStudents();
+
+    loadStatistics();
+
+
+});
+
 
 
 /* ===============================
-   LOAD TEACHER PROFILE
+LOAD TEACHER PROFILE
 ================================ */
 
 function loadTeacherProfile(){
@@ -41,24 +51,40 @@ function loadTeacherProfile(){
     if(!teacher) return;
 
 
-    document.getElementById("teacherName").textContent =
-    teacher.name || "Teacher";
+
+    let fields = {
+
+        teacherName: teacher.name || "Teacher",
+
+        name: teacher.name || "-",
+
+        email: teacher.email || "-",
+
+        phone: teacher.phone || "-",
+
+        subject: teacher.subject || "General"
+
+    };
 
 
-    document.getElementById("name").textContent =
-    teacher.name || "-";
+
+    Object.keys(fields).forEach(id=>{
 
 
-    document.getElementById("email").textContent =
-    teacher.email || "-";
+        let element =
+        document.getElementById(id);
 
 
-    document.getElementById("phone").textContent =
-    teacher.phone || "-";
+        if(element){
+
+            element.textContent =
+            fields[id];
+
+        }
 
 
-    document.getElementById("subject").textContent =
-    teacher.subject || "General";
+    });
+
 
 
 }
@@ -66,23 +92,25 @@ function loadTeacherProfile(){
 
 
 /* ===============================
-   LOAD STUDENTS
+LOAD STUDENTS
 ================================ */
 
-let students =
-JSON.parse(localStorage.getItem("students")) || [];
-
-
-
 function loadStudents(){
+
+
+    let students =
+    JSON.parse(
+        localStorage.getItem("students")
+    ) || [];
+
 
 
     let table =
     document.getElementById("classTable");
 
-
     let studentBox =
     document.getElementById("students");
+
 
 
     if(!table) return;
@@ -92,28 +120,31 @@ function loadStudents(){
     table.innerHTML="";
 
 
-    studentBox.innerHTML="";
+
+    if(studentBox){
+
+        studentBox.innerHTML="";
+
+    }
+
 
 
 
     if(students.length===0){
 
 
-        table.innerHTML=
-        `
+        table.innerHTML=`
+
         <tr>
+
         <td colspan="7">
+
         No students registered.
+
         </td>
+
         </tr>
-        `;
 
-
-        studentBox.innerHTML=
-        `
-        <p class="empty-message">
-        No students available
-        </p>
         `;
 
 
@@ -123,13 +154,11 @@ function loadStudents(){
 
 
 
-
     students.forEach((student,index)=>{
 
 
-        table.innerHTML +=
+        table.innerHTML += `
 
-        `
         <tr>
 
         <td>${index+1}</td>
@@ -146,21 +175,20 @@ function loadStudents(){
 
         <td>${student.phone || "-"}</td>
 
-
         </tr>
+
         `;
 
 
 
+        if(studentBox){
 
-        studentBox.innerHTML +=
 
-        `
+        studentBox.innerHTML +=`
+
         <div class="student-card">
 
-        <h4>
-        ${student.name}
-        </h4>
+        <h4>${student.name}</h4>
 
         <p>
         Class: ${student.class}
@@ -174,9 +202,13 @@ function loadStudents(){
         Parent: ${student.parent}
         </p>
 
+
         </div>
+
         `;
 
+
+        }
 
 
     });
@@ -187,38 +219,45 @@ function loadStudents(){
 
 
 /* ===============================
-   SEARCH STUDENTS
+SEARCH STUDENTS
 ================================ */
 
 function searchStudent(){
 
 
-    let search =
-    document.getElementById("searchStudent")
-    .value
-    .toLowerCase();
+let input =
+document.getElementById("searchStudent");
+
+
+if(!input) return;
 
 
 
-    let rows =
-    document.querySelectorAll("#classTable tr");
+let value =
+input.value.toLowerCase();
 
 
 
-    rows.forEach(row=>{
+document.querySelectorAll("#classTable tr")
+.forEach(row=>{
 
 
-        row.style.display =
-        row.textContent
-        .toLowerCase()
-        .includes(search)
-        ?
-        ""
-        :
-        "none";
+row.style.display =
+
+row.textContent
+.toLowerCase()
+.includes(value)
+
+?
+
+""
+
+:
+
+"none";
 
 
-    });
+});
 
 
 }
@@ -226,23 +265,27 @@ function searchStudent(){
 
 
 /* ===============================
-   FILTER BY CLASS
+FILTER CLASS
 ================================ */
 
 function filterStudents(){
 
 
+let select =
+document.getElementById("filterClass");
+
+
+if(!select) return;
+
+
+
 let selected =
-document.getElementById("filterClass").value;
+select.value;
 
 
 
-let rows =
-document.querySelectorAll("#classTable tr");
-
-
-
-rows.forEach(row=>{
+document.querySelectorAll("#classTable tr")
+.forEach(row=>{
 
 
 if(selected==="All"){
@@ -254,17 +297,24 @@ row.style.display="";
 else{
 
 
+let className =
+row.cells[2]?.textContent;
+
+
+
 row.style.display =
-row.cells[2] &&
-row.cells[2].textContent===selected
+
+className===selected
 ?
+
 ""
+
 :
+
 "none";
 
 
 }
-
 
 
 });
@@ -275,15 +325,28 @@ row.cells[2].textContent===selected
 
 
 /* ===============================
-   DASHBOARD STATISTICS
+STATISTICS
 ================================ */
 
 function loadStatistics(){
 
 
+let students =
+JSON.parse(
+localStorage.getItem("students")
+) || [];
+
+
+
+let attendance =
+JSON.parse(
+localStorage.getItem("attendance")
+) || [];
+
+
+
 let total =
 document.getElementById("totalStudents");
-
 
 if(total){
 
@@ -294,15 +357,9 @@ students.length;
 
 
 
-let attendance =
-JSON.parse(localStorage.getItem("attendance"))
-|| [];
+let present=0;
 
-
-
-let present = 0;
-
-let absent = 0;
+let absent=0;
 
 
 
@@ -327,14 +384,27 @@ absent++;
 
 
 
-document.getElementById("presentToday")
-.textContent = present;
+let presentBox =
+document.getElementById("presentToday");
+
+
+let absentBox =
+document.getElementById("absentToday");
 
 
 
-document.getElementById("absentToday")
-.textContent = absent;
+if(presentBox){
 
+presentBox.textContent=present;
+
+}
+
+
+if(absentBox){
+
+absentBox.textContent=absent;
+
+}
 
 
 }
@@ -342,48 +412,32 @@ document.getElementById("absentToday")
 
 
 /* ===============================
-   LOGOUT
+LOGOUT
 ================================ */
 
 function logout(){
 
 
-let confirmLogout =
-confirm("Logout from teacher portal?");
+let answer =
+confirm(
+"Are you sure you want to logout?"
+);
 
 
 
-if(confirmLogout){
+if(answer){
 
 
-localStorage.removeItem("loggedTeacher");
+localStorage.removeItem(
+"loggedTeacher"
+);
 
 
-window.location.href="portal.html";
+window.location.href=
+"portal.html";
 
 
 }
 
 
 }
-
-
-
-/* ===============================
-   START DASHBOARD
-================================ */
-
-
-document.addEventListener(
-"DOMContentLoaded",
-()=>{
-
-
-loadTeacherProfile();
-
-loadStudents();
-
-loadStatistics();
-
-
-});
