@@ -1,35 +1,33 @@
 // ==========================================
-// PORTAL LOGIN SYSTEM
+// KID'S LOVE NURSERY PORTAL LOGIN
 // ==========================================
 
-// Create default accounts (only once)
-if (!localStorage.getItem("teachers")) {
-    const teachers = [
-        {
-            id: 1,
-            name: "Mr. Peter",
-            email: "teacher@school.com",
-            password: "teacher123",
-            subject: "Mathematics"
-        }
-    ];
+// Reset default accounts (optional during development)
+const teachers = [
+    {
+        id: 1,
+        name: "Mr. Peter",
+        email: "teacher@school.com",
+        password: "teacher123",
+        phone: "0700000000",
+        subject: "Mathematics"
+    }
+];
 
-    localStorage.setItem("teachers", JSON.stringify(teachers));
-}
+const parents = [
+    {
+        id: 1,
+        name: "Mrs. Sarah",
+        email: "parent@school.com",
+        password: "parent123",
+        child: "John Peter",
+        phone: "0711111111"
+    }
+];
 
-if (!localStorage.getItem("parents")) {
-    const parents = [
-        {
-            id: 1,
-            name: "Mrs. Sarah",
-            email: "parent@school.com",
-            password: "parent123",
-            child: "John Peter"
-        }
-    ];
-
-    localStorage.setItem("parents", JSON.stringify(parents));
-}
+// Save default accounts
+localStorage.setItem("teachers", JSON.stringify(teachers));
+localStorage.setItem("parents", JSON.stringify(parents));
 
 const loginForm = document.getElementById("loginForm");
 
@@ -39,14 +37,18 @@ if (loginForm) {
 
         e.preventDefault();
 
-        const email = document.getElementById("email").value.trim();
+        const email = document.getElementById("email").value.trim().toLowerCase();
         const password = document.getElementById("password").value.trim();
         const role = document.getElementById("role").value;
 
         if (!email || !password || !role) {
-            alert("Please complete all fields.");
+            alert("Please fill in all fields.");
             return;
         }
+
+        // Clear previous login sessions
+        localStorage.removeItem("loggedTeacher");
+        localStorage.removeItem("loggedParent");
 
         if (role === "teacher") {
 
@@ -54,19 +56,18 @@ if (loginForm) {
                 JSON.parse(localStorage.getItem("teachers")) || [];
 
             const teacher = teachers.find(t =>
-                t.email === email &&
+                t.email.toLowerCase() === email &&
                 t.password === password
             );
 
             if (!teacher) {
-                alert("Invalid teacher credentials.");
+                alert("Invalid teacher email or password.");
                 return;
             }
 
-            localStorage.setItem(
-                "loggedTeacher",
-                JSON.stringify(teacher)
-            );
+            localStorage.setItem("loggedTeacher", JSON.stringify(teacher));
+
+            alert("Teacher login successful.");
 
             window.location.href = "teacher.html";
         }
@@ -77,19 +78,18 @@ if (loginForm) {
                 JSON.parse(localStorage.getItem("parents")) || [];
 
             const parent = parents.find(p =>
-                p.email === email &&
+                p.email.toLowerCase() === email &&
                 p.password === password
             );
 
             if (!parent) {
-                alert("Invalid parent credentials.");
+                alert("Invalid parent email or password.");
                 return;
             }
 
-            localStorage.setItem(
-                "loggedParent",
-                JSON.stringify(parent)
-            );
+            localStorage.setItem("loggedParent", JSON.stringify(parent));
+
+            alert("Parent login successful.");
 
             window.location.href = "parent.html";
         }
