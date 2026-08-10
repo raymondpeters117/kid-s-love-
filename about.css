@@ -2003,3 +2003,42 @@ RESPONSIVE
     }
 
 }
+
+/* =========================================
+   DONATE BUTTON
+========================================= */
+
+.donate-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 10px 17px !important;
+
+    background: #e63946 !important;
+    color: #ffffff !important;
+
+    border-radius: 30px;
+
+    font-weight: 700 !important;
+    white-space: nowrap;
+
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.donate-btn i {
+    font-size: 13px;
+}
+
+.donate-btn:hover {
+    background: #c1121f !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.35);
+}
