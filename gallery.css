@@ -181,7 +181,8 @@ header {
 3. HERO SECTION
 =========================*/
 .hero {
-    background: linear-gradient(135deg, var(--secondary), #00a8e8);
+    background: linear-gradient(135deg, var(--secondary), #00a8e8),
+       url(lez.png);
     color: var(--white);
     text-align: center;
     padding: 70px 20px;
