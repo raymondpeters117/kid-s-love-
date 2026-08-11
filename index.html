@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="IMG-20260707-WA0017.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -69,36 +70,45 @@
 
     <main>
 
-        <section class="hero">
+        <section class="about-hero">
 
-            <img src="IMG-20260707-WA0017.jpg"
-                class="hero-badge"
-                alt="Kid's Love Nursery School Badge">
-
-            <span class="hero-tag">
-                Registered Nursery &amp; Daycare Centre
-            </span>
-
-            <h1>
-                Welcome to Kid's Love Nursery &amp; Pre-Primary School
-            </h1>
-
-            <p>
-                Developing God-fearing children equipped with quality education,
-                discipline, creativity, and confidence.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="admissions.html" class="btn btn-primary">
-                    Enroll Your Child
-                </a>
-
-                <a href="aboutus.html" class="btn btn-secondary">
-                    Learn More
-                </a>
-
+            <div class="hero-slider">
+                <div class="slide active">
+                    <img src="IMG-20260707-WA0017.jpg" alt="Kid's Love Nursery Learning">
+                </div>
+                <div class="slide">
+                    <img src="IMG-20260707-WA0017.jpg" alt="Safe Classroom Environment">
+                </div>
+                <div class="slide">
+                    <img src="IMG-20260707-WA0017.jpg" alt="Children Activities">
+                </div>
             </div>
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <h4>REGISTERED NURSERY &amp; DAYCARE</h4>
+                <h1>Welcome to <span>Kid's Love</span> Nursery &amp; Pre-Primary</h1>
+                <p>
+                    Developing God-fearing children equipped with quality education,
+                    discipline, creativity, and confidence.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="admissions.html" class="btn btn-primary">Enroll Your Child</a>
+                    <a href="aboutus.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+
+            <div class="slider-controls">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+
+            <button class="hero-next" id="nextBtn">
+                Next <i class="fas fa-arrow-right"></i>
+            </button>
 
         </section>
 
