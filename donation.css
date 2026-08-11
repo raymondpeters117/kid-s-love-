@@ -204,8 +204,7 @@ header {
 HERO BANNER
 =========================*/
 .header-banner {
-    background: linear-gradient(rgba(0, 119, 182, 0.85), rgba(229, 36, 33, 0.85)), 
-                url('water.png') center/cover no-repeat;
+    background:url('water.png') center/cover no-repeat;
     padding: 100px 20px;
     text-align: center;
     color: var(--white);
