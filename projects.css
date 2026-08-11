@@ -211,7 +211,7 @@ header {
   4. HEADER BANNER
 =========================*/
 .header-banner {
-    background: linear-gradient(135deg, var(--secondary) 0%, #0096c7 100%);
+    background: url("wet.png");
     color: var(--white);
     text-align: center;
     padding: 60px 20px;
