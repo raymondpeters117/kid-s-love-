@@ -374,156 +374,165 @@ BANK & PAYMENT DETAILS BOXES
 }
 
 /*========================
-FOOTER
+FOOTER STYLES
 =========================*/
 footer {
     background: #111827;
-    color: #ddd;
-    padding: 70px 0 20px;
-    margin-top: 50px;
+    color: #9ca3af;
+    padding: 70px 0 25px;
+    margin-top: 60px;
 }
 
 .footer-grid {
     width: min(1150px, 90%);
-    margin: auto;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
 }
 
-.footer-grid h3 {
+.footer-col h3 {
     color: var(--white);
     font-size: 20px;
-    margin-bottom: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
 }
 
-.footer-grid p,
-.footer-grid a {
-    color: #aaa;
-    font-size: 15px;
+.footer-col h3::after {
+    content: '';
+    display: block;
+    width: 35px;
+    height: 3px;
+    background: var(--primary);
+    margin-top: 8px;
+    border-radius: 2px;
+}
+
+.footer-sub {
+    color: var(--yellow);
+    font-weight: 600;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+.footer-col p {
+    font-size: 14px;
     line-height: 1.8;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-col p i {
+    color: var(--yellow);
+    font-size: 15px;
+    width: 18px;
+}
+
+.footer-col a {
+    color: #d1d5db;
     transition: var(--transition);
 }
 
-.footer-grid p i {
-    color: var(--yellow);
-    margin-right: 8px;
-}
-
-.footer-grid a:hover {
+.footer-col a:hover {
     color: var(--yellow);
 }
 
-footer hr {
+/* QUICK LINKS */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a i {
+    color: var(--primary);
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.footer-links a:hover i {
+    transform: translateX(4px);
+    color: var(--yellow);
+}
+
+/* SOCIAL MEDIA ICONS */
+.footer-socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.footer-socials a:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* FOOTER BOTTOM */
+.footer-divider {
     width: min(1150px, 90%);
     margin: 40px auto 20px;
-    border: none;
-    border-top: 1px solid #333;
+    border: 0;
+    border-top: 1px solid #1f2937;
 }
 
-footer > p {
+.footer-bottom {
     text-align: center;
-    color: #888;
-    font-size: 14px;
+    font-size: 13px;
+    color: #6b7280;
 }
 
-/*========================
-RESPONSIVE MEDIA QUERIES
-=========================*/
-@media (max-width: 1100px) {
-    .navbar {
-        width: 96%;
-        gap: 10px;
-    }
-
-    .brand-logo img {
-        width: 50px;
-        height: 50px;
-    }
-
-    .logo-title {
-        font-size: 17px;
-    }
-
-    .logo-subtitle {
-        font-size: 9px;
-    }
-
-    .nav-links a {
-        padding: 8px 10px;
-        font-size: 13px;
-    }
-}
-
+/* RESPONSIVE FOOTER */
 @media (max-width: 768px) {
-    body {
-        padding-top: 75px;
-    }
-
-    .navbar {
-        height: 75px;
-    }
-
-    .menu-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-
-    /* JavaScript menu trigger rule (.show class handling) */
-    .nav-links {
-        position: absolute;
-        top: 75px;
-        left: 0;
-        width: 100%;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        padding: 25px 0;
-        background: var(--white);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    }
-
-    .nav-links.show,
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-links a {
-        width: 90%;
-        padding: 12px;
-        text-align: center;
-    }
-
     .footer-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
 
-    .section {
-        padding: 40px 0;
-    }
-
-    .section h2 {
-        font-size: 28px;
-    }
-
-    .bank-box p, 
-    .mobile-box p {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2px;
+    .footer-col h3::after {
+        margin-left: 0;
     }
 }
 
 @media (max-width: 480px) {
-    .footer-grid {
+    .footer-col {
         text-align: center;
+    }
+
+    .footer-col h3::after {
+        margin: 8px auto 0;
+    }
+
+    .footer-col p {
+        justify-content: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
     }
 }
