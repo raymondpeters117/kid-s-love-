@@ -1,1479 +1,381 @@
-/* ======================================================
-   KID'S LOVE NURSERY & DAYCARE CENTRE
-   PROJECTS.CSS
-   PART 1
-====================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-/* ==========================================
-ROOT VARIABLES
-========================================== */
-
-:root{
-
-    --orange:#ff7a00;
-    --orange-dark:#e56700;
-
-    --blue:#1565c0;
-    --blue-light:#42a5f5;
-
-    --green:#43a047;
-    --yellow:#ffc107;
-
-    --white:#fff;
-    --light:#f7f9fc;
-    --dark:#222;
-    --gray:#666;
-
-    --shadow-sm:0 5px 15px rgba(0,0,0,.08);
-    --shadow:0 12px 35px rgba(0,0,0,.12);
-    --shadow-lg:0 20px 45px rgba(0,0,0,.18);
-
-    --radius:18px;
-
-    --transition:.35s;
-
-}
-
-/* ==========================================
-RESET
-========================================== */
-
-*{
-
-    margin:0;
-    padding:0;
-
-    box-sizing:border-box;
-
-}
-
-html{
-
-    scroll-behavior:smooth;
-
-}
-
-body{
-
-    font-family:'Poppins',sans-serif;
-
-    background:var(--light);
-
-    color:var(--dark);
-
-    line-height:1.7;
-
-    overflow-x:hidden;
-
-}
-
-img{
-
-    max-width:100%;
-    display:block;
-
-}
-
-a{
-
-    text-decoration:none;
-
-}
-
-ul{
-
-    list-style:none;
-
-}
-
-section{
-
-    padding:90px 8%;
-
-}
-
-.container{
-
-    width:90%;
-    max-width:1250px;
-
-    margin:auto;
-
-}
-
-/* ==========================================
-HEADER
-========================================== */
-
-header{
-
-    position:sticky;
-
-    top:0;
-
-    z-index:999;
-
-    background:white;
-
-    box-shadow:var(--shadow-sm);
-
-}
-
-/* ==========================================
-NAVBAR
-========================================== */
-
-.navbar{
-
-    max-width:1350px;
-
-    margin:auto;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:15px 40px;
-
-}
-
-/* ==========================================
-LOGO
-========================================== */
-
-.brand-logo{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-}
-
-.brand-logo img{
-
-    width:68px;
-    height:68px;
-
-    object-fit:cover;
-
-    border-radius:50%;
-
-    border:4px solid var(--orange);
-
-}
-
-.logo-text-box{
-
-    display:flex;
-
-    flex-direction:column;
-
-}
-
-.logo-title{
-
-    font-size:1.2rem;
-
-    font-weight:800;
-
-    color:var(--blue);
-
-}
-
-.logo-subtitle{
-
-    font-size:.78rem;
-
-    color:#777;
-
-}
-
-/* ==========================================
-NAVIGATION
-========================================== */
-
-.nav-links{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:30px;
-
-}
-
-.nav-link{
-
-    color:#333;
-
-    font-weight:600;
-
-    position:relative;
-
-    transition:var(--transition);
-
-}
-
-.nav-link::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:-8px;
-
-    width:0;
-    height:3px;
-
-    background:var(--orange);
-
-    transition:.3s;
-
-}
-
-.nav-link:hover::after,
-.nav-link.active::after{
-
-    width:100%;
-
-}
-
-.nav-link:hover,
-.nav-link.active{
-
-    color:var(--orange);
-
-}
-
-/* ==========================================
-MOBILE MENU BUTTON
-========================================== */
-
-.menu-btn{
-
-    display:none;
-
-    width:48px;
-    height:48px;
-
-    border:none;
-
-    cursor:pointer;
-
-    background:var(--orange);
-
-    color:white;
-
-    border-radius:10px;
-
-    font-size:25px;
-
-    transition:.3s;
-
-}
-
-.menu-btn:hover{
-
-    background:var(--orange-dark);
-
-}
-
-/* ==========================================
-HERO SECTION
-========================================== */
-
-.header-banner{
-
-    min-height:65vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex-direction:column;
-
-    text-align:center;
-
-    color:white;
-
-    background:
-
-    linear-gradient(
-        rgba(0,0,0,.60),
-        rgba(0,0,0,.60)
-    ),
-
-    url("IMG-20260707-WA0017.jpg");
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-attachment:fixed;
-
-    padding:40px;
-
-}
-
-.header-banner h1{
-
-    font-size:3.3rem;
-
-    margin-bottom:25px;
-
-    font-weight:800;
-
-}
-
-.header-banner p{
-
-    max-width:800px;
-
-    font-size:18px;
-
-    color:#f5f5f5;
-
-}
-
-/* ==========================================
-SECTION TITLES
-========================================== */
-
-.container h2{
-
-    text-align:center;
-
-    color:var(--blue);
-
-    font-size:2.4rem;
-
-    margin-bottom:60px;
-
-}
-
-/* ==========================================
-BUTTON STYLE (Reusable)
-========================================== */
-
-.btn{
-
-    display:inline-block;
-
-    padding:14px 35px;
-
-    background:var(--orange);
-
-    color:white;
-
-    border-radius:50px;
-
-    font-weight:600;
-
-    transition:.35s;
-
-}
-
-.btn:hover{
-
-    background:var(--orange-dark);
-
-    transform:translateY(-5px);
-
-}
-/* ==========================================
-PROJECT GRID
-========================================== */
-
-.project-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(320px,1fr));
-
-    gap:35px;
-
-    margin-bottom:90px;
-
-}
-
-/* ==========================================
-PROJECT CARD
-========================================== */
-
-.project-card{
-
-    position:relative;
-
-    background:white;
-
-    border-radius:22px;
-
-    padding:35px;
-
-    box-shadow:var(--shadow);
-
-    overflow:hidden;
-
-    transition:var(--transition);
-
-    border-top:6px solid var(--orange);
-
-}
-
-.project-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        rgba(21,101,192,.05),
-        rgba(255,122,0,.05)
-    );
-
-    opacity:0;
-
-    transition:.35s;
-
-}
-
-.project-card:hover{
-
-    transform:translateY(-12px);
-
-    box-shadow:var(--shadow-lg);
-
-}
-
-.project-card:hover::before{
-
-    opacity:1;
-
-}
-
-.project-card h3{
-
-    color:var(--blue);
-
-    font-size:1.45rem;
-
-    margin:18px 0;
-
-    position:relative;
-
-    z-index:2;
-
-}
-
-.project-card p{
-
-    color:var(--gray);
-
-    position:relative;
-
-    z-index:2;
-
-    line-height:1.8;
-
-}
-
-/* ==========================================
-COST TAG
-========================================== */
-
-.cost-tag{
-
-    display:inline-block;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        var(--orange),
-        #ff9800
-    );
-
-    color:white;
-
-    padding:10px 20px;
-
-    border-radius:50px;
-
-    font-size:.9rem;
-
-    font-weight:700;
-
-    box-shadow:0 6px 18px rgba(255,122,0,.35);
-
-    position:relative;
-
-    z-index:2;
-
-}
-
-/* ==========================================
-PROJECT ICON (OPTIONAL)
-========================================== */
-
-.project-card::after{
-
-    content:"🏗";
-
-    position:absolute;
-
-    right:20px;
-
-    bottom:20px;
-
-    font-size:65px;
-
-    opacity:.08;
-
-}
-
-/* ==========================================
-PARTNER SECTION
-========================================== */
-
-.bank-info{
-
-    margin-top:40px;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        var(--blue),
-        var(--blue-light)
-    );
-
-    color:white;
-
-    padding:70px 50px;
-
-    border-radius:25px;
-
-    text-align:center;
-
-    box-shadow:var(--shadow-lg);
-
-}
-
-.bank-info h2{
-
-    color:white;
-
-    font-size:2.4rem;
-
-    margin-bottom:25px;
-
-}
-
-.bank-info p{
-
-    color:white;
-
-    max-width:850px;
-
-    margin:auto;
-
-    line-height:1.9;
-
-    font-size:17px;
-
-}
-
-.bank-info strong{
-
-    display:inline-block;
-
-    margin-top:25px;
-
-    background:white;
-
-    color:var(--blue);
-
-    padding:18px 35px;
-
-    border-radius:50px;
-
-    font-size:16px;
-
-    box-shadow:var(--shadow);
-
-}
-
-/* ==========================================
-CALL TO ACTION BUTTON
-========================================== */
-
-.support-btn{
-
-    display:inline-block;
-
-    margin-top:35px;
-
-    background:var(--orange);
-
-    color:white;
-
-    padding:16px 40px;
-
-    border-radius:50px;
-
-    font-weight:700;
-
-    transition:.35s;
-
-}
-
-.support-btn:hover{
-
-    background:var(--orange-dark);
-
-    transform:translateY(-6px);
-
-}
-
-/* ==========================================
-FOOTER
-========================================== */
-
-footer{
-
-    margin-top:90px;
-
-    background:#1c1c1c;
-
-    color:white;
-
-    text-align:center;
-
-    padding:70px 20px 35px;
-
-}
-
-footer strong{
-
-    color:var(--yellow);
-
-    font-size:1.2rem;
-
-}
-
-footer p{
-
-    color:#ddd;
-
-    margin:14px 0;
-
-    line-height:1.8;
-
-}
-
-/* ==========================================
-FOOTER DIVIDER
-========================================== */
-
-footer::before{
-
-    content:"";
-
-    display:block;
-
-    width:90px;
-
-    height:5px;
-
-    background:var(--orange);
-
-    margin:0 auto 30px;
-
-    border-radius:20px;
-
-}
-
-/* ==========================================
-SOCIAL ICONS (OPTIONAL)
-========================================== */
-
-.footer-social{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:18px;
-
-    margin:30px 0;
-
+/*==================================================
+  1. GLOBAL VARIABLES & RESET
+==================================================*/
+:root {
+    --primary: #007BFF;
+    --primary-hover: #0056b3;
+    --secondary: #111827;
+    --yellow: #f59e0b;
+    --green: #10b981;
+    --light-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text-dark: #1f2937;
+    --text-muted: #6b7280;
+    --white: #ffffff;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/*==================================================
+  2. HEADER & NAVIGATION
+==================================================*/
+header {
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+/* BRAND LOGO */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+.brand-logo img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo-text-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--primary);
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.logo-subtitle {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    align-items: center;
 }
-
-.footer-social a{
-
-    width:48px;
-
-    height:48px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border-radius:50%;
-
-    background:#333;
-
-    color:white;
-
-    transition:.35s;
-
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    padding: 8px 14px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--primary);
+    background-color: rgba(0, 123, 255, 0.08);
+}
+
+/* SPECIAL PORTAL BUTTON */
+.nav-links li a.portal-link {
+    background: var(--primary);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-left: 6px;
+}
+
+.nav-links li a.portal-link:hover {
+    background: var(--primary-hover);
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* MOBILE TOGGLE BUTTON */
+.menu-btn {
+    display: none;
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: var(--transition);
 }
 
-.footer-social a:hover{
-
-    background:var(--orange);
-
-    transform:translateY(-6px);
-
+.menu-btn:hover {
+    background: rgba(0,0,0,0.05);
 }
-
-/* ==========================================
-PROJECT CARD ANIMATION
-========================================== */
 
-.project-card:nth-child(1){
-
-    animation-delay:.1s;
-
+/*==================================================
+  3. HERO BANNER
+==================================================*/
+.header-banner {
+    background: linear-gradient(135deg, #007BFF 0%, #004085 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 60px 20px;
 }
-
-.project-card:nth-child(2){
-
-    animation-delay:.2s;
 
+.header-banner h1 {
+    font-size: 2.3rem;
+    margin-bottom: 12px;
+    font-weight: 800;
 }
 
-.project-card:nth-child(3){
-
-    animation-delay:.3s;
-
+.header-banner p {
+    font-size: 1.05rem;
+    max-width: 680px;
+    margin: 0 auto;
+    opacity: 0.9;
 }
-
-.project-card:nth-child(4){
-
-    animation-delay:.4s;
 
+/*==================================================
+  4. FOOTER STYLES
+==================================================*/
+footer {
+    background: var(--secondary);
+    color: #9ca3af;
+    padding: 65px 0 25px;
+    margin-top: 70px;
 }
 
-.project-card:nth-child(5){
-
-    animation-delay:.5s;
-
+.footer-grid {
+    width: min(1150px, 90%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
 }
-
-.project-card:nth-child(6){
-
-    animation-delay:.6s;
 
+.footer-col h3 {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
 }
 
-.project-card:nth-child(7){
-
-    animation-delay:.7s;
-
+.footer-col h3::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 3px;
+    background: var(--primary);
+    margin-top: 8px;
+    border-radius: 2px;
 }
-/* ======================================================
-   KID'S LOVE NURSERY & DAYCARE CENTRE
-   PROJECTS.CSS
-   PART 2
-====================================================== */
-
-
-/* ==========================================
-PROJECT IMAGE SUPPORT
-========================================== */
 
-.project-card img{
-
-    width:100%;
-
-    height:220px;
-
-    object-fit:cover;
-
-    border-radius:15px;
-
-    margin-bottom:25px;
-
-    transition:.4s;
-
+.footer-sub {
+    color: var(--yellow);
+    font-weight: 600;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
 }
-
 
-.project-card:hover img{
-
-    transform:scale(1.05);
-
+.footer-col p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-
-
 
-/* ==========================================
-PROJECT LIST FEATURES
-========================================== */
-
-.project-features{
-
-    margin-top:25px;
-
+.footer-col p i {
+    color: var(--yellow);
+    font-size: 0.95rem;
+    width: 18px;
+    text-align: center;
 }
-
 
-.project-features li{
-
-    margin:12px 0;
-
-    color:#555;
-
-    position:relative;
-
-    padding-left:28px;
-
+.footer-col a {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: var(--transition);
 }
-
-
-.project-features li::before{
-
-    content:"✓";
 
-    position:absolute;
-
-    left:0;
-
-    color:var(--green);
-
-    font-weight:800;
-
+.footer-col a:hover {
+    color: var(--yellow);
 }
-
-
-
-/* ==========================================
-PROJECT LINK BUTTON
-========================================== */
-
-.project-btn{
 
-    display:inline-block;
-
-    margin-top:25px;
-
-    padding:12px 28px;
-
-    background:var(--blue);
-
-    color:white;
-
-    border-radius:50px;
-
-    font-weight:600;
-
-    transition:.35s;
-
+.footer-links {
+    list-style: none;
 }
 
-
-.project-btn:hover{
-
-    background:var(--orange);
-
-    transform:translateY(-5px);
-
+.footer-links li {
+    margin-bottom: 10px;
 }
-
-
-
-/* ==========================================
-MORE PROJECT SECTION
-========================================== */
-
 
-.more-projects{
-
-    background:white;
-
-    border-radius:25px;
-
-    padding:60px;
-
-    box-shadow:var(--shadow);
-
+.footer-links a {
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
-
-
-.more-projects h2{
-
-    color:var(--orange);
 
+.footer-links a i {
+    color: var(--primary);
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
 }
-
-
-
-/* ==========================================
-DONATION / SUPPORT SECTION
-========================================== */
-
-
-.support-section{
-
-    margin-top:70px;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #43a047,
-        #66bb6a
-    );
 
-    color:white;
-
-    padding:70px 50px;
-
-    border-radius:25px;
-
-    text-align:center;
-
+.footer-links a:hover i {
+    transform: translateX(5px);
+    color: var(--yellow);
 }
-
-
-.support-section h2{
-
-    color:white;
-
-    font-size:2.5rem;
 
+.footer-socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
 }
 
-
-.support-section p{
-
-    max-width:850px;
-
-    margin:20px auto;
-
-    font-size:17px;
-
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 0.95rem;
+    transition: var(--transition);
 }
-
-
-
-/* ==========================================
-BACK TO TOP BUTTON
-========================================== */
 
-
-.back-top{
-
-    position:fixed;
-
-    right:25px;
-
-    bottom:25px;
-
-    width:50px;
-
-    height:50px;
-
-    background:var(--orange);
-
-    color:white;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border-radius:50%;
-
-    font-size:22px;
-
-    box-shadow:var(--shadow);
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.35s;
-
+.footer-socials a:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
 }
-
-
-.back-top.show{
 
-    opacity:1;
-
-    pointer-events:auto;
-
+.footer-divider {
+    width: min(1150px, 90%);
+    margin: 40px auto 20px;
+    border: 0;
+    border-top: 1px solid #1f2937;
 }
-
-
-.back-top:hover{
 
-    background:var(--blue);
-
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6b7280;
 }
-
-
-
-/* ==========================================
-FADE ANIMATION
-========================================== */
-
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(40px);
 
+/*==================================================
+  5. RESPONSIVE MEDIA QUERIES
+==================================================*/
+@media (max-width: 992px) {
+    .menu-btn {
+        display: block;
     }
 
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
+    .nav-links {
+        position: fixed;
+        top: 72px;
+        right: -100%;
+        width: 270px;
+        height: calc(100vh - 72px);
+        background: var(--white);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 30px 20px;
+        gap: 10px;
+        box-shadow: -5px 10px 20px rgba(0, 0, 0, 0.15);
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    .nav-links.show {
+        right: 0;
+    }
+
+    .nav-links li a {
+        width: 100%;
+        padding: 12px 16px;
+    }
+
+    .nav-links li a.portal-link {
+        margin-left: 0;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
 }
 
-
-
-.project-card{
-
-    animation:fadeUp .8s ease forwards;
-
-}
-
-
-
-/* ==========================================
-TABLET RESPONSIVE
-========================================== */
-
-
-@media(max-width:900px){
-
-
-section{
-
-    padding:70px 5%;
-
-}
-
-
-
-.navbar{
-
-    padding:15px 25px;
-
-}
-
-
-
-.nav-links{
-
-    gap:20px;
-
-}
-
-
-
-.header-banner h1{
-
-    font-size:2.6rem;
-
-}
-
-
-
-.project-grid{
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-}
-
-
-.bank-info{
-
-    padding:50px 30px;
-
-}
-
-
-
-}
-
-
-
-/* ==========================================
-MOBILE RESPONSIVE
-========================================== */
-
-
-@media(max-width:700px){
-
-
-
-header{
-
-    position:relative;
-
-}
-
-
-
-/* MOBILE NAV */
-
-
-.menu-btn{
-
-    display:block;
-
-}
-
-
-
-.nav-links{
-
-    position:absolute;
-
-    top:90px;
-
-    left:0;
-
-    width:100%;
-
-    background:white;
-
-    flex-direction:column;
-
-    padding:30px;
-
-    gap:25px;
-
-    box-shadow:var(--shadow);
-
-    transform:translateY(-120%);
-
-    transition:.4s;
-
-}
-
-
-
-.nav-links.show{
-
-    transform:translateY(0);
-
-}
-
-
-
-.nav-link{
-
-    font-size:17px;
-
-}
-
-
-
-/* LOGO */
-
-
-.brand-logo img{
-
-    width:55px;
-
-    height:55px;
-
-}
-
-
-.logo-title{
-
-    font-size:1rem;
-
-}
-
-
-
-/* HERO */
-
-
-.header-banner{
-
-    min-height:55vh;
-
-    background-attachment:scroll;
-
-}
-
-
-.header-banner h1{
-
-    font-size:2rem;
-
-}
-
-
-.header-banner p{
-
-    font-size:15px;
-
-}
-
-
-
-/* PROJECT */
-
-
-.project-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.project-card{
-
-    padding:25px;
-
-}
-
-
-
-.container h2{
-
-    font-size:1.9rem;
-
-}
-
-
-
-.cost-tag{
-
-    font-size:.8rem;
-
-}
-
-
-
-.bank-info{
-
-    padding:40px 20px;
-
-}
-
-
-
-.bank-info h2{
-
-    font-size:1.8rem;
-
-}
-
-
-
-.support-section{
-
-    padding:45px 20px;
-
-}
-
-
-
-footer{
-
-    padding:50px 20px 25px;
-
-}
-
-
-}
-
-
-
-/* ==========================================
-SMALL PHONES
-========================================== */
-
-
-@media(max-width:400px){
-
-
-.header-banner h1{
-
-    font-size:1.7rem;
-
-}
-
-
-.project-card h3{
-
-    font-size:1.2rem;
-
-}
-
-
-.btn,
-.support-btn{
-
-    padding:12px 25px;
-
-}
-
-
-}
-
-
-
-/* ==========================================
-DARK MODE SUPPORT
-========================================== */
-
-
-.dark-mode{
-
-    --light:#121212;
-
-    --dark:#eee;
-
-    --white:#1e1e1e;
-
-    --gray:#bbb;
-
-}
-
-
-
-.dark-mode body{
-
-    background:#121212;
-
-    color:white;
-
-}
-
-
-
-.dark-mode header{
-
-    background:#1e1e1e;
-
-}
-
-
-
-.dark-mode .nav-link{
-
-    color:#eee;
-
-}
-
-
-
-.dark-mode .project-card{
-
-    background:#1e1e1e;
-
-}
-
-
-
-.dark-mode .project-card p,
-
-.dark-mode .project-features li{
-
-    color:#ccc;
-
-}
-
-
-
-.dark-mode footer{
-
-    background:#000;
-
-}
-
-
-
-/* ==========================================
-PRINT VERSION
-========================================== */
-
-
-@media print{
-
-
-header,
-.menu-btn,
-.support-btn,
-.footer-social,
-.back-top{
-
-    display:none;
-
-}
-
-
-
-body{
-
-    background:white;
-
-}
-
-
-
-.project-card{
-
-    box-shadow:none;
-
-    border:1px solid #ddd;
-
-}
-
-
-
+@media (max-width: 600px) {
+    .header-banner h1 {
+        font-size: 1.8rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-col {
+        text-align: center;
+    }
+
+    .footer-col h3::after {
+        margin: 8px auto 0;
+    }
+
+    .footer-col p {
+        justify-content: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
 }
