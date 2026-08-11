@@ -15,7 +15,7 @@
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.12);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.3s ease;
     --radius: 12px;
 }
 
@@ -59,7 +59,6 @@ header {
     padding: 12px 0;
 }
 
-/* BRAND LOGO */
 .brand-logo {
     display: flex;
     align-items: center;
@@ -73,7 +72,6 @@ header {
     height: 48px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .logo-text-box {
@@ -86,17 +84,14 @@ header {
     font-size: 1.05rem;
     color: var(--primary);
     line-height: 1.2;
-    letter-spacing: 0.5px;
 }
 
 .logo-subtitle {
     font-size: 0.72rem;
     font-weight: 600;
     color: var(--text-muted);
-    letter-spacing: 0.3px;
 }
 
-/* NAV LINKS */
 .nav-links {
     display: flex;
     list-style: none;
@@ -121,11 +116,9 @@ header {
     background-color: rgba(0, 123, 255, 0.08);
 }
 
-/* SPECIAL PORTAL BUTTON */
 .nav-links li a.portal-link {
     background: var(--primary);
     color: var(--white);
-    padding: 8px 16px;
     border-radius: 20px;
     margin-left: 6px;
 }
@@ -133,10 +126,8 @@ header {
 .nav-links li a.portal-link:hover {
     background: var(--primary-hover);
     color: var(--white);
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 
-/* MOBILE TOGGLE BUTTON */
 .menu-btn {
     display: none;
     font-size: 1.6rem;
@@ -146,11 +137,6 @@ header {
     color: var(--text-dark);
     padding: 4px 8px;
     border-radius: 6px;
-    transition: var(--transition);
-}
-
-.menu-btn:hover {
-    background: rgba(0,0,0,0.05);
 }
 
 /*==================================================
@@ -177,7 +163,7 @@ header {
 }
 
 /*==================================================
-  4. FOOTER STYLES
+  4. FOOTER
 ==================================================*/
 footer {
     background: var(--secondary);
@@ -233,7 +219,6 @@ footer {
     color: var(--yellow);
     font-size: 0.95rem;
     width: 18px;
-    text-align: center;
 }
 
 .footer-col a {
@@ -329,7 +314,7 @@ footer {
         padding: 30px 20px;
         gap: 10px;
         box-shadow: -5px 10px 20px rgba(0, 0, 0, 0.15);
-        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: right 0.3s ease;
     }
 
     .nav-links.show {
