@@ -53,8 +53,13 @@ ul {
     list-style: none;
 }
 
+.container {
+    width: min(1150px, 90%);
+    margin: auto;
+}
+
 /*========================
-2. HEADER & NAVIGATION
+2. HEADER & NAVIGATION SYSTEM
 =========================*/
 header {
     position: fixed;
@@ -77,14 +82,15 @@ header {
     gap: 20px;
 }
 
-.brand-logo {
+/* Brand Logo Styling */
+.logo {
     display: flex;
     align-items: center;
     gap: 12px;
     flex-shrink: 0;
 }
 
-.brand-logo img {
+.logo img {
     width: 60px;
     height: 60px;
     object-fit: cover;
@@ -96,21 +102,21 @@ header {
     white-space: nowrap;
 }
 
-.logo-title {
-    display: block;
+.logo-text h2 {
     color: var(--primary);
     font-size: 22px;
     font-weight: 800;
     line-height: 1.2;
 }
 
-.logo-subtitle {
+.logo-text span {
     display: block;
     color: var(--secondary);
     font-size: 11px;
     font-weight: 600;
 }
 
+/* Links List */
 .nav-links {
     display: flex;
     align-items: center;
@@ -135,46 +141,72 @@ header {
     color: #333;
     font-size: 14px;
     font-weight: 600;
-    transition: var(--transition);
+    white-space: nowrap;
+    transition: 0.3s ease;
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
 .nav-links a.active {
     background: var(--primary);
     color: var(--white);
 }
 
-/* Mobile Toggle Hamburger Button */
-.mobile-toggle {
+/* Specialized Portal Button */
+.portal-btn {
+    background: var(--secondary) !important;
+    color: var(--white) !important;
+    padding: 10px 17px !important;
+    box-shadow: 0 5px 15px rgba(0, 119, 182, 0.25);
+}
+
+.portal-btn:hover {
+    background: var(--green) !important;
+    transform: translateY(-3px);
+}
+
+/* Specialized Donate Button */
+.donate-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px 17px !important;
+    background: #e63946 !important;
+    color: var(--white) !important;
+    border-radius: 30px;
+    font-weight: 700 !important;
+    white-space: nowrap;
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.25);
+    transition: all 0.3s ease;
+}
+
+.donate-btn i {
+    font-size: 13px;
+}
+
+.donate-btn:hover {
+    background: #c1121f !important;
+    color: var(--white) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.35);
+}
+
+/* Mobile Toggle Menu Button */
+.menu-btn {
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 32px;
-    height: 22px;
-    background: transparent;
+    width: 45px;
+    height: 45px;
     border: none;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-.mobile-toggle span {
-    width: 100%;
-    height: 3px;
+    border-radius: 10px;
     background: var(--primary);
-    border-radius: 3px;
-    transition: var(--transition);
-}
-
-.mobile-toggle.active span:nth-child(1) {
-    transform: translateY(9.5px) rotate(45deg);
-}
-
-.mobile-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-toggle.active span:nth-child(3) {
-    transform: translateY(-9.5px) rotate(-45deg);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 20px;
 }
 
 /*========================
@@ -369,12 +401,43 @@ footer > p {
 }
 
 /*========================
-9. RESPONSIVE DESIGN
+9. RESPONSIVE NAVIGATION & LAYOUT
 =========================*/
 @media (max-width: 1100px) {
+    .navbar {
+        width: 96%;
+        gap: 10px;
+    }
+
+    .logo {
+        gap: 8px;
+    }
+
+    .logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo-text h2 {
+        font-size: 18px;
+    }
+
+    .logo-text span {
+        font-size: 9px;
+    }
+
+    .nav-links {
+        gap: 2px;
+    }
+
     .nav-links a {
-        padding: 8px 10px;
-        font-size: 13px;
+        padding: 8px 9px;
+        font-size: 12px;
+    }
+
+    .portal-btn,
+    .donate-btn {
+        padding: 8px 12px !important;
     }
 }
 
@@ -387,31 +450,29 @@ footer > p {
         height: 75px;
     }
 
-    .mobile-toggle {
+    .menu-btn {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
     }
 
     .nav-links {
-        position: fixed;
+        position: absolute;
         top: 75px;
         left: 0;
         width: 100%;
-        background: var(--white);
+        display: none;
         flex-direction: column;
         align-items: center;
-        padding: 30px 20px;
-        gap: 12px;
+        gap: 8px;
+        padding: 20px;
+        background: var(--white);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        transform: translateY(-150%);
-        opacity: 0;
-        pointer-events: none;
-        transition: transform 0.4s ease, opacity 0.3s ease;
     }
 
-    .nav-links.show {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
+    .nav-links.active {
+        display: flex;
     }
 
     .nav-links li {
@@ -420,9 +481,14 @@ footer > p {
     }
 
     .nav-links a {
-        width: 100%;
+        width: 90%;
         padding: 12px;
-        font-size: 16px;
+        font-size: 15px;
+    }
+
+    .portal-btn,
+    .donate-btn {
+        width: 90%;
     }
 
     .hero {
@@ -449,16 +515,20 @@ footer > p {
 }
 
 @media (max-width: 480px) {
-    .brand-logo img {
+    section {
+        padding: 60px 0;
+    }
+
+    .logo img {
         width: 48px;
         height: 48px;
     }
 
-    .logo-title {
+    .logo-text h2 {
         font-size: 16px;
     }
 
-    .logo-subtitle {
+    .logo-text span {
         font-size: 9px;
     }
 
@@ -473,4 +543,4 @@ footer > p {
     .image-grid {
         grid-template-columns: 1fr;
     }
-}s
+}
