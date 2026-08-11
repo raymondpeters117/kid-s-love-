@@ -178,26 +178,30 @@ header {
 }
 
 /*========================
-3. HERO SECTION (CORRECTED)
+3. HERO SECTION
 =========================*/
 .hero {
-    /* Gradient overlay blended with image for better contrast & rendering */
     background: linear-gradient(rgba(0, 119, 182, 0.85), rgba(0, 168, 232, 0.85)), 
                 url('lez.png') center/cover no-repeat;
     color: var(--white);
     text-align: center;
-    padding: 80px 20px;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: 42px;
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .hero p {
-    font-size: 18px;
-    max-width: 800px;
+    font-size: 17px;
+    max-width: 750px;
     margin: 0 auto;
     line-height: 1.6;
     opacity: 0.95;
@@ -421,8 +425,13 @@ footer > p {
         font-size: 16px;
     }
 
+    .hero {
+        min-height: 30vh;
+        padding: 40px 15px;
+    }
+
     .hero h1 {
-        font-size: 34px;
+        font-size: 32px;
     }
 
     .hero p {
@@ -454,14 +463,14 @@ footer > p {
     }
 
     .hero {
-        padding: 55px 15px;
+        padding: 35px 15px;
     }
 
     .hero h1 {
-        font-size: 28px;
+        font-size: 26px;
     }
 
     .image-grid {
         grid-template-columns: 1fr;
     }
-}
+}s
