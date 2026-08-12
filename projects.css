@@ -1,12 +1,10 @@
 /*=====================================================
-   KID'S LOVE NURSERY - PROJECTS PAGE STYLESHEET
+   KID'S LOVE NURSERY & PRE-PRIMARY
+   ADMISSIONS PAGE CSS (`admission.css`)
 ======================================================*/
 
-/* Google Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-
 /*========================
-  1. ROOT VARIABLES
+ROOT VARIABLES
 =========================*/
 :root {
     --primary: #E52421;
@@ -14,19 +12,24 @@
     --green: #2E8B57;
     --yellow: #FFD43B;
 
-    --dark: #222222;
-    --grey: #666666;
-    --light: #f7f9fc;
+    --dark: #1f2937;
+    --grey: #6b7280;
+    --light: #f8fafc;
     --white: #ffffff;
 
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.15);
-    --radius: 16px;
-    --transition: all 0.3s ease;
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.15);
+
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-pill: 30px;
+
+    --transition: 0.3s ease;
 }
 
 /*========================
-  2. BASE RESET & GLOBALS
+RESET & BASE STYLES
 =========================*/
 * {
     margin: 0;
@@ -40,23 +43,14 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--light);
+    background: var(--light);
     color: var(--dark);
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding-top: 90px; /* Accounts for fixed navbar */
-}
-
-main {
-    flex: 1;
+    line-height: 1.7;
 }
 
 img {
     display: block;
     max-width: 100%;
-    height: auto;
 }
 
 a {
@@ -68,57 +62,41 @@ ul {
     list-style: none;
 }
 
-/* Global Container */
 .container {
-    width: min(1200px, 90%);
-    margin: 50px auto 70px;
+    width: min(1150px, 90%);
+    margin: auto;
 }
 
-.container h2 {
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--secondary);
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.container h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: var(--primary);
-    margin: 10px auto 0;
-    border-radius: 4px;
+section {
+    padding: 80px 20px;
+    max-width: 1150px;
+    margin: auto;
 }
 
 /*========================
-  3. HEADER & NAVIGATION
+HEADER & NAVIGATION
 =========================*/
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    height: 90px;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
 }
 
 .navbar {
-    width: min(1250px, 92%);
-    height: 100%;
-    margin: 0 auto;
+    width: min(1250px, 95%);
+    height: 90px;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
 }
 
-/* Brand Logo */
 .brand-logo {
     display: flex;
     align-items: center;
@@ -127,28 +105,22 @@ header {
 }
 
 .brand-logo img {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 50%;
     border: 3px solid var(--primary);
 }
 
-.logo-text-box {
-    display: flex;
-    flex-direction: column;
-    white-space: nowrap;
-}
-
-.logo-title {
+.logo-text-box h2 {
     color: var(--primary);
     font-size: 20px;
     font-weight: 800;
     line-height: 1.1;
-    letter-spacing: 0.5px;
 }
 
-.logo-subtitle {
+.logo-text-box span {
+    display: block;
     color: var(--secondary);
     font-size: 11px;
     font-weight: 600;
@@ -158,18 +130,20 @@ header {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-left: auto;
+    gap: 5px;
+    white-space: nowrap;
 }
 
 .nav-links li {
-    list-style: none;
+    flex-shrink: 0;
 }
 
 .nav-links a {
-    display: inline-block;
-    padding: 8px 14px;
-    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: var(--radius-pill);
     color: var(--dark);
     font-size: 14px;
     font-weight: 600;
@@ -180,337 +154,705 @@ header {
 .nav-links a.active {
     background: var(--primary);
     color: var(--white);
-}
-
-/* Portal Link Special Styling */
-.portal-link {
-    background: var(--secondary) !important;
-    color: var(--white) !important;
-    padding: 8px 18px !important;
-    box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
-}
-
-.portal-link:hover {
-    background: var(--green) !important;
     transform: translateY(-2px);
 }
 
-.menu-btn {
+/* Specific Nav Buttons */
+.portal-btn {
+    background: var(--secondary) !important;
+    color: var(--white) !important;
+    padding: 10px 20px !important;
+    box-shadow: 0 5px 15px rgba(0, 119, 182, 0.25);
+}
+
+.portal-btn:hover {
+    background: var(--green) !important;
+}
+
+.donate-btn {
+    background: #e63946 !important;
+    color: var(--white) !important;
+    padding: 10px 18px !important;
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.25);
+    font-weight: 700 !important;
+}
+
+.donate-btn:hover {
+    background: #c1121f !important;
+    transform: translateY(-2px);
+}
+
+.mobile-toggle {
     display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+/*========================
+HERO SECTION
+=========================*/
+.hero {
+    position: relative;
+    min-height: 65vh;
+    margin-top: 90px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+                url('IMG-20260707-WA0017.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    max-width: 100%;
+    padding: 80px 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 22px;
+    background: var(--yellow);
+    color: var(--dark);
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: var(--radius-pill);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 35px;
+    color: #e2e8f0;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
     background: var(--primary);
     color: var(--white);
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(229, 36, 33, 0.3);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: var(--secondary);
+    transform: translateY(-3px);
+}
+
+.btn.secondary {
+    background: var(--white);
+    color: var(--dark);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.btn.secondary:hover {
+    background: var(--yellow);
+    color: var(--dark);
+}
+
+/*========================
+FEES STRUCTURE TABLE
+=========================*/
+.fees h2,
+.requirements h2,
+.payments h2,
+.admission-form-section h2,
+.calculator h2,
+.faq h2,
+.testimonials h2 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--secondary);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.section-description,
+.admission-form-section p {
+    text-align: center;
+    color: var(--grey);
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.table-container {
+    overflow-x: auto;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 18px 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+th:first-child { border-top-left-radius: var(--radius-sm); }
+th:last-child { border-top-right-radius: var(--radius-sm); }
+
+td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    color: var(--dark);
+    font-size: 15px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+/*========================
+REQUIREMENTS & PAYMENTS
+=========================*/
+.requirement-box {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    max-width: 800px;
+    margin: auto;
+    border-left: 6px solid var(--green);
+}
+
+.requirement-box ul li {
+    padding: 12px 0;
+    font-size: 16px;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    border-bottom: 1px dashed #e5e7eb;
+}
+
+.requirement-box ul li:last-child {
+    border-bottom: none;
+}
+
+.requirement-box ul li::before {
+    content: "✓";
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: #e6f4ea;
+    color: var(--green);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    margin-right: 15px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.payment-card {
+    background: var(--white);
+    padding: 35px 25px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border-top: 5px solid var(--primary);
+    transition: var(--transition);
+}
+
+.payment-card:nth-child(2) { border-top-color: var(--secondary); }
+.payment-card:nth-child(3) { border-top-color: var(--green); }
+
+.payment-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.payment-card h3 {
+    color: var(--dark);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.payment-card p {
+    color: var(--grey);
+    font-size: 14px;
+}
+
+/*========================
+ONLINE ADMISSION FORM
+=========================*/
+.admission-form-section {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: 60px 40px;
+    margin-top: 40px;
+}
+
+#admissionForm h3 {
+    color: var(--secondary);
+    font-size: 20px;
+    margin: 30px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #edf2f7;
+}
+
+#admissionForm h3:first-of-type {
+    margin-top: 0;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #d1d5db;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 14px;
+    background: var(--light);
+    transition: var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.15);
+}
+
+textarea {
+    resize: vertical;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 0 8px;
+    color: var(--dark);
+}
+
+.agreement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    margin: 25px 0;
+    cursor: pointer;
+}
+
+.agreement input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+button[type="submit"],
+button[type="reset"] {
+    padding: 14px 30px;
     border: none;
-    font-size: 22px;
-    padding: 6px 14px;
-    border-radius: 8px;
+    border-radius: var(--radius-pill);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    background: var(--primary);
+    color: var(--white);
+}
+
+button[type="submit"]:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+button[type="reset"] {
+    background: #e5e7eb;
+    color: var(--dark);
+}
+
+button[type="reset"]:hover {
+    background: #d1d5db;
+}
+
+/*========================
+FEE CALCULATOR
+=========================*/
+.calculator {
+    background: #eef6ff;
+    border-radius: var(--radius-md);
+    padding: 60px 20px;
+}
+
+.calculator-box {
+    background: var(--white);
+    max-width: 600px;
+    margin: auto;
+    padding: 40px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.calculator-box label {
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.calculator-box h3 {
+    margin: 30px 0 20px;
+    text-align: center;
+    font-size: 24px;
+    color: var(--dark);
+}
+
+#totalFee {
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 30px;
+}
+
+#calculate {
+    width: 100%;
+    padding: 15px;
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-pill);
+    font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
 }
 
-/*========================
-  4. HEADER BANNER
-=========================*/
-.header-banner {
-    background: url("wet.png");
-    color: var(--white);
-    text-align: center;
-    padding: 60px 20px;
-}
-
-.header-banner h1 {
-    font-size: 38px;
-    font-weight: 800;
-    margin-bottom: 12px;
-}
-
-.header-banner p {
-    font-size: 17px;
-    max-width: 700px;
-    margin: 0 auto;
-    opacity: 0.95;
-    font-weight: 400;
+#calculate:hover {
+    background: #236b43;
+    transform: translateY(-2px);
 }
 
 /*========================
-  5. PROJECT GRID
+FAQ SECTION (ACCORDION)
 =========================*/
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
+.faq-container {
+    max-width: 850px;
+    margin: auto;
 }
 
-.project-card {
+.faq-item {
     background: var(--white);
-    padding: 30px 25px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    border-top: 5px solid var(--primary);
+    margin-bottom: 15px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 20px 25px;
+    background: transparent;
+    border: none;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--dark);
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-    border-top-color: var(--green);
-}
-
-.cost-tag {
-    background: rgba(0, 119, 182, 0.1);
-    color: var(--secondary);
-    font-weight: 700;
-    font-size: 13px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    margin-bottom: 18px;
-    display: inline-block;
-}
-
-.project-card h3 {
-    font-size: 20px;
-    color: var(--secondary);
-    margin-bottom: 12px;
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-.project-card h3 i {
+.faq-question:hover {
+    color: var(--secondary);
+}
+
+.faq-question span {
+    font-size: 22px;
     color: var(--primary);
-    font-size: 20px;
+    font-weight: bold;
+    transition: var(--transition);
 }
 
-.project-card p {
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 25px;
+    background: var(--light);
+}
+
+.faq-answer p {
     color: var(--grey);
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
 }
 
-/*========================
-  6. PARTNER & DONATION SECTION
-=========================*/
-.bank-info {
-    background: var(--white);
-    padding: 50px 30px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+/* Active FAQ Item state */
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 0 25px 20px;
 }
 
-.bank-info h2 {
-    color: var(--secondary);
-    font-size: 28px;
+.faq-item.active .faq-question span {
+    transform: rotate(45px);
+}
+
+/*========================
+TESTIMONIALS
+=========================*/
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.testimonial-card {
+    background: var(--white);
+    padding: 35px 25px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    position: relative;
+}
+
+.stars {
+    color: var(--yellow);
+    font-size: 20px;
     margin-bottom: 15px;
 }
 
-.bank-info h2::after {
-    display: none;
-}
-
-.bank-info p {
+.testimonial-card p {
     color: var(--grey);
     font-size: 15px;
-    max-width: 600px;
-    margin: 0 auto 10px;
-}
-
-.quote-box {
-    margin: 25px auto;
-    padding: 18px 24px;
-    background: rgba(0, 119, 182, 0.05);
-    border-left: 4px solid var(--primary);
-    border-radius: 6px;
     font-style: italic;
-    color: var(--dark);
-    font-weight: 600;
-    font-size: 16px;
-    max-width: 550px;
+    margin-bottom: 20px;
 }
 
-.btn-donate {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-    padding: 14px 32px;
-    background: var(--primary);
-    color: var(--white);
-    border-radius: 30px;
-    font-weight: 700;
+.testimonial-card h4 {
+    color: var(--secondary);
     font-size: 15px;
-    box-shadow: 0 4px 15px rgba(229, 36, 33, 0.25);
-    transition: var(--transition);
-}
-
-.btn-donate:hover {
-    background: var(--green);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(46, 139, 87, 0.35);
+    font-weight: 700;
 }
 
 /*========================
-  7. FOOTER
+WHATSAPP BUTTON & TOP BTN
+=========================*/
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: #25D366;
+    color: var(--white);
+    padding: 12px 22px;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    z-index: 99;
+    transition: var(--transition);
+}
+
+.whatsapp-btn i {
+    font-size: 20px;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    background: #1eb956;
+}
+
+#topBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    transition: var(--transition);
+}
+
+#topBtn:hover {
+    background: var(--secondary);
+    transform: translateY(-3px);
+}
+
+/*========================
+FOOTER
 =========================*/
 footer {
     background: #111827;
-    color: #d1d5db;
-    padding: 60px 0 20px;
-    margin-top: auto;
+    color: #9ca3af;
+    padding: 60px 20px 30px;
+    text-align: center;
 }
 
-.footer-grid {
-    width: min(1200px, 90%);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+.footer-content {
+    max-width: 800px;
+    margin: auto;
 }
 
-.footer-col h3 {
+.footer-content h2 {
     color: var(--white);
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.footer-sub {
-    color: var(--yellow);
-    font-weight: 600;
-    margin-top: -10px;
-    margin-bottom: 12px;
-    font-size: 13px;
-}
-
-.footer-col p {
-    font-size: 14px;
-    margin-bottom: 10px;
-    line-height: 1.5;
-}
-
-.footer-col p i {
-    color: var(--yellow);
-    margin-right: 8px;
-}
-
-.footer-links li {
+    font-size: 22px;
     margin-bottom: 8px;
 }
 
-.footer-links a {
+.footer-content p {
     font-size: 14px;
-    transition: var(--transition);
+    margin-bottom: 10px;
+
 }
 
-.footer-links a i {
-    color: var(--primary);
-    font-size: 12px;
-    margin-right: 6px;
-}
-
-.footer-links a:hover,
-.footer-col a:hover {
-    color: var(--yellow);
-}
-
-.footer-socials {
+.social-links {
     display: flex;
-    gap: 10px;
-    margin-top: 15px;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
 }
 
-.footer-socials a {
-    width: 38px;
-    height: 38px;
+.social-links a {
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     background: #1f2937;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--white);
-    font-size: 15px;
+    font-size: 18px;
     transition: var(--transition);
 }
 
-.footer-socials a:hover {
+.social-links a:hover {
     background: var(--primary);
-    transform: translateY(-3px);
-}
-
-.footer-divider {
-    width: min(1200px, 90%);
-    margin: 35px auto 20px;
-    border: none;
-    border-top: 1px solid #1f2937;
-}
-
-.footer-bottom {
-    text-align: center;
-    font-size: 13px;
-    color: #9ca3af;
+    transform: translateY(-4px);
 }
 
 /*========================
-  8. RESPONSIVE DESIGN
+RESPONSIVE DESIGN
 =========================*/
 @media (max-width: 992px) {
-    body {
-        padding-top: 80px;
-    }
-
-    header {
-        height: 80px;
-    }
-
-    .brand-logo img {
-        width: 48px;
-        height: 48px;
-    }
-
-    .logo-title {
-        font-size: 17px;
-    }
-
-    .logo-subtitle {
-        font-size: 9px;
-    }
-
-    .nav-links a {
-        padding: 6px 10px;
-        font-size: 13px;
+    .payment-grid,
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .menu-btn {
-        display: block;
+    section {
+        padding: 50px 15px;
+    }
+
+    .navbar {
+        height: 75px;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
     }
 
     .nav-links {
-        position: fixed;
-        top: 80px;
+        position: absolute;
+        top: 75px;
         left: 0;
         width: 100%;
         background: var(--white);
         flex-direction: column;
-        padding: 25px 20px;
-        gap: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        transform: translateY(-150%);
-        opacity: 0;
-        pointer-events: none;
-        transition: transform 0.4s ease, opacity 0.3s ease;
+        align-items: center;
+        padding: 20px 0;
+        gap: 10px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        display: none;
     }
 
     .nav-links.show {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
+        display: flex;
     }
 
     .nav-links li {
@@ -519,49 +861,39 @@ footer {
     }
 
     .nav-links a {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        font-size: 15px;
+        width: 90%;
+        padding: 12px;
     }
 
-    .header-banner h1 {
-        font-size: 30px;
+    .hero {
+        margin-top: 75px;
+        min-height: 50vh;
     }
 
-    .header-banner p {
-        font-size: 15px;
+    .hero-content h1 {
+        font-size: 32px;
     }
 
-    .container h2 {
-        font-size: 26px;
-    }
-}
-
-@media (max-width: 480px) {
-    .brand-logo img {
-        width: 40px;
-        height: 40px;
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .logo-title {
-        font-size: 15px;
+    .input-grid,
+    .payment-grid,
+    .testimonial-grid {
+        grid-template-columns: 1fr;
     }
 
-    .logo-subtitle {
-        display: none; /* Hidden on tiny screens to prevent wrap */
+    .admission-form-section {
+        padding: 30px 20px;
     }
 
-    .header-banner {
-        padding: 40px 15px;
+    .calculator-box {
+        padding: 20px;
     }
 
-    .header-banner h1 {
-        font-size: 24px;
-    }
-
-    .btn-donate {
-        width: 100%;
-        justify-content: center;
+    .fees h2, .requirements h2, .payments h2, .admission-form-section h2, .calculator h2, .faq h2, .testimonials h2 {
+        font-size: 28px;
     }
 }
