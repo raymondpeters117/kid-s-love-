@@ -188,7 +188,29 @@ header {
 .portal-btn:hover {
     background: var(--green) !important;
 }
+/*========================
+DONATE BUTTON
+=========================*/
+.donate-btn {
+    background: #e63946 !important;
+    color: var(--white) !important;
+    padding: 10px 18px !important;
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700 !important;
+}
 
+.donate-btn i {
+    font-size: 13px;
+}
+
+.donate-btn:hover {
+    background: #c1121f !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.35);
+}
 .menu-btn {
     display: none;
     width: 45px;
