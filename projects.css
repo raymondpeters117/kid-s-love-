@@ -443,7 +443,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
+    color: #ffffff !important; /* Force icon color to white */
     font-size: 18px;
     transition: var(--transition);
     text-decoration: none;
