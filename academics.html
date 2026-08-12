@@ -24,18 +24,16 @@
 
     <header>
         <nav class="navbar" aria-label="Main Navigation">
-            <a href="index.html" class="brand-logo">
+            <a href="index.html" class="logo">
                 <img src="IMG-20260707-WA0017.jpg" alt="Kid's Love Nursery Logo">
-                <div class="logo-text-box">
+                <div class="logo-text">
                     <h2>KID'S LOVE NURSERY</h2>
                     <span>& Pre-primary</span>
                 </div>
             </a>
 
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="menu-btn" id="mobileToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
 
             <ul class="nav-links" id="navMenu">
@@ -51,7 +49,6 @@
     </header>
 
     <main>
-
         <section class="hero" aria-label="Page Introduction">
             <div class="hero-content">
                 <span class="badge">Quality Early Learning</span>
@@ -62,7 +59,10 @@
         </section>
 
         <section class="container">
-            <h2 class="title">Our Academic Approach</h2>
+            <div class="section-title">
+                <h2>Our Academic Approach</h2>
+                <div class="underline"></div>
+            </div>
 
             <div class="cards">
                 <article class="card">
@@ -86,7 +86,10 @@
         </section>
 
         <section class="classes">
-            <h2>Classes Offered</h2>
+            <div class="section-title">
+                <h2>Classes Offered</h2>
+                <div class="underline"></div>
+            </div>
 
             <div class="class-grid">
                 <article class="class-card">
@@ -113,7 +116,10 @@
         </section>
 
         <section class="container">
-            <h2 class="title">Learning Areas</h2>
+            <div class="section-title">
+                <h2>Learning Areas</h2>
+                <div class="underline"></div>
+            </div>
 
             <div class="curriculum">
                 <article>
@@ -143,31 +149,78 @@
         </section>
 
         <section class="methods">
-            <h2>Our Teaching Methods</h2>
+            <div class="section-title">
+                <h2>Our Teaching Methods</h2>
+                <div class="underline"></div>
+            </div>
             <ul>
                 <li><i class="fa-solid fa-check" aria-hidden="true"></i> Learning through play</li>
-                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Practical, hands-on activities</li>
-                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Individualized attention</li>
-                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Guided group discussions</li>
-                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Outdoor & nature learning</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Practical activities</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Individual attention</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Group discussions</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Outdoor learning</li>
             </ul>
         </section>
 
         <section class="cta">
             <h2>Give Your Child The Best Beginning</h2>
-            <p>Enroll today and allow your child to grow in a safe, caring, and stimulating environment.</p>
-            <a href="admissions.html" class="btn">Apply Now</a>
+            <p>Enroll today and allow your child to grow in a caring environment.</p>
+            <a href="admissions.html" class="btn-primary">Apply Now</a>
         </section>
-
     </main>
 
     <footer>
-        <h3>Kid's Love Nursery & Daycare Centre</h3>
-        <p>Nakasozi – Buddo</p>
-        <p>&copy; 2026 All Rights Reserved.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Kid's Love Nursery</h3>
+                    <p>Providing creative, child-centred learning that nurtures academic foundation, social skills, and good character in Buddo.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Our Classes</h3>
+                    <ul>
+                        <li><a href="academics.html">Baby Class (Ages 2-3)</a></li>
+                        <li><a href="academics.html">Middle Class (Ages 3-4)</a></li>
+                        <li><a href="academics.html">Top Class (Ages 4-6)</a></li>
+                        <li><a href="admissions.html">Daycare Program</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> Nakasozi – Buddo, Uganda</p>
+                    <p><i class="fa-solid fa-phone"></i> +256 000 000 000</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@kidslovenursery.com</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="copyright">
+                <p>&copy; 2026 Kid's Love Nursery & Daycare Centre. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <script src="academics.js"></script>
 </body>
 
-</html>
+</html>s
