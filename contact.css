@@ -200,7 +200,7 @@ HERO SECTION
 =========================*/
 .hero {
     background: linear-gradient(135deg, rgba(0, 119, 182, 0.9), rgba(46, 139, 87, 0.9)), 
-                url('IMG-20260707-WA0017.jpg') center/cover no-repeat;
+                url('garden.png') center/cover no-repeat;
     color: var(--white);
     text-align: center;
     padding: 70px 20px;
