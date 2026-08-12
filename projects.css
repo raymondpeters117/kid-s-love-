@@ -224,7 +224,7 @@ header {
 HEADER BANNER SECTION
 =========================*/
 .header-banner {
-    background: url('IMG-20260707-WA0017.jpg') center/cover no-repeat;
+    background: url('tom.png') center/cover no-repeat;
     color: var(--white);
     text-align: center;
     padding: 70px 20px;
