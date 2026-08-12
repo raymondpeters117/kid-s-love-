@@ -431,9 +431,13 @@ footer {
 }
 
 /* FOOTER SOCIAL ICONS */
+/* ========================
+   FOOTER SOCIAL ICONS
+======================== */
 .footer-socials {
     display: flex;
     gap: 12px;
+    align-items: center;
 }
 
 .footer-socials a {
@@ -443,26 +447,59 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--white); /* Changed background to white */
+
+    /* Keep text/label white */
+    color: var(--white);
+
+    background-color: #1f2937;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
     font-size: 18px;
-    transition: var(--transition);
+    font-weight: 600;
+    transition: all 0.3s ease;
     text-decoration: none;
 }
 
-/* Individual Brand Colors for Icons */
-.footer-socials a[aria-label="WhatsApp"] {
+/* ========================
+   BRAND COLOURS FOR ICONS
+======================== */
+
+/* WhatsApp */
+.footer-socials a[aria-label="WhatsApp"] i {
     color: #25D366;
 }
 
-.footer-socials a[aria-label="Facebook"] {
+/* Facebook */
+.footer-socials a[aria-label="Facebook"] i {
     color: #1877F2;
 }
 
-.footer-socials a[aria-label="YouTube"] {
+/* YouTube */
+.footer-socials a[aria-label="YouTube"] i {
     color: #FF0000;
 }
 
+/* ========================
+   HOVER EFFECT
+======================== */
+
+.footer-socials a:hover {
+    transform: translateY(-4px) scale(1.08);
+    background-color: var(--white);
+}
+
+/* Keep the icon in its original brand colour */
+.footer-socials a[aria-label="WhatsApp"]:hover i {
+    color: #25D366;
+}
+
+.footer-socials a[aria-label="Facebook"]:hover i {
+    color: #1877F2;
+}
+
+.footer-socials a[aria-label="YouTube"]:hover i {
+    color: #FF0000;
+}
 /* Hover Effects */
 .footer-socials a:hover {
     transform: translateY(-4px) scale(1.08);
