@@ -508,182 +508,610 @@ CALL TO ACTION (CTA)
 /*========================
 FOOTER
 =========================*/
+/* =========================================================
+   KID'S LOVE NURSERY & PRE-PRIMARY SCHOOL
+   MODERN PROFESSIONAL FOOTER
+========================================================= */
+
 footer {
-    background: #111827;
-    color: #9ca3af;
-    padding: 70px 0 30px;
+    position: relative;
+    width: 100%;
+    background: #08111f;
+    color: #ffffff;
+    padding: 80px 0 0;
+    overflow: hidden;
 }
+
+
+/* =========================================================
+   TOP COLOUR BAR
+========================================================= */
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #e52421 0%,
+        #ffd43b 33%,
+        #2e8b57 66%,
+        #0077b6 100%
+    );
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATIONS
+========================================================= */
+
+footer::after {
+    content: "";
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: -180px;
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    border: 70px solid rgba(255, 255, 255, 0.025);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FOOTER GRID
+========================================================= */
 
 .footer-grid {
+    position: relative;
+    z-index: 2;
+
+    width: min(1150px, 92%);
+    margin: auto;
+
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-    gap: 40px;
+    grid-template-columns: 1.4fr 1fr 1fr;
+
+    gap: 30px;
 }
+
+
+/* =========================================================
+   FOOTER CARDS
+========================================================= */
+
+.footer-col {
+    position: relative;
+
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.18);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition: all 0.35s ease;
+}
+
+
+.footer-col:hover {
+    transform: translateY(-7px);
+
+    background: rgba(255, 255, 255, 0.065);
+
+    border-color: rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
 
 .footer-col h3 {
-    color: var(--white);
-    margin-bottom: 20px;
-    font-size: 20px;
-    font-weight: 700;
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    line-height: 1.35;
 }
 
+
+/* Heading underline */
+
+.footer-col h3::after {
+    content: "";
+
+    display: block;
+
+    width: 45px;
+    height: 3px;
+
+    margin-top: 10px;
+
+    border-radius: 20px;
+
+    background: #e52421;
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.footer-sub {
+    margin: 12px 0 18px;
+
+    color: #ffd43b;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.2px;
+}
+
+
+/* =========================================================
+   FOOTER PARAGRAPHS
+========================================================= */
+
 .footer-col p {
+    margin: 0 0 14px;
+
+    color: rgba(255, 255, 255, 0.78);
+
     font-size: 14px;
-    margin-bottom: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CONTACT INFORMATION
+========================================================= */
+
+.footer-col > p i {
+    display: inline-flex;
+
+    width: 28px;
+
+    color: #e52421;
+
+    font-size: 14px;
+
+    margin-right: 5px;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   QUICK LINKS
+========================================================= */
+
+.footer-links {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.footer-links li {
+    margin-bottom: 13px;
+}
+
+
+.footer-links a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: all 0.3s ease;
+}
+
+
+.footer-links a i {
+    color: #ffd43b;
+
+    font-size: 10px;
+
+    transition: all 0.3s ease;
+}
+
+
+.footer-links a:hover {
+    color: #ffffff;
+
+    transform: translateX(7px);
+}
+
+
+.footer-links a:hover i {
+    color: #e52421;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   SOCIAL MEDIA AREA
+========================================================= */
+
+.footer-socials {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 24px;
+}
+
+
+/* =========================================================
+   SOCIAL BUTTON
+========================================================= */
+
+.footer-socials a {
+    position: relative;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    border: 2px solid rgba(255, 255, 255, 0.15);
+
+    font-size: 20px;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* =========================================================
+   BRAND COLOURS
+========================================================= */
+
+/* WhatsApp */
+
+.footer-socials a[aria-label="WhatsApp"] {
+    color: #25d366;
+}
+
+
+/* Facebook */
+
+.footer-socials a[aria-label="Facebook"] {
+    color: #1877f2;
+}
+
+
+/* YouTube */
+
+.footer-socials a[aria-label="YouTube"] {
+    color: #ff0000;
+}
+
+
+/* =========================================================
+   SOCIAL HOVER
+========================================================= */
+
+.footer-socials a:hover {
+    transform: translateY(-8px) scale(1.08);
+
+    background: #ffffff;
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Keep WhatsApp green */
+
+.footer-socials a[aria-label="WhatsApp"]:hover {
+    color: #25d366;
+}
+
+
+/* Keep Facebook blue */
+
+.footer-socials a[aria-label="Facebook"]:hover {
+    color: #1877f2;
+}
+
+
+/* Keep YouTube red */
+
+.footer-socials a[aria-label="YouTube"]:hover {
+    color: #ff0000;
+}
+
+
+/* =========================================================
+   SOCIAL TOOLTIP
+========================================================= */
+
+.footer-socials a::before {
+    content: attr(aria-label);
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -38px;
+
+    transform:
+        translateX(-50%)
+        translateY(8px);
+
+    padding: 5px 9px;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: all 0.25s ease;
+}
+
+
+.footer-socials a:hover::before {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.footer-divider {
+    position: relative;
+    z-index: 2;
+
+    width: min(1150px, 92%);
+
+    margin: 55px auto 22px;
+
+    border: 0;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+/* =========================================================
+   COPYRIGHT AREA
+========================================================= */
+
+.footer-bottom {
+    position: relative;
+    z-index: 2;
+
+    width: min(1150px, 92%);
+
+    margin: auto;
+
+    padding: 0 0 28px;
+
+    text-align: center;
+}
+
+
+.footer-bottom p {
+    margin: 5px 0;
+
+    color: rgba(255, 255, 255, 0.58);
+
+    font-size: 13px;
+
     line-height: 1.6;
 }
 
-.footer-col p i {
-    color: var(--primary);
-    margin-right: 8px;
-    width: 16px;
+
+.footer-bottom p:last-child {
+    color: #ffd43b;
+
+    font-weight: 600;
 }
 
-.footer-col ul li {
-    margin-bottom: 10px;
-}
 
-.footer-col a {
-    color: #9ca3af;
-    font-size: 14px;
-    transition: var(--transition);
-}
+/* =========================================================
+   TABLET
+========================================================= */
 
-.footer-col a:hover {
-    color: var(--yellow);
-    padding-left: 5px;
-}
+@media (max-width: 950px) {
 
-.social-links {
-    display: flex;
-    gap: 12px;
-    margin-top: 20px;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #1f2937;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    transition: var(--transition);
-}
-
-.social-links a:hover {
-    background: var(--primary);
-    transform: translateY(-4px);
-}
-
-footer hr {
-    margin: 40px 0 25px;
-    border: none;
-    border-top: 1px solid #1f2937;
-}
-
-.copyright {
-    text-align: center;
-    color: #6b7280;
-    font-size: 14px;
-}
-
-/*========================
-RESPONSIVE DESIGN
-=========================*/
-@media (max-width: 1100px) {
-    .curriculum {
-        grid-template-columns: repeat(2, 1fr);
+    footer {
+        padding-top: 65px;
     }
-    
+
     .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-col:first-child {
+        grid-column: 1 / -1;
     }
 }
 
-@media (max-width: 850px) {
-    .cards, 
-    .class-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
-@media (max-width: 768px) {
-    section {
-        padding: 60px 0;
-    }
+/* =========================================================
+   MOBILE
+========================================================= */
 
-    .navbar {
-        height: 75px;
+@media (max-width: 650px) {
+
+    footer {
+        padding-top: 55px;
     }
 
-    .menu-btn {
-        display: flex;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 75px;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        gap: 10px;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        display: none;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-links a {
-        width: 90%;
-        padding: 12px;
-    }
-
-    .hero {
-        margin-top: 75px;
-        min-height: 55vh;
-    }
-
-    .hero-content h1 {
-        font-size: 34px;
-    }
-
-    .hero-content p {
-        font-size: 16px;
-    }
-
-    .section-title h2,
-    .cta h2 {
-        font-size: 30px;
-    }
-
-    .curriculum, 
     .footer-grid {
+        width: 92%;
+
         grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .footer-col:first-child {
+        grid-column: auto;
+    }
+
+    .footer-col {
+        padding: 25px 20px;
+
+        border-radius: 17px;
+    }
+
+    .footer-col h3 {
+        font-size: 19px;
+    }
+
+    .footer-col p {
+        font-size: 13.5px;
+    }
+
+    .footer-socials {
+        gap: 12px;
+    }
+
+    .footer-socials a {
+        width: 45px;
+        height: 45px;
+
+        font-size: 19px;
+    }
+
+    .footer-divider {
+        width: 92%;
+
+        margin-top: 40px;
+    }
+
+    .footer-bottom {
+        width: 92%;
     }
 }
 
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 28px;
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .footer-col {
+        padding: 22px 17px;
     }
 
-    .methods ul {
-        flex-direction: column;
+    .footer-col h3 {
+        font-size: 18px;
     }
 
-    .methods li {
-        width: 100%;
+    .footer-socials {
+        gap: 9px;
+    }
+
+    .footer-socials a {
+        width: 42px;
+        height: 42px;
+
+        font-size: 17px;
+    }
+
+    .footer-bottom p {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.footer-socials a:focus-visible,
+.footer-links a:focus-visible {
+    outline: 3px solid #ffd43b;
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .footer-col,
+    .footer-links a,
+    .footer-links a i,
+    .footer-socials a,
+    .footer-socials a::before {
+        transition: none;
+    }
+
+    .footer-col:hover,
+    .footer-socials a:hover {
+        transform: none;
     }
 }
