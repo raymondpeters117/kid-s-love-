@@ -213,8 +213,7 @@ header {
 3. HERO SECTION
 =========================*/
 .hero {
-    background: linear-gradient(rgba(0, 119, 182, 0.85), rgba(0, 168, 232, 0.85)), 
-                url('lez.png') center/cover no-repeat;
+    background: url('lez.png') center/cover no-repeat;
     color: var(--white);
     text-align: center;
     min-height: 40vh;
