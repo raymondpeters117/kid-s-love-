@@ -430,7 +430,7 @@ footer {
     font-size: 12px;
 }
 
-/* FOOTER SOCIAL BRAND COLORS */
+/* FOOTER SOCIAL ICONS */
 .footer-socials {
     display: flex;
     gap: 12px;
@@ -443,30 +443,31 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff !important; /* Force icon color to white */
+    background-color: var(--white); /* Changed background to white */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     font-size: 18px;
     transition: var(--transition);
     text-decoration: none;
 }
 
+/* Individual Brand Colors for Icons */
 .footer-socials a[aria-label="WhatsApp"] {
-    background-color: #25D366;
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    color: #25D366;
 }
 
 .footer-socials a[aria-label="Facebook"] {
-    background-color: #1877F2;
-    box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
+    color: #1877F2;
 }
 
 .footer-socials a[aria-label="YouTube"] {
-    background-color: #FF0000;
-    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+    color: #FF0000;
 }
 
+/* Hover Effects */
 .footer-socials a:hover {
     transform: translateY(-4px) scale(1.08);
-    filter: brightness(1.1);
+    background-color: var(--primary);
+    color: var(--white);
 }
 
 .footer-divider {
